@@ -40,12 +40,12 @@ mkChain0 n s (w:ws) (e:es) rowCount v =
 
 main = mainWidget $ 
            let d = 3
-               (b0n, b0s, b0w, b0e) = mkWeb b3e b1e b2e b4e d d Yellow
+               (b0n, b0s, b0w, b0e) = mkWeb (reverse b3e) b1e b2e (reverse b4e) d d Yellow
 
                (b1n, b1s, b1w, b1e) = mkWeb b2s b4n b5n b0s d d Red
-               (b2n, b2s, b2w, b2e) = mkWeb b3s b1n b5w b0w d d Green
-               (b3n, b3s, b3w, b3e) = mkWeb b4s b2n b5s b0n d d Blue
-               (b4n, b4s, b4w, b4e) = mkWeb b1s b3n b5e b0e d d Yellow
+               (b2n, b2s, b2w, b2e) = mkWeb b3s b1n (reverse b5w) b0w d d Green
+               (b3n, b3s, b3w, b3e) = mkWeb b4s b2n (reverse b5s) (reverse b0n) d d Blue
+               (b4n, b4s, b4w, b4e) = mkWeb b1s b3n b5e (reverse b0e) d d Yellow
 
-               (b5n, b5s, b5w, b5e) = mkWeb b1w b3w b4w b2w d d Yellow
+               (b5n, b5s, b5w, b5e) = mkWeb b1w (reverse b3w) (reverse b2w) b4w d d Yellow
            in text "hello world"
