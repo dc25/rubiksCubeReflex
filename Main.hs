@@ -9,20 +9,25 @@ data Color = Red
            deriving Show
 
 data DNode a = DNode { north :: DNode a
-                     , west :: DNode a
-                     , south  :: DNode a
+                     , west  :: DNode a
+                     , south :: DNode a
                      , east  :: DNode a
                      , val   :: a
+                     , index :: Int
                      }
 
-type Facet = DNode Color
+type Id = (Color, Int)
 
+id :: Facet -> Id
+id f = (val f, index f)
+
+type Facet = DNode Color
 type Edge = (Facet,Facet,Facet)
 
-mkDomino :: Facet -> Facet -> Facet -> Facet -> Facet -> Facet -> Color -> (Facet,Facet)
-mkDomino right upperRight upperLeft left lowerLeft lowerRight color =
-    let dominoRight = DNode upperRight dominoLeft lowerRight right       color
-        dominoLeft =  DNode upperLeft  left       lowerLeft  dominoRight color
+mkDomino :: Facet -> Facet -> Facet -> Facet -> Facet -> Facet -> Color -> Int -> (Facet,Facet)
+mkDomino right upperRight upperLeft left lowerLeft lowerRight color index =
+    let dominoRight = DNode upperRight dominoLeft lowerRight right       color  index
+        dominoLeft =  DNode upperLeft  left       lowerLeft  dominoRight color (index+1)
     in (dominoLeft, dominoRight)
 
 mkFace :: Edge -> Edge -> Edge -> Edge -> Color -> (Edge,Edge,Edge,Edge)
@@ -32,11 +37,11 @@ mkFace ~(nRight, nCenter, nLeft)
        ~(eRight, eCenter, eLeft) 
        color =
 
-    let center = DNode nSide wSide sSide eSide color
-        (nwCorner, nSide) = mkDomino enCorner nCenter nLeft wRight wSide center color
-        (wsCorner, wSide) = mkDomino nwCorner wCenter wLeft sRight sSide center color
-        (seCorner, sSide) = mkDomino wsCorner sCenter sLeft eRight eSide center color
-        (enCorner, eSide) = mkDomino seCorner eCenter eLeft nRight nSide center color
+    let center = DNode nSide wSide sSide eSide color 0
+        (nwCorner, nSide) = mkDomino enCorner nCenter nLeft wRight wSide center color 1
+        (wsCorner, wSide) = mkDomino nwCorner wCenter wLeft sRight sSide center color 3
+        (seCorner, sSide) = mkDomino wsCorner sCenter sLeft eRight eSide center color 5
+        (enCorner, eSide) = mkDomino seCorner eCenter eLeft nRight nSide center color 7
 
     in ( (nwCorner, nSide, enCorner)
        , (wsCorner, wSide, nwCorner)
