@@ -26,10 +26,10 @@ mkDomino right upperRight upperLeft left lowerLeft lowerRight color =
     in (dominoLeft, dominoRight)
 
 mkFace :: Edge -> Edge -> Edge -> Edge -> Color -> (Edge,Edge,Edge,Edge)
-mkFace (nRight, nCenter, nLeft) 
-       (wRight, wCenter, wLeft) 
-       (sRight, sCenter, sLeft) 
-       (eRight, eCenter, eLeft) 
+mkFace ~(nRight, nCenter, nLeft) 
+       ~(wRight, wCenter, wLeft) 
+       ~(sRight, sCenter, sLeft) 
+       ~(eRight, eCenter, eLeft) 
        color =
 
     let center = DNode nSide wSide sSide eSide color
@@ -45,23 +45,6 @@ mkFace (nRight, nCenter, nLeft)
        )
 
 
-data Model = Model { cube :: Facet }
-
-showFace f = do 
-                let nf = north f
-                text $ show $ val $ west nf 
-                text $ show $ val nf 
-                text $ show $ val $ east nf 
-
-                text $ show $ val $ west f 
-                text $ show $ val f 
-                text $ show $ val $ east f 
-
-                let sf = south f
-                text $ show $ val $ west sf 
-                text $ show $ val sf 
-                text $ show $ val $ east sf 
-
 main = 
           let  (nPurple, wPurple, sPurple,  ePurple) =   mkFace nGreen    nBlue     nYellow   nRed       Purple
 
@@ -71,4 +54,38 @@ main =
                (nRed,    wRed,    sRed,     eRed)    =   mkFace ePurple   eYellow   eOrange   wGreen     Red
 
                (nOrange, wOrange, sOrange, eOrange)  =   mkFace sYellow   sBlue     sGreen    sRed       Orange
-          in mainWidget $ text "hello"
+               (purpleCorner,_,_) = nPurple
+               purpleCenter = south $ south purpleCorner
+               greenCenter = south $ north $ north purpleCenter
+               blueCenter = south $ north $ east greenCenter
+               redCenter = south $ north $ east purpleCenter
+               orangeCenter = south $ north $ south greenCenter
+               yellowCenter = south $ north $ east blueCenter
+          in mainWidget $ do 
+                             el "div" $ showFace purpleCenter
+                             el "div" $ showFace greenCenter
+                             el "div" $ showFace blueCenter
+                             el "div" $ showFace redCenter
+                             el "div" $ showFace orangeCenter
+                             el "div" $ showFace yellowCenter
+
+showFace f = do 
+                text $ show $ val f 
+
+                let nf = north f
+                text $ show $ val nf 
+                text $ show $ val $ west nf 
+
+                let sf = south f
+                text $ show $ val sf 
+                text $ show $ val $ west sf 
+
+                let ef = east f
+                text $ show $ val ef 
+                text $ show $ val $ west ef 
+
+                let wf = west f
+                text $ show $ val wf 
+                text $ show $ val $ west wf 
+
+
