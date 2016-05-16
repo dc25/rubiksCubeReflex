@@ -1,4 +1,6 @@
 import Reflex.Dom
+import Data.Map
+import Data.Monoid ((<>))
 
 data Color = Red 
            | Green 
@@ -6,7 +8,7 @@ data Color = Red
            | Yellow 
            | Orange 
            | Purple 
-           deriving Show
+           deriving (Show,Eq,Ord)
 
 data DNode a = DNode { north :: DNode a
                      , west  :: DNode a
@@ -16,19 +18,23 @@ data DNode a = DNode { north :: DNode a
                      , index :: Int
                      }
 
-type Id = (Color, Int)
+signature :: DNode a -> (a, Int)
+signature dn = (val dn, index dn)
 
-id :: Facet -> Id
-id f = (val f, index f)
+instance Eq a => Eq (DNode a) where 
+    d0 == d1 = (signature d0) == (signature d1) 
+
+instance Ord a => Ord (DNode a) where 
+    compare d0 d1 = compare (signature d0) (signature d1) 
 
 type Facet = DNode Color
 type Edge = (Facet,Facet,Facet)
 
 mkDomino :: Facet -> Facet -> Facet -> Facet -> Facet -> Facet -> Color -> Int -> (Facet,Facet)
 mkDomino right upperRight upperLeft left lowerLeft lowerRight color index =
-    let dominoRight = DNode upperRight dominoLeft lowerRight right       color  index
-        dominoLeft =  DNode upperLeft  left       lowerLeft  dominoRight color (index+1)
-    in (dominoLeft, dominoRight)
+    let rightDomino = DNode upperRight leftDomino lowerRight right       color  index
+        leftDomino =  DNode upperLeft  left       lowerLeft  rightDomino color (index+1)
+    in (leftDomino, rightDomino)
 
 mkFace :: Edge -> Edge -> Edge -> Edge -> Color -> (Edge,Edge,Edge,Edge)
 mkFace ~(nRight, nCenter, nLeft) 
@@ -49,48 +55,118 @@ mkFace ~(nRight, nCenter, nLeft)
        , (enCorner, eSide, seCorner)
        )
 
+mkCube = 
+    let (nPurple, wPurple, sPurple,  ePurple) = mkFace nGreen    nBlue     nYellow   nRed     Purple
+
+        (nYellow, wYellow, sYellow,  eYellow) = mkFace sPurple   eBlue     nOrange   wRed     Yellow
+        (nBlue,   wBlue,   sBlue,    eBlue)   = mkFace wPurple   eGreen    wOrange   wYellow  Blue
+        (nGreen,  wGreen,  sGreen,   eGreen)  = mkFace nPurple   eRed      sOrange   wBlue    Green
+        (nRed,    wRed,    sRed,     eRed)    = mkFace ePurple   eYellow   eOrange   wGreen   Red
+
+        (nOrange, wOrange, sOrange, eOrange)  = mkFace sYellow   sBlue     sGreen    sRed     Orange
+        (cube,_,_) = nPurple
+    in cube
+
+copyNode :: Facet -> Facet
+copyNode f = 
+    DNode (copyNode $ north f )
+          (copyNode $ west f )
+          (copyNode $ south f )
+          (copyNode $ east f )
+          (val f)
+          (index f)
+
+copyWithRotation :: Map (Facet, Facet) Facet -> Facet -> Facet
+copyWithRotation rotationMap f = 
+    DNode (copyWithRotation rotationMap $ checkForRotation rotationMap f $ north f )
+          (copyWithRotation rotationMap $ checkForRotation rotationMap f $ west f )
+          (copyWithRotation rotationMap $ checkForRotation rotationMap f $ south f )
+          (copyWithRotation rotationMap $ checkForRotation rotationMap f $ east f )
+          (val f)
+          (index f)
+    where 
+        checkForRotation rotationMap startFacet preRotationFacet =
+            case Data.Map.lookup (startFacet, preRotationFacet) rotationMap
+            of Nothing -> preRotationFacet
+               Just postRotationFacet -> postRotationFacet
+
+width = 200
+height = 200
+
+-- | Namespace needed for svg elements.
+svgNamespace = Just "http://www.w3.org/2000/svg"
+
+
+showFacet :: MonadWidget t m => Facet -> Int -> Int -> m (Event t ())
+showFacet facet row col = do
+    (el, _) <- elDynAttrNS' svgNamespace "rect" 
+                   (constDyn $  "x" =: show col
+                             <> "y" =: show row
+                             <> "width" =: "1" 
+                             <> "height" =: "1" 
+                             <> "fill" =: (show $ val facet))
+               $ return ()
+    return $ domEvent Click el 
+
+showFace upperLeft = do
+        (_, ev) <- elDynAttrNS' svgNamespace "svg" 
+                        (constDyn $  "viewBox" =: ("0 0 3 3 ")
+                                  <> "width" =: show width
+                                  <> "height" =: show height)
+                        $ do 
+                             showFacet upperLeft 0 0 
+                             showFacet (east upperLeft) 0 1 
+
+                             let upperRight = east $ east upperLeft
+                             showFacet upperRight 0 2 
+                             showFacet (east upperRight) 1 2 
+
+                             let lowerRight = east $ east upperRight
+                             showFacet lowerRight 2 2 
+                             showFacet (east lowerRight) 2 1 
+
+                             let lowerLeft = east $ east lowerRight
+                             showFacet lowerLeft 2 0 
+                             showFacet (east lowerLeft) 1 0 
+
+                             let center = south $ east upperLeft
+                             showFacet center 1 1 
+
+
+        return ()
+
+floatLeft = "style" =: "float:left" 
+clearLeft = "style" =: "clear:left" 
+
+showCube cube = do
+        let purpleFace = cube
+        el "div" $ showFace purpleFace
+
+        let yellowFace = west $  west $ south purpleFace
+        elAttr "div" floatLeft $ showFace yellowFace
+
+        let redFace = north $  east $ east yellowFace
+        elAttr "div" floatLeft $ showFace redFace
+
+        let greenFace = north $  east $ east redFace
+        elAttr "div" floatLeft $ showFace greenFace
+
+        let blueFace = north $  east $ east greenFace
+        elAttr "div" floatLeft $ showFace blueFace 
+
+        let orangeFace = west $  west $ south yellowFace
+        elAttr "div" clearLeft $ showFace orangeFace
+
+        return ()
+
+
+view cube = do 
+            showCube $ copyNode cube
+            return ()
+
 
 main = 
-          let  (nPurple, wPurple, sPurple,  ePurple) =   mkFace nGreen    nBlue     nYellow   nRed       Purple
-
-               (nYellow, wYellow, sYellow,  eYellow) =   mkFace sPurple   eBlue     nOrange   wRed       Yellow
-               (nBlue,   wBlue,   sBlue,    eBlue)   =   mkFace wPurple   eGreen    wOrange   wYellow    Blue
-               (nGreen,  wGreen,  sGreen,   eGreen)  =   mkFace nPurple   eRed      sOrange   wBlue      Green
-               (nRed,    wRed,    sRed,     eRed)    =   mkFace ePurple   eYellow   eOrange   wGreen     Red
-
-               (nOrange, wOrange, sOrange, eOrange)  =   mkFace sYellow   sBlue     sGreen    sRed       Orange
-               (purpleCorner,_,_) = nPurple
-               purpleCenter = south $ south purpleCorner
-               greenCenter = south $ north $ north purpleCenter
-               blueCenter = south $ north $ east greenCenter
-               redCenter = south $ north $ east purpleCenter
-               orangeCenter = south $ north $ south greenCenter
-               yellowCenter = south $ north $ east blueCenter
+          let  cube = mkCube
           in mainWidget $ do 
-                             el "div" $ showFace purpleCenter
-                             el "div" $ showFace greenCenter
-                             el "div" $ showFace blueCenter
-                             el "div" $ showFace redCenter
-                             el "div" $ showFace orangeCenter
-                             el "div" $ showFace yellowCenter
-
-showFace f = do 
-                text $ show $ val f 
-
-                let nf = north f
-                text $ show $ val nf 
-                text $ show $ val $ west nf 
-
-                let sf = south f
-                text $ show $ val sf 
-                text $ show $ val $ west sf 
-
-                let ef = east f
-                text $ show $ val ef 
-                text $ show $ val $ west ef 
-
-                let wf = west f
-                text $ show $ val wf 
-                text $ show $ val $ west wf 
-
+               view cube
 
