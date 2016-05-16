@@ -76,7 +76,9 @@ copyNode f =
           (val f)
           (index f)
 
-copyWithRotation :: Map (Facet, Facet) Facet -> Facet -> Facet
+type RotationMap = Map (Facet, Facet) Facet 
+
+copyWithRotation :: RotationMap -> Facet -> Facet
 copyWithRotation rotationMap f = 
     DNode (copyWithRotation rotationMap $ checkForRotation rotationMap f $ north f )
           (copyWithRotation rotationMap $ checkForRotation rotationMap f $ west f )
@@ -89,6 +91,31 @@ copyWithRotation rotationMap f =
             case Data.Map.lookup (startFacet, preRotationFacet) rotationMap
             of Nothing -> preRotationFacet
                Just postRotationFacet -> postRotationFacet
+
+getRotationMap :: Facet -> RotationMap
+getRotationMap f =
+    let pre0 = north f
+        post0 = (west.west.south) pre0
+        rm1 =  Data.Map.insert (pre0, east pre0) (east post0) Data.Map.empty
+
+        pre1 = south pre0
+        post1 = south post0
+        rm2 =  Data.Map.insert (pre1, south pre1) (south post1) rm1
+
+        pre2 = west pre1
+        post2 = west post1
+        rm3 =  Data.Map.insert (pre2, south pre2) (south post2) rm2
+
+        pre3 = west pre2
+        post3 = west post2
+        rm4 =  Data.Map.insert (pre2, east pre3) (east post3) rm3
+
+    in rm2
+
+rotateFace :: Facet -> Facet
+rotateFace f =
+    let rm = getRotationMap f
+    in copyWithRotation rm f
 
 width = 200
 height = 200
@@ -161,7 +188,7 @@ showCube cube = do
 
 
 view cube = do 
-            showCube $ copyNode cube
+            showCube $ rotateFace cube
             return ()
 
 
