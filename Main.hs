@@ -18,7 +18,7 @@ signature :: DNode a -> (a, Int)
 signature dn = (val dn, index dn)
 
 instance Eq a => Eq (DNode a) where 
-    d0 == d1 = (signature d0) == (signature d1) 
+    d0 == d1 = signature d0 == signature d1 
 
 instance Ord a => Ord (DNode a) where 
     compare d0 d1 = compare (signature d0) (signature d1) 
@@ -112,9 +112,8 @@ height = 200
 svgNamespace = Just "http://www.w3.org/2000/svg"
 
 
-showFacet :: MonadWidget t m => Dynamic t Facet -> Int -> Int -> m (Event t ())
-showFacet facet row col = do
-    -- attrs <-  mapDyn (\fct -> "width" =: "1") facet
+showFacet :: MonadWidget t m => Int -> Int -> Dynamic t Facet -> m (Event t ())
+showFacet row col facet = do
     attrs <- mapDyn (\fct ->    "x" =: show col 
                              <> "y" =: show row
                              <> "width" =: "1" 
@@ -125,92 +124,74 @@ showFacet facet row col = do
 
 showFace :: MonadWidget t m => Dynamic t Facet -> m (Event t ())
 showFace upperLeft = do
-        (_, ev) <- elDynAttrNS' svgNamespace "svg" 
-                        (constDyn $  "viewBox" =: ("0 0 3 3 ")
-                                  <> "width" =: show width
-                                  <> "height" =: show height)
-                        $ do 
-                             ulClick <- showFacet upperLeft 0 0 
-                             eastOfUL <- mapDyn east upperLeft
-                             eOulClick <- showFacet eastOfUL 0 1 
+    (_, ev) <- elDynAttrNS' svgNamespace "svg" 
+                   (constDyn $  "viewBox" =: "0 0 3 3 "
+                             <> "width" =: show width
+                             <> "height" =: show height)
+                   $ do ulClick <- showFacet 0 0 upperLeft 
+                        eOulClick <- showFacet 0 1 =<< mapDyn east upperLeft
 
-                             upperRight <- mapDyn (east . east) upperLeft
-                             urClick <- showFacet upperRight 0 2 
-                             eastOfUR <- mapDyn east upperRight
-                             eOurClick <- showFacet eastOfUR 1 2 
+                        upperRight <- mapDyn (east . east) upperLeft
+                        urClick <- showFacet 0 2 upperRight 
+                        eOurClick <- showFacet 1 2 =<< mapDyn east upperRight
 
-                             lowerRight <- mapDyn (east . east) upperRight
-                             lrClick <- showFacet lowerRight 2 2 
-                             eastOfLR <- mapDyn east lowerRight
-                             eOlrClick <- showFacet eastOfLR 2 1 
+                        lowerRight <- mapDyn (east . east) upperRight
+                        lrClick <- showFacet 2 2 lowerRight 
+                        eOlrClick <- showFacet 2 1 =<< mapDyn east lowerRight
 
-                             lowerLeft <- mapDyn (east . east) lowerRight
-                             llClick <- showFacet lowerLeft 2 0 
-                             eastOfLL <- mapDyn east lowerLeft
-                             eOllClick <- showFacet eastOfLL 1 0 
+                        lowerLeft <- mapDyn (east . east) lowerRight
+                        llClick <- showFacet 2 0 lowerLeft 
+                        eOllClick <- showFacet 1 0 =<< mapDyn east lowerLeft
 
-                             center <- mapDyn (south . east) upperLeft
-                             centerClick <- showFacet center 1 1 
+                        center <- mapDyn (south . east) upperLeft
+                        centerClick <- showFacet 1 1 center 
 
-                             return $ leftmost [ ulClick 
-                                               , eOulClick 
-                                               , urClick 
-                                               , eOurClick 
-                                               , lrClick 
-                                               , eOlrClick 
-                                               , llClick 
-                                               , eOllClick 
-                                               , centerClick ]
-
-
-        return ev
+                        return $ leftmost [ ulClick 
+                                          , eOulClick 
+                                          , urClick 
+                                          , eOurClick 
+                                          , lrClick 
+                                          , eOlrClick 
+                                          , llClick 
+                                          , eOllClick 
+                                          , centerClick ]
+    return ev
 
 floatLeft = "style" =: "float:left" 
 clearLeft = "style" =: "clear:left" 
 
 showCube :: MonadWidget t m => Dynamic t Facet -> m (Event t ())
 showCube cube = do
-        purpleFace <- mapDyn (west.north) cube
-        purpleClick <- el "div" $ showFace  purpleFace
+    purpleFace <- mapDyn (west.north) cube
+    purpleClick <- el "div" $ showFace  purpleFace
 
-        yellowFace <- mapDyn (west . west . south) purpleFace
-        yellowClick <- elAttr "div" floatLeft $ showFace yellowFace
+    yellowFace <- mapDyn (west . west . south) purpleFace
+    yellowClick <- elAttr "div" floatLeft $ showFace yellowFace
 
-        redFace <- mapDyn (north . east . east) yellowFace
-        redClick <- elAttr "div" floatLeft $ showFace redFace
+    redFace <- mapDyn (north . east . east) yellowFace
+    redClick <- elAttr "div" floatLeft $ showFace redFace
 
-        greenFace <- mapDyn (north . east . east) redFace
-        greenClick <- elAttr "div" floatLeft $ showFace greenFace
+    greenFace <- mapDyn (north . east . east) redFace
+    greenClick <- elAttr "div" floatLeft $ showFace greenFace
 
-        blueFace <- mapDyn (north . east . east) greenFace
-        blueClick <- elAttr "div" floatLeft $ showFace blueFace 
+    blueFace <- mapDyn (north . east . east) greenFace
+    blueClick <- elAttr "div" floatLeft $ showFace blueFace 
 
-        orangeFace <- mapDyn (west . west . south) yellowFace
-        orangeClick <- elAttr "div" clearLeft $ showFace orangeFace
+    orangeFace <- mapDyn (west . west . south) yellowFace
+    orangeClick <- elAttr "div" clearLeft $ showFace orangeFace
 
-        return $ leftmost [ purpleClick
-                          , yellowClick
-                          , redClick
-                          , greenClick
-                          , blueClick
-                          , orangeClick ]
-
+    return $ leftmost [ purpleClick
+                      , yellowClick
+                      , redClick
+                      , greenClick
+                      , blueClick
+                      , orangeClick ]
 
 view :: MonadWidget t m => Dynamic t Model -> m (Event t ())
 view model = do 
-            -- let purpleFace = cube
-                -- pRot = mapDyn (rotateFace.rotateFace) purpleFace
-
-                -- orangeFace = south $  north $ south $ south $  north $ south pRot
-                -- oRot = mapDyn (rotateFace.rotateFace) orangeFace
-
-                -- yellowFace = south $  north $ north oRot
-                -- yRot = mapDyn (rotateFace.rotateFace) yellowFace
-
-                -- greenFace = west $  west $ south $ west $  west $ south yRot
-                -- gRot = mapDyn (rotateFace.rotateFace) yellowFace
-                --
-            showCube =<< mapDyn cube model
+    purpleFace <- mapDyn cube model
+    pRot <- mapDyn (rotateFace.rotateFace) purpleFace
+    showCube pRot
 
 data Action = Select
 
@@ -225,10 +206,8 @@ update _ model = model
 
 initModel = Model mkCube
 
-
 main = mainWidget $ do 
            rec
                selectEvent <- view model
-               model <- foldDyn update initModel  $ selectEvent
+               model <- foldDyn update initModel selectEvent
            return ()
-
