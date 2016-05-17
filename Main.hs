@@ -1,6 +1,7 @@
+{-# LANGUAGE RecursiveDo #-}
 import Reflex.Dom
-import Data.Map
-import Data.List
+import Data.Map (Map, lookup, insert, empty)
+import Data.List (foldl)
 import Data.Monoid ((<>))
 
 data Color = Red | Green | Blue | Yellow | Orange | Purple deriving (Show,Eq,Ord)
@@ -92,12 +93,12 @@ getRotationMap f =
     let 
         ff :: (Facet, Facet, RotationMap) -> (Facet -> Facet, Facet -> Facet) -> (Facet, Facet, RotationMap)
         ff (pre, post, oldRotMap) (splitDown, advanceDirection) =
-            let rm' =  Data.Map.insert (pre, splitDown pre) (splitDown post) oldRotMap
-                newRotMap =  Data.Map.insert (splitDown post, post) pre rm'
+            let rm' =  insert (pre, splitDown pre) (splitDown post) oldRotMap
+                newRotMap =  insert (splitDown post, post) pre rm'
             in (advanceDirection pre, advanceDirection post, newRotMap)
 
         crawlDirections = concat $ replicate 4 [(east, south), (south, west), (south, west)]
-        (_,_,rm) = Data.List.foldl ff ((east.north.north) f, (west.west.south.east.north.north) f, Data.Map.empty) crawlDirections
+        (_,_,rm) = foldl ff ((east.north.north) f, (west.west.south.east.north.north) f, empty) crawlDirections
 
     in rm
 
@@ -111,88 +112,123 @@ height = 200
 svgNamespace = Just "http://www.w3.org/2000/svg"
 
 
-showFacet :: MonadWidget t m => Facet -> Int -> Int -> m (Event t ())
+showFacet :: MonadWidget t m => Dynamic t Facet -> Int -> Int -> m (Event t ())
 showFacet facet row col = do
-    (el, _) <- elDynAttrNS' svgNamespace "rect" 
-                   (constDyn $  "x" =: show col
+    -- attrs <-  mapDyn (\fct -> "width" =: "1") facet
+    attrs <- mapDyn (\fct ->    "x" =: show col 
                              <> "y" =: show row
                              <> "width" =: "1" 
                              <> "height" =: "1" 
-                             <> "fill" =: (show $ val facet))
-               $ return ()
+                             <> "fill" =: show (val fct)) facet
+    (el, _) <- elDynAttrNS' svgNamespace "rect" attrs $ return ()
     return $ domEvent Click el 
 
+showFace :: MonadWidget t m => Dynamic t Facet -> m (Event t ())
 showFace upperLeft = do
         (_, ev) <- elDynAttrNS' svgNamespace "svg" 
                         (constDyn $  "viewBox" =: ("0 0 3 3 ")
                                   <> "width" =: show width
                                   <> "height" =: show height)
                         $ do 
-                             showFacet upperLeft 0 0 
-                             showFacet (east upperLeft) 0 1 
+                             ulClick <- showFacet upperLeft 0 0 
+                             eastOfUL <- mapDyn east upperLeft
+                             eOulClick <- showFacet eastOfUL 0 1 
 
-                             let upperRight = east $ east upperLeft
-                             showFacet upperRight 0 2 
-                             showFacet (east upperRight) 1 2 
+                             upperRight <- mapDyn (east . east) upperLeft
+                             urClick <- showFacet upperRight 0 2 
+                             eastOfUR <- mapDyn east upperRight
+                             eOurClick <- showFacet eastOfUR 1 2 
 
-                             let lowerRight = east $ east upperRight
-                             showFacet lowerRight 2 2 
-                             showFacet (east lowerRight) 2 1 
+                             lowerRight <- mapDyn (east . east) upperRight
+                             lrClick <- showFacet lowerRight 2 2 
+                             eastOfLR <- mapDyn east lowerRight
+                             eOlrClick <- showFacet eastOfLR 2 1 
 
-                             let lowerLeft = east $ east lowerRight
-                             showFacet lowerLeft 2 0 
-                             showFacet (east lowerLeft) 1 0 
+                             lowerLeft <- mapDyn (east . east) lowerRight
+                             llClick <- showFacet lowerLeft 2 0 
+                             eastOfLL <- mapDyn east lowerLeft
+                             eOllClick <- showFacet eastOfLL 1 0 
 
-                             let center = south $ east upperLeft
-                             showFacet center 1 1 
+                             center <- mapDyn (south . east) upperLeft
+                             centerClick <- showFacet center 1 1 
+
+                             return $ leftmost [ ulClick 
+                                               , eOulClick 
+                                               , urClick 
+                                               , eOurClick 
+                                               , lrClick 
+                                               , eOlrClick 
+                                               , llClick 
+                                               , eOllClick 
+                                               , centerClick ]
 
 
-        return ()
+        return ev
 
 floatLeft = "style" =: "float:left" 
 clearLeft = "style" =: "clear:left" 
 
+showCube :: MonadWidget t m => Dynamic t Facet -> m (Event t ())
 showCube cube = do
-        let purpleFace = (west.north) cube
-        el "div" $ showFace  purpleFace
+        purpleFace <- mapDyn (west.north) cube
+        purpleClick <- el "div" $ showFace  purpleFace
 
-        let yellowFace = west $ west $ south purpleFace
-        elAttr "div" floatLeft $ showFace yellowFace
+        yellowFace <- mapDyn (west . west . south) purpleFace
+        yellowClick <- elAttr "div" floatLeft $ showFace yellowFace
 
-        let redFace = north $  east $ east yellowFace
-        elAttr "div" floatLeft $ showFace redFace
+        redFace <- mapDyn (north . east . east) yellowFace
+        redClick <- elAttr "div" floatLeft $ showFace redFace
 
-        let greenFace = north $  east $ east redFace
-        elAttr "div" floatLeft $ showFace greenFace
+        greenFace <- mapDyn (north . east . east) redFace
+        greenClick <- elAttr "div" floatLeft $ showFace greenFace
 
-        let blueFace = north $  east $ east greenFace
-        elAttr "div" floatLeft $ showFace blueFace 
+        blueFace <- mapDyn (north . east . east) greenFace
+        blueClick <- elAttr "div" floatLeft $ showFace blueFace 
 
-        let orangeFace = west $  west $ south yellowFace
-        elAttr "div" clearLeft $ showFace orangeFace
+        orangeFace <- mapDyn (west . west . south) yellowFace
+        orangeClick <- elAttr "div" clearLeft $ showFace orangeFace
 
-        return ()
-
-
-view cube = do 
-            let purpleFace = cube
-                pRot = rotateFace $ rotateFace purpleFace
-
-                orangeFace = south $  north $ south $ south $  north $ south pRot
-                oRot = rotateFace $ rotateFace orangeFace
-
-                yellowFace = south $  north $ north oRot
-                yRot = rotateFace $ rotateFace yellowFace
-
-                greenFace = west $  west $ south $ west $  west $ south yRot
-                gRot = rotateFace $ rotateFace yellowFace
-            showCube yRot
-
-            return ()
+        return $ leftmost [ purpleClick
+                          , yellowClick
+                          , redClick
+                          , greenClick
+                          , blueClick
+                          , orangeClick ]
 
 
-main = 
-          let  cube = mkCube
-          in mainWidget $ do 
-               view cube
+view :: MonadWidget t m => Dynamic t Model -> m (Event t ())
+view model = do 
+            -- let purpleFace = cube
+                -- pRot = mapDyn (rotateFace.rotateFace) purpleFace
+
+                -- orangeFace = south $  north $ south $ south $  north $ south pRot
+                -- oRot = mapDyn (rotateFace.rotateFace) orangeFace
+
+                -- yellowFace = south $  north $ north oRot
+                -- yRot = mapDyn (rotateFace.rotateFace) yellowFace
+
+                -- greenFace = west $  west $ south $ west $  west $ south yRot
+                -- gRot = mapDyn (rotateFace.rotateFace) yellowFace
+                --
+            showCube =<< mapDyn cube model
+
+data Action = Select
+
+data Model = Model {
+                 cube :: Facet
+             }
+
+-- | FRP style update function.
+-- | Given a board, an action and existing tour, return an updated tour.
+update :: () -> Model -> Model
+update _ model = model
+
+initModel = Model mkCube
+
+
+main = mainWidget $ do 
+           rec
+               selectEvent <- view model
+               model <- foldDyn update initModel  $ selectEvent
+           return ()
 
