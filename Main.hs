@@ -1,14 +1,9 @@
 import Reflex.Dom
 import Data.Map
+import Data.List
 import Data.Monoid ((<>))
 
-data Color = Red 
-           | Green 
-           | Blue 
-           | Yellow 
-           | Orange 
-           | Purple 
-           deriving (Show,Eq,Ord)
+data Color = Red | Green | Blue | Yellow | Orange | Purple deriving (Show,Eq,Ord)
 
 data DNode a = DNode { north :: DNode a
                      , west  :: DNode a
@@ -64,8 +59,8 @@ mkCube =
         (nRed,    wRed,    sRed,     eRed)    = mkFace ePurple   eYellow   eOrange   wGreen   Red
 
         (nOrange, wOrange, sOrange, eOrange)  = mkFace sYellow   sBlue     sGreen    sRed     Orange
-        (cube,_,_) = nPurple
-    in cube
+        (_,cube,_) = nPurple
+    in south cube
 
 copyNode :: Facet -> Facet
 copyNode f = 
@@ -94,28 +89,20 @@ copyWithRotation rotationMap f =
 
 getRotationMap :: Facet -> RotationMap
 getRotationMap f =
-    let pre0 = north f
-        post0 = (west.west.south) pre0
-        rm1 =  Data.Map.insert (pre0, east pre0) (east post0) Data.Map.empty
+    let 
+        ff :: (Facet, Facet, RotationMap) -> (Facet -> Facet, Facet -> Facet) -> (Facet, Facet, RotationMap)
+        ff (pre, post, oldRotMap) (splitDown, advanceDirection) =
+            let rm' =  Data.Map.insert (pre, splitDown pre) (splitDown post) oldRotMap
+                newRotMap =  Data.Map.insert (splitDown post, post) pre rm'
+            in (advanceDirection pre, advanceDirection post, newRotMap)
 
-        pre1 = south pre0
-        post1 = south post0
-        rm2 =  Data.Map.insert (pre1, south pre1) (south post1) rm1
+        crawlDirections = concat $ replicate 4 [(east, south), (south, west), (south, west)]
+        (_,_,rm) = Data.List.foldl ff ((east.north.north) f, (west.west.south.east.north.north) f, Data.Map.empty) crawlDirections
 
-        pre2 = west pre1
-        post2 = west post1
-        rm3 =  Data.Map.insert (pre2, south pre2) (south post2) rm2
-
-        pre3 = west pre2
-        post3 = west post2
-        rm4 =  Data.Map.insert (pre2, east pre3) (east post3) rm3
-
-    in rm2
+    in rm
 
 rotateFace :: Facet -> Facet
-rotateFace f =
-    let rm = getRotationMap f
-    in copyWithRotation rm f
+rotateFace f = copyWithRotation (getRotationMap f) f
 
 width = 200
 height = 200
@@ -166,10 +153,10 @@ floatLeft = "style" =: "float:left"
 clearLeft = "style" =: "clear:left" 
 
 showCube cube = do
-        let purpleFace = cube
-        el "div" $ showFace purpleFace
+        let purpleFace = (west.north) cube
+        el "div" $ showFace  purpleFace
 
-        let yellowFace = west $  west $ south purpleFace
+        let yellowFace = west $ west $ south purpleFace
         elAttr "div" floatLeft $ showFace yellowFace
 
         let redFace = north $  east $ east yellowFace
@@ -188,7 +175,19 @@ showCube cube = do
 
 
 view cube = do 
-            showCube $ rotateFace cube
+            let purpleFace = cube
+                pRot = rotateFace $ rotateFace purpleFace
+
+                orangeFace = south $  north $ south $ south $  north $ south pRot
+                oRot = rotateFace $ rotateFace orangeFace
+
+                yellowFace = south $  north $ north oRot
+                yRot = rotateFace $ rotateFace yellowFace
+
+                greenFace = west $  west $ south $ west $  west $ south yRot
+                gRot = rotateFace $ rotateFace yellowFace
+            showCube yRot
+
             return ()
 
 
