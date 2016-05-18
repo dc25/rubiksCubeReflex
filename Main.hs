@@ -116,33 +116,31 @@ height = 230
 -- | Namespace needed for svg elements.
 svgNamespace = Just "http://www.w3.org/2000/svg"
 
+showFacetSquare :: MonadWidget t m => Int -> Int -> Float -> Dynamic t String -> ReaderT (Dynamic t Model) m (Event t ())
+showFacetSquare row col margin dColor = do
+    attrs <- mapDyn (\color ->    "x" =: show ((fromIntegral col :: Float) + margin)
+                               <> "y" =: show ((fromIntegral row :: Float) + margin)
+                               <> "width" =: show (1.0 - 2.0 * margin)
+                               <> "height" =: show (1.0 - 2.0 * margin)
+                               <> "fill" =: color) dColor
+
+    (el, _) <- elDynAttrNS' svgNamespace "rect" attrs $ return ()
+    return $ domEvent Click el
+
 
 showFacet :: MonadWidget t m => Int -> Int -> Dynamic t Facet -> ReaderT (Dynamic t Model) m (Event t Action)
 showFacet row col facet = do
     dModel <- ask
-    dColor <- mapDyn (\fct -> show (val fct)) facet
+    dSignature <- mapDyn signature facet
+    dFacetColor <- mapDyn (show.val) facet
+
     let dBlack = constDyn "black"
 
-    outlineAttrs <- mapDyn (\(color) ->     "x" =: show col
-                                  <> "y" =: show row 
-                                  <> "width" =: "1" 
-                                  <> "height" =: "1" 
-                                  <> "fill" =: color) dBlack
+    outlineClick <- showFacetSquare row col 0.0 dBlack
+    elClick <- showFacetSquare row col 0.05 dFacetColor
+    promptClick <- showFacetSquare row col 0.3 dBlack
 
-    (outlineEl, _) <- elDynAttrNS' svgNamespace "rect" outlineAttrs $ return ()
-    let outlineClick = domEvent Click outlineEl
-
-    attrs <- mapDyn (\(color) ->     "x" =: show ((fromIntegral col :: Float) + 0.05)
-                                  <> "y" =: show ((fromIntegral row :: Float) + 0.05)
-                                  <> "width" =: "0.9" 
-                                  <> "height" =: "0.9" 
-                                  <> "fill" =: color) dColor
-
-    (el, _) <- elDynAttrNS' svgNamespace "rect" attrs $ return ()
-    let elClick = domEvent Click el
-
-    facetSign <- mapDyn signature facet
-    return $ attachWith (\a b -> FacetSelect $ const a b)  (current facetSign) $ leftmost [elClick, outlineClick]
+    return $ attachWith (\a _ -> FacetSelect a)  (current dSignature) $ leftmost [elClick, outlineClick, promptClick]
 
 showFace :: MonadWidget t m => Dynamic t Facet -> ReaderT (Dynamic t Model) m (Event t Action)
 showFace upperLeft = do
