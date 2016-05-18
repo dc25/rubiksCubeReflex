@@ -135,10 +135,11 @@ showFacet row col facet = do
     dFacetColor <- mapDyn (show.val) facet
 
     let dBlack = constDyn "black"
+    let dGrey = constDyn "grey"
 
     outlineClick <- showFacetSquare row col 0.0 dBlack
     elClick <- showFacetSquare row col 0.05 dFacetColor
-    promptClick <- showFacetSquare row col 0.3 dBlack
+    promptClick <- showFacetSquare row col 0.3 dGrey
 
     return $ attachWith (\a _ -> FacetSelect a)  (current dSignature) $ leftmost [elClick, outlineClick, promptClick]
 
