@@ -3,6 +3,7 @@ import Reflex.Dom
 import Data.Map (Map, lookup, insert, empty)
 import Data.List (foldl)
 import Data.Monoid ((<>))
+import Control.Monad.Reader
 
 data Color = Red | Green | Blue | Yellow | Orange | Purple deriving (Show,Eq,Ord)
 
@@ -116,24 +117,25 @@ height = 230
 svgNamespace = Just "http://www.w3.org/2000/svg"
 
 
-showFacet :: MonadWidget t m => Int -> Int -> Dynamic t Facet -> m (Event t Action)
+showFacet :: MonadWidget t m => Int -> Int -> Dynamic t Facet -> ReaderT (Dynamic t Model) m (Event t Action)
 showFacet row col facet = do
+    dModel <- ask
     let outlineAttrs = constDyn $  "x" =: show col
                              <> "y" =: show row 
                              <> "width" =: "1" 
                              <> "height" =: "1" 
                              <> "fill" =: "black"
-    attrs <- mapDyn (\fct ->    "x" =: show ((fromIntegral col :: Float) + 0.05)
+    attrs <- mapDyn (\(mo,fct) ->    "x" =: show ((fromIntegral col :: Float) + 0.05)
                              <> "y" =: show ((fromIntegral row :: Float) + 0.05)
                              <> "width" =: "0.9" 
                              <> "height" =: "0.9" 
-                             <> "fill" =: show (val fct)) facet
+                             <> "fill" =: show (val fct)) =<< combineDyn (,) dModel facet
     (el, _) <- elDynAttrNS' svgNamespace "rect" outlineAttrs $ return ()
     (el, _) <- elDynAttrNS' svgNamespace "rect" attrs $ return ()
     facetSign <- mapDyn signature facet
     return $ attachWith (\a b -> FacetSelect $ const a b)  (current facetSign) (domEvent Click el)
 
-showFace :: MonadWidget t m => Dynamic t Facet -> m (Event t Action)
+showFace :: MonadWidget t m => Dynamic t Facet -> ReaderT (Dynamic t Model) m (Event t Action)
 showFace upperLeft = do
     (_, ev) <- elDynAttrNS' svgNamespace "svg" 
                    (constDyn $  "viewBox" =: "0 0 3 3 "
@@ -171,7 +173,7 @@ showFace upperLeft = do
 floatLeft = "style" =: "float:left" 
 clearLeft = "style" =: "clear:left" 
 
-showCube :: MonadWidget t m => Dynamic t Facet -> m (Event t Action)
+showCube :: MonadWidget t m => Dynamic t Facet -> ReaderT (Dynamic t Model) m (Event t Action)
 showCube cube = do
     purpleFace <- mapDyn (west.north) cube
     purpleClick <- el "div" $ showFace  purpleFace
@@ -198,7 +200,7 @@ showCube cube = do
                       , blueClick
                       , orangeClick ]
 
-view :: MonadWidget t m => Dynamic t Model -> m (Event t Action)
+view :: MonadWidget t m => Dynamic t Model -> ReaderT (Dynamic t Model) m (Event t Action)
 view model = do 
     purpleFace <- mapDyn cube model
     pRot <- mapDyn (rotateFace.rotateFace) purpleFace
@@ -220,6 +222,6 @@ initModel = Model mkCube
 
 main = mainWidget $ do 
            rec
-               selectEvent <- view model
+               selectEvent <- runReaderT (view model) model
                model <- foldDyn update initModel selectEvent
            return ()
