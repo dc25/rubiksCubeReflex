@@ -120,20 +120,29 @@ svgNamespace = Just "http://www.w3.org/2000/svg"
 showFacet :: MonadWidget t m => Int -> Int -> Dynamic t Facet -> ReaderT (Dynamic t Model) m (Event t Action)
 showFacet row col facet = do
     dModel <- ask
-    let outlineAttrs = constDyn $  "x" =: show col
-                             <> "y" =: show row 
-                             <> "width" =: "1" 
-                             <> "height" =: "1" 
-                             <> "fill" =: "black"
-    attrs <- mapDyn (\(mo,fct) ->    "x" =: show ((fromIntegral col :: Float) + 0.05)
-                             <> "y" =: show ((fromIntegral row :: Float) + 0.05)
-                             <> "width" =: "0.9" 
-                             <> "height" =: "0.9" 
-                             <> "fill" =: show (val fct)) =<< combineDyn (,) dModel facet
-    (el, _) <- elDynAttrNS' svgNamespace "rect" outlineAttrs $ return ()
+    dColor <- mapDyn (\fct -> show (val fct)) facet
+    let dBlack = constDyn "black"
+
+    outlineAttrs <- mapDyn (\(color) ->     "x" =: show col
+                                  <> "y" =: show row 
+                                  <> "width" =: "1" 
+                                  <> "height" =: "1" 
+                                  <> "fill" =: color) dBlack
+
+    (outlineEl, _) <- elDynAttrNS' svgNamespace "rect" outlineAttrs $ return ()
+    let outlineClick = domEvent Click outlineEl
+
+    attrs <- mapDyn (\(color) ->     "x" =: show ((fromIntegral col :: Float) + 0.05)
+                                  <> "y" =: show ((fromIntegral row :: Float) + 0.05)
+                                  <> "width" =: "0.9" 
+                                  <> "height" =: "0.9" 
+                                  <> "fill" =: color) dColor
+
     (el, _) <- elDynAttrNS' svgNamespace "rect" attrs $ return ()
+    let elClick = domEvent Click el
+
     facetSign <- mapDyn signature facet
-    return $ attachWith (\a b -> FacetSelect $ const a b)  (current facetSign) (domEvent Click el)
+    return $ attachWith (\a b -> FacetSelect $ const a b)  (current facetSign) $ leftmost [elClick, outlineClick]
 
 showFace :: MonadWidget t m => Dynamic t Facet -> ReaderT (Dynamic t Model) m (Event t Action)
 showFace upperLeft = do
