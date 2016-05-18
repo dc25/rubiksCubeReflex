@@ -14,7 +14,11 @@ data DNode a = DNode { north :: DNode a
                      , index :: Int
                      }
 
-signature :: DNode a -> (a, Int)
+type Signature a = (a, Int)
+type FacetSig = Signature Color
+
+
+signature :: DNode a -> Signature a
 signature dn = (val dn, index dn)
 
 instance Eq a => Eq (DNode a) where 
@@ -112,7 +116,7 @@ height = 230
 svgNamespace = Just "http://www.w3.org/2000/svg"
 
 
-showFacet :: MonadWidget t m => Int -> Int -> Dynamic t Facet -> m (Event t ())
+showFacet :: MonadWidget t m => Int -> Int -> Dynamic t Facet -> m (Event t Action)
 showFacet row col facet = do
     let outlineAttrs = constDyn $  "x" =: show col
                              <> "y" =: show row 
@@ -126,9 +130,10 @@ showFacet row col facet = do
                              <> "fill" =: show (val fct)) facet
     (el, _) <- elDynAttrNS' svgNamespace "rect" outlineAttrs $ return ()
     (el, _) <- elDynAttrNS' svgNamespace "rect" attrs $ return ()
-    return $ domEvent Click el 
+    facetSign <- mapDyn signature facet
+    return $ attachWith (\a b -> FacetSelect $ const a b)  (current facetSign) (domEvent Click el)
 
-showFace :: MonadWidget t m => Dynamic t Facet -> m (Event t ())
+showFace :: MonadWidget t m => Dynamic t Facet -> m (Event t Action)
 showFace upperLeft = do
     (_, ev) <- elDynAttrNS' svgNamespace "svg" 
                    (constDyn $  "viewBox" =: "0 0 3 3 "
@@ -166,7 +171,7 @@ showFace upperLeft = do
 floatLeft = "style" =: "float:left" 
 clearLeft = "style" =: "clear:left" 
 
-showCube :: MonadWidget t m => Dynamic t Facet -> m (Event t ())
+showCube :: MonadWidget t m => Dynamic t Facet -> m (Event t Action)
 showCube cube = do
     purpleFace <- mapDyn (west.north) cube
     purpleClick <- el "div" $ showFace  purpleFace
@@ -193,22 +198,23 @@ showCube cube = do
                       , blueClick
                       , orangeClick ]
 
-view :: MonadWidget t m => Dynamic t Model -> m (Event t ())
+view :: MonadWidget t m => Dynamic t Model -> m (Event t Action)
 view model = do 
     purpleFace <- mapDyn cube model
     pRot <- mapDyn (rotateFace.rotateFace) purpleFace
     showCube pRot
 
-data Action = Select
+data Action = FacetSelect FacetSig
 
-data Model = Model {
-                 cube :: Facet
-             }
+data Model = Model { cube :: Facet 
+                   }
 
 -- | FRP style update function.
 -- | Given a board, an action and existing tour, return an updated tour.
-update :: () -> Model -> Model
-update _ model = model
+update :: Action -> Model -> Model
+update action model = 
+        case action of
+            FacetSelect facetSig -> Model $ rotateFace $ cube model
 
 initModel = Model mkCube
 
