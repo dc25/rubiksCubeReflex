@@ -105,8 +105,8 @@ getRotationMap f =
 rotateFace :: Facet -> Facet
 rotateFace f = copyWithRotation (getRotationMap f) f
 
-width = 200
-height = 200
+width = 230
+height = 230
 
 -- | Namespace needed for svg elements.
 svgNamespace = Just "http://www.w3.org/2000/svg"
@@ -114,11 +114,17 @@ svgNamespace = Just "http://www.w3.org/2000/svg"
 
 showFacet :: MonadWidget t m => Int -> Int -> Dynamic t Facet -> m (Event t ())
 showFacet row col facet = do
-    attrs <- mapDyn (\fct ->    "x" =: show col 
-                             <> "y" =: show row
+    let outlineAttrs = constDyn $  "x" =: show col
+                             <> "y" =: show row 
                              <> "width" =: "1" 
                              <> "height" =: "1" 
+                             <> "fill" =: "black"
+    attrs <- mapDyn (\fct ->    "x" =: show ((fromIntegral col :: Float) + 0.05)
+                             <> "y" =: show ((fromIntegral row :: Float) + 0.05)
+                             <> "width" =: "0.9" 
+                             <> "height" =: "0.9" 
                              <> "fill" =: show (val fct)) facet
+    (el, _) <- elDynAttrNS' svgNamespace "rect" outlineAttrs $ return ()
     (el, _) <- elDynAttrNS' svgNamespace "rect" attrs $ return ()
     return $ domEvent Click el 
 
