@@ -147,6 +147,28 @@ copyWithRotation rotationMap f =
             of Nothing -> preRotationFacet
                Just postRotationFacet -> postRotationFacet
 
+---                        nLeft        nCenter      nRight
+---                    ____________ ___________________________
+---                    |     N      |     N      |     W      |
+---                    |            |            |            |
+---           wRight   |W nwCorner E|W  nSide   E|S enCorner N|  eLeft
+---                    |            |            |            |
+---                    |            |            |            |
+---                    |_____S______|_____S______|_____E______|
+---                    |     E      |     N      |     W      |
+---                    |            |            |            |
+---           wCenter  |N  wSide   S|W  center  E|S  eSide   N|  eCenter
+---                    |            |            |            |
+---                    |            |            |            |
+---                    |_____W______|_____S______|_____E______|
+---                    |     E      |     S      |     S      |
+---                    |            |            |            |
+---           wLeft    |N wsCorner S|E  sSide   W|E seCorner W|  eRight
+---                    |            |            |            |
+---                    |            |            |            |
+---                    |_____W______|_____N______|_____N______|
+---
+---                        sRight       sCenter      sLeft 
 getRotationMap :: Facet -> RotationMap
 getRotationMap f =
     let 
@@ -156,10 +178,14 @@ getRotationMap f =
                 newRotMap =  insert (splitDown post, post) pre rm'
             in (advanceDirection pre, advanceDirection post, newRotMap)
 
-        crawlDirections = concat $ replicate 4 [(east, south), (south, west), (south, west)]
-        (_,_,rm) = foldl ff ((east.north.north) f, (west.west.south.east.north.north) f, empty) crawlDirections
+        -- faceCrawl = [(east, south), (south, west), (south, west)]
+        faceCrawl = [(east, north), (south, east), (south, east)]
+        fullCrawl = concat $ replicate 4 faceCrawl
+        preStart = east.north.north $ f
+        postStart = foldl (&) preStart (map snd faceCrawl)
+        (_,_,rotationMap) = foldl ff (preStart, postStart, empty) fullCrawl
 
-    in rm
+    in rotationMap
 
 rotateFace :: Facet -> Facet
 rotateFace f = copyWithRotation (getRotationMap f) f
@@ -305,10 +331,10 @@ update action model =
             FacetSelect facet -> 
                 let facetSig = signature facet 
                 in case reference model of
-                   Nothing ->  Model (cube model)
+                   Nothing ->  Model (rotateFace $ cube model)
                               (if facetSig `elem` selectables model then targets facet else selectables model)
                               (Just facet)
-                   Just ref ->  Model (cube model) 
+                   Just ref ->  Model (rotateFace $ cube model) 
                               (if facetSig `elem` selectables model then [] else selectables model)
                               Nothing
 
