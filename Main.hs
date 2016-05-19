@@ -311,12 +311,14 @@ update action model =
             FacetSelect facet -> 
                 let facetSig = signature facet 
                 in case reference model of
-                   Nothing ->  Model (rotateFaceCCW $ cube model)
-                              (if facetSig `elem` selectables model then targets facet else selectables model)
-                              (Just facet)
-                   Just ref ->  Model (rotateFaceCCW $ cube model) 
-                              (if facetSig `elem` selectables model then [] else selectables model)
-                              Nothing
+                   Nothing ->  Model (cube model)
+                                     (if facetSig `elem` selectables model then targets facet else selectables model)
+                                     (Just facet)
+                   Just ref ->  Model ( (if (facet == (west.south) ref) 
+                                         then rotateFaceCCW 
+                                         else rotateFaceCW) $ (south.south) ref) 
+                                      cornerSignatures
+                                      Nothing
 
 initModel = Model mkCube cornerSignatures Nothing
 
