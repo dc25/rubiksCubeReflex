@@ -127,16 +127,16 @@ showFacetSquare row col margin dColor = do
     (el, _) <- elDynAttrNS' svgNamespace "rect" attrs $ return ()
     return [domEvent Click el]
 
-showOptionalFacetSquare :: MonadWidget t m => Int -> Int -> Float -> Dynamic t Facet -> Dynamic t [FacetSig] -> ReaderT (Dynamic t Model) m [Event t ()]
-showOptionalFacetSquare row col margin dFacet dShowList = do
+showFacetMarker :: MonadWidget t m => Int -> Int -> Float -> Dynamic t Facet -> Dynamic t [FacetSig] -> ReaderT (Dynamic t Model) m [Event t ()]
+showFacetMarker row col margin dFacet dShowList = do
     dSelectableFacet <- mapDyn (\(sSigs, fa) -> const (0 :: Int, "grey") <$> filter (\s -> signature fa == s) sSigs) =<< combineDyn (,) dShowList dFacet
     moveMap <- mapDyn fromList dSelectableFacet
     eventsWithKeys <- listWithKey moveMap (\_ color -> showFacetSquare row col margin color)
 
     return [switch $ fmap (leftmost . concat . elems) $ current eventsWithKeys]
 
-showOptionalFacetBox :: MonadWidget t m => Int -> Int -> Float -> Dynamic t Facet -> Dynamic t [FacetSig] -> ReaderT (Dynamic t Model) m [Event t ()]
-showOptionalFacetBox row col margin dFacet dShowList = do
+showFacetMarkerHole :: MonadWidget t m => Int -> Int -> Float -> Dynamic t Facet -> Dynamic t [FacetSig] -> ReaderT (Dynamic t Model) m [Event t ()]
+showFacetMarkerHole row col margin dFacet dShowList = do
     dSelectableFacet <- mapDyn (\(sSigs, fa) -> const (0 :: Int, show $ val fa) <$> filter (\s -> signature fa == s) sSigs) =<< combineDyn (,) dShowList dFacet
     moveMap <- mapDyn fromList dSelectableFacet
     eventsWithKeys <- listWithKey moveMap (\_ color -> showFacetSquare row col margin color)
@@ -155,8 +155,8 @@ showFacet row col dFacet = do
 
     outlineClick <- showFacetSquare row col 0.0 $ constDyn "black"
     elClick <- showFacetSquare row col 0.05 dFacetColor
-    promptClick <- showOptionalFacetSquare row col 0.3 dFacet dSelectableSigs
-    pc2 <- showOptionalFacetBox row col 0.4 dFacet dSelectableSigs
+    promptClick <- showFacetMarker row col 0.3 dFacet dSelectableSigs
+    pc2 <- showFacetMarkerHole row col 0.4 dFacet dSelectableSigs
 
 
     let facetClick = leftmost $ elClick ++ outlineClick ++ promptClick ++ pc2
