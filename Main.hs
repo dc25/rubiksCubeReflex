@@ -33,8 +33,8 @@ type Edge = (Facet,Facet,Facet)
 
 mkDomino :: Facet -> Facet -> Facet -> Facet -> Facet -> Facet -> Color -> Int -> (Facet,Facet)
 mkDomino right upperRight upperLeft left lowerLeft lowerRight color index =
-    let rightDomino = DNode upperRight leftDomino lowerRight right       color  index
-        leftDomino =  DNode upperLeft  left       lowerLeft  rightDomino color (index+1)
+    let leftDomino =  DNode upperLeft  left       lowerLeft  rightDomino color index
+        rightDomino = DNode upperRight leftDomino lowerRight right       color (index+1)
     in (leftDomino, rightDomino)
 
 mkFace :: Edge -> Edge -> Edge -> Edge -> Color -> (Edge,Edge,Edge,Edge)
