@@ -151,6 +151,7 @@ showFacet row col dFacet = do
     dFacetColor <- mapDyn (show.val) dFacet
 
     dSelectableSigs <- mapDyn selectables dModel
+    dReferenceSigs <- mapDyn reference dModel
 
 
     outlineClick <- showFacetSquare row col 0.0 $ constDyn "black"
@@ -158,8 +159,10 @@ showFacet row col dFacet = do
     promptClick <- showFacetMarker row col 0.3 dFacet dSelectableSigs
     pc2 <- showFacetMarkerHole row col 0.4 dFacet dSelectableSigs
 
+    referenceClick <- showFacetMarker row col 0.3 dFacet dReferenceSigs
 
-    let facetClick = leftmost $ elClick ++ outlineClick ++ promptClick ++ pc2
+
+    let facetClick = leftmost $ elClick ++ outlineClick ++ promptClick ++ pc2 ++ referenceClick
 
     return $ attachWith (\a _ -> FacetSelect a)  (current dSignature) facetClick
 
@@ -235,6 +238,7 @@ data Action = FacetSelect FacetSig
 
 data Model = Model { cube :: Facet 
                    , selectables :: [FacetSig]
+                   , reference :: [FacetSig]
                    }
 
 -- | FRP style update function.
@@ -242,10 +246,16 @@ data Model = Model { cube :: Facet
 update :: Action -> Model -> Model
 update action model = 
         case action of
-            FacetSelect facetSig -> Model (rotateFace $ cube model) [facetSig]
+            FacetSelect facetSig -> 
+                if (null $ reference model)
+                then Model (cube model) 
+                           (if facetSig `elem` selectables model then [] else selectables model)
+                           (if facetSig `elem` selectables model then [facetSig] else [])
+                else Model (cube model) 
+                           (if facetSig `elem` selectables model then [] else selectables model)
+                           (if facetSig `elem` selectables model then [facetSig] else [])
 
-initModel = Model mkCube [(color, index) | color <- [ Red .. Purple ] ,
-                                           index <- [1,3,5,7] ]
+initModel = Model mkCube [(color, index) | color <- [ Red .. Purple ] , index <- [1,3,5,7] ] []
 
 main = mainWidget $ do 
            rec
