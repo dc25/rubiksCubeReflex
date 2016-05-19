@@ -1,6 +1,6 @@
 {-# LANGUAGE RecursiveDo #-}
 import Reflex.Dom
-import Data.Map (Map, lookup, insert, empty)
+import Data.Map (Map, lookup, insert, empty, fromList, elems)
 import Data.List (foldl)
 import Data.Monoid ((<>))
 import Control.Monad.Reader
@@ -116,7 +116,7 @@ height = 230
 -- | Namespace needed for svg elements.
 svgNamespace = Just "http://www.w3.org/2000/svg"
 
-showFacetSquare :: MonadWidget t m => Int -> Int -> Float -> Dynamic t String -> ReaderT (Dynamic t Model) m (Event t ())
+showFacetSquare :: MonadWidget t m => Int -> Int -> Float -> Dynamic t String -> ReaderT (Dynamic t Model) m [Event t ()]
 showFacetSquare row col margin dColor = do
     attrs <- mapDyn (\color ->    "x" =: show ((fromIntegral col :: Float) + margin)
                                <> "y" =: show ((fromIntegral row :: Float) + margin)
@@ -125,23 +125,34 @@ showFacetSquare row col margin dColor = do
                                <> "fill" =: color) dColor
 
     (el, _) <- elDynAttrNS' svgNamespace "rect" attrs $ return ()
-    return $ domEvent Click el
+    return [domEvent Click el]
 
 
 showFacet :: MonadWidget t m => Int -> Int -> Dynamic t Facet -> ReaderT (Dynamic t Model) m (Event t Action)
-showFacet row col facet = do
+showFacet row col dFacet = do
     dModel <- ask
-    dSignature <- mapDyn signature facet
-    dFacetColor <- mapDyn (show.val) facet
+    dSignature <- mapDyn signature dFacet
+    dFacetColor <- mapDyn (show.val) dFacet
 
-    let dBlack = constDyn "black"
-    let dGrey = constDyn "grey"
+    dSelectableSigs <- mapDyn selectables dModel
 
-    outlineClick <- showFacetSquare row col 0.0 dBlack
+    -- the following expression converts a dynamic list of facet signatures
+    -- into a list containing one or zero colors.  The resulting list is 
+    -- empty unless the signature of the dynamic facet being rendered is in
+    -- the original list.
+    dSelectableFacet <- mapDyn (\(sSigs, fa) -> const (0 :: Int, "grey") <$> filter (\s -> signature fa == s) sSigs) =<< combineDyn (,) dSelectableSigs dFacet
+
+    outlineClick <- showFacetSquare row col 0.0 $ constDyn "black"
     elClick <- showFacetSquare row col 0.05 dFacetColor
-    promptClick <- showFacetSquare row col 0.3 dGrey
 
-    return $ attachWith (\a _ -> FacetSelect a)  (current dSignature) $ leftmost [elClick, outlineClick, promptClick]
+    moveMap <- mapDyn fromList dSelectableFacet
+    eventsWithKeys <- listWithKey moveMap (\_ color -> showFacetSquare row col 0.4 color)
+
+    let promptClick = switch $ fmap (leftmost . concat . elems) $ current eventsWithKeys
+
+    let facetClick = leftmost $ elClick ++ outlineClick ++ [promptClick]
+
+    return $ attachWith (\a _ -> FacetSelect a)  (current dSignature) facetClick
 
 showFace :: MonadWidget t m => Dynamic t Facet -> ReaderT (Dynamic t Model) m (Event t Action)
 showFace upperLeft = do
@@ -217,6 +228,7 @@ view model = do
 data Action = FacetSelect FacetSig
 
 data Model = Model { cube :: Facet 
+                   , selectables :: [FacetSig]
                    }
 
 -- | FRP style update function.
@@ -224,9 +236,9 @@ data Model = Model { cube :: Facet
 update :: Action -> Model -> Model
 update action model = 
         case action of
-            FacetSelect facetSig -> Model $ rotateFace $ cube model
+            FacetSelect facetSig -> Model (rotateFace $ cube model) [facetSig]
 
-initModel = Model mkCube
+initModel = Model mkCube []
 
 main = mainWidget $ do 
            rec
