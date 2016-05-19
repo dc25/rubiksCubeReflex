@@ -147,28 +147,6 @@ copyWithRotation rotationMap f =
             of Nothing -> preRotationFacet
                Just postRotationFacet -> postRotationFacet
 
----                        nLeft        nCenter      nRight
----                    ____________ ___________________________
----                    |     N      |     N      |     W      |
----                    |            |            |            |
----           wRight   |W nwCorner E|W  nSide   E|S enCorner N|  eLeft
----                    |            |            |            |
----                    |            |            |            |
----                    |_____S______|_____S______|_____E______|
----                    |     E      |     N      |     W      |
----                    |            |            |            |
----           wCenter  |N  wSide   S|W  center  E|S  eSide   N|  eCenter
----                    |            |            |            |
----                    |            |            |            |
----                    |_____W______|_____S______|_____E______|
----                    |     E      |     S      |     S      |
----                    |            |            |            |
----           wLeft    |N wsCorner S|E  sSide   W|E seCorner W|  eRight
----                    |            |            |            |
----                    |            |            |            |
----                    |_____W______|_____N______|_____N______|
----
----                        sRight       sCenter      sLeft 
 getRotationMap :: (Facet -> Facet) -> Facet -> RotationMap
 getRotationMap advanceToPost f =
     let 
