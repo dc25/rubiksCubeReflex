@@ -5,7 +5,7 @@ import Data.List (foldl)
 import Data.Monoid ((<>))
 import Control.Monad.Reader
 
-data Color = Red | Green | Blue | Yellow | Orange | Purple deriving (Show,Eq,Ord)
+data Color = Red | Green | Blue | Yellow | Orange | Purple deriving (Show,Eq,Ord,Enum)
 
 data DNode a = DNode { north :: DNode a
                      , west  :: DNode a
@@ -229,10 +229,7 @@ showCube cube = do
                       , orangeClick ]
 
 view :: MonadWidget t m => Dynamic t Model -> ReaderT (Dynamic t Model) m (Event t Action)
-view model = do 
-    purpleFace <- mapDyn cube model
-    pRot <- mapDyn (rotateFace.rotateFace) purpleFace
-    showCube pRot
+view model = showCube =<< mapDyn cube model
 
 data Action = FacetSelect FacetSig
 
@@ -247,7 +244,7 @@ update action model =
         case action of
             FacetSelect facetSig -> Model (rotateFace $ cube model) [facetSig]
 
-initModel = Model mkCube [(color, index) | color <- [ Red , Green , Blue , Yellow , Orange , Purple ] ,
+initModel = Model mkCube [(color, index) | color <- [ Red .. Purple ] ,
                                            index <- [1,3,5,7] ]
 
 main = mainWidget $ do 
