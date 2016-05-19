@@ -51,24 +51,24 @@ mkDomino right upperRight upperLeft left lowerLeft lowerRight color index =
 
 ---                        nLeft        nCenter      nRight
 ---                    ____________ ___________________________
----                    |     N      |     N      |     N      |
+---                    |     N      |     N      |     W      |
 ---                    |            |            |            |
----           wRight   |W nwCorner E|W  nSide   E|W enCorner E|  eLeft
+---           wRight   |W nwCorner E|W  nSide   E|S enCorner N|  eLeft
 ---                    |            |            |            |
 ---                    |            |            |            |
----                    |_____S______|_____S______|_____S______|
+---                    |_____S______|_____S______|_____E______|
 ---                    |     E      |     N      |     W      |
 ---                    |            |            |            |
 ---           wCenter  |N  wSide   S|W  center  E|S  eSide   N|  eCenter
 ---                    |            |            |            |
 ---                    |            |            |            |
 ---                    |_____W______|_____S______|_____E______|
----                    |     N      |     S      |     N      |
+---                    |     E      |     S      |     S      |
 ---                    |            |            |            |
----           wLeft    |W wsCorner E|E  sSide   W|W seCorner E|  eRight
+---           wLeft    |N wsCorner S|E  sSide   W|E seCorner W|  eRight
 ---                    |            |            |            |
 ---                    |            |            |            |
----                    |_____S______|_____N______|_____S______|
+---                    |_____W______|_____N______|_____N______|
 ---
 ---                        sRight       sCenter      sLeft 
 
@@ -96,7 +96,7 @@ mkFace ~(nRight, nCenter, nLeft)
 --- |W  purple  E|
 --- |            |
 --- |            |
---- |___________ |_______________________________________
+--- |_____S_____ |_______________________________________
 --- |     N      |     N      |     N      |     N      |
 --- |            |            |            |            |
 --- |W  yellow  E|W   blue   E|W   green  E|W   red    E|
@@ -187,7 +187,7 @@ showFacetMarker row col margin dFacet dShowList = do
     moveMap <- mapDyn fromList dSelectableFacet
     eventsWithKeys <- listWithKey moveMap (\_ color -> showFacetSquare row col margin color)
 
-    return [switch $ fmap (leftmost . concat . elems) $ current eventsWithKeys]
+    return [switch $ (leftmost . concat . elems) <$> current eventsWithKeys]
 
 showFacetMarkerHole :: MonadWidget t m => Int -> Int -> Float -> Dynamic t Facet -> Dynamic t [FacetSig] -> ReaderT (Dynamic t Model) m [Event t ()]
 showFacetMarkerHole row col margin dFacet dShowList = do
@@ -195,7 +195,7 @@ showFacetMarkerHole row col margin dFacet dShowList = do
     moveMap <- mapDyn fromList dSelectableFacet
     eventsWithKeys <- listWithKey moveMap (\_ color -> showFacetSquare row col margin color)
 
-    return [switch $ fmap (leftmost . concat . elems) $ current eventsWithKeys]
+    return [switch $ (leftmost . concat . elems) <$> current eventsWithKeys]
 
 
 showFacet :: MonadWidget t m => Int -> Int -> Dynamic t Facet -> ReaderT (Dynamic t Model) m (Event t Action)
@@ -298,8 +298,7 @@ cornerSignatures = [(color, index) | color <- [ Red .. Purple ] , index <- [1,3,
 targets :: Facet -> [FacetSig]
 targets f = fmap signature [ (west.south) f, (east.east) f ]
 
--- | FRP style update function.
--- | Given a board, an action and existing tour, return an updated tour.
+-- | FRP style update function. Given action and model, return updated model.
 update :: Action -> Model -> Model
 update action model = 
         case action of
