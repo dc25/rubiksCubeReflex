@@ -127,6 +127,22 @@ showFacetSquare row col margin dColor = do
     (el, _) <- elDynAttrNS' svgNamespace "rect" attrs $ return ()
     return [domEvent Click el]
 
+showOptionalFacetSquare :: MonadWidget t m => Int -> Int -> Float -> Dynamic t Facet -> Dynamic t [FacetSig] -> ReaderT (Dynamic t Model) m [Event t ()]
+showOptionalFacetSquare row col margin dFacet dShowList = do
+    dSelectableFacet <- mapDyn (\(sSigs, fa) -> const (0 :: Int, "grey") <$> filter (\s -> signature fa == s) sSigs) =<< combineDyn (,) dShowList dFacet
+    moveMap <- mapDyn fromList dSelectableFacet
+    eventsWithKeys <- listWithKey moveMap (\_ color -> showFacetSquare row col margin color)
+
+    return [switch $ fmap (leftmost . concat . elems) $ current eventsWithKeys]
+
+showOptionalFacetBox :: MonadWidget t m => Int -> Int -> Float -> Dynamic t Facet -> Dynamic t [FacetSig] -> ReaderT (Dynamic t Model) m [Event t ()]
+showOptionalFacetBox row col margin dFacet dShowList = do
+    dSelectableFacet <- mapDyn (\(sSigs, fa) -> const (0 :: Int, show $ val fa) <$> filter (\s -> signature fa == s) sSigs) =<< combineDyn (,) dShowList dFacet
+    moveMap <- mapDyn fromList dSelectableFacet
+    eventsWithKeys <- listWithKey moveMap (\_ color -> showFacetSquare row col margin color)
+
+    return [switch $ fmap (leftmost . concat . elems) $ current eventsWithKeys]
+
 
 showFacet :: MonadWidget t m => Int -> Int -> Dynamic t Facet -> ReaderT (Dynamic t Model) m (Event t Action)
 showFacet row col dFacet = do
@@ -136,21 +152,14 @@ showFacet row col dFacet = do
 
     dSelectableSigs <- mapDyn selectables dModel
 
-    -- the following expression converts a dynamic list of facet signatures
-    -- into a list containing one or zero colors.  The resulting list is 
-    -- empty unless the signature of the dynamic facet being rendered is in
-    -- the original list.
-    dSelectableFacet <- mapDyn (\(sSigs, fa) -> const (0 :: Int, "grey") <$> filter (\s -> signature fa == s) sSigs) =<< combineDyn (,) dSelectableSigs dFacet
 
     outlineClick <- showFacetSquare row col 0.0 $ constDyn "black"
     elClick <- showFacetSquare row col 0.05 dFacetColor
+    promptClick <- showOptionalFacetSquare row col 0.3 dFacet dSelectableSigs
+    pc2 <- showOptionalFacetBox row col 0.4 dFacet dSelectableSigs
 
-    moveMap <- mapDyn fromList dSelectableFacet
-    eventsWithKeys <- listWithKey moveMap (\_ color -> showFacetSquare row col 0.4 color)
 
-    let promptClick = switch $ fmap (leftmost . concat . elems) $ current eventsWithKeys
-
-    let facetClick = leftmost $ elClick ++ outlineClick ++ [promptClick]
+    let facetClick = leftmost $ elClick ++ outlineClick ++ promptClick ++ pc2
 
     return $ attachWith (\a _ -> FacetSelect a)  (current dSignature) facetClick
 
