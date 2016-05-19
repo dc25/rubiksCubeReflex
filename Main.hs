@@ -247,7 +247,8 @@ update action model =
         case action of
             FacetSelect facetSig -> Model (rotateFace $ cube model) [facetSig]
 
-initModel = Model mkCube []
+initModel = Model mkCube [(color, index) | color <- [ Red , Green , Blue , Yellow , Orange , Purple ] ,
+                                           index <- [1,3,5,7] ]
 
 main = mainWidget $ do 
            rec
