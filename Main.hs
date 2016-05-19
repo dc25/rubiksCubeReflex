@@ -169,8 +169,8 @@ copyWithRotation rotationMap f =
 ---                    |_____W______|_____N______|_____N______|
 ---
 ---                        sRight       sCenter      sLeft 
-getRotationMap :: Facet -> RotationMap
-getRotationMap f =
+getRotationMap :: (Facet -> Facet) -> Facet -> RotationMap
+getRotationMap advanceToPost f =
     let 
         ff :: (Facet, Facet, RotationMap) -> (Facet -> Facet, Facet -> Facet) -> (Facet, Facet, RotationMap)
         ff (pre, post, oldRotMap) (splitDown, advanceDirection) =
@@ -178,17 +178,19 @@ getRotationMap f =
                 newRotMap =  insert (splitDown post, post) pre rm'
             in (advanceDirection pre, advanceDirection post, newRotMap)
 
-        -- faceCrawl = [(east, south), (south, west), (south, west)]
-        faceCrawl = [(east, north), (south, east), (south, east)]
+        faceCrawl = [(east, south), (south, west), (south, west)]
         fullCrawl = concat $ replicate 4 faceCrawl
         preStart = east.north.north $ f
-        postStart = foldl (&) preStart (map snd faceCrawl)
+        postStart = advanceToPost preStart  -- clockwise or counterclockwise
         (_,_,rotationMap) = foldl ff (preStart, postStart, empty) fullCrawl
 
     in rotationMap
 
-rotateFace :: Facet -> Facet
-rotateFace f = copyWithRotation (getRotationMap f) f
+rotateFaceCW :: Facet -> Facet
+rotateFaceCW f = copyWithRotation (getRotationMap (west.west.south) f) f
+
+rotateFaceCCW :: Facet -> Facet
+rotateFaceCCW f = copyWithRotation (getRotationMap (east.east.north) f) f
 
 width = 230
 height = 230
@@ -331,10 +333,10 @@ update action model =
             FacetSelect facet -> 
                 let facetSig = signature facet 
                 in case reference model of
-                   Nothing ->  Model (rotateFace $ cube model)
+                   Nothing ->  Model (rotateFaceCCW $ cube model)
                               (if facetSig `elem` selectables model then targets facet else selectables model)
                               (Just facet)
-                   Just ref ->  Model (rotateFace $ cube model) 
+                   Just ref ->  Model (rotateFaceCCW $ cube model) 
                               (if facetSig `elem` selectables model then [] else selectables model)
                               Nothing
 
