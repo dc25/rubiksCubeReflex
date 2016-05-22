@@ -169,8 +169,8 @@ rotateFaceCW f = copyWithRotation (getRotationMap (west.west.south) f) f
 rotateFaceCCW :: Facet -> Facet
 rotateFaceCCW f = copyWithRotation (getRotationMap (east.east.north) f) f
 
-width = 230
-height = 230
+width = 100
+height = 100
 
 -- | Namespace needed for svg elements.
 svgNamespace = Just "http://www.w3.org/2000/svg"
@@ -189,8 +189,8 @@ showFacetSquare row col margin dColor = do
 showFacetMarker :: MonadWidget t m => Int -> Int -> Float -> Dynamic t Facet -> Dynamic t [FacetSig] -> ReaderT (Dynamic t Model) m [Event t ()]
 showFacetMarker row col margin dFacet dShowList = do
     dSelectableFacet <- mapDyn (\(sSigs, fa) -> const (0 :: Int, "grey") <$> filter (\s -> signature fa == s) sSigs) =<< combineDyn (,) dShowList dFacet
-    moveMap <- mapDyn fromList dSelectableFacet
-    eventsWithKeys <- listWithKey moveMap (\_ color -> showFacetSquare row col margin color)
+    facetMap <- mapDyn fromList dSelectableFacet
+    eventsWithKeys <- listWithKey facetMap (\_ color -> showFacetSquare row col margin color)
 
     return [switch $ (leftmost . concat . elems) <$> current eventsWithKeys]
 
@@ -250,30 +250,24 @@ clearLeft = "style" =: "clear:left"
 
 showCube :: MonadWidget t m => Dynamic t Facet -> ReaderT (Dynamic t Model) m (Event t Action)
 showCube cube = do
-    purpleFace <- mapDyn (west.north) cube
-    purpleClick <- el "div" $ showFace  purpleFace
 
-    yellowFace <- mapDyn (west . west . south) purpleFace
-    yellowClick <- elAttr "div" floatLeft $ showFace yellowFace
+    let advanceSteps = [ west.north
+                       , west . west . south
+                       , north . east . east
+                       , north . east . east
+                       , north . east . east
+                       , west . west . south 
+                       ]
 
-    redFace <- mapDyn (north . east . east) yellowFace
-    redClick <- elAttr "div" floatLeft $ showFace redFace
+        advancer (prevMap, prevFace) step = 
+            let newFace = step prevFace
+                centerColor = val $ (south.south) newFace
+            in (insert centerColor newFace prevMap, newFace) 
 
-    greenFace <- mapDyn (north . east . east) redFace
-    greenClick <- elAttr "div" floatLeft $ showFace greenFace
+    faceMap <- mapDyn (\c -> fst $ foldl advancer (empty, c) advanceSteps) cube
+    eventsWithKeys <- listWithKey faceMap $ const showFace
+    return (switch $ (leftmost . elems) <$> current eventsWithKeys)
 
-    blueFace <- mapDyn (north . east . east) greenFace
-    blueClick <- elAttr "div" floatLeft $ showFace blueFace 
-
-    orangeFace <- mapDyn (west . west . south) yellowFace
-    orangeClick <- elAttr "div" clearLeft $ showFace orangeFace
-
-    return $ leftmost [ purpleClick
-                      , yellowClick
-                      , redClick
-                      , greenClick
-                      , blueClick
-                      , orangeClick ]
 
 view :: MonadWidget t m => Dynamic t Model -> ReaderT (Dynamic t Model) m (Event t Action)
 view model = showCube =<< mapDyn cube model
