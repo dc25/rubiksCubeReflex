@@ -2,7 +2,7 @@
 import Reflex.Dom
 import Data.Map (Map, lookup, insert, empty, fromList, elems)
 import Data.List (foldl)
-import Data.Maybe (maybeToList)
+import Data.Maybe (maybeToList, fromMaybe)
 import Data.Monoid ((<>))
 import Control.Monad.Reader
 
@@ -143,9 +143,8 @@ copyWithRotation rotationMap f =
           (index f)
     where 
         checkForRotation rotationMap startFacet preRotationFacet =
-            case Data.Map.lookup (startFacet, preRotationFacet) rotationMap
-            of Nothing -> preRotationFacet
-               Just postRotationFacet -> postRotationFacet
+            fromMaybe preRotationFacet
+                (Data.Map.lookup (startFacet, preRotationFacet) rotationMap)
 
 getRotationMap :: (Facet -> Facet) -> Facet -> RotationMap
 getRotationMap advanceToPost f =
@@ -195,15 +194,6 @@ showFacetMarker row col margin dFacet dShowList = do
 
     return [switch $ (leftmost . concat . elems) <$> current eventsWithKeys]
 
-showFacetMarkerHole :: MonadWidget t m => Int -> Int -> Float -> Dynamic t Facet -> Dynamic t [FacetSig] -> ReaderT (Dynamic t Model) m [Event t ()]
-showFacetMarkerHole row col margin dFacet dShowList = do
-    dSelectableFacet <- mapDyn (\(sSigs, fa) -> const (0 :: Int, show $ val fa) <$> filter (\s -> signature fa == s) sSigs) =<< combineDyn (,) dShowList dFacet
-    moveMap <- mapDyn fromList dSelectableFacet
-    eventsWithKeys <- listWithKey moveMap (\_ color -> showFacetSquare row col margin color)
-
-    return [switch $ (leftmost . concat . elems) <$> current eventsWithKeys]
-
-
 showFacet :: MonadWidget t m => Int -> Int -> Dynamic t Facet -> ReaderT (Dynamic t Model) m (Event t Action)
 showFacet row col dFacet = do
     dModel <- ask
@@ -211,16 +201,12 @@ showFacet row col dFacet = do
     dFacetColor <- mapDyn (show.val) dFacet
 
     dSelectableSigs <- mapDyn selectables dModel
-    dReferenceSigs <- mapDyn (fmap signature.maybeToList.reference) dModel
 
     outlineClick <- showFacetSquare row col 0.0 $ constDyn "black"
     elClick <- showFacetSquare row col 0.05 dFacetColor
     promptClick <- showFacetMarker row col 0.3 dFacet dSelectableSigs
-    pc2 <- showFacetMarkerHole row col 0.4 dFacet dSelectableSigs
 
-    referenceClick <- showFacetMarker row col 0.3 dFacet dReferenceSigs
-
-    let facetClick = leftmost $ elClick ++ outlineClick ++ promptClick ++ pc2 ++ referenceClick
+    let facetClick = leftmost $ elClick ++ outlineClick ++ promptClick 
 
     return $ attachWith (\a _ -> FacetSelect a)  (current dFacet) facetClick
 
@@ -311,14 +297,16 @@ update action model =
             FacetSelect facet -> 
                 let facetSig = signature facet 
                 in case reference model of
-                   Nothing ->  Model (cube model)
-                                     (if facetSig `elem` selectables model then targets facet else selectables model)
-                                     (Just facet)
-                   Just ref ->  Model ( (if (facet == (west.south) ref) 
-                                         then rotateFaceCCW 
-                                         else rotateFaceCW) $ (south.south) ref) 
-                                      cornerSignatures
-                                      Nothing
+                   Nothing 
+                       | facetSig `elem` selectables model ->
+                             Model (cube model) (targets facet) (Just facet) 
+                       | otherwise -> model
+                   Just ref 
+                       | facet == (west.south) ref ->
+                             Model (rotateFaceCCW $ (south.south) ref) cornerSignatures Nothing 
+                       | facet == (east.east) ref ->
+                             Model (rotateFaceCW  $ (south.south) ref) cornerSignatures Nothing  
+                       | otherwise -> model
 
 initModel = Model mkCube cornerSignatures Nothing
 
