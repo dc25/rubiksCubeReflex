@@ -217,31 +217,31 @@ showFace upperLeft = do
                              <> "width" =: show width
                              <> "height" =: show height)
                    $ do ulClick <- showFacet 0 0 upperLeft 
-                        eOulClick <- showFacet 0 1 =<< mapDyn east upperLeft
+                        eastOfulClick <- showFacet 0 1 =<< mapDyn east upperLeft
 
                         upperRight <- mapDyn (east . east) upperLeft
                         urClick <- showFacet 0 2 upperRight 
-                        eOurClick <- showFacet 1 2 =<< mapDyn east upperRight
+                        eastOfurClick <- showFacet 1 2 =<< mapDyn east upperRight
 
                         lowerRight <- mapDyn (east . east) upperRight
                         lrClick <- showFacet 2 2 lowerRight 
-                        eOlrClick <- showFacet 2 1 =<< mapDyn east lowerRight
+                        eastOflrClick <- showFacet 2 1 =<< mapDyn east lowerRight
 
                         lowerLeft <- mapDyn (east . east) lowerRight
                         llClick <- showFacet 2 0 lowerLeft 
-                        eOllClick <- showFacet 1 0 =<< mapDyn east lowerLeft
+                        eastOfllClick <- showFacet 1 0 =<< mapDyn east lowerLeft
 
                         center <- mapDyn (south . east) upperLeft
                         centerClick <- showFacet 1 1 center 
 
                         return $ leftmost [ ulClick 
-                                          , eOulClick 
+                                          , eastOfulClick 
                                           , urClick 
-                                          , eOurClick 
+                                          , eastOfurClick 
                                           , lrClick 
-                                          , eOlrClick 
+                                          , eastOflrClick 
                                           , llClick 
-                                          , eOllClick 
+                                          , eastOfllClick 
                                           , centerClick ]
     return ev
 
