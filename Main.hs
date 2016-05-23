@@ -1,12 +1,17 @@
 {-# LANGUAGE RecursiveDo #-}
 import Reflex.Dom
 import Data.Map (Map, lookup, insert, empty, fromList, elems)
-import Data.List (foldl)
+import Data.List (foldl, elem)
 import Data.Maybe (maybeToList, fromMaybe)
 import Data.Monoid ((<>))
 import Control.Monad.Reader
 
 data Color = Red | Green | Blue | Yellow | Orange | Purple deriving (Show,Eq,Ord,Enum)
+
+data Vector3 a = Vector3 { x :: a
+                         , y :: a 
+                         , z :: a
+                         }
 
 data DNode a = DNode { north :: DNode a
                      , west  :: DNode a
@@ -264,7 +269,7 @@ showCube cube = do
                 centerColor = val $ (south.south) newFace
             in (insert centerColor newFace prevMap, newFace) 
 
-    faceMap <- mapDyn (\c -> fst $ foldl advancer (empty, c) advanceSteps) cube
+    faceMap <- mapDyn (\c -> fst $ Data.List.foldl advancer (empty, c) advanceSteps) cube
     eventsWithKeys <- listWithKey faceMap $ const showFace
     return (switch $ (leftmost . elems) <$> current eventsWithKeys)
 
@@ -277,6 +282,8 @@ data Action = FacetSelect Facet
 data Model = Model { cube :: Facet 
                    , selectables :: [FacetSig]
                    , reference :: Maybe Facet
+                   , anchorCenter :: Vector3 Float
+                   , northDirection :: Vector3 Float
                    }
 
 cornerSignatures = [(color, index) | color <- [ Red .. Purple ] , index <- [1,3,5,7] ] 
@@ -292,20 +299,20 @@ update action model =
                 let facetSig = signature facet 
                 in case reference model of
                    Nothing 
-                       | facetSig `elem` selectables model ->
-                             Model (cube model) (targets facet) (Just facet) 
+                       | facetSig `Data.List.elem` selectables model ->
+                             Model (cube model) (targets facet) (Just facet) (anchorCenter model) (northDirection model)
                        | otherwise -> model
                    Just ref 
                        | facet == (west.south) ref ->
-                             Model (rotateFaceCCW $ (south.south) ref) cornerSignatures Nothing 
+                             Model (rotateFaceCCW $ (south.south) ref) cornerSignatures Nothing (anchorCenter model) (northDirection model)
                        | facet == (east.east) ref ->
-                             Model (rotateFaceCW  $ (south.south) ref) cornerSignatures Nothing  
+                             Model (rotateFaceCW  $ (south.south) ref) cornerSignatures Nothing  ( anchorCenter model) ( northDirection model)
                        | otherwise -> model
 
-initModel = Model mkCube cornerSignatures Nothing
+initModel = Model mkCube cornerSignatures Nothing (Vector3 0.0 0.0 1.0) (Vector3 0.0 1.0 0.0)
 
 main = mainWidget $ do 
            rec
                selectEvent <- runReaderT (view model) model
-               model <- foldDyn update initModel selectEvent
+               model <- foldDyn Main.update initModel selectEvent
            return ()
