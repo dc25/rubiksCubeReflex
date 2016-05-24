@@ -3,6 +3,7 @@ import Reflex.Dom
 import Data.Map (Map, lookup, insert, empty, fromList, elems)
 import Data.List (foldl, elem)
 import Data.Maybe (maybeToList, fromMaybe)
+import Data.Matrix ()
 import Data.Monoid ((<>))
 import Control.Monad.Reader
 
@@ -127,15 +128,6 @@ mkCube =
         (_,cube,_) = nPurple
     in south cube
 
-copyNode :: Facet -> Facet
-copyNode f = 
-    DNode (copyNode $ north f )
-          (copyNode $ west f )
-          (copyNode $ south f )
-          (copyNode $ east f )
-          (val f)
-          (index f)
-
 type RotationMap = Map (Facet, Facet) Facet 
 
 copyWithRotation :: RotationMap -> Facet -> Facet
@@ -168,8 +160,13 @@ getRotationMap advanceToPost f =
 
     in rotationMap
 
-rotateFaceCW :: Facet -> Facet
-rotateFaceCW f = copyWithRotation (getRotationMap (west.west.south) f) f
+rotateFace :: Direction -> Facet -> Facet
+rotateFace direction f = 
+        let advancer = 
+                if direction == CCW 
+                then east.east.north 
+                else west.west.south
+        in copyWithRotation (getRotationMap advancer f) f
 
 rotateFaceCCW :: Facet -> Facet
 rotateFaceCCW f = copyWithRotation (getRotationMap (east.east.north) f) f
@@ -180,7 +177,7 @@ height = 100
 -- | Namespace needed for svg elements.
 svgNamespace = Just "http://www.w3.org/2000/svg"
 
-showFacetSquare :: MonadWidget t m => Int -> Int -> Float -> Dynamic t String -> ReaderT (Dynamic t Model) m [Event t ()]
+showFacetSquare :: MonadWidget t m => Int -> Int -> Float -> Dynamic t String -> ReaderT (Dynamic t Model) m ()
 showFacetSquare row col margin dColor = do
     attrs <- mapDyn (\color ->    "x" =: show ((fromIntegral col :: Float) + margin)
                                <> "y" =: show ((fromIntegral row :: Float) + margin)
@@ -188,67 +185,73 @@ showFacetSquare row col margin dColor = do
                                <> "height" =: show (1.0 - 2.0 * margin)
                                <> "fill" =: color) dColor
 
-    (el, _) <- elDynAttrNS' svgNamespace "rect" attrs $ return ()
-    return [domEvent Click el]
+    elDynAttrNS' svgNamespace "rect" attrs $ return ()
+    return ()
 
-showFacetMarker :: MonadWidget t m => Int -> Int -> Float -> Dynamic t Facet -> Dynamic t [FacetSig] -> ReaderT (Dynamic t Model) m [Event t ()]
-showFacetMarker row col margin dFacet dShowList = do
-    dSelectableFacet <- mapDyn (\(sSigs, fa) -> const (0 :: Int, "grey") <$> filter (\s -> signature fa == s) sSigs) =<< combineDyn (,) dShowList dFacet
-    facetMap <- mapDyn fromList dSelectableFacet
-    eventsWithKeys <- listWithKey facetMap (\_ color -> showFacetSquare row col margin color)
-
-    return [switch $ (leftmost . concat . elems) <$> current eventsWithKeys]
-
-showFacet :: MonadWidget t m => Int -> Int -> Dynamic t Facet -> ReaderT (Dynamic t Model) m (Event t Action)
+showFacet :: MonadWidget t m => Int -> Int -> Dynamic t Facet -> ReaderT (Dynamic t Model) m ()
 showFacet row col dFacet = do
-    dModel <- ask
-    dSignature <- mapDyn signature dFacet
-    dFacetColor <- mapDyn (show.val) dFacet
+    showFacetSquare row col 0.0 $ constDyn "black"
+    showFacetSquare row col 0.05 =<< mapDyn (show.val) dFacet
 
-    dSelectableSigs <- mapDyn selectables dModel
+showArrow :: MonadWidget t m => Direction -> Dynamic t Facet -> m (Event t ())
+showArrow direction dFcet = do
+       (el,_) <- elDynAttrNS' svgNamespace "polygon" (constDyn $ "fill" =: "grey" 
+                                                               <> "points" =: "0.8,0.8 -0.5,0.8 0.8,0.6") $ return ()
+       return $ domEvent Click el
 
-    outlineClick <- showFacetSquare row col 0.0 $ constDyn "black"
-    elClick <- showFacetSquare row col 0.05 dFacetColor
-    promptClick <- showFacetMarker row col 0.3 dFacet dSelectableSigs
 
-    let facetClick = leftmost $ elClick ++ outlineClick ++ promptClick 
+showArrows :: MonadWidget t m => Dynamic t Facet -> ReaderT (Dynamic t Model) m (Event t Action)
+showArrows dFacet = do
+    arrowMap <- mapDyn (fromList . \fa -> [(CW, fa)]) dFacet
+    eventsWithKeys <- listWithKey arrowMap showArrow
+    let events = switch $ (leftmost . elems) <$> current eventsWithKeys
+    return $ attachWith (\a _ -> RotateFace CCW a)  (current dFacet) events
 
-    return $ attachWith (\a _ -> FacetSelect a)  (current dFacet) facetClick
+
+----showArrows :: MonadWidget t m => Dynamic t Facet -> ReaderT (Dynamic t Model) m (Event t Action)
+----showArrows dFacet = do
+----    let points = [(0.5::Float,0.5::Float),(1.0::Float,1.0::Float),(0.5::Float,1.0::Float)]
+----        pointsAsText = concatMap (\pt -> show (fst pt) ++ "," ++ show (snd pt) ++ " ") points
+----        showArrow direction fa = do
+----            (el,_) <- elDynAttrNS' svgNamespace "polygon" (constDyn $ "fill" =: "grey") $ return ()
+----            return $ fmap (const ()) (domEvent Click el)
+----            -- return (attachWith (\fce _ -> RotateFace direction fce)  (current dFacet) (domEvent Click el))
+----            return never
+----
+----    arrowMap <- mapDyn (fromList . \fa -> [(CW, fa)]) dFacet
+----    eventsWithKeys <- listWithKey arrowMap showArrow
+----    return (switch $ (fmap (leftmost . elems)) <$> current eventsWithKeys)
+----    -- return never
+----
 
 showFace :: MonadWidget t m => Dynamic t Facet -> ReaderT (Dynamic t Model) m (Event t Action)
 showFace upperLeft = do
-    (_, ev) <- elDynAttrNS' svgNamespace "svg" 
-                   (constDyn $  "viewBox" =: "0 0 3 3 "
-                             <> "width" =: show width
-                             <> "height" =: show height)
-                   $ do ulClick <- showFacet 0 0 upperLeft 
-                        eastOfulClick <- showFacet 0 1 =<< mapDyn east upperLeft
+    (_,ev) <- elDynAttrNS' svgNamespace "svg" 
+                (constDyn $  "viewBox" =: "0 0 3 3 "
+                          <> "width" =: show width
+                          <> "height" =: show height)
+                $ do showFacet 0 0 upperLeft 
+                     showFacet 0 1 =<< mapDyn east upperLeft
+         
+                     upperRight <- mapDyn (east . east) upperLeft
+                     showFacet 0 2 upperRight 
+                     showFacet 1 2 =<< mapDyn east upperRight
+         
+                     lowerRight <- mapDyn (east . east) upperRight
+                     showFacet 2 2 lowerRight 
+                     showFacet 2 1 =<< mapDyn east lowerRight
+         
+                     lowerLeft <- mapDyn (east . east) lowerRight
+                     showFacet 2 0 lowerLeft 
+                     showFacet 1 0 =<< mapDyn east lowerLeft
+         
+                     center <- mapDyn (south . east) upperLeft
+                     showFacet 1 1 center 
 
-                        upperRight <- mapDyn (east . east) upperLeft
-                        urClick <- showFacet 0 2 upperRight 
-                        eastOfurClick <- showFacet 1 2 =<< mapDyn east upperRight
-
-                        lowerRight <- mapDyn (east . east) upperRight
-                        lrClick <- showFacet 2 2 lowerRight 
-                        eastOflrClick <- showFacet 2 1 =<< mapDyn east lowerRight
-
-                        lowerLeft <- mapDyn (east . east) lowerRight
-                        llClick <- showFacet 2 0 lowerLeft 
-                        eastOfllClick <- showFacet 1 0 =<< mapDyn east lowerLeft
-
-                        center <- mapDyn (south . east) upperLeft
-                        centerClick <- showFacet 1 1 center 
-
-                        return $ leftmost [ ulClick 
-                                          , eastOfulClick 
-                                          , urClick 
-                                          , eastOfurClick 
-                                          , lrClick 
-                                          , eastOflrClick 
-                                          , llClick 
-                                          , eastOfllClick 
-                                          , centerClick ]
+                     showArrows center
     return ev
+     
+
 
 floatLeft = "style" =: "float:left" 
 clearLeft = "style" =: "clear:left" 
@@ -277,16 +280,13 @@ showCube cube = do
 view :: MonadWidget t m => Dynamic t Model -> ReaderT (Dynamic t Model) m (Event t Action)
 view model = showCube =<< mapDyn cube model
 
-data Action = FacetSelect Facet
+data Direction = CCW | CW deriving (Ord, Eq)
+data Action = RotateFace Direction Facet 
 
 data Model = Model { cube :: Facet 
-                   , selectables :: [FacetSig]
-                   , reference :: Maybe Facet
                    , anchorCenter :: Vector3 Float
                    , northDirection :: Vector3 Float
                    }
-
-cornerSignatures = [(color, index) | color <- [ Red .. Purple ] , index <- [1,3,5,7] ] 
 
 targets :: Facet -> [FacetSig]
 targets f = fmap signature [ (west.south) f, (east.east) f ]
@@ -295,21 +295,10 @@ targets f = fmap signature [ (west.south) f, (east.east) f ]
 update :: Action -> Model -> Model
 update action model = 
         case action of
-            FacetSelect facet -> 
-                let facetSig = signature facet 
-                in case reference model of
-                   Nothing 
-                       | facetSig `Data.List.elem` selectables model ->
-                             Model (cube model) (targets facet) (Just facet) (anchorCenter model) (northDirection model)
-                       | otherwise -> model
-                   Just ref 
-                       | facet == (west.south) ref ->
-                             Model (rotateFaceCCW $ (south.south) ref) cornerSignatures Nothing (anchorCenter model) (northDirection model)
-                       | facet == (east.east) ref ->
-                             Model (rotateFaceCW  $ (south.south) ref) cornerSignatures Nothing  ( anchorCenter model) ( northDirection model)
-                       | otherwise -> model
+            RotateFace direction facet -> 
+                 Model (rotateFace direction facet) (anchorCenter model) (northDirection model)
 
-initModel = Model mkCube cornerSignatures Nothing (Vector3 0.0 0.0 1.0) (Vector3 0.0 1.0 0.0)
+initModel = Model mkCube (Vector3 0.0 0.0 1.0) (Vector3 0.0 1.0 0.0)
 
 main = mainWidget $ do 
            rec
