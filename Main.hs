@@ -160,7 +160,7 @@ getRotationMap advanceToPost f =
 
     in rotationMap
 
-rotateFace :: Direction -> Facet -> Facet
+rotateFace :: Rotation -> Facet -> Facet
 rotateFace direction f = 
         let advancer = 
                 if direction == CCW 
@@ -193,36 +193,23 @@ showFacet row col dFacet = do
     showFacetSquare row col 0.0 $ constDyn "black"
     showFacetSquare row col 0.05 =<< mapDyn (show.val) dFacet
 
-showArrow :: MonadWidget t m => Direction -> Dynamic t Facet -> m (Event t ())
-showArrow direction dFcet = do
-       (el,_) <- elDynAttrNS' svgNamespace "polygon" (constDyn $ "fill" =: "grey" 
-                                                               <> "points" =: "0.8,0.8 -0.5,0.8 0.8,0.6") $ return ()
-       return $ domEvent Click el
+showArrow :: MonadWidget t m => Rotation -> Dynamic t Facet -> ReaderT (Dynamic t Model) m (Event t Action)
+showArrow rotation dFacet = do
+       let pointsString = if rotation == CW 
+                          then "0.7,0.3 0.7,0.7 2.4,0.5"
+                          else "0.3,0.7 0.7,0.7 0.5,2.4"
+       (el,_) <- elDynAttrNS' svgNamespace "polygon" (constDyn $  "fill" =: "grey" 
+                                                               <> "points" =: pointsString) $ return ()
+       return $ attachWith (\a _ -> RotateFace CCW a)  (current dFacet) $ domEvent Click el
 
 
 showArrows :: MonadWidget t m => Dynamic t Facet -> ReaderT (Dynamic t Model) m (Event t Action)
 showArrows dFacet = do
-    arrowMap <- mapDyn (fromList . \fa -> [(CW, fa)]) dFacet
-    eventsWithKeys <- listWithKey arrowMap showArrow
-    let events = switch $ (leftmost . elems) <$> current eventsWithKeys
-    return $ attachWith (\a _ -> RotateFace CCW a)  (current dFacet) events
-
-
-----showArrows :: MonadWidget t m => Dynamic t Facet -> ReaderT (Dynamic t Model) m (Event t Action)
-----showArrows dFacet = do
-----    let points = [(0.5::Float,0.5::Float),(1.0::Float,1.0::Float),(0.5::Float,1.0::Float)]
-----        pointsAsText = concatMap (\pt -> show (fst pt) ++ "," ++ show (snd pt) ++ " ") points
-----        showArrow direction fa = do
-----            (el,_) <- elDynAttrNS' svgNamespace "polygon" (constDyn $ "fill" =: "grey") $ return ()
-----            return $ fmap (const ()) (domEvent Click el)
-----            -- return (attachWith (\fce _ -> RotateFace direction fce)  (current dFacet) (domEvent Click el))
-----            return never
-----
-----    arrowMap <- mapDyn (fromList . \fa -> [(CW, fa)]) dFacet
-----    eventsWithKeys <- listWithKey arrowMap showArrow
-----    return (switch $ (fmap (leftmost . elems)) <$> current eventsWithKeys)
-----    -- return never
-----
+    arrowEventCW <- showArrow CW dFacet 
+    let rotationEventCW = attachWith (\a _ -> RotateFace CW a)  (current dFacet) arrowEventCW
+    arrowEventCCW <- showArrow CCW dFacet 
+    let rotationEventCCW = attachWith (\a _ -> RotateFace CCW a)  (current dFacet) arrowEventCCW
+    return $ leftmost [rotationEventCW, rotationEventCCW]
 
 showFace :: MonadWidget t m => Dynamic t Facet -> ReaderT (Dynamic t Model) m (Event t Action)
 showFace upperLeft = do
@@ -250,8 +237,6 @@ showFace upperLeft = do
 
                      showArrows center
     return ev
-     
-
 
 floatLeft = "style" =: "float:left" 
 clearLeft = "style" =: "clear:left" 
@@ -280,8 +265,8 @@ showCube cube = do
 view :: MonadWidget t m => Dynamic t Model -> ReaderT (Dynamic t Model) m (Event t Action)
 view model = showCube =<< mapDyn cube model
 
-data Direction = CCW | CW deriving (Ord, Eq)
-data Action = RotateFace Direction Facet 
+data Rotation = CCW | CW deriving (Ord, Eq)
+data Action = RotateFace Rotation Facet 
 
 data Model = Model { cube :: Facet 
                    , anchorCenter :: Vector3 Float
