@@ -4,7 +4,7 @@ import Reflex.Dom
 import Data.Map (Map, lookup, insert, empty, fromList, elems)
 import Data.List (foldl, elem)
 import Data.Maybe (maybeToList, fromMaybe)
-import Data.Matrix ()
+import Data.Matrix (Matrix, fromLists)
 import Data.Monoid ((<>))
 import Control.Monad.Reader
 
@@ -242,32 +242,44 @@ showFace upperLeft = do
                      showArrows center
     return ev
 
-floatLeft = "style" =: "float:left" 
-clearLeft = "style" =: "clear:left" 
-
-showCube :: MonadWidget t m => Dynamic t Facet -> m (Event t Action)
-showCube cube = do
-
-    let advanceSteps = [ west.north
-                       , west . west . south
-                       , north . east . east
-                       , north . east . east
-                       , north . east . east
-                       , west . west . south 
-                       ]
-
-        advancer (prevMap, prevFace) step = 
-            let newFace = step prevFace
-                centerColor = val $ (south.south) newFace
-            in (insert centerColor newFace prevMap, newFace) 
-
-    faceMap <- mapDyn (\c -> fst $ foldl advancer (empty, c) advanceSteps) cube
-    eventsWithKeys <- listWithKey faceMap $ const showFace
-    return (switch $ (leftmost . elems) <$> current eventsWithKeys)
-
+getOrientation :: Model -> Matrix Float
+getOrientation model = 
+        let ac@(Vector3 ax ay az) = anchorCenter model
+            nv@(Vector3 nx ny nz) = northDirection model
+            ev@(Vector3 ex ey ez) = nv `cross` ac
+        in fromLists [[ex,ey,ez],
+                      [nx,ny,nz],
+                      [ax,ay,az]
+                      ]
 
 view :: MonadWidget t m => Dynamic t Model -> m (Event t Action)
-view model = showCube =<< mapDyn cube model
+view model = do
+
+    cube <- mapDyn cube model
+    orientation <- mapDyn getOrientation model
+
+    let ev cube orientation = do
+        let advanceSteps :: [(Facet -> Facet, Matrix Float)]
+            advanceSteps = 
+                [ (west . north,        fromLists [[ 0.0, 0.0, 1.0 ]] )  -- purple / top
+                , (west . west . south, fromLists [[ 0.0,-1.0, 0.0 ]] )  -- yellow / front
+                , (north . east . east, fromLists [[ 1.0, 0.0, 0.0 ]] )  -- blue   / right
+                , (north . east . east, fromLists [[ 0.0, 1.0, 0.0 ]] )  -- green  / back
+                , (north . east . east, fromLists [[-1.0, 0.0, 0.0 ]] )  -- red    / left
+                , (west . west . south, fromLists [[ 0.0, 0.0,-1.0 ]] )  -- orange / bottom
+                ]
+
+            advancer (prevMap, prevFace) step = 
+                let newFace = (fst step) prevFace
+                    centerColor = val $ (south.south) newFace
+                in (insert centerColor newFace prevMap, newFace) 
+
+        faceMap <- mapDyn (\c -> fst $ foldl advancer (empty, c) advanceSteps) cube
+        eventsWithKeys <- listWithKey faceMap $ const showFace
+        return (switch $ (leftmost . elems) <$> current eventsWithKeys)
+
+    ev cube orientation
+
 
 data Rotation = CCW | CW deriving (Ord, Eq)
 data Action = RotateFace Rotation Facet 
@@ -291,6 +303,6 @@ initModel = Model mkCube (Vector3 0.0 0.0 1.0) (Vector3 0.0 1.0 0.0)
 
 main = mainWidget $ do 
            rec
-               selectEvent <- view model 
+               selectEvent <- view model
                model <- foldDyn Main.update initModel selectEvent
            return ()
