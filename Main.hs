@@ -1,4 +1,5 @@
 {-# LANGUAGE RecursiveDo #-}
+import Prelude(Eq,Ord(compare),Show,Enum,Num,Float,Int,String,Maybe(Just),fst,const,show,fromIntegral,replicate,concat,(.),($),(+),(-),(*),(==),(<$>))
 import Reflex.Dom
 import Data.Map (Map, lookup, insert, empty, fromList, elems)
 import Data.List (foldl, elem)
@@ -13,6 +14,9 @@ data Vector3 a = Vector3 { x :: a
                          , y :: a 
                          , z :: a
                          }
+
+cross :: Num a => Vector3 a -> Vector3 a -> Vector3 a
+cross (Vector3 x0 y0 z0) (Vector3 x1 y1 z1)= Vector3 (y0*z1 - y1*z0) (z0*x1 - z1*x0) (x0*y1 - x1*y0)
 
 data DNode a = DNode { north :: DNode a
                      , west  :: DNode a
@@ -141,7 +145,7 @@ copyWithRotation rotationMap f =
     where 
         checkForRotation rotationMap startFacet preRotationFacet =
             fromMaybe preRotationFacet
-                (Data.Map.lookup (startFacet, preRotationFacet) rotationMap)
+                (lookup (startFacet, preRotationFacet) rotationMap)
 
 getRotationMap :: (Facet -> Facet) -> Facet -> RotationMap
 getRotationMap advanceToPost f =
@@ -171,8 +175,8 @@ rotateFace direction f =
 rotateFaceCCW :: Facet -> Facet
 rotateFaceCCW f = copyWithRotation (getRotationMap (east.east.north) f) f
 
-width = 100
-height = 100
+width = 175
+height = 175
 
 -- | Namespace needed for svg elements.
 svgNamespace = Just "http://www.w3.org/2000/svg"
@@ -257,7 +261,7 @@ showCube cube = do
                 centerColor = val $ (south.south) newFace
             in (insert centerColor newFace prevMap, newFace) 
 
-    faceMap <- mapDyn (\c -> fst $ Data.List.foldl advancer (empty, c) advanceSteps) cube
+    faceMap <- mapDyn (\c -> fst $ foldl advancer (empty, c) advanceSteps) cube
     eventsWithKeys <- listWithKey faceMap $ const showFace
     return (switch $ (leftmost . elems) <$> current eventsWithKeys)
 
