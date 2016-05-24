@@ -181,7 +181,7 @@ height = 175
 -- | Namespace needed for svg elements.
 svgNamespace = Just "http://www.w3.org/2000/svg"
 
-showFacetSquare :: MonadWidget t m => Int -> Int -> Float -> Dynamic t String -> ReaderT (Dynamic t Model) m ()
+showFacetSquare :: MonadWidget t m => Int -> Int -> Float -> Dynamic t String -> m ()
 showFacetSquare row col margin dColor = do
     attrs <- mapDyn (\color ->    "x" =: show ((fromIntegral col :: Float) + margin)
                                <> "y" =: show ((fromIntegral row :: Float) + margin)
@@ -192,12 +192,12 @@ showFacetSquare row col margin dColor = do
     elDynAttrNS' svgNamespace "rect" attrs $ return ()
     return ()
 
-showFacet :: MonadWidget t m => Int -> Int -> Dynamic t Facet -> ReaderT (Dynamic t Model) m ()
+showFacet :: MonadWidget t m => Int -> Int -> Dynamic t Facet -> m ()
 showFacet row col dFacet = do
     showFacetSquare row col 0.0 $ constDyn "black"
     showFacetSquare row col 0.05 =<< mapDyn (show.val) dFacet
 
-showArrow :: MonadWidget t m => Rotation -> Dynamic t Facet -> ReaderT (Dynamic t Model) m (Event t Action)
+showArrow :: MonadWidget t m => Rotation -> Dynamic t Facet -> m (Event t Action)
 showArrow rotation dFacet = do
        let pointsString = if rotation == CW 
                           then "0.7,0.3 0.7,0.7 2.4,0.5"
@@ -207,7 +207,7 @@ showArrow rotation dFacet = do
        return $ attachWith (\a _ -> RotateFace CCW a)  (current dFacet) $ domEvent Click el
 
 
-showArrows :: MonadWidget t m => Dynamic t Facet -> ReaderT (Dynamic t Model) m (Event t Action)
+showArrows :: MonadWidget t m => Dynamic t Facet -> m (Event t Action)
 showArrows dFacet = do
     arrowEventCW <- showArrow CW dFacet 
     let rotationEventCW = attachWith (\a _ -> RotateFace CW a)  (current dFacet) arrowEventCW
@@ -215,7 +215,7 @@ showArrows dFacet = do
     let rotationEventCCW = attachWith (\a _ -> RotateFace CCW a)  (current dFacet) arrowEventCCW
     return $ leftmost [rotationEventCW, rotationEventCCW]
 
-showFace :: MonadWidget t m => Dynamic t Facet -> ReaderT (Dynamic t Model) m (Event t Action)
+showFace :: MonadWidget t m => Dynamic t Facet -> m (Event t Action)
 showFace upperLeft = do
     (_,ev) <- elDynAttrNS' svgNamespace "svg" 
                 (constDyn $  "viewBox" =: "0 0 3 3 "
@@ -245,7 +245,7 @@ showFace upperLeft = do
 floatLeft = "style" =: "float:left" 
 clearLeft = "style" =: "clear:left" 
 
-showCube :: MonadWidget t m => Dynamic t Facet -> ReaderT (Dynamic t Model) m (Event t Action)
+showCube :: MonadWidget t m => Dynamic t Facet -> m (Event t Action)
 showCube cube = do
 
     let advanceSteps = [ west.north
@@ -266,7 +266,7 @@ showCube cube = do
     return (switch $ (leftmost . elems) <$> current eventsWithKeys)
 
 
-view :: MonadWidget t m => Dynamic t Model -> ReaderT (Dynamic t Model) m (Event t Action)
+view :: MonadWidget t m => Dynamic t Model -> m (Event t Action)
 view model = showCube =<< mapDyn cube model
 
 data Rotation = CCW | CW deriving (Ord, Eq)
@@ -291,6 +291,6 @@ initModel = Model mkCube (Vector3 0.0 0.0 1.0) (Vector3 0.0 1.0 0.0)
 
 main = mainWidget $ do 
            rec
-               selectEvent <- runReaderT (view model) model
+               selectEvent <- view model 
                model <- foldDyn Main.update initModel selectEvent
            return ()
