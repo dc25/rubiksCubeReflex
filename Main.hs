@@ -29,7 +29,6 @@ data DNode a = DNode { north :: DNode a
 type Signature a = (a, Int)
 type FacetSig = Signature Color
 
-
 signature :: DNode a -> Signature a
 signature dn = (val dn, index dn)
 
@@ -41,6 +40,9 @@ instance Ord a => Ord (DNode a) where
 
 type Facet = DNode Color
 type Edge = (Facet,Facet,Facet)
+type Orientation = Matrix Float
+type OrientedCube = (Facet, Orientation)
+type FaceViewKit = (Facet, Matrix Float)
 
 ---                       upperLeft   upperRight
 ---                    ___________________________
@@ -215,13 +217,14 @@ showArrows dFacet = do
     let rotationEventCCW = attachWith (\a _ -> RotateFace CCW a)  (current dFacet) arrowEventCCW
     return $ leftmost [rotationEventCW, rotationEventCCW]
 
-showFace :: MonadWidget t m => Dynamic t Facet -> m (Event t Action)
-showFace upperLeft = do
+showFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
+showFace dViewKit = do
     (_,ev) <- elDynAttrNS' svgNamespace "svg" 
                 (constDyn $  "viewBox" =: "0 0 3 3 "
                           <> "width" =: show width
                           <> "height" =: show height)
-                $ do showFacet 0 0 upperLeft 
+                $ do upperLeft <- mapDyn fst dViewKit
+                     showFacet 0 0 upperLeft
                      showFacet 0 1 =<< mapDyn east upperLeft
          
                      upperRight <- mapDyn (east . east) upperLeft
@@ -242,44 +245,56 @@ showFace upperLeft = do
                      showArrows center
     return ev
 
-getOrientation :: Model -> Matrix Float
-getOrientation model = 
+makeViewKit :: Facet -> Orientation -> Matrix Float -> FaceViewKit
+makeViewKit facet orientation arranger = (facet, orientation)
+
+kitmapUpdate :: Orientation -> (Map Color FaceViewKit, Facet) -> (Facet -> Facet, Matrix Float) -> (Map Color FaceViewKit, Facet) 
+kitmapUpdate orientation (prevMap, prevFace) (advanceFunction, mat)  = 
+    let newFace = advanceFunction prevFace
+        centerColor = val $ (south.south) newFace
+        newViewKit = makeViewKit newFace orientation mat
+        newMap = insert centerColor newViewKit prevMap
+    in (newMap, newFace)
+    
+prepareFaceViews :: OrientedCube -> Map Color FaceViewKit
+prepareFaceViews orientedCube@(startingFace, cubeOrientation) = 
+    let advanceSteps :: [(Facet -> Facet, Matrix Float)]
+        advanceSteps = 
+            [ (west . north,        fromLists [[ 0.0, 0.0, 1.0 ]] )  -- purple / top
+            , (west . west . south, fromLists [[ 0.0,-1.0, 0.0 ]] )  -- yellow / front
+            , (north . east . east, fromLists [[ 1.0, 0.0, 0.0 ]] )  -- blue   / right
+            , (north . east . east, fromLists [[ 0.0, 1.0, 0.0 ]] )  -- green  / back
+            , (north . east . east, fromLists [[-1.0, 0.0, 0.0 ]] )  -- red    / left
+            , (west . west . south, fromLists [[ 0.0, 0.0,-1.0 ]] )  -- orange / bottom
+            ]
+
+        -- for each step, get a face, compute the view kit for that face,
+        -- add the view kit to the map, using color as an index, replace
+        -- the working face with the new face.
+        (faceViewKits,_) = foldl (kitmapUpdate cubeOrientation) (empty, startingFace) advanceSteps
+    in faceViewKits
+
+viewOrientedCube :: MonadWidget t m => Dynamic t OrientedCube -> m (Event t Action)
+viewOrientedCube orientedCube = do
+    faceMap <- mapDyn prepareFaceViews orientedCube
+    eventsWithKeys <- listWithKey faceMap $ const showFace
+    return (switch $ (leftmost . elems) <$> current eventsWithKeys)
+
+orientCube :: Model -> OrientedCube
+orientCube model = 
         let ac@(Vector3 ax ay az) = anchorCenter model
             nv@(Vector3 nx ny nz) = northDirection model
             ev@(Vector3 ex ey ez) = nv `cross` ac
-        in fromLists [[ex,ey,ez],
-                      [nx,ny,nz],
-                      [ax,ay,az]
-                      ]
+            orientation = [[ex,ey,ez]
+                          ,[nx,ny,nz]
+                          ,[ax,ay,az]
+                           ]
+            in (cube model, fromLists orientation)
 
 view :: MonadWidget t m => Dynamic t Model -> m (Event t Action)
 view model = do
-
-    cube <- mapDyn cube model
-    orientation <- mapDyn getOrientation model
-
-    let ev cube orientation = do
-        let advanceSteps :: [(Facet -> Facet, Matrix Float)]
-            advanceSteps = 
-                [ (west . north,        fromLists [[ 0.0, 0.0, 1.0 ]] )  -- purple / top
-                , (west . west . south, fromLists [[ 0.0,-1.0, 0.0 ]] )  -- yellow / front
-                , (north . east . east, fromLists [[ 1.0, 0.0, 0.0 ]] )  -- blue   / right
-                , (north . east . east, fromLists [[ 0.0, 1.0, 0.0 ]] )  -- green  / back
-                , (north . east . east, fromLists [[-1.0, 0.0, 0.0 ]] )  -- red    / left
-                , (west . west . south, fromLists [[ 0.0, 0.0,-1.0 ]] )  -- orange / bottom
-                ]
-
-            advancer (prevMap, prevFace) step = 
-                let newFace = (fst step) prevFace
-                    centerColor = val $ (south.south) newFace
-                in (insert centerColor newFace prevMap, newFace) 
-
-        faceMap <- mapDyn (\c -> fst $ foldl advancer (empty, c) advanceSteps) cube
-        eventsWithKeys <- listWithKey faceMap $ const showFace
-        return (switch $ (leftmost . elems) <$> current eventsWithKeys)
-
-    ev cube orientation
-
+    orientedCube <- mapDyn orientCube model
+    viewOrientedCube orientedCube
 
 data Rotation = CCW | CW deriving (Ord, Eq)
 data Action = RotateFace Rotation Facet 
