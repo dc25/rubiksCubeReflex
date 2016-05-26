@@ -1,10 +1,10 @@
 {-# LANGUAGE RecursiveDo #-}
-import Prelude(Eq,Ord(compare),Show,Enum,Num,Bool(True),Float,Int,String,Maybe(Just),fst,const,show,fromIntegral,replicate,concat,zipWith,sum,take,(.),($),(+),(-),(*),(/),(==),(<),(<$>),(!!))
+import Prelude(Eq,Ord(compare),Show,Enum,Num,Bool(True,False),Float,Int,String,Maybe(Just),fst,const,show,fromIntegral,replicate,concat,zipWith,sum,take,not,(.),($),(+),(-),(*),(/),(==),(<),(>),(<$>),(!!))
 import Reflex.Dom
 import Data.Map (Map, lookup, insert, empty, fromList, elems)
 import Data.List (foldl, elem)
 import Data.Maybe (maybeToList, fromMaybe)
-import Data.Matrix (Matrix, fromLists, toLists, multStd2)
+import Data.Matrix (Matrix, fromLists, toLists, multStd2, multStd)
 import Data.Monoid ((<>))
 import Control.Monad.Reader
 
@@ -48,7 +48,10 @@ type Facet = DNode Color
 type Edge = (Facet,Facet,Facet)
 type Orientation = Matrix Float
 type OrientedCube = (Facet, Orientation)
-type FaceViewKit = (Facet, Bool, Matrix Float)
+data FaceViewKit = FaceViewKit { face :: Facet
+                               , isVisible :: Bool
+                               , transformation :: Matrix Float
+                               }
 
 ---                       upperLeft   upperRight
 ---                    ___________________________
@@ -229,7 +232,7 @@ showFace dViewKit = do
                 (constDyn $  "viewBox" =: "0 0 3 3 "
                           <> "width" =: show width
                           <> "height" =: show height)
-                $ do upperLeft <- mapDyn (\(facet,isViewable, transform) -> facet) dViewKit
+                $ do upperLeft <- mapDyn face dViewKit
                      showFacet 0 0 upperLeft
                      showFacet 0 1 =<< mapDyn east upperLeft
          
@@ -253,34 +256,37 @@ showFace dViewKit = do
 
 makeViewKit :: Facet -> Orientation -> Matrix Float -> FaceViewKit
 makeViewKit facet orientation assemble = 
-    let scale2d :: Float
+    let 
+        scale2d :: Float
         scale2d = 1.0/3.0
         scale2dMatrix = fromLists [ [scale2d, 0,       0,       0]
                                   , [0,       scale2d, 0,       0]
-                                  , [0,       0,       0,       0]
+                                  , [0,       0,       1,       0]
                                   , [0,       0,       0,       1] 
                                   ]
 
         trans2d :: Float
         trans2d = -1.0/2.0
-        trans2dMatrix = fromLists [ [0,       0,       0,       0]
-                                  , [0,       0,       0,       0]
-                                  , [0,       0,       0,       0]
+        trans2dMatrix = fromLists [ [1,       0,       0,       0]
+                                  , [0,       1,       0,       0]
+                                  , [0,       0,       1,       0]
                                   , [trans2d, trans2d, 0,       1] 
                                   ]
 
         scale3d :: Float
-        scale3d = 1.0/3.0
+        scale3d = 1.0/4.0
         scale3dMatrix = fromLists [ [scale3d, 0,       0,       0]
                                   , [0,       scale3d, 0,       0]
                                   , [0,       0,       scale3d, 0]
                                   , [0,       0,       0,       1] 
                                   ]
-        transformation =             scale2dMatrix 
-                          `multStd2` trans2dMatrix 
-                          `multStd2` assemble 
-                          `multStd2` orientation
-                          `multStd2` scale3dMatrix
+
+        transformation =            scale2dMatrix 
+                          `multStd` trans2dMatrix 
+                          `multStd` assemble
+                          `multStd` orientation
+                          `multStd` scale3dMatrix
+
 
         transformationRows = toLists transformation
 
@@ -296,13 +302,10 @@ makeViewKit facet orientation assemble =
         -- perpendicular always points out from surface of cube.
         -- camera vector points in to surface of cube.
         -- For face to be visible, camera vector and perpendicular 
-        -- should be opposed to each other.
-        isViewable = cameraToPlane `dot` perpendicular < 0 
+        -- should be opposed to each other. currently this is not working.
+        isViewable = cameraToPlane `dot` perpendicular < 0.0
 
-    in (facet, isViewable, scale2dMatrix)
-
-isVisible :: FaceViewKit -> Bool
-isVisible viewKit = True
+    in FaceViewKit facet isViewable orientation
 
 kitmapUpdate :: Orientation -> (Map Color FaceViewKit, Facet) -> (Facet -> Facet, Matrix Float) -> (Map Color FaceViewKit, Facet) 
 kitmapUpdate orientation (prevMap, prevFace) (advanceFunction, assemble)  = 
@@ -334,45 +337,53 @@ kitmapUpdate orientation (prevMap, prevFace) (advanceFunction, assemble)  =
 --- |            |
 --- |_____S______|
 
+-- pain point : Missing comma in red matrix caused difficult to diagnose
+-- failure.
 prepareFaceViews :: OrientedCube -> Map Color FaceViewKit
 prepareFaceViews orientedCube@(startingFace, cubeOrientation) = 
     let advanceSteps :: [(Facet -> Facet, Matrix Float)]
         advanceSteps = 
-            [ (west . north,        fromLists [[ 1.0, 0.0, 0.0, 0.0 ]
-                                              ,[ 0.0, 1.0, 0.0, 0.0 ]
-                                              ,[ 0.0, 0.0, 1.0, 0.0 ]
-                                              ,[ 0.0, 0.0, 0.5, 1.0 ] 
-                                              ] )  -- purple / top
+            [ (west . north,        
+               fromLists [[ 1.0, 0.0, 0.0, 0.0 ]
+                         ,[ 0.0, 1.0, 0.0, 0.0 ]
+                         ,[ 0.0, 0.0, 1.0, 0.0 ]
+                         ,[ 0.0, 0.0, 0.5, 1.0 ] 
+                         ] )  -- purple / top
 
-            , (west . west . south, fromLists [[ 1.0, 0.0, 0.0, 0.0 ]
-                                              ,[ 0.0, 0.0, 1.0, 0.0 ]
-                                              ,[ 0.0,-1.0, 0.0, 0.0 ]
-                                              ,[ 0.0,-0.5, 0.0, 1.0 ] 
-                                              ] )  -- yellow / front
+            , (west . west . south, 
+               fromLists [[ 1.0, 0.0, 0.0, 0.0 ]
+                         ,[ 0.0, 0.0, 1.0, 0.0 ]
+                         ,[ 0.0,-1.0, 0.0, 0.0 ]
+                         ,[ 0.0,-0.5, 0.0, 1.0 ] 
+                         ] )  -- yellow / front
 
-            , (north . east . east, fromLists [[ 0.0, 1.0, 0.0, 0.0 ]
-                                              ,[ 0.0, 0.0, 1.0, 0.0 ]
-                                              ,[ 1.0, 0.0, 0.0, 0.0 ]
-                                              ,[ 0.5, 0.0, 0.0, 1.0 ] 
-                                              ] )  -- blue   / right
+            , (north . east . east, 
+               fromLists [[ 0.0, 1.0, 0.0, 0.0 ]
+                         ,[ 0.0, 0.0, 1.0, 0.0 ]
+                         ,[ 1.0, 0.0, 0.0, 0.0 ]
+                         ,[ 0.5, 0.0, 0.0, 1.0 ] 
+                         ] )  -- blue   / right
 
-            , (north . east . east, fromLists [[-1.0, 0.0, 0.0, 0.0 ]
-                                              ,[ 0.0, 0.0, 1.0, 0.0 ]
-                                              ,[ 0.0, 1.0, 0.0, 0.0 ]
-                                              ,[ 0.0, 0.5, 0.0, 1.0 ] 
-                                              ] )  -- green  / back
+            , (north . east . east, 
+               fromLists [[-1.0, 0.0, 0.0, 0.0 ]
+                         ,[ 0.0, 0.0, 1.0, 0.0 ]
+                         ,[ 0.0, 1.0, 0.0, 0.0 ]
+                         ,[ 0.0, 0.5, 0.0, 1.0 ] 
+                         ] )  -- green  / back
 
-            , (north . east . east, fromLists [[ 0.0 -1.0, 0.0, 0.0 ]
-                                              ,[ 0.0, 0.0, 1.0, 0.0 ]
-                                              ,[-1.0, 0.0, 0.0, 0.0 ]
-                                              ,[-0.5, 0.0, 0.0, 1.0 ] 
-                                              ] )  -- red    / left
+            , (north . east . east, 
+               fromLists [[ 0.0,-1.0, 0.0, 0.0 ]
+                         ,[ 0.0, 0.0, 1.0, 0.0 ]
+                         ,[-1.0, 0.0, 0.0, 0.0 ]
+                         ,[-0.5, 0.0, 0.0, 1.0 ] 
+                         ] )  -- red    / left
 
-            , (west . west . south, fromLists [[ 1.0, 0.0, 0.0, 0.0 ]
-                                              ,[ 0.0,-1.0, 0.0, 0.0 ]
-                                              ,[ 0.0, 0.0,-1.0, 0.0 ]
-                                              ,[ 0.0, 0.0,-0.5, 1.0 ] 
-                                              ] )  -- orange / bottom
+            , (west . west . south, 
+               fromLists [[ 1.0, 0.0, 0.0, 0.0 ]
+                         ,[ 0.0,-1.0, 0.0, 0.0 ]
+                         ,[ 0.0, 0.0,-1.0, 0.0 ]
+                         ,[ 0.0, 0.0,-0.5, 1.0 ] 
+                         ] )  -- orange / bottom
 
             ]
 
