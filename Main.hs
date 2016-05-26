@@ -1,22 +1,28 @@
 {-# LANGUAGE RecursiveDo #-}
-import Prelude(Eq,Ord(compare),Show,Enum,Num,Float,Int,String,Maybe(Just),fst,const,show,fromIntegral,replicate,concat,(.),($),(+),(-),(*),(==),(<$>))
+import Prelude(Eq,Ord(compare),Show,Enum,Num,Bool(True),Float,Int,String,Maybe(Just),fst,const,show,fromIntegral,replicate,concat,zipWith,sum,take,(.),($),(+),(-),(*),(/),(==),(<),(<$>),(!!))
 import Reflex.Dom
 import Data.Map (Map, lookup, insert, empty, fromList, elems)
 import Data.List (foldl, elem)
 import Data.Maybe (maybeToList, fromMaybe)
-import Data.Matrix (Matrix, fromLists)
+import Data.Matrix (Matrix, fromLists, toLists, multStd2)
 import Data.Monoid ((<>))
 import Control.Monad.Reader
 
 data Color = Red | Green | Blue | Yellow | Orange | Purple deriving (Show,Eq,Ord,Enum)
 
-data Vector3 a = Vector3 { x :: a
-                         , y :: a 
-                         , z :: a
-                         }
+type Vector a = [a]
 
-cross :: Num a => Vector3 a -> Vector3 a -> Vector3 a
-cross (Vector3 x0 y0 z0) (Vector3 x1 y1 z1)= Vector3 (y0*z1 - y1*z0) (z0*x1 - z1*x0) (x0*y1 - x1*y0)
+cross :: Num a => Vector a -> Vector a -> Vector a
+cross [x0,y0,z0] [x1,y1,z1] = [y0*z1 - z0*y1
+                              ,z0*x1 - x0*z1
+                              ,x0*y1 - y0*x1
+                              ]
+
+dot :: Num a => Vector a -> Vector a -> a
+dot v0 v1 = sum $ zipWith (*) v0 v1
+
+vMinus :: Num a => Vector a -> Vector a -> Vector a
+vMinus = zipWith (-) 
 
 data DNode a = DNode { north :: DNode a
                      , west  :: DNode a
@@ -42,7 +48,7 @@ type Facet = DNode Color
 type Edge = (Facet,Facet,Facet)
 type Orientation = Matrix Float
 type OrientedCube = (Facet, Orientation)
-type FaceViewKit = (Facet, Matrix Float)
+type FaceViewKit = (Facet, Bool, Matrix Float)
 
 ---                       upperLeft   upperRight
 ---                    ___________________________
@@ -223,7 +229,7 @@ showFace dViewKit = do
                 (constDyn $  "viewBox" =: "0 0 3 3 "
                           <> "width" =: show width
                           <> "height" =: show height)
-                $ do upperLeft <- mapDyn fst dViewKit
+                $ do upperLeft <- mapDyn (\(facet,isViewable, transform) -> facet) dViewKit
                      showFacet 0 0 upperLeft
                      showFacet 0 1 =<< mapDyn east upperLeft
          
@@ -246,26 +252,128 @@ showFace dViewKit = do
     return ev
 
 makeViewKit :: Facet -> Orientation -> Matrix Float -> FaceViewKit
-makeViewKit facet orientation arranger = (facet, orientation)
+makeViewKit facet orientation assemble = 
+    let scale2d :: Float
+        scale2d = 1.0/3.0
+        scale2dMatrix = fromLists [ [scale2d, 0,       0,       0]
+                                  , [0,       scale2d, 0,       0]
+                                  , [0,       0,       0,       0]
+                                  , [0,       0,       0,       1] 
+                                  ]
+
+        trans2d :: Float
+        trans2d = -1.0/2.0
+        trans2dMatrix = fromLists [ [0,       0,       0,       0]
+                                  , [0,       0,       0,       0]
+                                  , [0,       0,       0,       0]
+                                  , [trans2d, trans2d, 0,       1] 
+                                  ]
+
+        scale3d :: Float
+        scale3d = 1.0/3.0
+        scale3dMatrix = fromLists [ [scale3d, 0,       0,       0]
+                                  , [0,       scale3d, 0,       0]
+                                  , [0,       0,       scale3d, 0]
+                                  , [0,       0,       0,       1] 
+                                  ]
+        transformation =             scale2dMatrix 
+                          `multStd2` trans2dMatrix 
+                          `multStd2` assemble 
+                          `multStd2` orientation
+                          `multStd2` scale3dMatrix
+
+        transformationRows = toLists transformation
+
+        -- for backface elimination, perpendicular can be taken from third
+        -- row ( where z axis projects to before applying any transformations) 
+        -- and point on plane can be taken from row 4 ( where origin evaluates to ).
+        perpendicular = take 3 $ transformationRows !! 2
+        pointOnPlane = take 3 $ transformationRows !! 3
+
+        viewPoint = [0.0,0.0,-1.0]
+        cameraToPlane = pointOnPlane `vMinus` viewPoint
+
+        -- perpendicular always points out from surface of cube.
+        -- camera vector points in to surface of cube.
+        -- For face to be visible, camera vector and perpendicular 
+        -- should be opposed to each other.
+        isViewable = cameraToPlane `dot` perpendicular < 0 
+
+    in (facet, isViewable, scale2dMatrix)
+
+isVisible :: FaceViewKit -> Bool
+isVisible viewKit = True
 
 kitmapUpdate :: Orientation -> (Map Color FaceViewKit, Facet) -> (Facet -> Facet, Matrix Float) -> (Map Color FaceViewKit, Facet) 
-kitmapUpdate orientation (prevMap, prevFace) (advanceFunction, mat)  = 
+kitmapUpdate orientation (prevMap, prevFace) (advanceFunction, assemble)  = 
     let newFace = advanceFunction prevFace
         centerColor = val $ (south.south) newFace
-        newViewKit = makeViewKit newFace orientation mat
-        newMap = insert centerColor newViewKit prevMap
+        newViewKit = makeViewKit newFace orientation assemble
+        newMap = if isVisible newViewKit 
+                 then insert centerColor newViewKit prevMap
+                 else prevMap
     in (newMap, newFace)
     
+--- ______________
+--- |     N      |
+--- |            |
+--- |W  purple  E|
+--- |            |
+--- |            |
+--- |_____S_____ |_______________________________________
+--- |     N      |     N      |     N      |     N      |
+--- |            |            |            |            |
+--- |W  yellow  E|W   blue   E|W   green  E|W   red    E|
+--- |            |            |            |            |
+--- |            |            |            |            |
+--- |_____S______|_____S______|_____S______|_____S______|
+--- |     N      |
+--- |            |
+--- |W  orange  E|
+--- |            |
+--- |            |
+--- |_____S______|
+
 prepareFaceViews :: OrientedCube -> Map Color FaceViewKit
 prepareFaceViews orientedCube@(startingFace, cubeOrientation) = 
     let advanceSteps :: [(Facet -> Facet, Matrix Float)]
         advanceSteps = 
-            [ (west . north,        fromLists [[ 0.0, 0.0, 1.0 ]] )  -- purple / top
-            , (west . west . south, fromLists [[ 0.0,-1.0, 0.0 ]] )  -- yellow / front
-            , (north . east . east, fromLists [[ 1.0, 0.0, 0.0 ]] )  -- blue   / right
-            , (north . east . east, fromLists [[ 0.0, 1.0, 0.0 ]] )  -- green  / back
-            , (north . east . east, fromLists [[-1.0, 0.0, 0.0 ]] )  -- red    / left
-            , (west . west . south, fromLists [[ 0.0, 0.0,-1.0 ]] )  -- orange / bottom
+            [ (west . north,        fromLists [[ 1.0, 0.0, 0.0, 0.0 ]
+                                              ,[ 0.0, 1.0, 0.0, 0.0 ]
+                                              ,[ 0.0, 0.0, 1.0, 0.0 ]
+                                              ,[ 0.0, 0.0, 0.5, 1.0 ] 
+                                              ] )  -- purple / top
+
+            , (west . west . south, fromLists [[ 1.0, 0.0, 0.0, 0.0 ]
+                                              ,[ 0.0, 0.0, 1.0, 0.0 ]
+                                              ,[ 0.0,-1.0, 0.0, 0.0 ]
+                                              ,[ 0.0,-0.5, 0.0, 1.0 ] 
+                                              ] )  -- yellow / front
+
+            , (north . east . east, fromLists [[ 0.0, 1.0, 0.0, 0.0 ]
+                                              ,[ 0.0, 0.0, 1.0, 0.0 ]
+                                              ,[ 1.0, 0.0, 0.0, 0.0 ]
+                                              ,[ 0.5, 0.0, 0.0, 1.0 ] 
+                                              ] )  -- blue   / right
+
+            , (north . east . east, fromLists [[-1.0, 0.0, 0.0, 0.0 ]
+                                              ,[ 0.0, 0.0, 1.0, 0.0 ]
+                                              ,[ 0.0, 1.0, 0.0, 0.0 ]
+                                              ,[ 0.0, 0.5, 0.0, 1.0 ] 
+                                              ] )  -- green  / back
+
+            , (north . east . east, fromLists [[ 0.0 -1.0, 0.0, 0.0 ]
+                                              ,[ 0.0, 0.0, 1.0, 0.0 ]
+                                              ,[-1.0, 0.0, 0.0, 0.0 ]
+                                              ,[-0.5, 0.0, 0.0, 1.0 ] 
+                                              ] )  -- red    / left
+
+            , (west . west . south, fromLists [[ 1.0, 0.0, 0.0, 0.0 ]
+                                              ,[ 0.0,-1.0, 0.0, 0.0 ]
+                                              ,[ 0.0, 0.0,-1.0, 0.0 ]
+                                              ,[ 0.0, 0.0,-0.5, 1.0 ] 
+                                              ] )  -- orange / bottom
+
             ]
 
         -- for each step, get a face, compute the view kit for that face,
@@ -282,13 +390,14 @@ viewOrientedCube orientedCube = do
 
 orientCube :: Model -> OrientedCube
 orientCube model = 
-        let ac@(Vector3 ax ay az) = anchorCenter model
-            nv@(Vector3 nx ny nz) = northDirection model
-            ev@(Vector3 ex ey ez) = nv `cross` ac
-            orientation = [[ex,ey,ez]
-                          ,[nx,ny,nz]
-                          ,[ax,ay,az]
-                           ]
+        let ac@[ax,ay,az] = perpendicular model
+            nv@[nx,ny,nz] = northDirection model
+            ev@[ex,ey,ez] = nv `cross` ac
+            orientation = [[ ex,  ey,  ez, 0.0]
+                          ,[ nx,  ny,  nz, 0.0]
+                          ,[ ax,  ay,  az, 0.0]
+                          ,[0.0, 0.0, 0.0, 1.0]
+                          ]
             in (cube model, fromLists orientation)
 
 view :: MonadWidget t m => Dynamic t Model -> m (Event t Action)
@@ -300,8 +409,8 @@ data Rotation = CCW | CW deriving (Ord, Eq)
 data Action = RotateFace Rotation Facet 
 
 data Model = Model { cube :: Facet 
-                   , anchorCenter :: Vector3 Float
-                   , northDirection :: Vector3 Float
+                   , perpendicular :: Vector Float
+                   , northDirection :: Vector Float
                    }
 
 targets :: Facet -> [FacetSig]
@@ -312,9 +421,9 @@ update :: Action -> Model -> Model
 update action model = 
         case action of
             RotateFace direction facet -> 
-                 Model (rotateFace direction facet) (anchorCenter model) (northDirection model)
+                 Model (rotateFace direction facet) (perpendicular model) (northDirection model)
 
-initModel = Model mkCube (Vector3 0.0 0.0 1.0) (Vector3 0.0 1.0 0.0)
+initModel = Model mkCube [0.0,0.0,1.0]  [0.0,1.0,0.0] 
 
 main = mainWidget $ do 
            rec
