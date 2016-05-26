@@ -302,7 +302,7 @@ makeViewKit facet orientation assemble =
         -- perpendicular always points out from surface of cube.
         -- camera vector points in to surface of cube.
         -- For face to be visible, camera vector and perpendicular 
-        -- should be opposed to each other. currently this is not working.
+        -- should be opposed to each other. 
         isViewable = cameraToPlane `dot` perpendicular < 0.0
 
     in FaceViewKit facet isViewable orientation
