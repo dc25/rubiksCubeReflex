@@ -1,5 +1,5 @@
 {-# LANGUAGE RecursiveDo #-}
-import Prelude(Eq,Ord(compare),Show,Enum,Num,Bool(True,False),Float,Int,String,Maybe(Just),fst,const,show,fromIntegral,replicate,concat,zipWith,sum,take,not,(.),($),(+),(-),(*),(/),(==),(<),(>),(<$>),(!!))
+import Prelude(Eq,Ord(compare),Show,Enum,Num,Bool(True,False),Float,Int,String,Maybe(Just),fst,const,show,fromIntegral,replicate,concat,zipWith,sum,take,not,(.),($),(+),(-),(*),(/),(==),(<),(>),(<$>),(!!),(++))
 import Reflex.Dom
 import Data.Map (Map, lookup, insert, empty, fromList, elems)
 import Data.List (foldl, elem)
@@ -186,8 +186,8 @@ rotateFace direction f =
 rotateFaceCCW :: Facet -> Facet
 rotateFaceCCW f = copyWithRotation (getRotationMap (east.east.north) f) f
 
-width = 175
-height = 175
+width = 300
+height = 300
 
 -- | Namespace needed for svg elements.
 svgNamespace = Just "http://www.w3.org/2000/svg"
@@ -205,18 +205,29 @@ showFacetSquare row col margin dColor = do
 
 showFacet :: MonadWidget t m => Int -> Int -> Dynamic t FaceViewKit -> m ()
 showFacet row col dFaceViewKit = do
-    showFacetSquare row col 0.0 $ constDyn "black"
-    showFacetSquare row col 0.05 =<< mapDyn (show.val.face) dFaceViewKit
+    return ()
+    -- showFacetSquare row col 0.0 $ constDyn "black"
+    -- showFacetSquare row col 0.05 =<< mapDyn (show.val.face) dFaceViewKit
+
+transformPoints :: [(Float,Float)] -> Matrix Float -> [(Float,Float)]
+transformPoints points transform = 
+    let points4d = fmap (\(x,y) -> fromLists[[x,y,0.0,1.0]]) points 
+        result4d = fmap (\p -> toLists $ multStd2 p transform) points4d
+        result2d = fmap (\[[x,y,z,w]] -> (x/w,y/w)) result4d
+
+    in result2d
 
 showArrow :: MonadWidget t m => Rotation -> Dynamic t FaceViewKit -> m (Event t ())
 showArrow rotation dFaceViewKit = do
-       dFacet <- mapDyn face dFaceViewKit
-       let pointsString = if rotation == CW 
-                          then "0.7,0.3 0.7,0.7 2.4,0.5"
-                          else "0.3,0.7 0.7,0.7 0.5,2.4"
-       (el,_) <- elDynAttrNS' svgNamespace "polygon" (constDyn $  "fill" =: "grey" 
-                                                               <> "points" =: pointsString) $ return ()
-       return $ domEvent Click el
+    let points = if rotation == CW 
+                 then [(0.7,0.3), (0.7,0.7), (2.4,0.5)]
+                 else [(0.3,0.7), (0.7,0.7), (0.5,2.4)]
+    dTransform <- mapDyn transform dFaceViewKit
+    dTransformedPoints <- mapDyn (transformPoints points) dTransform
+    dPointsString <- mapDyn (concat . fmap (\(x,y) -> show x ++ ", " ++ show y ++ " ")) dTransformedPoints
+    dAttrs <- mapDyn (\ps -> "fill" =: "grey"  <> "points" =: ps) dPointsString
+    (el,_) <- elDynAttrNS' svgNamespace "polygon" dAttrs $ return ()
+    return $ domEvent Click el
 
 
 showArrows :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
@@ -231,7 +242,7 @@ showArrows dFaceViewKit = do
 showFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
 showFace upperLeft = do
     (_,ev) <- elDynAttrNS' svgNamespace "svg" 
-                (constDyn $  "viewBox" =: "0 0 3 3 "
+                (constDyn $  "viewBox" =: "-1.0 -1.0 2.0 2.0"
                           <> "width" =: show width
                           <> "height" =: show height)
                 $ do  -- maybe could use a fold or something for this.
@@ -288,7 +299,7 @@ makeViewKit facet orientation assemble =
                                   ]
 
         scale3d :: Float
-        scale3d = 1.0/4.0
+        scale3d = 1.0
         scale3dMatrix = fromLists [ [scale3d, 0,       0,       0]
                                   , [0,       scale3d, 0,       0]
                                   , [0,       0,       scale3d, 0]
