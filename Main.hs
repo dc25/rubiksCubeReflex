@@ -186,8 +186,8 @@ rotateFace rotation f =
 rotateFaceCCW :: Facet -> Facet
 rotateFaceCCW f = copyWithRotation (getRotationMap (east.east.north) f) f
 
-width = 400
-height = 400
+width = 600
+height = 600
 
 -- | Namespace needed for svg elements.
 svgNamespace = Just "http://www.w3.org/2000/svg"
@@ -438,12 +438,12 @@ orientCube model =
             in (cube model, fromLists orientation)
 
 view :: MonadWidget t m => Dynamic t Model -> m (Event t Action)
-view model = do
+view model = 
     el "div" $ do
-        leftEv <- fmap (const $ NudgeCube Left) <$> (el "div" $ button "left" )
-        rightEv <- fmap (const $ NudgeCube Right) <$> (el "div" $ button "right" )
-        upEv <- fmap (const $ NudgeCube Up) <$> (el "div" $ button "up")
-        downEv <- fmap (const $ NudgeCube Down) <$> (el "div" $ button "down" )
+        leftEv <- fmap (const $ NudgeCube Left) <$> el "div" (button "left" )
+        rightEv <- fmap (const $ NudgeCube Right) <$> el "div" ( button "right" )
+        upEv <- fmap (const $ NudgeCube Up) <$>  el "div" ( button "up")
+        downEv <- fmap (const $ NudgeCube Down) <$> el "div" (button "down" )
         (_,ev) <- elDynAttrNS' svgNamespace "svg" 
                     (constDyn $  "viewBox" =: "-1.0 -1.0 2.0 2.0"
                               <> "width" =: show width
@@ -465,32 +465,35 @@ data Model = Model { cube :: Facet
 targets :: Facet -> [FacetSig]
 targets f = fmap signature [ (west.south) f, (east.east) f ]
 
--- pain point : do I pay for making these limited scope?   
+-- pain point : would I pay for making these limited scope?   
 rotationStep = pi/100.0
+cStep :: Float
+sStep :: Float
 cStep = cos rotationStep
 sStep = sin rotationStep
 
 -- left and right hold y axis const, rotate x,z
-leftRotation = fromLists [ [ cStep,  0, -sStep]
-                         , [     0,  1,     0]
-                         , [ sStep,  0, cStep] 
+leftRotation = fromLists [ [cStep,    0,   -sStep]
+                         , [    0,    1,        0]
+                         , [sStep,    0,    cStep] 
                          ]
 
-rightRotation = fromLists [ [ cStep,  0, sStep]
-                          , [     0,  1,     0 ]
-                          , [ -sStep,  0,  cStep] 
+rightRotation = fromLists [ [cStep,  0,   sStep]
+                          , [    0,  1,       0]
+                          , [-sStep, 0,   cStep] 
                           ]
 
 -- up and down hold x axis const, rotate y,z
-upRotation = fromLists [ [ 0, cStep,  sStep]
-                       , [ 1,     0,      0]
-                       , [ 0, -sStep, cStep] 
+
+upRotation = fromLists [ [1,      0,      0]
+                       , [0,  cStep, -sStep]
+                       , [0,  sStep,  cStep] 
                        ]
 
-downRotation = fromLists [ [ 0, cStep,  -sStep]
-                       , [ 1,     0,      0]
-                       , [ 0, sStep, cStep] 
-                       ]
+downRotation = fromLists [ [1,     0,      0]
+                         , [0,  cStep,  sStep]
+                         , [0, -sStep,  cStep] 
+                         ]
 
 applyRotation :: Matrix Float -> [Float] -> [Float]
 applyRotation rotationMatrix  vec = 
