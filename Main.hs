@@ -278,60 +278,50 @@ updateViewKit advancer prevViewKit = prevViewKit { face = advancer $ face prevVi
 makeViewKit :: Facet -> Orientation -> Matrix Float -> FaceViewKit
 makeViewKit facet orientation assemble = 
     let 
-        scale2d :: Float
-        scale2d = 1.0/3.0
+        scale2d = 1.0/3.0  -- scale from 3x3 square face to 1x1 square face.
         scale2dMatrix = fromLists [ [scale2d, 0,       0,       0]
                                   , [0,       scale2d, 0,       0]
                                   , [0,       0,       1,       0]
                                   , [0,       0,       0,       1] 
                                   ]
 
-        trans2d :: Float
-        trans2d = -1.0/2.0
+        trans2d = -1.0/2.0  -- translate center of 1x1 square face to origin.
         trans2dMatrix = fromLists [ [1,       0,       0,       0]
                                   , [0,       1,       0,       0]
                                   , [0,       0,       1,       0]
                                   , [trans2d, trans2d, 0,       1] 
                                   ]
 
-        scale3d :: Float
-        scale3d = 1.0
-        scale3dMatrix = fromLists [ [scale3d, 0,       0,       0]
-                                  , [0,       scale3d, 0,       0]
-                                  , [0,       0,       scale3d, 0]
-                                  , [0,       0,       0,       1] 
-                                  ]
-
         modelTransform =            scale2dMatrix 
                               `multStd2` trans2dMatrix 
                               `multStd2` assemble
                               `multStd2` orientation
-                              `multStd2` scale3dMatrix
 
 
-        transformRows = toLists modelTransform
 
         -- for backface elimination, perpendicular can be taken from third
         -- row ( where z axis projects to before applying any transforms) 
         -- and point on plane can be taken from row 4 ( where origin evaluates to ).
+        transformRows = toLists modelTransform
         perpendicular = take 3 $ transformRows !! 2
         pointOnPlane = take 3 $ transformRows !! 3
-
-        viewPoint = [0.0,0.0,-1.0]
-        cameraToPlane = pointOnPlane `vMinus` viewPoint
 
         -- perpendicular always points out from surface of cube.
         -- camera vector points in to surface of cube.
         -- For face to be visible, camera vector and perpendicular 
         -- should be opposed to each other. 
+        viewPoint = [0.0,0.0,-1.0]
+        cameraToPlane = pointOnPlane `vMinus` viewPoint
         isViewable = cameraToPlane `dot` perpendicular < 0.0
 
+        -- translate model to (0,0,1) for perspective viewing
         perspectivePrep = fromLists [ [1,       0,       0,       0]
                                     , [0,       1,       0,       0]
                                     , [0,       0,       1,       0]
                                     , [0,       0,       1,       1] 
                                     ]
 
+        -- perspective transformation - as simple as I can make it.
         perspective     = fromLists [ [1,       0,       0,       0]
                                     , [0,       1,       0,       0]
                                     , [0,       0,       0,       1]
@@ -484,4 +474,3 @@ main = mainWidget $ do
                selectEvent <- view model
                model <- foldDyn Main.update initModel selectEvent
            return ()
-
