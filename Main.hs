@@ -192,39 +192,47 @@ height = 300
 -- | Namespace needed for svg elements.
 svgNamespace = Just "http://www.w3.org/2000/svg"
 
-showFacetSquare :: MonadWidget t m => Int -> Int -> Float -> Dynamic t String -> m ()
-showFacetSquare row col margin dColor = do
-    attrs <- mapDyn (\color ->    "x" =: show ((fromIntegral col :: Float) + margin)
-                               <> "y" =: show ((fromIntegral row :: Float) + margin)
-                               <> "width" =: show (1.0 - 2.0 * margin)
-                               <> "height" =: show (1.0 - 2.0 * margin)
-                               <> "fill" =: color) dColor
-
-    elDynAttrNS' svgNamespace "rect" attrs $ return ()
-    return ()
-
-showFacet :: MonadWidget t m => Int -> Int -> Dynamic t FaceViewKit -> m ()
-showFacet row col dFaceViewKit = do
-    return ()
-    -- showFacetSquare row col 0.0 $ constDyn "black"
-    -- showFacetSquare row col 0.05 =<< mapDyn (show.val.face) dFaceViewKit
-
-transformPoints :: [(Float,Float)] -> Matrix Float -> [(Float,Float)]
-transformPoints points transform = 
+transformPoints :: Matrix Float -> [(Float,Float)] -> [(Float,Float)]
+transformPoints transform points = 
     let points4d = fmap (\(x,y) -> fromLists[[x,y,0.0,1.0]]) points 
         result4d = fmap (\p -> toLists $ multStd2 p transform) points4d
         result2d = fmap (\[[x,y,z,w]] -> (x/w,y/w)) result4d
 
     in result2d
 
+pointsToString :: [(Float,Float)] -> String
+pointsToString points = concat $ fmap (\(x,y) -> show x ++ ", " ++ show y ++ " ") points
+
+showFacetSquare :: MonadWidget t m => Int -> Int -> Float -> Dynamic t FaceViewKit -> m ()
+showFacetSquare row col margin dFaceViewKit = do
+
+    let x0 :: Float
+        y0 :: Float
+        x1 :: Float
+        y1 :: Float
+        x0 = fromIntegral col
+        y0 = fromIntegral row
+        x1 = x0 + 1.0
+        y1 = y0 + 1.0
+        points = [(x0,y0),(x0,y1),(x1,y1),(x1,y0)]
+    dAttrs <- mapDyn (\fvk -> "fill" =: (show.val.face) fvk  <> 
+                              "points" =: (pointsToString (transformPoints (transform fvk) points)))  dFaceViewKit
+    (el,_) <- elDynAttrNS' svgNamespace "polygon" dAttrs $ return ()
+    return ()
+
+showFacet :: MonadWidget t m => Int -> Int -> Dynamic t FaceViewKit -> m ()
+showFacet row col dFaceViewKit = do
+    return ()
+    -- showFacetSquare row col 0.0 $ constDyn "black"
+    showFacetSquare row col 0.05 dFaceViewKit
+
 showArrow :: MonadWidget t m => Rotation -> Dynamic t FaceViewKit -> m (Event t ())
 showArrow rotation dFaceViewKit = do
     let points = if rotation == CW 
                  then [(0.7,0.3), (0.7,0.7), (2.4,0.5)]
                  else [(0.3,0.7), (0.7,0.7), (0.5,2.4)]
-    dTransform <- mapDyn transform dFaceViewKit
-    dTransformedPoints <- mapDyn (transformPoints points) dTransform
-    dPointsString <- mapDyn (concat . fmap (\(x,y) -> show x ++ ", " ++ show y ++ " ")) dTransformedPoints
+    dTransformedPoints <- mapDyn (\ftk -> transformPoints (transform ftk) points) dFaceViewKit
+    dPointsString <- mapDyn pointsToString dTransformedPoints
     dAttrs <- mapDyn (\ps -> "fill" =: "grey"  <> "points" =: ps) dPointsString
     (el,_) <- elDynAttrNS' svgNamespace "polygon" dAttrs $ return ()
     return $ domEvent Click el
