@@ -1,5 +1,5 @@
 {-# LANGUAGE RecursiveDo #-}
-import Prelude(Eq,Ord(compare),Show,Enum,Num,Bool(True,False),Float,Int,String,Maybe(Just),fst,const,show,fromIntegral,replicate,concat,zipWith,sum,take,not,(.),($),(+),(-),(*),(/),(==),(<),(>),(<$>),(!!),(++))
+import Prelude(Eq,Ord(compare),Show,Enum,Num,Bool(True,False),Float,Int,String,Maybe(Just),fst,const,show,fromIntegral,replicate,concat,zipWith,sum,take,not,pi,sin,cos,head,(.),($),(+),(-),(*),(/),(==),(<),(>),(<$>),(!!),(++))
 import Reflex.Dom
 import Data.Map (Map, lookup, insert, empty, fromList, elems)
 import Data.List (foldl, elem)
@@ -176,9 +176,9 @@ getRotationMap advanceToPost f =
     in rotationMap
 
 rotateFace :: Rotation -> Facet -> Facet
-rotateFace direction f = 
+rotateFace rotation f = 
         let advancer = 
-                if direction == CCW 
+                if rotation == CCW 
                 then east.east.north 
                 else west.west.south
         in copyWithRotation (getRotationMap advancer f) f
@@ -439,18 +439,23 @@ orientCube model =
 
 view :: MonadWidget t m => Dynamic t Model -> m (Event t Action)
 view model = do
-    (_,ev) <- elDynAttrNS' svgNamespace "svg" 
-                (constDyn $  "viewBox" =: "-1.0 -1.0 2.0 2.0"
-                          <> "width" =: show width
-                          <> "height" =: show height) $ do
-        orientedCube <- mapDyn orientCube model
-        viewOrientedCube orientedCube
-    return ev
+    el "div" $ do
+        leftEv <- fmap (const $ NudgeCube Left) <$> (el "div" $ button "left" )
+        rightEv <- fmap (const $ NudgeCube Right) <$> (el "div" $ button "right" )
+        upEv <- fmap (const $ NudgeCube Up) <$> (el "div" $ button "up")
+        downEv <- fmap (const $ NudgeCube Down) <$> (el "div" $ button "down" )
+        (_,ev) <- elDynAttrNS' svgNamespace "svg" 
+                    (constDyn $  "viewBox" =: "-1.0 -1.0 2.0 2.0"
+                              <> "width" =: show width
+                              <> "height" =: show height) $ do
+            orientedCube <- mapDyn orientCube model
+            viewOrientedCube orientedCube
+        return $ leftmost [ev, leftEv, rightEv, upEv, downEv]
 
 data Rotation = CCW | CW deriving Eq
 data Direction = Up | Down | Left | Right 
 
-data Action = ReorientCube Direction | RotateFace Rotation Facet 
+data Action = NudgeCube Direction | RotateFace Rotation Facet 
 
 data Model = Model { cube :: Facet 
                    , perpendicular :: Vector Float
@@ -460,12 +465,56 @@ data Model = Model { cube :: Facet
 targets :: Facet -> [FacetSig]
 targets f = fmap signature [ (west.south) f, (east.east) f ]
 
+-- pain point : do I pay for making these limited scope?   
+rotationStep = pi/100.0
+cStep = cos rotationStep
+sStep = sin rotationStep
+
+-- left and right hold y axis const, rotate x,z
+leftRotation = fromLists [ [ cStep,  0, -sStep]
+                         , [     0,  1,     0]
+                         , [ sStep,  0, cStep] 
+                         ]
+
+rightRotation = fromLists [ [ cStep,  0, sStep]
+                          , [     0,  1,     0 ]
+                          , [ -sStep,  0,  cStep] 
+                          ]
+
+-- up and down hold x axis const, rotate y,z
+upRotation = fromLists [ [ 0, cStep,  sStep]
+                       , [ 1,     0,      0]
+                       , [ 0, -sStep, cStep] 
+                       ]
+
+downRotation = fromLists [ [ 0, cStep,  -sStep]
+                       , [ 1,     0,      0]
+                       , [ 0, sStep, cStep] 
+                       ]
+
+applyRotation :: Matrix Float -> [Float] -> [Float]
+applyRotation rotationMatrix  vec = 
+    let vecMat = fromLists [vec]
+        vecMatResult = vecMat `multStd2` rotationMatrix
+    in head $ toLists vecMatResult
+
+rotateModel rotationMatrix model = 
+    model { perpendicular = applyRotation rotationMatrix $ perpendicular model,
+            northDirection = applyRotation rotationMatrix $ northDirection model
+          }
+
 -- | FRP style update function. Given action and model, return updated model.
 update :: Action -> Model -> Model
 update action model = 
         case action of
-            RotateFace direction facet -> 
-                 Model (rotateFace direction facet) (perpendicular model) (northDirection model)
+            RotateFace rotation facet -> 
+                 Model (rotateFace rotation facet) (perpendicular model) (northDirection model)
+            NudgeCube direction -> 
+                case direction of
+                   Left -> rotateModel leftRotation model
+                   Right -> rotateModel rightRotation model
+                   Up -> rotateModel upRotation model
+                   Down -> rotateModel downRotation model
 
 initModel = Model mkCube [0.0,0.0,1.0]  [0.0,1.0,0.0] 
 
