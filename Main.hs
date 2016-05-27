@@ -50,7 +50,7 @@ type Orientation = Matrix Float
 type OrientedCube = (Facet, Orientation)
 data FaceViewKit = FaceViewKit { face :: Facet
                                , isVisible :: Bool
-                               , transformation :: Matrix Float
+                               , trasform :: Matrix Float
                                }
 
 ---                       upperLeft   upperRight
@@ -232,7 +232,8 @@ showFace dViewKit = do
                 (constDyn $  "viewBox" =: "0 0 3 3 "
                           <> "width" =: show width
                           <> "height" =: show height)
-                $ do upperLeft <- mapDyn face dViewKit
+                $ do 
+                     upperLeft <- mapDyn face dViewKit
                      showFacet 0 0 upperLeft
                      showFacet 0 1 =<< mapDyn east upperLeft
          
@@ -281,20 +282,20 @@ makeViewKit facet orientation assemble =
                                   , [0,       0,       0,       1] 
                                   ]
 
-        transformation =            scale2dMatrix 
-                          `multStd` trans2dMatrix 
-                          `multStd` assemble
-                          `multStd` orientation
-                          `multStd` scale3dMatrix
+        modelTransform =            scale2dMatrix 
+                              `multStd2` trans2dMatrix 
+                              `multStd2` assemble
+                              `multStd2` orientation
+                              `multStd2` scale3dMatrix
 
 
-        transformationRows = toLists transformation
+        trasformRows = toLists modelTransform
 
         -- for backface elimination, perpendicular can be taken from third
-        -- row ( where z axis projects to before applying any transformations) 
+        -- row ( where z axis projects to before applying any trasforms) 
         -- and point on plane can be taken from row 4 ( where origin evaluates to ).
-        perpendicular = take 3 $ transformationRows !! 2
-        pointOnPlane = take 3 $ transformationRows !! 3
+        perpendicular = take 3 $ trasformRows !! 2
+        pointOnPlane = take 3 $ trasformRows !! 3
 
         viewPoint = [0.0,0.0,-1.0]
         cameraToPlane = pointOnPlane `vMinus` viewPoint
@@ -305,7 +306,23 @@ makeViewKit facet orientation assemble =
         -- should be opposed to each other. 
         isViewable = cameraToPlane `dot` perpendicular < 0.0
 
-    in FaceViewKit facet isViewable orientation
+        perspectivePrep = fromLists [ [1,       0,       0,       0]
+                                    , [0,       1,       0,       0]
+                                    , [0,       0,       1,       0]
+                                    , [0,       0,       1,       1] 
+                                    ]
+
+        perspective     = fromLists [ [1,       0,       0,       0]
+                                    , [0,       1,       0,       0]
+                                    , [0,       0,       0,       1]
+                                    , [0,       0,       0,       1] 
+                                    ]
+
+        viewTransform =                  modelTransform
+                              `multStd2` perspectivePrep
+                              `multStd2` perspective
+
+    in FaceViewKit facet isViewable viewTransform
 
 kitmapUpdate :: Orientation -> (Map Color FaceViewKit, Facet) -> (Facet -> Facet, Matrix Float) -> (Map Color FaceViewKit, Facet) 
 kitmapUpdate orientation (prevMap, prevFace) (advanceFunction, assemble)  = 
@@ -441,3 +458,4 @@ main = mainWidget $ do
                selectEvent <- view model
                model <- foldDyn Main.update initModel selectEvent
            return ()
+
