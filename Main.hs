@@ -8,7 +8,7 @@ import Data.Matrix (Matrix, fromLists, toLists, multStd2, multStd)
 import Data.Monoid ((<>))
 import Control.Monad.Reader
 
-data Color = Red | Green | Blue | Yellow | Orange | Purple deriving (Show,Eq,Ord,Enum)
+data Color = Red | Green | Blue | Yellow | Orange | Purple deriving (Show,Eq,Ord)
 
 type Vector a = [a]
 
@@ -186,8 +186,8 @@ rotateFace direction f =
 rotateFaceCCW :: Facet -> Facet
 rotateFaceCCW f = copyWithRotation (getRotationMap (east.east.north) f) f
 
-width = 300
-height = 300
+width = 400
+height = 400
 
 -- | Namespace needed for svg elements.
 svgNamespace = Just "http://www.w3.org/2000/svg"
@@ -242,40 +242,34 @@ showArrows dFaceViewKit = do
     return $ leftmost [rotationEventCW, rotationEventCCW]
 
 showFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
-showFace upperLeft = do
-    (_,ev) <- elDynAttrNS' svgNamespace "svg" 
-                (constDyn $  "viewBox" =: "-1.0 -1.0 2.0 2.0"
-                          <> "width" =: show width
-                          <> "height" =: show height)
-                $ do  -- maybe could use a fold or something for this.
-                     showFacet 0 0 upperLeft  
+showFace upperLeft = do  -- maybe could use a fold or something for this.
+    showFacet 0 0 upperLeft  
 
-                     upper <- mapDyn (updateViewKit east) upperLeft
-                     showFacet 0 1  upper
-         
-                     upperRight <- mapDyn (updateViewKit east) upper
-                     showFacet 0 2 upperRight 
+    upper <- mapDyn (updateViewKit east) upperLeft
+    showFacet 0 1  upper
 
-                     right <- mapDyn (updateViewKit east) upperRight
-                     showFacet 1 2 right
-         
-                     lowerRight <- mapDyn (updateViewKit east) right
-                     showFacet 2 2 lowerRight 
+    upperRight <- mapDyn (updateViewKit east) upper
+    showFacet 0 2 upperRight 
 
-                     lower <- mapDyn (updateViewKit east) lowerRight
-                     showFacet 2 1 lower
-         
-                     lowerLeft <- mapDyn (updateViewKit east) lower
-                     showFacet 2 0 lowerLeft 
+    right <- mapDyn (updateViewKit east) upperRight
+    showFacet 1 2 right
 
-                     left <- mapDyn (updateViewKit east) lowerLeft
-                     showFacet 1 0 left
-         
-                     center <- mapDyn (updateViewKit south) left
-                     showFacet 1 1 center 
+    lowerRight <- mapDyn (updateViewKit east) right
+    showFacet 2 2 lowerRight 
 
-                     showArrows center
-    return ev
+    lower <- mapDyn (updateViewKit east) lowerRight
+    showFacet 2 1 lower
+
+    lowerLeft <- mapDyn (updateViewKit east) lower
+    showFacet 2 0 lowerLeft 
+
+    left <- mapDyn (updateViewKit east) lowerLeft
+    showFacet 1 0 left
+
+    center <- mapDyn (updateViewKit south) left
+    showFacet 1 1 center 
+
+    showArrows center
 
 updateViewKit :: (Facet->Facet) -> FaceViewKit -> FaceViewKit
 updateViewKit advancer prevViewKit = prevViewKit { face = advancer $ face prevViewKit }
@@ -455,11 +449,18 @@ orientCube model =
 
 view :: MonadWidget t m => Dynamic t Model -> m (Event t Action)
 view model = do
-    orientedCube <- mapDyn orientCube model
-    viewOrientedCube orientedCube
+    (_,ev) <- elDynAttrNS' svgNamespace "svg" 
+                (constDyn $  "viewBox" =: "-1.0 -1.0 2.0 2.0"
+                          <> "width" =: show width
+                          <> "height" =: show height) $ do
+        orientedCube <- mapDyn orientCube model
+        viewOrientedCube orientedCube
+    return ev
 
-data Rotation = CCW | CW deriving (Ord, Eq)
-data Action = RotateFace Rotation Facet 
+data Rotation = CCW | CW deriving Eq
+data Direction = Up | Down | Left | Right 
+
+data Action = ReorientCube Direction | RotateFace Rotation Facet 
 
 data Model = Model { cube :: Facet 
                    , perpendicular :: Vector Float
