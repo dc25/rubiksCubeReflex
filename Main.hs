@@ -50,7 +50,7 @@ type Orientation = Matrix Float
 type OrientedCube = (Facet, Orientation)
 data FaceViewKit = FaceViewKit { face :: Facet
                                , isVisible :: Bool
-                               , trasform :: Matrix Float
+                               , transform :: Matrix Float
                                }
 
 ---                       upperLeft   upperRight
@@ -302,13 +302,13 @@ makeViewKit facet orientation assemble =
                               `multStd2` scale3dMatrix
 
 
-        trasformRows = toLists modelTransform
+        transformRows = toLists modelTransform
 
         -- for backface elimination, perpendicular can be taken from third
-        -- row ( where z axis projects to before applying any trasforms) 
+        -- row ( where z axis projects to before applying any transforms) 
         -- and point on plane can be taken from row 4 ( where origin evaluates to ).
-        perpendicular = take 3 $ trasformRows !! 2
-        pointOnPlane = take 3 $ trasformRows !! 3
+        perpendicular = take 3 $ transformRows !! 2
+        pointOnPlane = take 3 $ transformRows !! 3
 
         viewPoint = [0.0,0.0,-1.0]
         cameraToPlane = pointOnPlane `vMinus` viewPoint
@@ -414,7 +414,6 @@ prepareFaceViews orientedCube@(startingFace, cubeOrientation) =
                          ,[ 0.0, 0.0,-1.0, 0.0 ]
                          ,[ 0.0, 0.0,-0.5, 1.0 ] 
                          ] )  -- orange / bottom
-
             ]
 
         -- for each step, get a face, compute the view kit for that face,
