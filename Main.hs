@@ -203,57 +203,70 @@ showFacetSquare row col margin dColor = do
     elDynAttrNS' svgNamespace "rect" attrs $ return ()
     return ()
 
-showFacet :: MonadWidget t m => Int -> Int -> Dynamic t Facet -> m ()
-showFacet row col dFacet = do
+showFacet :: MonadWidget t m => Int -> Int -> Dynamic t FaceViewKit -> m ()
+showFacet row col dFaceViewKit = do
     showFacetSquare row col 0.0 $ constDyn "black"
-    showFacetSquare row col 0.05 =<< mapDyn (show.val) dFacet
+    showFacetSquare row col 0.05 =<< mapDyn (show.val.face) dFaceViewKit
 
-showArrow :: MonadWidget t m => Rotation -> Dynamic t Facet -> m (Event t Action)
-showArrow rotation dFacet = do
+showArrow :: MonadWidget t m => Rotation -> Dynamic t FaceViewKit -> m (Event t ())
+showArrow rotation dFaceViewKit = do
+       dFacet <- mapDyn face dFaceViewKit
        let pointsString = if rotation == CW 
                           then "0.7,0.3 0.7,0.7 2.4,0.5"
                           else "0.3,0.7 0.7,0.7 0.5,2.4"
        (el,_) <- elDynAttrNS' svgNamespace "polygon" (constDyn $  "fill" =: "grey" 
                                                                <> "points" =: pointsString) $ return ()
-       return $ attachWith (\a _ -> RotateFace CCW a)  (current dFacet) $ domEvent Click el
+       return $ domEvent Click el
 
 
-showArrows :: MonadWidget t m => Dynamic t Facet -> m (Event t Action)
-showArrows dFacet = do
-    arrowEventCW <- showArrow CW dFacet 
+showArrows :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
+showArrows dFaceViewKit = do
+    dFacet <- mapDyn face dFaceViewKit
+    arrowEventCW <- showArrow CW dFaceViewKit
     let rotationEventCW = attachWith (\a _ -> RotateFace CW a)  (current dFacet) arrowEventCW
-    arrowEventCCW <- showArrow CCW dFacet 
+    arrowEventCCW <- showArrow CCW dFaceViewKit
     let rotationEventCCW = attachWith (\a _ -> RotateFace CCW a)  (current dFacet) arrowEventCCW
     return $ leftmost [rotationEventCW, rotationEventCCW]
 
 showFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
-showFace dViewKit = do
+showFace upperLeft = do
     (_,ev) <- elDynAttrNS' svgNamespace "svg" 
                 (constDyn $  "viewBox" =: "0 0 3 3 "
                           <> "width" =: show width
                           <> "height" =: show height)
-                $ do 
-                     upperLeft <- mapDyn face dViewKit
-                     showFacet 0 0 upperLeft
-                     showFacet 0 1 =<< mapDyn east upperLeft
+                $ do  -- maybe could use a fold or something for this.
+                     showFacet 0 0 upperLeft  
+
+                     upper <- mapDyn (updateViewKit east) upperLeft
+                     showFacet 0 1  upper
          
-                     upperRight <- mapDyn (east . east) upperLeft
+                     upperRight <- mapDyn (updateViewKit east) upper
                      showFacet 0 2 upperRight 
-                     showFacet 1 2 =<< mapDyn east upperRight
+
+                     right <- mapDyn (updateViewKit east) upperRight
+                     showFacet 1 2 right
          
-                     lowerRight <- mapDyn (east . east) upperRight
+                     lowerRight <- mapDyn (updateViewKit east) right
                      showFacet 2 2 lowerRight 
-                     showFacet 2 1 =<< mapDyn east lowerRight
+
+                     lower <- mapDyn (updateViewKit east) lowerRight
+                     showFacet 2 1 lower
          
-                     lowerLeft <- mapDyn (east . east) lowerRight
+                     lowerLeft <- mapDyn (updateViewKit east) lower
                      showFacet 2 0 lowerLeft 
-                     showFacet 1 0 =<< mapDyn east lowerLeft
+
+                     left <- mapDyn (updateViewKit east) lowerLeft
+                     showFacet 1 0 left
          
-                     center <- mapDyn (south . east) upperLeft
+                     center <- mapDyn (updateViewKit south) left
                      showFacet 1 1 center 
 
                      showArrows center
     return ev
+
+updateViewKit :: (Facet->Facet) -> FaceViewKit -> FaceViewKit
+updateViewKit advancer prevViewKit = prevViewKit { face = advancer $ face prevViewKit }
+    
 
 makeViewKit :: Facet -> Orientation -> Matrix Float -> FaceViewKit
 makeViewKit facet orientation assemble = 
