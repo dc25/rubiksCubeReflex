@@ -2,7 +2,7 @@
 import Prelude(Eq,Ord(compare),Show,Enum,Num,Bool(True,False),Float,Int,String,Maybe(Just),fst,const,show,fromIntegral,replicate,concat,zipWith,sum,take,not,pi,sin,cos,head,(.),($),(+),(-),(*),(/),(==),(<),(>),(<$>),(!!),(++))
 import Reflex.Dom
 import Data.Map (Map, lookup, insert, empty, fromList, elems)
-import Data.List (foldl, elem)
+import Data.List (foldl, elem, find)
 import Data.Maybe (maybeToList, fromMaybe)
 import Data.Matrix (Matrix, fromLists, toLists, multStd2, multStd)
 import Data.Monoid ((<>))
@@ -51,6 +51,7 @@ type OrientedCube = (Facet, Orientation)
 data FaceViewKit = FaceViewKit { face :: Facet
                                , isVisible :: Bool
                                , transform :: Matrix Float
+                               , rotation :: Matrix Float
                                }
 
 ---                       upperLeft   upperRight
@@ -175,13 +176,13 @@ getRotationMap advanceToPost f =
 
     in rotationMap
 
-rotateFace :: Rotation -> Facet -> Facet
-rotateFace rotation f = 
+rotateFace :: Rotation -> Facet -> Facet -> Facet
+rotateFace rotation f cube = 
         let advancer = 
                 if rotation == CCW 
                 then east.east.north 
                 else west.west.south
-        in copyWithRotation (getRotationMap advancer f) f
+        in copyWithRotation (getRotationMap advancer f) cube
 
 rotateFaceCCW :: Facet -> Facet
 rotateFaceCCW f = copyWithRotation (getRotationMap (east.east.north) f) f
@@ -235,7 +236,7 @@ showArrow rotation dFaceViewKit = do
 
 showArrows :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
 showArrows dFaceViewKit = do
-    dFacet <- mapDyn face dFaceViewKit
+    dFacet <- mapDyn face dFaceViewKit  
     arrowEventCW <- showArrow CW dFaceViewKit
     let rotationEventCW = attachWith (\a _ -> RotateFace CW a)  (current dFacet) arrowEventCW
     arrowEventCCW <- showArrow CCW dFaceViewKit
@@ -274,10 +275,9 @@ showFace upperLeft = do  -- maybe could use a fold or something for this.
 
 updateViewKit :: (Facet->Facet) -> FaceViewKit -> FaceViewKit
 updateViewKit advancer prevViewKit = prevViewKit { face = advancer $ face prevViewKit }
-    
 
-makeViewKit :: Facet -> Orientation -> Matrix Float -> FaceViewKit
-makeViewKit facet orientation assemble = 
+makeViewKit :: Facet -> Orientation -> Matrix Float -> Matrix Float-> FaceViewKit
+makeViewKit facet orientation assemble rotation = 
     let 
         scale2d = 1.0/3.0  -- scale from 3x3 square face to 1x1 square face.
         scale2dMatrix = fromLists [ [scale2d, 0,       0,       0]
@@ -302,9 +302,10 @@ makeViewKit facet orientation assemble =
 
         modelTransform =            scale2dMatrix 
                               `multStd2` trans2dMatrix 
+                              `multStd2` rotation
                               `multStd2` assemble
-                              `multStd2` orientation
                               `multStd2` scale3dMatrix 
+                              `multStd2` orientation
 
 
         threeUntransformedPoints = fromLists [ [0,0,0,1] -- lower left corner of original face
@@ -340,7 +341,7 @@ makeViewKit facet orientation assemble =
         -- perspective transformation - as simple as I can make it.
         perspective     = fromLists [ [1,       0,       0,       0]
                                     , [0,       1,       0,       0]
-                                    , [0,       0,       0,       1]
+                                    , [0,       0,       1,       1]
                                     , [0,       0,       0,       0] 
                                     ]
 
@@ -348,85 +349,108 @@ makeViewKit facet orientation assemble =
                         `multStd2` perspectivePrep
                         `multStd2` perspective
 
-    in FaceViewKit facet isViewable viewTransform
+    in FaceViewKit facet isViewable viewTransform viewTransform
 
-kitmapUpdate :: Orientation -> (Map Color FaceViewKit, Facet) -> (Facet -> Facet, Matrix Float) -> (Map Color FaceViewKit, Facet) 
-kitmapUpdate orientation (prevMap, prevFace) (advanceFunction, assemble)  = 
-    let newFace = advanceFunction prevFace
-        centerColor = val $ (south.south) newFace
-        newViewKit = makeViewKit newFace orientation assemble
+kitmapUpdate :: Orientation -> (Map Color FaceViewKit, Facet) -> (Matrix Float, Color, [Facet -> Facet]) -> (Map Color FaceViewKit, Facet) 
+kitmapUpdate orientation (prevMap, face) (assemble, nextColor, advancers)  = 
+
+    let
+        rot0   = fromLists [[ 1.0, 0.0, 0.0, 0.0 ]
+                           ,[ 0.0, 1.0, 0.0, 0.0 ]
+                           ,[ 0.0, 0.0, 1.0, 0.0 ]
+                           ,[ 0.0, 0.0, 0.0, 1.0 ] 
+                           ]
+
+        rot90  = fromLists [[ 0.0, 1.0, 0.0, 0.0 ]
+                           ,[-1.0, 0.0, 0.0, 0.0 ]
+                           ,[ 0.0, 0.0, 1.0, 0.0 ]
+                           ,[ 0.0, 0.0, 0.0, 1.0 ] 
+                           ]
+
+        rot180 = fromLists [[-1.0, 0.0, 0.0, 0.0 ]
+                           ,[ 0.0,-1.0, 0.0, 0.0 ]
+                           ,[ 0.0, 0.0, 1.0, 0.0 ]
+                           ,[ 0.0, 0.0, 0.0, 1.0 ] 
+                           ]
+
+        rot270 = fromLists [[ 0.0,-1.0, 0.0, 0.0 ]
+                           ,[ 1.0, 0.0, 0.0, 0.0 ]
+                           ,[ 0.0, 0.0, 1.0, 0.0 ]
+                           ,[ 0.0, 0.0, 0.0, 1.0 ] 
+                           ]
+
+        -- rotations = [rot0,rot90,rot180,rot270]
+        colorChecker (advance,_) = nextColor == (val.south.north.advance) face
+        Just (advance,rotation) =  find  colorChecker $ zipWith (,) advancers [rot0,rot90,rot180,rot270]
+
+        faceCorner = (west.north) face
+        faceColor = val face
+        newViewKit = makeViewKit faceCorner orientation assemble rotation
         newMap = if isVisible newViewKit 
-                 then insert centerColor newViewKit prevMap
+                 then insert faceColor newViewKit prevMap
                  else prevMap
+        newFace = (south.north.advance) face
     in (newMap, newFace)
     
---- ______________
---- |     N      |
---- |            |
---- |W  purple  E|
---- |            |
---- |            |
---- |_____S_____ |_______________________________________
---- |     N      |     N      |     N      |     N      |
---- |            |            |            |            |
---- |W  yellow  E|W   blue   E|W   green  E|W   red    E|
---- |            |            |            |            |
---- |            |            |            |            |
---- |_____S______|_____S______|_____S______|_____S______|
---- |     N      |
---- |            |
---- |W  orange  E|
---- |            |
---- |            |
---- |_____S______|
-
 -- pain point : Missing comma in red matrix caused difficult to diagnose
 -- failure.
 prepareFaceViews :: OrientedCube -> Map Color FaceViewKit
 prepareFaceViews orientedCube@(startingFace, cubeOrientation) = 
-    let advanceSteps :: [(Facet -> Facet, Matrix Float)]
+    let advanceSteps :: [(Matrix Float, Color, [Facet -> Facet])]
         advanceSteps = 
-            [ (west . north,        
+            [ ( -- purple / top
                fromLists [[ 1.0, 0.0, 0.0, 0.0 ]
                          ,[ 0.0, 1.0, 0.0, 0.0 ]
                          ,[ 0.0, 0.0, 1.0, 0.0 ]
                          ,[ 0.0, 0.0, 0.5, 1.0 ] 
-                         ] )  -- purple / top
+                         ] ,
+               Blue, [east, north, west, south]
+              )  
 
-            , (west . west . south, 
-               fromLists [[ 1.0, 0.0, 0.0, 0.0 ]
-                         ,[ 0.0, 0.0, 1.0, 0.0 ]
-                         ,[ 0.0,-1.0, 0.0, 0.0 ]
-                         ,[ 0.0,-0.5, 0.0, 1.0 ] 
-                         ] )  -- yellow / front
-
-            , (north . east . east, 
+            , ( -- blue / right
                fromLists [[ 0.0, 1.0, 0.0, 0.0 ]
                          ,[ 0.0, 0.0, 1.0, 0.0 ]
                          ,[ 1.0, 0.0, 0.0, 0.0 ]
                          ,[ 0.5, 0.0, 0.0, 1.0 ] 
-                         ] )  -- blue   / right
+                         ],
+                Green, [east, north, west, south]
+              )  
 
-            , (north . east . east, 
+            , ( -- green / back
                fromLists [[-1.0, 0.0, 0.0, 0.0 ]
                          ,[ 0.0, 0.0, 1.0, 0.0 ]
                          ,[ 0.0, 1.0, 0.0, 0.0 ]
                          ,[ 0.0, 0.5, 0.0, 1.0 ] 
-                         ] )  -- green  / back
+                         ],
+                Red, [east, north, west, south]
+              )  
 
-            , (north . east . east, 
+            , ( -- red / left
                fromLists [[ 0.0,-1.0, 0.0, 0.0 ]
                          ,[ 0.0, 0.0, 1.0, 0.0 ]
                          ,[-1.0, 0.0, 0.0, 0.0 ]
                          ,[-0.5, 0.0, 0.0, 1.0 ] 
-                         ] )  -- red    / left
+                         ],
+               Yellow, [east, north, west, south]
+              )  
 
-            , (west . west . south, 
+            , ( -- yellow / front
+               fromLists [[ 1.0, 0.0, 0.0, 0.0 ]
+                         ,[ 0.0, 0.0, 1.0, 0.0 ]
+                         ,[ 0.0,-1.0, 0.0, 0.0 ]
+                         ,[ 0.0,-0.5, 0.0, 1.0 ] 
+                         ],
+               Orange, [south, east, north, west]
+              )  
+
+            , ( -- orange / bottom
                fromLists [[ 1.0, 0.0, 0.0, 0.0 ]
                          ,[ 0.0,-1.0, 0.0, 0.0 ]
                          ,[ 0.0, 0.0,-1.0, 0.0 ]
                          ,[ 0.0, 0.0,-0.5, 1.0 ] 
-                         ] )  -- orange / bottom
+                         ], 
+               Yellow, [north, west, south, east]
+              )
             ]
 
         -- for each step, get a face, compute the view kit for that face,
@@ -500,7 +524,7 @@ update :: Action -> Model -> Model
 update action model = 
         case action of
             RotateFace rotation facet -> 
-                 Model (rotateFace rotation facet) (perpendicular model) (northDirection model)
+                 Model (rotateFace rotation facet $ cube model) (perpendicular model) (northDirection model)
             NudgeCube direction -> 
                 -- pain point : do I pay for making these limited scope?   
                 let rotationStep = pi/100.0
