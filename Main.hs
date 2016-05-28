@@ -186,12 +186,13 @@ rotateFace rotation f =
 rotateFaceCCW :: Facet -> Facet
 rotateFaceCCW f = copyWithRotation (getRotationMap (east.east.north) f) f
 
-width = 600
-height = 600
+width = 500
+height = 500
 
 -- | Namespace needed for svg elements.
 svgNamespace = Just "http://www.w3.org/2000/svg"
 
+-- pain point; what would it take to memoize some of these results?
 transformPoints :: Matrix Float -> [(Float,Float)] -> [(Float,Float)]
 transformPoints transform points = 
     let points4d = fmap (\(x,y) -> fromLists[[x,y,0.0,1.0]]) points 
@@ -205,10 +206,10 @@ pointsToString points = concat $ fmap (\(x,y) -> show x ++ ", " ++ show y ++ " "
 
 showFacetSquare :: MonadWidget t m => Int -> Int -> Float -> Dynamic t FaceViewKit -> m ()
 showFacetSquare row col margin dFaceViewKit = do
-    let x0 = fromIntegral col
-        y0 = fromIntegral row
-        x1 = x0 + 1.0
-        y1 = y0 + 1.0
+    let x0 = fromIntegral col + margin
+        y0 = fromIntegral row + margin
+        x1 = x0 + 1.0 - 2.0 * margin
+        y1 = y0 + 1.0 - 2.0 * margin
         points = [(x0,y0),(x0,y1),(x1,y1),(x1,y0)]
     dAttrs <- mapDyn (\fvk -> "fill" =: (show.val.face) fvk  <> 
                               "points" =: pointsToString (transformPoints (transform fvk) points))  dFaceViewKit
@@ -281,7 +282,7 @@ makeViewKit facet orientation assemble =
         scale2d = 1.0/3.0  -- scale from 3x3 square face to 1x1 square face.
         scale2dMatrix = fromLists [ [scale2d, 0,       0,       0]
                                   , [0,       scale2d, 0,       0]
-                                  , [0,       0,       1,       0]
+                                  , [0,       0,       0,       0]
                                   , [0,       0,       0,       1] 
                                   ]
 
@@ -292,26 +293,41 @@ makeViewKit facet orientation assemble =
                                   , [trans2d, trans2d, 0,       1] 
                                   ]
 
+        scale3d = 1.0/2.0  -- scale down to fit in camera space
+        scale3dMatrix = fromLists [ [scale3d, 0,       0,       0]
+                                  , [0,       scale3d, 0,       0]
+                                  , [0,       0,       scale3d, 0]
+                                  , [0,       0,       0,       1] 
+                                  ]
+
         modelTransform =            scale2dMatrix 
                               `multStd2` trans2dMatrix 
                               `multStd2` assemble
                               `multStd2` orientation
+                              `multStd2` scale3dMatrix 
 
 
+        threeUntransformedPoints = fromLists [ [0,0,0,1] -- lower left corner of original face
+                                             , [3,0,0,1] -- lower right corner of original face
+                                             , [0,3,0,1] -- upper left corner of original face
+                                             ]
 
-        -- for backface elimination, perpendicular can be taken from third
-        -- row ( where z axis projects to before applying any transforms) 
-        -- and point on plane can be taken from row 4 ( where origin evaluates to ).
-        transformRows = toLists modelTransform
-        perpendicular = take 3 $ transformRows !! 2
-        pointOnPlane = take 3 $ transformRows !! 3
+        threeTransformedPoints = toLists $ threeUntransformedPoints `multStd2` modelTransform
+        pt00 = take 3 $ threeTransformedPoints !! 0
+        pt30 = take 3 $ threeTransformedPoints !! 1
+        pt03 = take 3 $ threeTransformedPoints !! 2
+
+        tVec_30_00 = pt30 `vMinus` pt00  -- vector from lower right to lower left
+        tVec_03_00 = pt03 `vMinus` pt00  -- vector from upper left to lower left
+
+        perpendicular = tVec_30_00 `cross` tVec_03_00  -- cross to get perpendicular pointing out from face.
 
         -- perpendicular always points out from surface of cube.
         -- camera vector points in to surface of cube.
         -- For face to be visible, camera vector and perpendicular 
         -- should be opposed to each other. 
         viewPoint = [0.0,0.0,-1.0]
-        cameraToPlane = pointOnPlane `vMinus` viewPoint
+        cameraToPlane = pt00 `vMinus` viewPoint
         isViewable = cameraToPlane `dot` perpendicular < 0.0
 
         -- translate model to (0,0,1) for perspective viewing
@@ -325,12 +341,12 @@ makeViewKit facet orientation assemble =
         perspective     = fromLists [ [1,       0,       0,       0]
                                     , [0,       1,       0,       0]
                                     , [0,       0,       0,       1]
-                                    , [0,       0,       0,       1] 
+                                    , [0,       0,       0,       0] 
                                     ]
 
-        viewTransform =                  modelTransform
-                              `multStd2` perspectivePrep
-                              `multStd2` perspective
+        viewTransform =            modelTransform
+                        `multStd2` perspectivePrep
+                        `multStd2` perspective
 
     in FaceViewKit facet isViewable viewTransform
 
@@ -437,15 +453,18 @@ orientCube model =
                           ]
             in (cube model, fromLists orientation)
 
+fps = "style" =: "float:left;padding:10px" 
+cps = "style" =: "float:clear" 
+
 view :: MonadWidget t m => Dynamic t Model -> m (Event t Action)
 view model = 
     el "div" $ do
-        leftEv <- fmap (const $ NudgeCube Left) <$> el "div" (button "left" )
-        rightEv <- fmap (const $ NudgeCube Right) <$> el "div" ( button "right" )
-        upEv <- fmap (const $ NudgeCube Up) <$>  el "div" ( button "up")
-        downEv <- fmap (const $ NudgeCube Down) <$> el "div" (button "down" )
+        leftEv <- fmap (const $ NudgeCube Left) <$> elAttr "div" fps (button "left" )
+        rightEv <- fmap (const $ NudgeCube Right) <$> elAttr "div" fps ( button "right" )
+        upEv <- fmap (const $ NudgeCube Up) <$>  elAttr "div" fps ( button "up")
+        downEv <- fmap (const $ NudgeCube Down) <$> elAttr "div" cps (button "down" )
         (_,ev) <- elDynAttrNS' svgNamespace "svg" 
-                    (constDyn $  "viewBox" =: "-1.0 -1.0 2.0 2.0"
+                    (constDyn $  "viewBox" =: "-0.5 -0.5 1.0 1.0"
                               <> "width" =: show width
                               <> "height" =: show height) $ do
             orientedCube <- mapDyn orientCube model
@@ -465,36 +484,6 @@ data Model = Model { cube :: Facet
 targets :: Facet -> [FacetSig]
 targets f = fmap signature [ (west.south) f, (east.east) f ]
 
--- pain point : would I pay for making these limited scope?   
-rotationStep = pi/100.0
-cStep :: Float
-sStep :: Float
-cStep = cos rotationStep
-sStep = sin rotationStep
-
--- left and right hold y axis const, rotate x,z
-leftRotation = fromLists [ [cStep,    0,   -sStep]
-                         , [    0,    1,        0]
-                         , [sStep,    0,    cStep] 
-                         ]
-
-rightRotation = fromLists [ [cStep,  0,   sStep]
-                          , [    0,  1,       0]
-                          , [-sStep, 0,   cStep] 
-                          ]
-
--- up and down hold x axis const, rotate y,z
-
-upRotation = fromLists [ [1,      0,      0]
-                       , [0,  cStep, -sStep]
-                       , [0,  sStep,  cStep] 
-                       ]
-
-downRotation = fromLists [ [1,     0,      0]
-                         , [0,  cStep,  sStep]
-                         , [0, -sStep,  cStep] 
-                         ]
-
 applyRotation :: Matrix Float -> [Float] -> [Float]
 applyRotation rotationMatrix  vec = 
     let vecMat = fromLists [vec]
@@ -513,12 +502,40 @@ update action model =
             RotateFace rotation facet -> 
                  Model (rotateFace rotation facet) (perpendicular model) (northDirection model)
             NudgeCube direction -> 
-                case direction of
-                   Left -> rotateModel leftRotation model
-                   Right -> rotateModel rightRotation model
-                   Up -> rotateModel upRotation model
-                   Down -> rotateModel downRotation model
+                -- pain point : do I pay for making these limited scope?   
+                let rotationStep = pi/100.0
+                    cStep = cos rotationStep
+                    sStep = sin rotationStep
 
+                    -- left and right hold y axis const, rotate x,z
+                    leftRotation = fromLists [ [cStep,    0,   -sStep]
+                                             , [    0,    1,        0]
+                                             , [sStep,    0,    cStep] 
+                                             ]
+
+                    rightRotation = fromLists [ [cStep,  0,   sStep]
+                                              , [    0,  1,       0]
+                                              , [-sStep, 0,   cStep] 
+                                              ]
+
+                    -- up and down hold x axis const, rotate y,z
+
+                    upRotation = fromLists [ [1,      0,      0]
+                                           , [0,  cStep, -sStep]
+                                           , [0,  sStep,  cStep] 
+                                           ]
+
+                    downRotation = fromLists [ [1,     0,      0]
+                                             , [0,  cStep,  sStep]
+                                             , [0, -sStep,  cStep] 
+                                             ]
+
+                in case direction of
+                       Left -> rotateModel leftRotation model
+                       Right -> rotateModel rightRotation model
+                       Up -> rotateModel upRotation model
+                       Down -> rotateModel downRotation model
+ 
 initModel = Model mkCube [0.0,0.0,1.0]  [0.0,1.0,0.0] 
 
 main = mainWidget $ do 
