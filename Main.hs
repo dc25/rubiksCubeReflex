@@ -191,7 +191,7 @@ svgNamespace = Just "http://www.w3.org/2000/svg"
 -- pain point; what would it take to memoize some of these results?
 transformPoints :: Matrix Float -> [(Float,Float)] -> [(Float,Float)]
 transformPoints transform points = 
-    let points4d = fmap (\(x,y) -> fromLists[[x,y,0.0,1.0]]) points 
+    let points4d = fmap (\(x,y) -> fromLists[[x,y,0,1]]) points 
         result4d = fmap (\p -> toLists $ multStd2 p transform) points4d
         result2d = fmap (\[[x,y,z,w]] -> (x/w,y/w)) result4d
 
@@ -204,8 +204,8 @@ showFacetSquare :: MonadWidget t m => Int -> Int -> Float -> Dynamic t FaceViewK
 showFacetSquare x y margin dFaceViewKit = do
     let x0 = fromIntegral x + margin
         y0 = fromIntegral y + margin
-        x1 = x0 + 1.0 - 2.0 * margin
-        y1 = y0 + 1.0 - 2.0 * margin
+        x1 = x0 + 1 - 2 * margin
+        y1 = y0 + 1 - 2 * margin
         points = [(x0,y0),(x0,y1),(x1,y1),(x1,y0)]
     dAttrs <- mapDyn (\fvk -> "fill" =: (show.val.face) fvk  <> 
                               "points" =: pointsToString (transformPoints (transform fvk) points))  dFaceViewKit
@@ -215,7 +215,7 @@ showFacetSquare x y margin dFaceViewKit = do
 showFacet :: MonadWidget t m => Int -> Int -> Dynamic t FaceViewKit -> m ()
 showFacet x y dFaceViewKit = do
     return ()
-    -- showFacetSquare x y 0.0 $ constDyn "black"
+    -- showFacetSquare x y 0 $ constDyn "black"
     showFacetSquare x y 0.05 dFaceViewKit
 
 showArrow :: MonadWidget t m => Rotation -> [(Float,Float)] -> Dynamic t FaceViewKit -> m (Event t ())
@@ -292,21 +292,21 @@ updateViewKit advancer prevViewKit = prevViewKit { face = advancer $ face prevVi
 makeViewKit :: Facet -> Orientation -> Matrix Float -> Matrix Float-> FaceViewKit
 makeViewKit facet orientation assemble rotation = 
     let 
-        scale2d = 1.0/3.0  -- scale from 3x3 square face to 1x1 square face.
+        scale2d = 1/3  -- scale from 3x3 square face to 1x1 square face.
         scale2dMatrix = fromLists [ [scale2d, 0,       0,       0]
                                   , [0,       scale2d, 0,       0]
                                   , [0,       0,       0,       0]
                                   , [0,       0,       0,       1] 
                                   ]
 
-        trans2d = -1.0/2.0  -- translate center of 1x1 square face to origin.
+        trans2d = -1/2  -- translate center of 1x1 square face to origin.
         trans2dMatrix = fromLists [ [1,       0,       0,       0]
                                   , [0,       1,       0,       0]
                                   , [0,       0,       1,       0]
                                   , [trans2d, trans2d, 0,       1] 
                                   ]
 
-        scale3d = 1.0/2.0  -- scale down to fit in camera space
+        scale3d = 1/2  -- scale down to fit in camera space
         scale3dMatrix = fromLists [ [scale3d, 0,       0,       0]
                                   , [0,       scale3d, 0,       0]
                                   , [0,       0,       scale3d, 0]
@@ -341,22 +341,22 @@ makeViewKit facet orientation assemble rotation =
         -- camera vector points in to surface of cube.
         -- For face to be visible, camera vector and perpendicular 
         -- should be opposed to each other. 
-        viewPoint = [0.0,0.0,-1.0]
+        viewPoint = [0, 0, -1]
         cameraToPlane = pt00 `vMinus` viewPoint
-        isViewable = cameraToPlane `dot` perpendicular < 0.0
+        isViewable = cameraToPlane `dot` perpendicular < 0
 
         -- translate model to (0,0,1) for perspective viewing
-        perspectivePrep = fromLists [ [1,       0,       0,       0]
-                                    , [0,       1,       0,       0]
-                                    , [0,       0,       1,       0]
-                                    , [0,       0,       1,       1] 
+        perspectivePrep = fromLists [ [1, 0, 0, 0]
+                                    , [0, 1, 0, 0]
+                                    , [0, 0, 1, 0]
+                                    , [0, 0, 1, 1] 
                                     ]
 
         -- perspective transformation 
-        perspective     = fromLists [ [1,       0,       0,       0]
-                                    , [0,       1,       0,       0]
-                                    , [0,       0,       1,       1]
-                                    , [0,       0,       0,       0] 
+        perspective     = fromLists [ [1, 0, 0, 0]
+                                    , [0, 1, 0, 0]
+                                    , [0, 0, 1, 1]
+                                    , [0, 0, 0, 0] 
                                     ]
 
         viewTransform =            modelTransform
@@ -369,28 +369,28 @@ kitmapUpdate :: Orientation -> (Map Color FaceViewKit, Facet) -> (Matrix Float, 
 kitmapUpdate orientation (prevMap, face) (assemble, nextColor, advancers)  = 
 
     let
-        rot0   = fromLists [[ 1.0, 0.0, 0.0, 0.0 ]
-                           ,[ 0.0, 1.0, 0.0, 0.0 ]
-                           ,[ 0.0, 0.0, 1.0, 0.0 ]
-                           ,[ 0.0, 0.0, 0.0, 1.0 ] 
+        rot0   = fromLists [[ 1, 0, 0, 0 ]
+                           ,[ 0, 1, 0, 0 ]
+                           ,[ 0, 0, 1, 0 ]
+                           ,[ 0, 0, 0, 1 ] 
                            ]
 
-        rot270 = fromLists [[ 0.0, 1.0, 0.0, 0.0 ]
-                           ,[-1.0, 0.0, 0.0, 0.0 ]
-                           ,[ 0.0, 0.0, 1.0, 0.0 ]
-                           ,[ 0.0, 0.0, 0.0, 1.0 ] 
+        rot270 = fromLists [[ 0, 1, 0, 0 ]
+                           ,[-1, 0, 0, 0 ]
+                           ,[ 0, 0, 1, 0 ]
+                           ,[ 0, 0, 0, 1 ] 
                            ]
 
-        rot180 = fromLists [[-1.0, 0.0, 0.0, 0.0 ]
-                           ,[ 0.0,-1.0, 0.0, 0.0 ]
-                           ,[ 0.0, 0.0, 1.0, 0.0 ]
-                           ,[ 0.0, 0.0, 0.0, 1.0 ] 
+        rot180 = fromLists [[-1, 0, 0, 0 ]
+                           ,[ 0,-1, 0, 0 ]
+                           ,[ 0, 0, 1, 0 ]
+                           ,[ 0, 0, 0, 1 ] 
                            ]
 
-        rot90  = fromLists [[ 0.0,-1.0, 0.0, 0.0 ]
-                           ,[ 1.0, 0.0, 0.0, 0.0 ]
-                           ,[ 0.0, 0.0, 1.0, 0.0 ]
-                           ,[ 0.0, 0.0, 0.0, 1.0 ] 
+        rot90  = fromLists [[ 0,-1, 0, 0 ]
+                           ,[ 1, 0, 0, 0 ]
+                           ,[ 0, 0, 1, 0 ]
+                           ,[ 0, 0, 0, 1 ] 
                            ]
 
         colorChecker (advance,_) = ((nextColor == (val.south.north.advance) face) ) 
@@ -411,59 +411,59 @@ prepareFaceViews orientedCube@(startingFace, cubeOrientation) =
     let advanceSteps :: [(Matrix Float, Color, [Facet -> Facet])]
         advanceSteps = 
             [ ( -- purple / top
-               fromLists [[ 1.0, 0.0, 0.0, 0.0 ]
-                         ,[ 0.0, 1.0, 0.0, 0.0 ]
-                         ,[ 0.0, 0.0, 1.0, 0.0 ]
-                         ,[ 0.0, 0.0, 0.5, 1.0 ] 
+               fromLists [[ 1,   0,   0,   0]
+                         ,[ 0,   1,   0,   0]
+                         ,[ 0,   0,   1,   0]
+                         ,[ 0,   0,   0.5, 1] 
                          ] ,
                Red, [east, north, west, south]
               )  
 
             , ( -- red / right
-               fromLists [[ 0.0, 1.0, 0.0, 0.0 ]
-                         ,[ 0.0, 0.0, 1.0, 0.0 ]
-                         ,[ 1.0, 0.0, 0.0, 0.0 ]
-                         ,[ 0.5, 0.0, 0.0, 1.0 ] 
+               fromLists [[ 0,   1,   0,   0]
+                         ,[ 0,   0,   1,   0]
+                         ,[ 1,   0,   0,   0]
+                         ,[ 0.5, 0,   0,   1] 
                          ],
                 Green, [east, north, west, south]
               )  
 
             , ( -- green / back
-               fromLists [[-1.0, 0.0, 0.0, 0.0 ]
-                         ,[ 0.0, 0.0, 1.0, 0.0 ]
-                         ,[ 0.0, 1.0, 0.0, 0.0 ]
-                         ,[ 0.0, 0.5, 0.0, 1.0 ] 
+               fromLists [[-1,   0,   0,   0]
+                         ,[ 0,   0,   1,   0]
+                         ,[ 0,   1,   0,   0]
+                         ,[ 0,   0.5, 0,   1] 
                          ],
                 Blue, [east, north, west, south]
               )  
 
             , ( -- blue / left
-               fromLists [[ 0.0,-1.0, 0.0, 0.0 ]
-                         ,[ 0.0, 0.0, 1.0, 0.0 ]
-                         ,[-1.0, 0.0, 0.0, 0.0 ]
-                         ,[-0.5, 0.0, 0.0, 1.0 ] 
+               fromLists [[ 0,  -1,   0,   0]
+                         ,[ 0,   0,   1,   0]
+                         ,[-1,   0,   0,   0]
+                         ,[-0.5, 0,   0,   1] 
                          ],
                Yellow, [east, north, west, south]
               )  
 
             , ( -- yellow / front
-               fromLists [[ 1.0, 0.0, 0.0, 0.0 ]
-                         ,[ 0.0, 0.0, 1.0, 0.0 ]
-                         ,[ 0.0,-1.0, 0.0, 0.0 ]
-                         ,[ 0.0,-0.5, 0.0, 1.0 ] 
+               fromLists [[ 1,   0,   0,   0]
+                         ,[ 0,   0,   1,   0]
+                         ,[ 0,  -1,   0,   0]
+                         ,[ 0,  -0.5, 0,   1] 
                          ],
                Orange, [south, east, north, west]
               )  
 
             , ( -- orange / bottom
-               fromLists [[ 1.0, 0.0, 0.0, 0.0 ]
-                         ,[ 0.0,-1.0, 0.0, 0.0 ]
-                         ,[ 0.0, 0.0,-1.0, 0.0 ]
-                         ,[ 0.0, 0.0,-0.5, 1.0 ] 
+               fromLists [[ 1,   0,   0,   0]
+                         ,[ 0,  -1,   0,   0]
+                         ,[ 0,   0,  -1,   0]
+                         ,[ 0,   0,  -0.5, 1] 
                          ], 
                Yellow, [north, west, south, east]
               )
-            ]
+         ]
 
         -- for each step, get a face, compute the view kit for that face,
         -- add the view kit to the map, using color as an index, replace
@@ -482,10 +482,10 @@ orientCube model =
         let ac@[ax,ay,az] = perpendicular model
             nv@[nx,ny,nz] = northDirection model
             ev@[ex,ey,ez] = nv `cross` ac
-            orientation = [[ ex,  ey,  ez, 0.0]
-                          ,[ nx,  ny,  nz, 0.0]
-                          ,[ ax,  ay,  az, 0.0]
-                          ,[0.0, 0.0, 0.0, 1.0]
+            orientation = [[ex,  ey,  ez, 0]
+                          ,[nx,  ny,  nz, 0]
+                          ,[ax,  ay,  az, 0]
+                          ,[ 0,   0,   0, 1]
                           ]
             in (cube model, fromLists orientation)
 
@@ -539,7 +539,7 @@ update action model =
                  model { cube = rotateFace rotation facet $ cube model }
             NudgeCube direction -> 
                 -- pain point : do I pay for making these limited scope?   
-                let rotationStep = pi/20.0
+                let rotationStep = pi/20
                     cStep = cos rotationStep
                     sStep = sin rotationStep
 
@@ -555,7 +555,6 @@ update action model =
                                               ]
 
                     -- up and down hold x axis const, rotate y,z
-
                     upRotation =    fromLists [ [1,      0,       0]
                                               , [0,  cStep,  -sStep]
                                               , [0,  sStep,   cStep] 
@@ -572,7 +571,7 @@ update action model =
                        Up ->    rotateModel upRotation model
                        Down ->  rotateModel downRotation model
  
-initModel = Model mkCube [0.0,0.0,1.0]  [0.0,1.0,0.0] 
+initModel = Model mkCube [0,0,1]  [0,1,0] 
 
 main = mainWidget $ do 
            rec
