@@ -8,7 +8,6 @@ import Data.Matrix (Matrix, fromLists, toLists, multStd2, multStd)
 import Data.Monoid ((<>))
 import Data.Function 
 import Control.Monad.Reader
-import Debug.Trace
 
 data Color = Red | Green | Blue | Yellow | Orange | Purple deriving (Show,Eq,Ord)
 
@@ -170,9 +169,9 @@ getRotationMap advanceToPost f =
                 newRotMap =  insert (splitDown post, post) pre rm'
             in (advanceDirection pre, advanceDirection post, newRotMap)
 
-        faceCrawl = [(east, south), (south, west), (south, west)]
+        faceCrawl = [(south, west), (south, west), (east, south)]
         fullCrawl = concat $ replicate 4 faceCrawl
-        preStart = east.north.north $ f
+        preStart = north.north $ f
         postStart = advanceToPost preStart  -- clockwise or counterclockwise
         (_,_,rotationMap) = foldl ff (preStart, postStart, empty) fullCrawl
 
@@ -181,13 +180,10 @@ getRotationMap advanceToPost f =
 rotateFace :: Rotation -> Facet -> Facet -> Facet
 rotateFace rotation f cube = 
         let advancer = 
-                if rotation == CCW 
-                then east.east.north 
-                else west.west.south
+                if rotation == CW 
+                then south.west.west
+                else east.north.east
         in copyWithRotation (getRotationMap advancer f) cube
-
-rotateFaceCCW :: Facet -> Facet
-rotateFaceCCW f = copyWithRotation (getRotationMap (east.east.north) f) f
 
 width = 500
 height = 500
@@ -227,9 +223,8 @@ showFacet x y dFaceViewKit = do
 
 showArrow :: MonadWidget t m => Rotation -> Dynamic t FaceViewKit -> m (Event t ())
 showArrow rotation dFaceViewKit = do
-    let points = if rotation == CW 
-                 then [(0.7,0.3), (0.7,0.7), (2.4,0.5)]
-                 else [(0.3,0.7), (0.7,0.7), (0.5,2.4)]
+    let cwPoints = [(0.3,0.7), (0.7,0.7), (0.5,2.4)]
+    let points = if rotation == CW then cwPoints else fmap (\(a,b) -> (b,a)) cwPoints
 
     let color = if rotation == CW 
                  then "grey"
@@ -239,13 +234,17 @@ showArrow rotation dFaceViewKit = do
     (el,_) <- elDynAttrNS' svgNamespace "polygon" dAttrs $ return ()
     return $ domEvent Click el
 
+showArrowSet :: MonadWidget t m => Rotation -> Dynamic t FaceViewKit -> m (Event t ())
+showArrowSet rotation dFaceViewKit = do
+    showArrow rotation dFaceViewKit
+
 
 showArrows :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
 showArrows dFaceViewKit = do
     dFacet <- mapDyn face dFaceViewKit  
-    arrowEventCW <- showArrow CW dFaceViewKit
+    arrowEventCW <- showArrowSet CW dFaceViewKit
     let rotationEventCW = attachWith (\a _ -> RotateFace CW a)  (current dFacet) arrowEventCW
-    arrowEventCCW <- showArrow CCW dFaceViewKit
+    arrowEventCCW <- showArrowSet CCW dFaceViewKit
     let rotationEventCCW = attachWith (\a _ -> RotateFace CCW a)  (current dFacet) arrowEventCCW
     return $ leftmost [rotationEventCW, rotationEventCCW]
 
@@ -367,7 +366,7 @@ kitmapUpdate orientation (prevMap, face) (assemble, nextColor, advancers)  =
                            ,[ 0.0, 0.0, 0.0, 1.0 ] 
                            ]
 
-        rot90  = fromLists [[ 0.0, 1.0, 0.0, 0.0 ]
+        rot270 = fromLists [[ 0.0, 1.0, 0.0, 0.0 ]
                            ,[-1.0, 0.0, 0.0, 0.0 ]
                            ,[ 0.0, 0.0, 1.0, 0.0 ]
                            ,[ 0.0, 0.0, 0.0, 1.0 ] 
@@ -379,20 +378,16 @@ kitmapUpdate orientation (prevMap, face) (assemble, nextColor, advancers)  =
                            ,[ 0.0, 0.0, 0.0, 1.0 ] 
                            ]
 
-        rot270 = fromLists [[ 0.0,-1.0, 0.0, 0.0 ]
+        rot90  = fromLists [[ 0.0,-1.0, 0.0, 0.0 ]
                            ,[ 1.0, 0.0, 0.0, 0.0 ]
                            ,[ 0.0, 0.0, 1.0, 0.0 ]
                            ,[ 0.0, 0.0, 0.0, 1.0 ] 
                            ]
 
         colorChecker (advance,_) = ((nextColor == (val.south.north.advance) face) ) 
-                                    & (trace ("next color = " ++ show nextColor 
-                                            ++ " test color = " ++ show ((val.south.north.advance) face)
-                                            ++ " this color = " ++ show ((val) face)))
         Just (advance,rotation) =  find colorChecker $ zipWith (,) advancers [rot0,rot90,rot180,rot270]
-        -- Just (advance,rotation) =  find colorChecker $ zipWith (,) advancers [rot0,rot0,rot0,rot0]
 
-        color = val face & trace ("THIS color = " ++ show (val face))
+        color = val face 
         updatedViewKit = makeViewKit face orientation assemble rotation
         updatedMap = if isVisible updatedViewKit 
                  then insert color updatedViewKit prevMap
@@ -400,26 +395,6 @@ kitmapUpdate orientation (prevMap, face) (assemble, nextColor, advancers)  =
         newFace = (south.north.advance) face
     in (updatedMap, newFace)
     
---- ______________
---- |     N      |
---- |            |
---- |W  purple  E|
---- |            |
---- |            |
---- |_____S_____ |_______________________________________
---- |     N      |     N      |     N      |     N      |
---- |            |            |            |            |
---- |W  yellow  E|W   red    E|W   green  E|W   blue    E|
---- |            |            |            |            |
---- |            |            |            |            |
---- |_____S______|_____S______|_____S______|_____S______|
---- |     N      |
---- |            |
---- |W  orange  E|
---- |            |
---- |            |
---- |_____S______|
-
 -- pain point : Missing comma in red matrix caused difficult to diagnose
 -- failure.
 prepareFaceViews :: OrientedCube -> Map Color FaceViewKit
