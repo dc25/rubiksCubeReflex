@@ -182,8 +182,8 @@ rotateFace rotation f cube =
                 else east.north.east
         in copyWithRotation (getRotationMap advancer f) cube
 
-width = 550
-height = 550
+width = 575
+height = 575
 
 -- | Namespace needed for svg elements.
 svgNamespace = Just "http://www.w3.org/2000/svg"
