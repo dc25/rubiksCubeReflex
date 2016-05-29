@@ -1,5 +1,5 @@
 {-# LANGUAGE RecursiveDo #-}
-import Prelude(Eq,Ord(compare),Show,Enum,Num,Bool(True,False),Float,Int,String,Maybe(Just),fst,const,show,fromIntegral,replicate,concat,zipWith,sum,take,not,pi,sin,cos,head,(.),($),(+),(-),(*),(/),(==),(<),(>),(<$>),(!!),(++))
+import Prelude(Eq,Ord(compare),Show,Enum,Num,Bool(True,False),Float,Int,String,Maybe(Just),fst,const,show,fromIntegral,replicate,concat,zip,zipWith,sum,take,not,pi,sin,cos,head,(.),($),(+),(-),(*),(/),(==),(<),(>),(<$>),(!!),(++))
 import Reflex.Dom
 import Data.Map (Map, lookup, insert, empty, fromList, elems)
 import Data.List (foldl, elem, find)
@@ -229,19 +229,15 @@ showArrow rotation cwPoints dFaceViewKit = do
 showArrowSet :: MonadWidget t m => Rotation -> Dynamic t FaceViewKit -> m (Event t ())
 showArrowSet rotation dFaceViewKit = do
     let hw = 0.35
-        base = 0.1
+        base = -0.3
         length = 0.7
 
-        cwPoints0 = [(0.5 - hw,   1.5+base), (0.5 + hw,   1.5+base), (0.5,             1.5+base+length)]
-        cwPoints1 = [(2.5 - hw,   1.5-base), (2.5 + hw,   1.5-base), (2.5,             1.5-base-length)]
-        cwPoints2 = [(1.5 + base, 2.5 - hw), (1.5 + base, 2.5 + hw), (1.5+base+length, 2.5)]
-        cwPoints3 = [(1.5 - base, 0.5 - hw), (1.5 - base, 0.5 + hw), (1.5-base-length, 0.5)]
+        cwPoints0 = [(0.5 - hw,   1.5 + base), (0.5 + hw,   1.5 + base), (0.5,             1.5+base+length)]
+        cwPoints1 = [(1.5 + base, 2.5 - hw),   (1.5 + base, 2.5 + hw),   (1.5+base+length, 2.5)]
 
     ev0 <- showArrow rotation cwPoints0 dFaceViewKit
     ev1 <- showArrow rotation cwPoints1 dFaceViewKit
-    ev2 <- showArrow rotation cwPoints2 dFaceViewKit
-    ev3 <- showArrow rotation cwPoints3 dFaceViewKit
-    return $ leftmost [ev0, ev1, ev2, ev3]
+    return $ leftmost [ev0, ev1]
 
 
 showArrows :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
@@ -372,32 +368,32 @@ kitmapUpdate :: Orientation -> (Map Color FaceViewKit, Facet) -> (Matrix Float, 
 kitmapUpdate orientation (prevMap, face) (assemble, nextColor, advancers)  = 
 
     let
-        rot0   = fromLists [[ 1, 0, 0, 0 ]
-                           ,[ 0, 1, 0, 0 ]
-                           ,[ 0, 0, 1, 0 ]
-                           ,[ 0, 0, 0, 1 ] 
+        rot0   = fromLists [[ 1, 0, 0, 0]
+                           ,[ 0, 1, 0, 0]
+                           ,[ 0, 0, 1, 0]
+                           ,[ 0, 0, 0, 1] 
                            ]
 
-        rot270 = fromLists [[ 0, 1, 0, 0 ]
-                           ,[-1, 0, 0, 0 ]
-                           ,[ 0, 0, 1, 0 ]
-                           ,[ 0, 0, 0, 1 ] 
+        rot270 = fromLists [[ 0, 1, 0, 0]
+                           ,[-1, 0, 0, 0]
+                           ,[ 0, 0, 1, 0]
+                           ,[ 0, 0, 0, 1] 
                            ]
 
-        rot180 = fromLists [[-1, 0, 0, 0 ]
-                           ,[ 0,-1, 0, 0 ]
-                           ,[ 0, 0, 1, 0 ]
-                           ,[ 0, 0, 0, 1 ] 
+        rot180 = fromLists [[-1, 0, 0, 0]
+                           ,[ 0,-1, 0, 0]
+                           ,[ 0, 0, 1, 0]
+                           ,[ 0, 0, 0, 1] 
                            ]
 
-        rot90  = fromLists [[ 0,-1, 0, 0 ]
-                           ,[ 1, 0, 0, 0 ]
-                           ,[ 0, 0, 1, 0 ]
-                           ,[ 0, 0, 0, 1 ] 
+        rot90  = fromLists [[ 0,-1, 0, 0]
+                           ,[ 1, 0, 0, 0]
+                           ,[ 0, 0, 1, 0]
+                           ,[ 0, 0, 0, 1] 
                            ]
 
-        colorChecker (advance,_) = ((nextColor == (val.south.north.advance) face) ) 
-        Just (advance,rotation) =  find colorChecker $ zipWith (,) advancers [rot0,rot90,rot180,rot270]
+        colorChecker (advance,_) = (nextColor == (val.south.north.advance) face) 
+        Just (advance,rotation) =  find colorChecker $ zip advancers [rot0,rot90,rot180,rot270]
 
         color = val face 
         updatedViewKit = makeViewKit face orientation assemble rotation
@@ -565,7 +561,7 @@ update action model =
 
                     downRotation =  fromLists [ [1, 0, 0]
                                               , [0, c, s]
-                                              , [0, s, c] 
+                                              , [0,-s, c] 
                                               ]
 
                 in case direction of
