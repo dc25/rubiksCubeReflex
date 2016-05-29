@@ -6,7 +6,9 @@ import Data.List (foldl, elem, find)
 import Data.Maybe (maybeToList, fromMaybe)
 import Data.Matrix (Matrix, fromLists, toLists, multStd2, multStd)
 import Data.Monoid ((<>))
+import Data.Function 
 import Control.Monad.Reader
+import Debug.Trace
 
 data Color = Red | Green | Blue | Yellow | Orange | Purple deriving (Show,Eq,Ord)
 
@@ -121,7 +123,7 @@ mkFace ~(nRight, nCenter, nLeft)
 --- |_____S_____ |_______________________________________
 --- |     N      |     N      |     N      |     N      |
 --- |            |            |            |            |
---- |W  yellow  E|W   blue   E|W   green  E|W   red    E|
+--- |W  yellow  E|W   red    E|W   green  E|W   blue    E|
 --- |            |            |            |            |
 --- |            |            |            |            |
 --- |_____S______|_____S______|_____S______|_____S______|
@@ -206,9 +208,9 @@ pointsToString :: [(Float,Float)] -> String
 pointsToString points = concat $ fmap (\(x,y) -> show x ++ ", " ++ show y ++ " ") points
 
 showFacetSquare :: MonadWidget t m => Int -> Int -> Float -> Dynamic t FaceViewKit -> m ()
-showFacetSquare row col margin dFaceViewKit = do
-    let x0 = fromIntegral col + margin
-        y0 = fromIntegral row + margin
+showFacetSquare x y margin dFaceViewKit = do
+    let x0 = fromIntegral x + margin
+        y0 = fromIntegral y + margin
         x1 = x0 + 1.0 - 2.0 * margin
         y1 = y0 + 1.0 - 2.0 * margin
         points = [(x0,y0),(x0,y1),(x1,y1),(x1,y0)]
@@ -218,17 +220,21 @@ showFacetSquare row col margin dFaceViewKit = do
     return ()
 
 showFacet :: MonadWidget t m => Int -> Int -> Dynamic t FaceViewKit -> m ()
-showFacet row col dFaceViewKit = do
+showFacet x y dFaceViewKit = do
     return ()
-    -- showFacetSquare row col 0.0 $ constDyn "black"
-    showFacetSquare row col 0.05 dFaceViewKit
+    -- showFacetSquare x y 0.0 $ constDyn "black"
+    showFacetSquare x y 0.05 dFaceViewKit
 
 showArrow :: MonadWidget t m => Rotation -> Dynamic t FaceViewKit -> m (Event t ())
 showArrow rotation dFaceViewKit = do
     let points = if rotation == CW 
                  then [(0.7,0.3), (0.7,0.7), (2.4,0.5)]
                  else [(0.3,0.7), (0.7,0.7), (0.5,2.4)]
-    dAttrs <- mapDyn (\fvk -> "fill" =: "grey" <> 
+
+    let color = if rotation == CW 
+                 then "grey"
+                 else "dark grey"
+    dAttrs <- mapDyn (\fvk -> "fill" =: color <> 
                               "points" =: pointsToString (transformPoints (transform fvk) points))  dFaceViewKit
     (el,_) <- elDynAttrNS' svgNamespace "polygon" dAttrs $ return ()
     return $ domEvent Click el
@@ -244,32 +250,32 @@ showArrows dFaceViewKit = do
     return $ leftmost [rotationEventCW, rotationEventCCW]
 
 showFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
-showFace upperLeft = do  -- maybe could use a fold or something for this.
-    showFacet 0 0 upperLeft  
+showFace center = do  -- maybe could use a fold or something for this.
+    showFacet 1 1 center 
 
-    upper <- mapDyn (updateViewKit east) upperLeft
-    showFacet 0 1  upper
-
-    upperRight <- mapDyn (updateViewKit east) upper
-    showFacet 0 2 upperRight 
-
-    right <- mapDyn (updateViewKit east) upperRight
-    showFacet 1 2 right
+    right <- mapDyn (updateViewKit east) center
+    showFacet 2 1 right  
 
     lowerRight <- mapDyn (updateViewKit east) right
-    showFacet 2 2 lowerRight 
+    showFacet 2 0 lowerRight 
 
     lower <- mapDyn (updateViewKit east) lowerRight
-    showFacet 2 1 lower
+    showFacet 1 0 lower
 
     lowerLeft <- mapDyn (updateViewKit east) lower
-    showFacet 2 0 lowerLeft 
+    showFacet 0 0 lowerLeft 
 
     left <- mapDyn (updateViewKit east) lowerLeft
-    showFacet 1 0 left
+    showFacet 0 1  left
 
-    center <- mapDyn (updateViewKit south) left
-    showFacet 1 1 center 
+    upperLeft <- mapDyn (updateViewKit east) left
+    showFacet 0 2 upperLeft 
+
+    upper <- mapDyn (updateViewKit east) upperLeft
+    showFacet 1 2 upper
+
+    upperRight <- mapDyn (updateViewKit east) upper
+    showFacet 2 2 upperRight 
 
     showArrows center
 
@@ -301,11 +307,11 @@ makeViewKit facet orientation assemble rotation =
                                   ]
 
         modelTransform =            scale2dMatrix 
-                              `multStd2` trans2dMatrix 
-                              `multStd2` rotation
-                              `multStd2` assemble
-                              `multStd2` scale3dMatrix 
-                              `multStd2` orientation
+                         `multStd2` trans2dMatrix 
+                         `multStd2` rotation
+                         `multStd2` assemble
+                         `multStd2` scale3dMatrix 
+                         `multStd2` orientation
 
 
         threeUntransformedPoints = fromLists [ [0,0,0,1] -- lower left corner of original face
@@ -379,19 +385,41 @@ kitmapUpdate orientation (prevMap, face) (assemble, nextColor, advancers)  =
                            ,[ 0.0, 0.0, 0.0, 1.0 ] 
                            ]
 
-        -- rotations = [rot0,rot90,rot180,rot270]
-        colorChecker (advance,_) = nextColor == (val.south.north.advance) face
-        Just (advance,rotation) =  find  colorChecker $ zipWith (,) advancers [rot0,rot90,rot180,rot270]
+        colorChecker (advance,_) = ((nextColor == (val.south.north.advance) face) ) 
+                                    & (trace ("next color = " ++ show nextColor 
+                                            ++ " test color = " ++ show ((val.south.north.advance) face)
+                                            ++ " this color = " ++ show ((val) face)))
+        Just (advance,rotation) =  find colorChecker $ zipWith (,) advancers [rot0,rot90,rot180,rot270]
+        -- Just (advance,rotation) =  find colorChecker $ zipWith (,) advancers [rot0,rot0,rot0,rot0]
 
-        faceCorner = (west.north) face
-        faceColor = val face
-        newViewKit = makeViewKit faceCorner orientation assemble rotation
-        newMap = if isVisible newViewKit 
-                 then insert faceColor newViewKit prevMap
+        color = val face & trace ("THIS color = " ++ show (val face))
+        updatedViewKit = makeViewKit face orientation assemble rotation
+        updatedMap = if isVisible updatedViewKit 
+                 then insert color updatedViewKit prevMap
                  else prevMap
         newFace = (south.north.advance) face
-    in (newMap, newFace)
+    in (updatedMap, newFace)
     
+--- ______________
+--- |     N      |
+--- |            |
+--- |W  purple  E|
+--- |            |
+--- |            |
+--- |_____S_____ |_______________________________________
+--- |     N      |     N      |     N      |     N      |
+--- |            |            |            |            |
+--- |W  yellow  E|W   red    E|W   green  E|W   blue    E|
+--- |            |            |            |            |
+--- |            |            |            |            |
+--- |_____S______|_____S______|_____S______|_____S______|
+--- |     N      |
+--- |            |
+--- |W  orange  E|
+--- |            |
+--- |            |
+--- |_____S______|
+
 -- pain point : Missing comma in red matrix caused difficult to diagnose
 -- failure.
 prepareFaceViews :: OrientedCube -> Map Color FaceViewKit
@@ -404,10 +432,10 @@ prepareFaceViews orientedCube@(startingFace, cubeOrientation) =
                          ,[ 0.0, 0.0, 1.0, 0.0 ]
                          ,[ 0.0, 0.0, 0.5, 1.0 ] 
                          ] ,
-               Blue, [east, north, west, south]
+               Red, [east, north, west, south]
               )  
 
-            , ( -- blue / right
+            , ( -- red / right
                fromLists [[ 0.0, 1.0, 0.0, 0.0 ]
                          ,[ 0.0, 0.0, 1.0, 0.0 ]
                          ,[ 1.0, 0.0, 0.0, 0.0 ]
@@ -422,10 +450,10 @@ prepareFaceViews orientedCube@(startingFace, cubeOrientation) =
                          ,[ 0.0, 1.0, 0.0, 0.0 ]
                          ,[ 0.0, 0.5, 0.0, 1.0 ] 
                          ],
-                Red, [east, north, west, south]
+                Blue, [east, north, west, south]
               )  
 
-            , ( -- red / left
+            , ( -- blue / left
                fromLists [[ 0.0,-1.0, 0.0, 0.0 ]
                          ,[ 0.0, 0.0, 1.0, 0.0 ]
                          ,[-1.0, 0.0, 0.0, 0.0 ]
@@ -524,18 +552,18 @@ update :: Action -> Model -> Model
 update action model = 
         case action of
             RotateFace rotation facet -> 
-                 Model (rotateFace rotation facet $ cube model) (perpendicular model) (northDirection model)
+                 model { cube = rotateFace rotation facet $ cube model }
             NudgeCube direction -> 
                 -- pain point : do I pay for making these limited scope?   
-                let rotationStep = pi/100.0
+                let rotationStep = pi/20.0
                     cStep = cos rotationStep
                     sStep = sin rotationStep
 
                     -- left and right hold y axis const, rotate x,z
-                    leftRotation = fromLists [ [cStep,    0,   -sStep]
-                                             , [    0,    1,        0]
-                                             , [sStep,    0,    cStep] 
-                                             ]
+                    leftRotation =  fromLists [ [cStep,  0,  -sStep]
+                                              , [    0,  1,       0]
+                                              , [sStep,  0,   cStep] 
+                                              ]
 
                     rightRotation = fromLists [ [cStep,  0,   sStep]
                                               , [    0,  1,       0]
@@ -544,21 +572,21 @@ update action model =
 
                     -- up and down hold x axis const, rotate y,z
 
-                    upRotation = fromLists [ [1,      0,      0]
-                                           , [0,  cStep, -sStep]
-                                           , [0,  sStep,  cStep] 
-                                           ]
+                    upRotation =    fromLists [ [1,      0,       0]
+                                              , [0,  cStep,  -sStep]
+                                              , [0,  sStep,   cStep] 
+                                              ]
 
-                    downRotation = fromLists [ [1,     0,      0]
-                                             , [0,  cStep,  sStep]
-                                             , [0, -sStep,  cStep] 
-                                             ]
+                    downRotation =  fromLists [ [1,      0,       0]
+                                              , [0,  cStep,   sStep]
+                                              , [0, -sStep,   cStep] 
+                                              ]
 
                 in case direction of
-                       Left -> rotateModel leftRotation model
+                       Left ->  rotateModel leftRotation model
                        Right -> rotateModel rightRotation model
-                       Up -> rotateModel upRotation model
-                       Down -> rotateModel downRotation model
+                       Up ->    rotateModel upRotation model
+                       Down ->  rotateModel downRotation model
  
 initModel = Model mkCube [0.0,0.0,1.0]  [0.0,1.0,0.0] 
 
