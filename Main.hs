@@ -16,8 +16,7 @@ type Vector a = [a]
 cross :: Num a => Vector a -> Vector a -> Vector a
 cross [x0,y0,z0] [x1,y1,z1] = [y0*z1 - z0*y1
                               ,z0*x1 - x0*z1
-                              ,x0*y1 - y0*x1
-                              ]
+                              ,x0*y1 - y0*x1 ]
 
 dot :: Num a => Vector a -> Vector a -> a
 dot v0 v1 = sum $ zipWith (*) v0 v1
@@ -111,8 +110,7 @@ mkFace ~(nRight, nCenter, nLeft)
     in ( (nwCorner, nSide, enCorner)
        , (wsCorner, wSide, nwCorner)
        , (seCorner, sSide, wsCorner)
-       , (enCorner, eSide, seCorner)
-       )
+       , (enCorner, eSide, seCorner))
 --- ______________
 --- |     N      |
 --- |            |
@@ -290,22 +288,19 @@ makeViewKit facet orientation assemble rotation =
         scale2dMatrix = fromLists [ [scale2d, 0,       0,       0]
                                   , [0,       scale2d, 0,       0]
                                   , [0,       0,       0,       0]
-                                  , [0,       0,       0,       1] 
-                                  ]
+                                  , [0,       0,       0,       1] ]
 
         trans2d = -1/2  -- translate center of 1x1 square face to origin.
         trans2dMatrix = fromLists [ [1,       0,       0,       0]
                                   , [0,       1,       0,       0]
                                   , [0,       0,       1,       0]
-                                  , [trans2d, trans2d, 0,       1] 
-                                  ]
+                                  , [trans2d, trans2d, 0,       1] ]
 
         scale3d = 1/2  -- scale down to fit in camera space
         scale3dMatrix = fromLists [ [scale3d, 0,       0,       0]
                                   , [0,       scale3d, 0,       0]
                                   , [0,       0,       scale3d, 0]
-                                  , [0,       0,       0,       1] 
-                                  ]
+                                  , [0,       0,       0,       1] ]
 
         modelTransform =            scale2dMatrix 
                          `multStd2` trans2dMatrix 
@@ -316,10 +311,9 @@ makeViewKit facet orientation assemble rotation =
 
 
         -- backface elimination follows.
-        threeUntransformedPoints = fromLists [ [0,0,0,1] -- lower left corner of original face
-                                             , [3,0,0,1] -- lower right corner of original face
-                                             , [0,3,0,1] -- upper left corner of original face
-                                             ]
+        threeUntransformedPoints = fromLists [ [0,0,0,1]   -- lower left corner of original face
+                                             , [3,0,0,1]   -- lower right corner of original face
+                                             , [0,3,0,1] ] -- upper left corner of original face
 
         threeTransformedPoints = toLists $ threeUntransformedPoints `multStd2` modelTransform
         pt00 = take 3 $ threeTransformedPoints !! 0
@@ -343,15 +337,13 @@ makeViewKit facet orientation assemble rotation =
         perspectivePrep = fromLists [ [1, 0, 0, 0]
                                     , [0, 1, 0, 0]
                                     , [0, 0, 1, 0]
-                                    , [0, 0, 1, 1] 
-                                    ]
+                                    , [0, 0, 1, 1] ]
 
         -- perspective transformation 
         perspective     = fromLists [ [1, 0, 0, 0]
                                     , [0, 1, 0, 0]
                                     , [0, 0, 1, 1]
-                                    , [0, 0, 0, 0] 
-                                    ]
+                                    , [0, 0, 0, 0] ]
 
         viewTransform =            modelTransform
                         `multStd2` perspectivePrep
@@ -366,26 +358,22 @@ kitmapUpdate orientation (prevMap, face) (assemble, nextColor, advancers)  =
         rot0   = fromLists [[ 1, 0, 0, 0]
                            ,[ 0, 1, 0, 0]
                            ,[ 0, 0, 1, 0]
-                           ,[ 0, 0, 0, 1] 
-                           ]
+                           ,[ 0, 0, 0, 1] ]
 
         rot270 = fromLists [[ 0, 1, 0, 0]
                            ,[-1, 0, 0, 0]
                            ,[ 0, 0, 1, 0]
-                           ,[ 0, 0, 0, 1] 
-                           ]
+                           ,[ 0, 0, 0, 1] ]
 
         rot180 = fromLists [[-1, 0, 0, 0]
                            ,[ 0,-1, 0, 0]
                            ,[ 0, 0, 1, 0]
-                           ,[ 0, 0, 0, 1] 
-                           ]
+                           ,[ 0, 0, 0, 1] ]
 
         rot90  = fromLists [[ 0,-1, 0, 0]
                            ,[ 1, 0, 0, 0]
                            ,[ 0, 0, 1, 0]
-                           ,[ 0, 0, 0, 1] 
-                           ]
+                           ,[ 0, 0, 0, 1] ]
 
         colorChecker (advance,_) = (nextColor == (val.south.north.advance) face) 
         Just (advance,rotation) =  find colorChecker $ zip advancers [rot0,rot90,rot180,rot270]
@@ -405,57 +393,51 @@ prepareFaceViews orientedCube@(startingFace, cubeOrientation) =
     let advanceSteps :: [(Matrix Float, Color, [Facet -> Facet])]
         advanceSteps = 
             [ ( -- purple / top
-               fromLists [[ 1,   0,   0,   0]
-                         ,[ 0,   1,   0,   0]
-                         ,[ 0,   0,   1,   0]
-                         ,[ 0,   0,   0.5, 1] 
-                         ] ,
-               Red, [east, north, west, south]
+                fromLists [[ 1,   0,   0,   0]
+                          ,[ 0,   1,   0,   0]
+                          ,[ 0,   0,   1,   0]
+                          ,[ 0,   0,   0.5, 1] ]
+              , Red, [east, north, west, south]
               )  
 
             , ( -- red / right
-               fromLists [[ 0,   1,   0,   0]
-                         ,[ 0,   0,   1,   0]
-                         ,[ 1,   0,   0,   0]
-                         ,[ 0.5, 0,   0,   1] 
-                         ],
-                Green, [east, north, west, south]
+                fromLists [[ 0,   1,   0,   0]
+                          ,[ 0,   0,   1,   0]
+                          ,[ 1,   0,   0,   0]
+                          ,[ 0.5, 0,   0,   1] ]
+              , Green, [east, north, west, south]
               )  
 
             , ( -- green / back
-               fromLists [[-1,   0,   0,   0]
-                         ,[ 0,   0,   1,   0]
-                         ,[ 0,   1,   0,   0]
-                         ,[ 0,   0.5, 0,   1] 
-                         ],
-                Blue, [east, north, west, south]
+                fromLists [[-1,   0,   0,   0]
+                          ,[ 0,   0,   1,   0]
+                          ,[ 0,   1,   0,   0]
+                          ,[ 0,   0.5, 0,   1] ]
+              , Blue, [east, north, west, south]
               )  
 
             , ( -- blue / left
-               fromLists [[ 0,  -1,   0,   0]
-                         ,[ 0,   0,   1,   0]
-                         ,[-1,   0,   0,   0]
-                         ,[-0.5, 0,   0,   1] 
-                         ],
-               Yellow, [east, north, west, south]
+                fromLists [[ 0,  -1,   0,   0]
+                          ,[ 0,   0,   1,   0]
+                          ,[-1,   0,   0,   0]
+                          ,[-0.5, 0,   0,   1] ]
+              , Yellow, [east, north, west, south]
               )  
 
             , ( -- yellow / front
-               fromLists [[ 1,   0,   0,   0]
-                         ,[ 0,   0,   1,   0]
-                         ,[ 0,  -1,   0,   0]
-                         ,[ 0,  -0.5, 0,   1] 
-                         ],
-               Orange, [south, east, north, west]
+                fromLists [[ 1,   0,   0,   0]
+                          ,[ 0,   0,   1,   0]
+                          ,[ 0,  -1,   0,   0]
+                          ,[ 0,  -0.5, 0,   1] ]
+              , Orange, [south, east, north, west]
               )  
 
             , ( -- orange / bottom
-               fromLists [[ 1,   0,   0,   0]
-                         ,[ 0,  -1,   0,   0]
-                         ,[ 0,   0,  -1,   0]
-                         ,[ 0,   0,  -0.5, 1] 
-                         ], 
-               Yellow, [north, west, south, east]
+                fromLists [[ 1,   0,   0,   0]
+                          ,[ 0,  -1,   0,   0]
+                          ,[ 0,   0,  -1,   0]
+                          ,[ 0,   0,  -0.5, 1] ]
+              , Yellow, [north, west, south, east]
               )
          ]
 
@@ -479,8 +461,7 @@ orientCube model =
             orientation = [[ex,  ey,  ez, 0]
                           ,[nx,  ny,  nz, 0]
                           ,[ax,  ay,  az, 0]
-                          ,[ 0,   0,   0, 1]
-                          ]
+                          ,[ 0,   0,   0, 1] ]
             in (cube model, fromLists orientation)
 
 fps = "style" =: "float:left;padding:10px" 
@@ -540,24 +521,20 @@ update action model =
                     -- left and right hold y axis const, rotate x,z
                     leftRotation =  fromLists [ [ c, 0,-s ]
                                               , [ 0, 1, 0 ]
-                                              , [ s, 0, c ] 
-                                              ]
+                                              , [ s, 0, c ] ]
 
                     rightRotation = fromLists [ [ c, 0, s ]
                                               , [ 0, 1, 0 ]
-                                              , [-s, 0, c ] 
-                                              ]
+                                              , [-s, 0, c ] ]
 
                     -- up and down hold x axis const, rotate y,z
                     upRotation =    fromLists [ [ 1, 0, 0 ]
                                               , [ 0, c,-s ]
-                                              , [ 0, s, c ] 
-                                              ]
+                                              , [ 0, s, c ] ]
 
                     downRotation =  fromLists [ [ 1, 0, 0 ]
                                               , [ 0, c, s ]
-                                              , [ 0,-s, c ] 
-                                              ]
+                                              , [ 0,-s, c ] ]
 
                 in case direction of
                        Left ->  rotateModel leftRotation model
