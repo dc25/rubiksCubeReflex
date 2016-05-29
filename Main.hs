@@ -159,15 +159,13 @@ copyWithRotation rotationMap f =
 
 getRotationMap :: (Facet -> Facet) -> Facet -> RotationMap
 getRotationMap advanceToPost f =
-    let 
-        ff :: (Facet, Facet, RotationMap) -> (Facet -> Facet, Facet -> Facet) -> (Facet, Facet, RotationMap)
+    let ff :: (Facet, Facet, RotationMap) -> (Facet -> Facet, Facet -> Facet) -> (Facet, Facet, RotationMap)
         ff (pre, post, oldRotMap) (splitDown, advanceDirection) =
             let rm' =  insert (pre, splitDown pre) (splitDown post) oldRotMap
                 newRotMap =  insert (splitDown post, post) pre rm'
             in (advanceDirection pre, advanceDirection post, newRotMap)
 
-        faceCrawl = [(south, west), (south, west), (east, south)]
-        fullCrawl = concat $ replicate 4 faceCrawl
+        fullCrawl = concat $ replicate 4 [(south, west), (south, west), (east, south)]
         preStart = north.north $ f
         postStart = advanceToPost preStart  -- clockwise or counterclockwise
         (_,_,rotationMap) = foldl ff (preStart, postStart, empty) fullCrawl
@@ -175,12 +173,9 @@ getRotationMap advanceToPost f =
     in rotationMap
 
 rotateFace :: Rotation -> Facet -> Facet -> Facet
-rotateFace rotation f cube = 
-        let advancer = 
-                if rotation == CW 
-                then south.west.west
-                else east.north.east
-        in copyWithRotation (getRotationMap advancer f) cube
+rotateFace rotation face cube = 
+        let advancer = if rotation == CW then south.west.west else east.north.east
+        in copyWithRotation (getRotationMap advancer face) cube
 
 width = 575
 height = 575
@@ -543,25 +538,25 @@ update action model =
                     s = sin step
 
                     -- left and right hold y axis const, rotate x,z
-                    leftRotation =  fromLists [ [c, 0,-s]
-                                              , [0, 1, 0]
-                                              , [s, 0, c] 
+                    leftRotation =  fromLists [ [ c, 0,-s ]
+                                              , [ 0, 1, 0 ]
+                                              , [ s, 0, c ] 
                                               ]
 
-                    rightRotation = fromLists [ [ c, 0, s]
-                                              , [ 0, 1, 0]
-                                              , [-s, 0, c] 
+                    rightRotation = fromLists [ [ c, 0, s ]
+                                              , [ 0, 1, 0 ]
+                                              , [-s, 0, c ] 
                                               ]
 
                     -- up and down hold x axis const, rotate y,z
-                    upRotation =    fromLists [ [1, 0, 0]
-                                              , [0, c,-s]
-                                              , [0, s, c] 
+                    upRotation =    fromLists [ [ 1, 0, 0 ]
+                                              , [ 0, c,-s ]
+                                              , [ 0, s, c ] 
                                               ]
 
-                    downRotation =  fromLists [ [1, 0, 0]
-                                              , [0, c, s]
-                                              , [0,-s, c] 
+                    downRotation =  fromLists [ [ 1, 0, 0 ]
+                                              , [ 0, c, s ]
+                                              , [ 0,-s, c ] 
                                               ]
 
                 in case direction of
