@@ -95,7 +95,7 @@ mkDomino right upperRight upperLeft left lowerLeft lowerRight color index =
 ---                        sRight       sCenter      sLeft 
 
 mkFace :: Edge -> Edge -> Edge -> Edge -> Color -> (Edge,Edge,Edge,Edge)
-mkFace ~(nRight, nCenter, nLeft) 
+mkFace ~(nRight, nCenter, nLeft) -- use of '~' specifies lazy evaluation of arguments.
        ~(wRight, wCenter, wLeft) 
        ~(sRight, sCenter, sLeft) 
        ~(eRight, eCenter, eLeft) 
@@ -155,17 +155,17 @@ copyWithRotation rotationMap f =
 
 getRotationMap :: (Facet -> Facet) -> Facet -> RotationMap
 getRotationMap advanceToPost f =
-    let ff :: (Facet, Facet, RotationMap) -> (Facet -> Facet, Facet -> Facet) -> (Facet, Facet, RotationMap)
+    let preStart = north.north $ f -- from center to edge of adjacent face.
+        postStart = advanceToPost preStart  -- clockwise or counterclockwise
+        fullCrawl = concat $ replicate 4 [(south, west), (south, west), (east, south)]
+
+        ff :: (Facet, Facet, RotationMap) -> (Facet -> Facet, Facet -> Facet) -> (Facet, Facet, RotationMap)
         ff (pre, post, oldRotMap) (splitDown, advanceDirection) =
             let rm' =  insert (pre, splitDown pre) (splitDown post) oldRotMap
                 newRotMap =  insert (splitDown post, post) pre rm'
             in (advanceDirection pre, advanceDirection post, newRotMap)
 
-        fullCrawl = concat $ replicate 4 [(south, west), (south, west), (east, south)]
-        preStart = north.north $ f
-        postStart = advanceToPost preStart  -- clockwise or counterclockwise
         (_,_,rotationMap) = foldl ff (preStart, postStart, empty) fullCrawl
-
     in rotationMap
 
 rotateFace :: Rotation -> Facet -> Facet -> Facet
