@@ -100,13 +100,11 @@ mkFace ~(nRight, nCenter, nLeft)
        ~(sRight, sCenter, sLeft) 
        ~(eRight, eCenter, eLeft) 
        color =
-
     let center = DNode nSide wSide sSide eSide color 0
         (nwCorner, nSide) = mkDomino enCorner nCenter nLeft wRight wSide center color 1
         (wsCorner, wSide) = mkDomino nwCorner wCenter wLeft sRight sSide center color 3
         (seCorner, sSide) = mkDomino wsCorner sCenter sLeft eRight eSide center color 5
         (enCorner, eSide) = mkDomino seCorner eCenter eLeft nRight nSide center color 7
-
     in ( (nwCorner, nSide, enCorner)
        , (wsCorner, wSide, nwCorner)
        , (seCorner, sSide, wsCorner)
