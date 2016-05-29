@@ -135,12 +135,10 @@ mkFace ~(nRight, nCenter, nLeft)
 
 mkCube = 
     let (nPurple, wPurple, sPurple,  ePurple) = mkFace nGreen    nBlue     nYellow   nRed     Purple
-
         (nYellow, wYellow, sYellow,  eYellow) = mkFace sPurple   eBlue     nOrange   wRed     Yellow
         (nBlue,   wBlue,   sBlue,    eBlue)   = mkFace wPurple   eGreen    wOrange   wYellow  Blue
         (nGreen,  wGreen,  sGreen,   eGreen)  = mkFace nPurple   eRed      sOrange   wBlue    Green
         (nRed,    wRed,    sRed,     eRed)    = mkFace ePurple   eYellow   eOrange   wGreen   Red
-
         (nOrange, wOrange, sOrange, eOrange)  = mkFace sYellow   sBlue     sGreen    sRed     Orange
         (_,cube,_) = nPurple
     in south cube
@@ -157,8 +155,7 @@ copyWithRotation rotationMap f =
           (index f)
     where 
         checkForRotation rotationMap startFacet preRotationFacet =
-            fromMaybe preRotationFacet
-                (lookup (startFacet, preRotationFacet) rotationMap)
+            fromMaybe preRotationFacet $ lookup (startFacet, preRotationFacet) rotationMap
 
 getRotationMap :: (Facet -> Facet) -> Facet -> RotationMap
 getRotationMap advanceToPost f =
@@ -225,9 +222,7 @@ showArrow :: MonadWidget t m => Rotation -> [(Float,Float)] -> Dynamic t FaceVie
 showArrow rotation cwPoints dFaceViewKit = do
     let points = if rotation == CW then cwPoints else fmap (\(a,b) -> (b,a)) cwPoints
 
-    let color = if rotation == CW 
-                 then "grey"
-                 else "beige"
+    let color = if rotation == CW then "grey" else "beige"
     dAttrs <- mapDyn (\fvk -> "fill" =: color <> 
                               "points" =: pointsToString (transformPoints (transform fvk) points))  dFaceViewKit
     (el,_) <- elDynAttrNS' svgNamespace "polygon" dAttrs $ return ()
@@ -244,8 +239,6 @@ showArrowSet rotation dFaceViewKit = do
 
         cwPoints2 = [(1.5 + base, 2.5 - halfWidth), (1.5 + base, 2.5 + halfWidth), (1.5+base+length, 2.5)]
         cwPoints3 = [(1.5 - base, 0.5 - halfWidth), (1.5 - base, 0.5 + halfWidth), (1.5-base-length, 0.5)]
-
-        -- cwPoints2 = [(2.5 - halfWidth, 1.5-base), (2.5 + halfWidth, 1.5-base), (2.5,1.5-base-length)]
 
     ev0 <- showArrow rotation cwPoints0 dFaceViewKit
     ev1 <- showArrow rotation cwPoints1 dFaceViewKit
@@ -328,6 +321,7 @@ makeViewKit facet orientation assemble rotation =
                          `multStd2` orientation
 
 
+        -- backface elimination follows.
         threeUntransformedPoints = fromLists [ [0,0,0,1] -- lower left corner of original face
                                              , [3,0,0,1] -- lower right corner of original face
                                              , [0,3,0,1] -- upper left corner of original face
@@ -358,7 +352,7 @@ makeViewKit facet orientation assemble rotation =
                                     , [0,       0,       1,       1] 
                                     ]
 
-        -- perspective transformation - as simple as I can make it.
+        -- perspective transformation 
         perspective     = fromLists [ [1,       0,       0,       0]
                                     , [0,       1,       0,       0]
                                     , [0,       0,       1,       1]
