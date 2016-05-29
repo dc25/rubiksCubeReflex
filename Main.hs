@@ -9,7 +9,7 @@ import Data.Monoid ((<>))
 import Data.Function 
 import Control.Monad.Reader
 
-data Color = Red | Green | Blue | Yellow | Orange | Purple deriving (Show,Eq,Ord)
+data Color = Red | Green | Blue | Yellow | Orange | Purple | Black deriving (Show,Eq,Ord)
 
 type Vector a = [a]
 
@@ -214,31 +214,28 @@ showFacetSquare x y margin dFaceViewKit = do
 
 showFacet :: MonadWidget t m => Int -> Int -> Dynamic t FaceViewKit -> m ()
 showFacet x y dFaceViewKit = do
-    return ()
-    -- showFacetSquare x y 0 $ constDyn "black"
+    showFacetSquare x y 0 =<< mapDyn (changeViewKitColor Black) dFaceViewKit 
     showFacetSquare x y 0.05 dFaceViewKit
 
 showArrow :: MonadWidget t m => Rotation -> [(Float,Float)] -> Dynamic t FaceViewKit -> m (Event t ())
 showArrow rotation cwPoints dFaceViewKit = do
     let points = if rotation == CW then cwPoints else fmap (\(a,b) -> (b,a)) cwPoints
 
-    let color = if rotation == CW then "grey" else "beige"
-    dAttrs <- mapDyn (\fvk -> "fill" =: color <> 
+    dAttrs <- mapDyn (\fvk -> "fill" =: "grey" <> 
                               "points" =: pointsToString (transformPoints (transform fvk) points))  dFaceViewKit
     (el,_) <- elDynAttrNS' svgNamespace "polygon" dAttrs $ return ()
     return $ domEvent Click el
 
 showArrowSet :: MonadWidget t m => Rotation -> Dynamic t FaceViewKit -> m (Event t ())
 showArrowSet rotation dFaceViewKit = do
-    let halfWidth = 0.2
+    let hw = 0.35
         base = 0.1
-        length = 0.6
+        length = 0.7
 
-        cwPoints0 = [(0.5 - halfWidth, 1.5+base), (0.5 + halfWidth, 1.5+base), (0.5,1.5+base+length)]
-        cwPoints1 = [(2.5 - halfWidth, 1.5-base), (2.5 + halfWidth, 1.5-base), (2.5,1.5-base-length)]
-
-        cwPoints2 = [(1.5 + base, 2.5 - halfWidth), (1.5 + base, 2.5 + halfWidth), (1.5+base+length, 2.5)]
-        cwPoints3 = [(1.5 - base, 0.5 - halfWidth), (1.5 - base, 0.5 + halfWidth), (1.5-base-length, 0.5)]
+        cwPoints0 = [(0.5 - hw,   1.5+base), (0.5 + hw,   1.5+base), (0.5,             1.5+base+length)]
+        cwPoints1 = [(2.5 - hw,   1.5-base), (2.5 + hw,   1.5-base), (2.5,             1.5-base-length)]
+        cwPoints2 = [(1.5 + base, 2.5 - hw), (1.5 + base, 2.5 + hw), (1.5+base+length, 2.5)]
+        cwPoints3 = [(1.5 - base, 0.5 - hw), (1.5 - base, 0.5 + hw), (1.5-base-length, 0.5)]
 
     ev0 <- showArrow rotation cwPoints0 dFaceViewKit
     ev1 <- showArrow rotation cwPoints1 dFaceViewKit
@@ -288,6 +285,12 @@ showFace center = do  -- maybe could use a fold or something for this.
 
 updateViewKit :: (Facet->Facet) -> FaceViewKit -> FaceViewKit
 updateViewKit advancer prevViewKit = prevViewKit { face = advancer $ face prevViewKit }
+
+changeViewKitColor :: Color -> FaceViewKit -> FaceViewKit
+changeViewKitColor newColor prevViewKit = 
+        let prevFace = face prevViewKit
+            newFace = prevFace {val=newColor}
+        in prevViewKit {face = newFace}
 
 makeViewKit :: Facet -> Orientation -> Matrix Float -> Matrix Float-> FaceViewKit
 makeViewKit facet orientation assemble rotation = 
@@ -539,30 +542,30 @@ update action model =
                  model { cube = rotateFace rotation facet $ cube model }
             NudgeCube direction -> 
                 -- pain point : do I pay for making these limited scope?   
-                let rotationStep = pi/20
-                    cStep = cos rotationStep
-                    sStep = sin rotationStep
+                let step = pi/20
+                    c = cos step
+                    s = sin step
 
                     -- left and right hold y axis const, rotate x,z
-                    leftRotation =  fromLists [ [cStep,  0,  -sStep]
-                                              , [    0,  1,       0]
-                                              , [sStep,  0,   cStep] 
+                    leftRotation =  fromLists [ [c, 0,-s]
+                                              , [0, 1, 0]
+                                              , [s, 0, c] 
                                               ]
 
-                    rightRotation = fromLists [ [cStep,  0,   sStep]
-                                              , [    0,  1,       0]
-                                              , [-sStep, 0,   cStep] 
+                    rightRotation = fromLists [ [ c, 0, s]
+                                              , [ 0, 1, 0]
+                                              , [-s, 0, c] 
                                               ]
 
                     -- up and down hold x axis const, rotate y,z
-                    upRotation =    fromLists [ [1,      0,       0]
-                                              , [0,  cStep,  -sStep]
-                                              , [0,  sStep,   cStep] 
+                    upRotation =    fromLists [ [1, 0, 0]
+                                              , [0, c,-s]
+                                              , [0, s, c] 
                                               ]
 
-                    downRotation =  fromLists [ [1,      0,       0]
-                                              , [0,  cStep,   sStep]
-                                              , [0, -sStep,   cStep] 
+                    downRotation =  fromLists [ [1, 0, 0]
+                                              , [0, c, s]
+                                              , [0, s, c] 
                                               ]
 
                 in case direction of
