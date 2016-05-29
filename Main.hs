@@ -185,8 +185,8 @@ rotateFace rotation f cube =
                 else east.north.east
         in copyWithRotation (getRotationMap advancer f) cube
 
-width = 500
-height = 500
+width = 550
+height = 550
 
 -- | Namespace needed for svg elements.
 svgNamespace = Just "http://www.w3.org/2000/svg"
@@ -221,14 +221,13 @@ showFacet x y dFaceViewKit = do
     -- showFacetSquare x y 0.0 $ constDyn "black"
     showFacetSquare x y 0.05 dFaceViewKit
 
-showArrow :: MonadWidget t m => Rotation -> Dynamic t FaceViewKit -> m (Event t ())
-showArrow rotation dFaceViewKit = do
-    let cwPoints = [(0.3,0.7), (0.7,0.7), (0.5,2.4)]
+showArrow :: MonadWidget t m => Rotation -> [(Float,Float)] -> Dynamic t FaceViewKit -> m (Event t ())
+showArrow rotation cwPoints dFaceViewKit = do
     let points = if rotation == CW then cwPoints else fmap (\(a,b) -> (b,a)) cwPoints
 
     let color = if rotation == CW 
                  then "grey"
-                 else "dark grey"
+                 else "beige"
     dAttrs <- mapDyn (\fvk -> "fill" =: color <> 
                               "points" =: pointsToString (transformPoints (transform fvk) points))  dFaceViewKit
     (el,_) <- elDynAttrNS' svgNamespace "polygon" dAttrs $ return ()
@@ -236,7 +235,23 @@ showArrow rotation dFaceViewKit = do
 
 showArrowSet :: MonadWidget t m => Rotation -> Dynamic t FaceViewKit -> m (Event t ())
 showArrowSet rotation dFaceViewKit = do
-    showArrow rotation dFaceViewKit
+    let halfWidth = 0.2
+        base = 0.1
+        length = 0.6
+
+        cwPoints0 = [(0.5 - halfWidth, 1.5+base), (0.5 + halfWidth, 1.5+base), (0.5,1.5+base+length)]
+        cwPoints1 = [(2.5 - halfWidth, 1.5-base), (2.5 + halfWidth, 1.5-base), (2.5,1.5-base-length)]
+
+        cwPoints2 = [(1.5 + base, 2.5 - halfWidth), (1.5 + base, 2.5 + halfWidth), (1.5+base+length, 2.5)]
+        cwPoints3 = [(1.5 - base, 0.5 - halfWidth), (1.5 - base, 0.5 + halfWidth), (1.5-base-length, 0.5)]
+
+        -- cwPoints2 = [(2.5 - halfWidth, 1.5-base), (2.5 + halfWidth, 1.5-base), (2.5,1.5-base-length)]
+
+    ev0 <- showArrow rotation cwPoints0 dFaceViewKit
+    ev1 <- showArrow rotation cwPoints1 dFaceViewKit
+    ev2 <- showArrow rotation cwPoints2 dFaceViewKit
+    ev3 <- showArrow rotation cwPoints3 dFaceViewKit
+    return $ leftmost [ev0, ev1, ev2, ev3]
 
 
 showArrows :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
@@ -491,7 +506,7 @@ view model =
         upEv <- fmap (const $ NudgeCube Up) <$>  elAttr "div" fps ( button "up")
         downEv <- fmap (const $ NudgeCube Down) <$> elAttr "div" cps (button "down" )
         (_,ev) <- elDynAttrNS' svgNamespace "svg" 
-                    (constDyn $  "viewBox" =: "-0.5 -0.5 1.0 1.0"
+                    (constDyn $  "viewBox" =: "-0.47 -0.47 0.94 0.94"
                               <> "width" =: show width
                               <> "height" =: show height) $ do
             orientedCube <- mapDyn orientCube model
