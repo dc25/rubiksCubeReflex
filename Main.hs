@@ -405,11 +405,11 @@ prepareFaceViews orientedCube@(startingFace, cubeOrientation) =
     let advanceSteps :: Map Color (Color, [Facet -> Facet])
         advanceSteps = 
             fromList [ (Purple, (Red,    [east, north, west, south]))
-                     , (Red,    (Green,  [east, north, west, south]))
-                     , (Green,  (Blue,   [east, north, west, south]))
-                     , (Blue,   (Yellow, [east, north, west, south]))
-                     , (Yellow, (Orange, [south, east, north, west]))
+                     , (Red,    (Orange, [south, east, north, west]))
                      , (Orange, (Yellow, [north, west, south, east]))
+                     , (Yellow, (Blue,   [west, south, east, north]))
+                     , (Blue,   (Green,  [west, south, east, north]))
+                     , (Green,  (Purple, [north, west, south, east]))
                      ]
 
         rot0   = fromLists [[ 1, 0, 0, 0]
