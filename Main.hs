@@ -28,7 +28,7 @@ data DNode a = DNode { north :: DNode a
                      , west  :: DNode a
                      , south :: DNode a
                      , east  :: DNode a
-                     , val   :: a
+                     , color   :: a
                      , index :: Int
                      }
 
@@ -36,7 +36,7 @@ type Signature a = (a, Int)
 type FacetSig = Signature Color
 
 signature :: DNode a -> Signature a
-signature dn = (val dn, index dn)
+signature dn = (color dn, index dn)
 
 instance Eq a => Eq (DNode a) where 
     d0 == d1 = signature d0 == signature d1 
@@ -145,7 +145,7 @@ copyWithRotation rotationMap f =
           (copyWithRotation rotationMap $ checkForRotation rotationMap f $ west f )
           (copyWithRotation rotationMap $ checkForRotation rotationMap f $ south f )
           (copyWithRotation rotationMap $ checkForRotation rotationMap f $ east f )
-          (val f)
+          (color f)
           (index f)
     where 
         checkForRotation rotationMap startFacet preRotationFacet =
@@ -193,7 +193,7 @@ showFacetSquare x y margin dFaceViewKit = do
         x1 = x0 + 1 - 2 * margin
         y1 = y0 + 1 - 2 * margin
         points = [(x0,y0),(x0,y1),(x1,y1),(x1,y0)]
-    dAttrs <- mapDyn (\fvk -> "fill" =: (show.val.face) fvk  <> 
+    dAttrs <- mapDyn (\fvk -> "fill" =: (show.color.face) fvk  <> 
                               "points" =: pointsToString (transformPoints (transform fvk) points))  dFaceViewKit
     (el,_) <- elDynAttrNS' svgNamespace "polygon" dAttrs $ return ()
     return ()
@@ -271,7 +271,7 @@ updateViewKit advancer prevViewKit = prevViewKit { face = advancer $ face prevVi
 changeViewKitColor :: Color -> FaceViewKit -> FaceViewKit
 changeViewKitColor newColor prevViewKit = 
         let prevFace = face prevViewKit
-            newFace = prevFace {val=newColor}
+            newFace = prevFace {color=newColor}
         in prevViewKit {face = newFace}
 
 makeViewKit :: Facet -> Matrix Float -> Matrix Float-> FaceViewKit
@@ -333,7 +333,7 @@ makeViewKit facet orientation rotation =
                           )
                         ]
 
-        Just assemble = lookup (val facet) assemblies 
+        Just assemble = lookup (color facet) assemblies 
 
         scale3d = 1/2  -- scale down to fit in camera space
         scale3dMatrix = fromLists [ [scale3d, 0,       0,       0]
@@ -394,7 +394,7 @@ kitmapUpdate :: Matrix Float -> Map Color FaceViewKit -> (Facet, Matrix Float) -
 kitmapUpdate orientation prevMap (face, rotation) = 
     let updatedViewKit = makeViewKit face orientation rotation
         updatedMap = if isVisible updatedViewKit 
-                     then insert (val face) updatedViewKit prevMap
+                     then insert (color face) updatedViewKit prevMap
                      else prevMap
     in updatedMap
     
@@ -433,8 +433,8 @@ prepareFaceViews orientedCube@(startingFace, cubeOrientation) =
                            ,[ 0, 0, 0, 1] ]
 
         getRotations face = 
-            let Just (nextColor, advancers) = lookup (val face) advanceSteps
-                colorChecker (advance,_) = (nextColor == (val.south.north.advance) face) 
+            let Just (nextColor, advancers) = lookup (color face) advanceSteps
+                colorChecker (advance,_) = (nextColor == (color.south.north.advance) face) 
                 Just (advance,rotation) = find colorChecker $ zip advancers [rot0,rot90,rot180,rot270]
                 nextFace = (south.north.advance) face
             in (face, rotation):getRotations nextFace
