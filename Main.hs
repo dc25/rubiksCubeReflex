@@ -290,17 +290,16 @@ facingCamera viewPoint modelTransform =
         tVec_03_00 = pt03 `vMinus` pt00  -- vector from upper left to lower left
 
         perpendicular = tVec_30_00 `cross` tVec_03_00  -- cross to get perpendicular pointing out from face.
+        cameraToPlane = pt00 `vMinus` viewPoint
 
         -- perpendicular always points out from surface of cube.
         -- camera vector points in to surface of cube.
         -- For face to be visible, camera vector and perpendicular 
         -- should be opposed to each other. 
-        cameraToPlane = pt00 `vMinus` viewPoint
-        isViewable = cameraToPlane `dot` perpendicular < 0
-    in isViewable
+    in cameraToPlane `dot` perpendicular < 0
 
-makeViewKit :: Facet -> Matrix Float -> Matrix Float-> FaceViewKit
-makeViewKit facet orientation rotation = 
+makeViewKit :: Facet -> Matrix Float -> Int -> FaceViewKit
+makeViewKit facet orientation turns = 
     let 
         scale2d = 1/3  -- scale from 3x3 square face to 1x1 square face.
         scale2dMatrix = fromLists [ [scale2d, 0,       0,       0]
@@ -313,6 +312,15 @@ makeViewKit facet orientation rotation =
                                   , [0,       1,       0,       0]
                                   , [0,       0,       1,       0]
                                   , [trans2d, trans2d, 0,       1] ]
+
+        -- account for turns away from starting position
+        c = cos (pi * fromIntegral turns / 2.0)
+        s = sin (pi * fromIntegral turns / 2.0)
+
+        rotation = fromLists [[ c, s, 0, 0]
+                             ,[-s, c, 0, 0]
+                             ,[ 0, 0, 1, 0]
+                             ,[ 0, 0, 0, 1]]
 
         assemblies = fromList
                         [ ( Purple, 
@@ -393,9 +401,9 @@ makeViewKit facet orientation rotation =
 
     in FaceViewKit facet isFacingCamera viewTransform 
 
-kitmapUpdate :: Matrix Float -> Map Color FaceViewKit -> (Facet, Matrix Float) -> Map Color FaceViewKit
-kitmapUpdate orientation prevMap (face, rotation) = 
-    let updatedViewKit = makeViewKit face orientation rotation
+kitmapUpdate :: Matrix Float -> Map Color FaceViewKit -> (Facet, Int) -> Map Color FaceViewKit
+kitmapUpdate orientation prevMap (face, turns) = 
+    let updatedViewKit = makeViewKit face orientation turns
         updatedMap = if isVisible updatedViewKit 
                      then insert (color face) updatedViewKit prevMap
                      else prevMap
@@ -407,47 +415,24 @@ prepareFaceViews :: OrientedCube -> Map Color FaceViewKit
 prepareFaceViews orientedCube@(startingFace, cubeOrientation) = 
     let advanceSteps :: Map Color (Color, [Facet -> Facet])
         advanceSteps = 
-            fromList [ (Purple, (Red,    [east, north, west, south]))
-                     , (Red,    (Orange, [south, east, north, west]))
-                     , (Orange, (Yellow, [north, west, south, east]))
-                     , (Yellow, (Blue,   [west, south, east, north]))
-                     , (Blue,   (Green,  [west, south, east, north]))
-                     , (Green,  (Purple, [north, west, south, east]))
+            fromList [ (Purple, (Red,    [east, south, west, north]))
+                     , (Red,    (Orange, [south, west, north, east]))
+                     , (Orange, (Yellow, [north, east, south, west]))
+                     , (Yellow, (Blue,   [west, north, east, south]))
+                     , (Blue,   (Green,  [west, north, east, south]))
+                     , (Green,  (Purple, [north, east, south, west]))
                      ]
 
-        rot0   = fromLists [[ 1, 0, 0, 0]
-                           ,[ 0, 1, 0, 0]
-                           ,[ 0, 0, 1, 0]
-                           ,[ 0, 0, 0, 1] ]
-
-        rot90  = fromLists [[ 0,-1, 0, 0]
-                           ,[ 1, 0, 0, 0]
-                           ,[ 0, 0, 1, 0]
-                           ,[ 0, 0, 0, 1] ]
-
-        rot180 = fromLists [[-1, 0, 0, 0]
-                           ,[ 0,-1, 0, 0]
-                           ,[ 0, 0, 1, 0]
-                           ,[ 0, 0, 0, 1] ]
-
-        rot270 = fromLists [[ 0, 1, 0, 0]
-                           ,[-1, 0, 0, 0]
-                           ,[ 0, 0, 1, 0]
-                           ,[ 0, 0, 0, 1] ]
-
-        getRotations face = 
+        getTurns face = 
             let Just (nextColor, advancers) = lookup (color face) advanceSteps
                 colorChecker (advance,_) = (nextColor == (color.south.north.advance) face) 
-                Just (advance,rotation) = find colorChecker $ zip advancers [rot0,rot90,rot180,rot270]
+                Just (advance,turns) = find colorChecker $ zip advancers [0..]
                 nextFace = (south.north.advance) face
-            in (face, rotation):getRotations nextFace
+            in (face, turns):getTurns nextFace
 
-        facesWithRotations = take 6 $ getRotations startingFace -- 6 faces.
+        facesWithTurns = take 6 $ getTurns startingFace -- 6 faces.
 
-        -- for each step, get a face, compute the view kit for that face,
-        -- add the view kit to the map, using color as an index, replace
-        -- the working face with the new face.
-        faceViewKits = foldl (kitmapUpdate cubeOrientation) empty facesWithRotations
+        faceViewKits = foldl (kitmapUpdate cubeOrientation) empty facesWithTurns
     in faceViewKits
 
 viewOrientedCube :: MonadWidget t m => Dynamic t OrientedCube -> m (Event t Action)
