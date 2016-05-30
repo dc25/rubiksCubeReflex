@@ -173,9 +173,6 @@ rotateFace rotation face cube =
         let advancer = if rotation == CW then south.west.west else east.north.east
         in copyWithRotation (getRotationMap advancer face) cube
 
-width = 575
-height = 575
-
 -- | Namespace needed for svg elements.
 svgNamespace = Just "http://www.w3.org/2000/svg"
 
@@ -474,8 +471,8 @@ view model =
         downEv <- fmap (const $ NudgeCube Down) <$> elAttr "div" cps (button "down" )
         (_,ev) <- elDynAttrNS' svgNamespace "svg" 
                     (constDyn $  "viewBox" =: "-0.47 -0.47 0.94 0.94"
-                              <> "width" =: show width
-                              <> "height" =: show height) $ do
+                              <> "width" =: "575"
+                              <> "height" =: "575") $ do
             orientedCube <- mapDyn orientCube model
             viewOrientedCube orientedCube
         return $ leftmost [ev, leftEv, rightEv, upEv, downEv]
