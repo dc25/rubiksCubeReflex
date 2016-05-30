@@ -274,6 +274,31 @@ changeViewKitColor newColor prevViewKit =
         newFace = prevFace {color=newColor}
     in prevViewKit {face = newFace}
 
+facingCamera :: [Float] -> Matrix Float -> Bool
+facingCamera viewPoint modelTransform =
+        -- backface elimination follows.
+    let threeUntransformedPoints = fromLists [ [0,0,0,1]   -- lower left corner of original face
+                                             , [3,0,0,1]   -- lower right corner of original face
+                                             , [0,3,0,1] ] -- upper left corner of original face
+
+        threeTransformedPoints = toLists $ threeUntransformedPoints `multStd2` modelTransform
+        pt00 = take 3 $ threeTransformedPoints !! 0
+        pt30 = take 3 $ threeTransformedPoints !! 1
+        pt03 = take 3 $ threeTransformedPoints !! 2
+
+        tVec_30_00 = pt30 `vMinus` pt00  -- vector from lower right to lower left
+        tVec_03_00 = pt03 `vMinus` pt00  -- vector from upper left to lower left
+
+        perpendicular = tVec_30_00 `cross` tVec_03_00  -- cross to get perpendicular pointing out from face.
+
+        -- perpendicular always points out from surface of cube.
+        -- camera vector points in to surface of cube.
+        -- For face to be visible, camera vector and perpendicular 
+        -- should be opposed to each other. 
+        cameraToPlane = pt00 `vMinus` viewPoint
+        isViewable = cameraToPlane `dot` perpendicular < 0
+    in isViewable
+
 makeViewKit :: Facet -> Matrix Float -> Matrix Float-> FaceViewKit
 makeViewKit facet orientation rotation = 
     let 
@@ -348,29 +373,7 @@ makeViewKit facet orientation rotation =
                          `multStd2` scale3dMatrix 
                          `multStd2` orientation
 
-
-        -- backface elimination follows.
-        threeUntransformedPoints = fromLists [ [0,0,0,1]   -- lower left corner of original face
-                                             , [3,0,0,1]   -- lower right corner of original face
-                                             , [0,3,0,1] ] -- upper left corner of original face
-
-        threeTransformedPoints = toLists $ threeUntransformedPoints `multStd2` modelTransform
-        pt00 = take 3 $ threeTransformedPoints !! 0
-        pt30 = take 3 $ threeTransformedPoints !! 1
-        pt03 = take 3 $ threeTransformedPoints !! 2
-
-        tVec_30_00 = pt30 `vMinus` pt00  -- vector from lower right to lower left
-        tVec_03_00 = pt03 `vMinus` pt00  -- vector from upper left to lower left
-
-        perpendicular = tVec_30_00 `cross` tVec_03_00  -- cross to get perpendicular pointing out from face.
-
-        -- perpendicular always points out from surface of cube.
-        -- camera vector points in to surface of cube.
-        -- For face to be visible, camera vector and perpendicular 
-        -- should be opposed to each other. 
-        viewPoint = [0, 0, -1]
-        cameraToPlane = pt00 `vMinus` viewPoint
-        isViewable = cameraToPlane `dot` perpendicular < 0
+        isFacingCamera = facingCamera [0,0,-1] modelTransform
 
         -- translate model to (0,0,1) for perspective viewing
         perspectivePrep = fromLists [ [1, 0, 0, 0]
@@ -388,7 +391,7 @@ makeViewKit facet orientation rotation =
                         `multStd2` perspectivePrep
                         `multStd2` perspective
 
-    in FaceViewKit facet isViewable viewTransform 
+    in FaceViewKit facet isFacingCamera viewTransform 
 
 kitmapUpdate :: Matrix Float -> Map Color FaceViewKit -> (Facet, Matrix Float) -> Map Color FaceViewKit
 kitmapUpdate orientation prevMap (face, rotation) = 
