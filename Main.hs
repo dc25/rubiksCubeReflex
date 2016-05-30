@@ -46,8 +46,7 @@ instance Ord a => Ord (DNode a) where
 
 type Facet = DNode Color
 type Edge = (Facet,Facet,Facet)
-type Orientation = Matrix Float
-type OrientedCube = (Facet, Orientation)
+type OrientedCube = (Facet, Matrix Float)
 data FaceViewKit = FaceViewKit { face :: Facet
                                , isVisible :: Bool
                                , transform :: Matrix Float
@@ -275,7 +274,7 @@ changeViewKitColor newColor prevViewKit =
             newFace = prevFace {val=newColor}
         in prevViewKit {face = newFace}
 
-makeViewKit :: Facet -> Orientation -> Matrix Float-> FaceViewKit
+makeViewKit :: Facet -> Matrix Float -> Matrix Float-> FaceViewKit
 makeViewKit facet orientation rotation = 
     let 
         scale2d = 1/3  -- scale from 3x3 square face to 1x1 square face.
@@ -306,28 +305,28 @@ makeViewKit facet orientation rotation =
                           )  
 
                         , ( Green,
-                              fromLists [[-1,   0,   0,   0]
+                            fromLists [[-1,   0,   0,   0]
                                       ,[ 0,   0,   1,   0]
                                       ,[ 0,   1,   0,   0]
                                       ,[ 0,   0.5, 0,   1] ]
                           )  
 
                         , ( Blue,
-                              fromLists [[ 0,  -1,   0,   0]
+                            fromLists [[ 0,  -1,   0,   0]
                                       ,[ 0,   0,   1,   0]
                                       ,[-1,   0,   0,   0]
                                       ,[-0.5, 0,   0,   1] ]
                           )  
 
                         , ( Yellow,
-                              fromLists [[ 1,   0,   0,   0]
+                            fromLists [[ 1,   0,   0,   0]
                                       ,[ 0,   0,   1,   0]
                                       ,[ 0,  -1,   0,   0]
                                       ,[ 0,  -0.5, 0,   1] ]
                           )  
 
                         , ( Orange,
-                              fromLists [[ 1,   0,   0,   0]
+                            fromLists [[ 1,   0,   0,   0]
                                       ,[ 0,  -1,   0,   0]
                                       ,[ 0,   0,  -1,   0]
                                       ,[ 0,   0,  -0.5, 1] ]
@@ -391,21 +390,30 @@ makeViewKit facet orientation rotation =
 
     in FaceViewKit facet isViewable viewTransform 
 
-kitmapUpdate :: Orientation -> (Map Color FaceViewKit, Facet) -> (Color, Color, [Facet -> Facet]) -> (Map Color FaceViewKit, Facet) 
-kitmapUpdate orientation (prevMap, face) (coloe, nextColor, advancers)  = 
-    let
+kitmapUpdate :: Matrix Float -> Map Color FaceViewKit -> (Facet, Matrix Float) -> Map Color FaceViewKit
+kitmapUpdate orientation prevMap (face, rotation) = 
+    let updatedViewKit = makeViewKit face orientation rotation
+        updatedMap = if isVisible updatedViewKit 
+                     then insert (val face) updatedViewKit prevMap
+                     else prevMap
+    in updatedMap
+    
+-- pain point : Missing comma in red matrix caused difficult to diagnose
+-- failure.
+prepareFaceViews :: OrientedCube -> Map Color FaceViewKit
+prepareFaceViews orientedCube@(startingFace, cubeOrientation) = 
+    let advanceSteps :: Map Color (Color, [Facet -> Facet])
+        advanceSteps = 
+            fromList [ (Purple, (Red,    [east, north, west, south]))
+                     , (Red,    (Green,  [east, north, west, south]))
+                     , (Green,  (Blue,   [east, north, west, south]))
+                     , (Blue,   (Yellow, [east, north, west, south]))
+                     , (Yellow, (Orange, [south, east, north, west]))
+                     , (Orange, (Yellow, [north, west, south, east]))
+                     ]
+
         rot0   = fromLists [[ 1, 0, 0, 0]
                            ,[ 0, 1, 0, 0]
-                           ,[ 0, 0, 1, 0]
-                           ,[ 0, 0, 0, 1] ]
-
-        rot270 = fromLists [[ 0, 1, 0, 0]
-                           ,[-1, 0, 0, 0]
-                           ,[ 0, 0, 1, 0]
-                           ,[ 0, 0, 0, 1] ]
-
-        rot180 = fromLists [[-1, 0, 0, 0]
-                           ,[ 0,-1, 0, 0]
                            ,[ 0, 0, 1, 0]
                            ,[ 0, 0, 0, 1] ]
 
@@ -414,35 +422,29 @@ kitmapUpdate orientation (prevMap, face) (coloe, nextColor, advancers)  =
                            ,[ 0, 0, 1, 0]
                            ,[ 0, 0, 0, 1] ]
 
-        colorChecker (advance,_) = (nextColor == (val.south.north.advance) face) 
-        Just (advance,rotation) =  find colorChecker $ zip advancers [rot0,rot90,rot180,rot270]
+        rot180 = fromLists [[-1, 0, 0, 0]
+                           ,[ 0,-1, 0, 0]
+                           ,[ 0, 0, 1, 0]
+                           ,[ 0, 0, 0, 1] ]
 
-        color = val face 
-        updatedViewKit = makeViewKit face orientation rotation
-        updatedMap = if isVisible updatedViewKit 
-                 then insert color updatedViewKit prevMap
-                 else prevMap
-        newFace = (south.north.advance) face
-    in (updatedMap, newFace)
-    
--- pain point : Missing comma in red matrix caused difficult to diagnose
--- failure.
-prepareFaceViews :: OrientedCube -> Map Color FaceViewKit
-prepareFaceViews orientedCube@(startingFace, cubeOrientation) = 
-    let advanceSteps :: [(Color, Color, [Facet -> Facet])]
-        advanceSteps = 
-            [ ( Purple, Red, [east, north, west, south])  
-            , ( Red, Green, [east, north, west, south])  
-            , ( Green, Blue, [east, north, west, south])  
-            , ( Blue, Yellow, [east, north, west, south])  
-            , ( Yellow, Orange, [south, east, north, west])  
-            , ( Orange, Yellow, [north, west, south, east])
-            ]
+        rot270 = fromLists [[ 0, 1, 0, 0]
+                           ,[-1, 0, 0, 0]
+                           ,[ 0, 0, 1, 0]
+                           ,[ 0, 0, 0, 1] ]
+
+        getRotations face = 
+            let Just (nextColor, advancers) = lookup (val face) advanceSteps
+                colorChecker nextColor face (advance,_) = (nextColor == (val.south.north.advance) face) 
+                Just (advance,rotation) = find (colorChecker nextColor face) $ zip advancers [rot0,rot90,rot180,rot270]
+                nextFace = (south.north.advance) face
+            in (face, rotation):getRotations nextFace
+
+        facesWithRotations = take 6 $ getRotations startingFace
 
         -- for each step, get a face, compute the view kit for that face,
         -- add the view kit to the map, using color as an index, replace
         -- the working face with the new face.
-        (faceViewKits,_) = foldl (kitmapUpdate cubeOrientation) (empty, startingFace) advanceSteps
+        faceViewKits = foldl (kitmapUpdate cubeOrientation) empty facesWithRotations
     in faceViewKits
 
 viewOrientedCube :: MonadWidget t m => Dynamic t OrientedCube -> m (Event t Action)
