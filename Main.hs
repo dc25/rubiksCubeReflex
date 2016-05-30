@@ -51,7 +51,6 @@ type OrientedCube = (Facet, Orientation)
 data FaceViewKit = FaceViewKit { face :: Facet
                                , isVisible :: Bool
                                , transform :: Matrix Float
-                               , rotation :: Matrix Float
                                }
 
 ---                       upperLeft   upperRight
@@ -276,8 +275,8 @@ changeViewKitColor newColor prevViewKit =
             newFace = prevFace {val=newColor}
         in prevViewKit {face = newFace}
 
-makeViewKit :: Facet -> Orientation -> Matrix Float -> Matrix Float-> FaceViewKit
-makeViewKit facet orientation assemble rotation = 
+makeViewKit :: Facet -> Orientation -> Matrix Float-> FaceViewKit
+makeViewKit facet orientation rotation = 
     let 
         scale2d = 1/3  -- scale from 3x3 square face to 1x1 square face.
         scale2dMatrix = fromLists [ [scale2d, 0,       0,       0]
@@ -290,6 +289,52 @@ makeViewKit facet orientation assemble rotation =
                                   , [0,       1,       0,       0]
                                   , [0,       0,       1,       0]
                                   , [trans2d, trans2d, 0,       1] ]
+
+        assemblies = fromList
+                        [ ( Purple, 
+                            fromLists [[ 1,   0,   0,   0]
+                                      ,[ 0,   1,   0,   0]
+                                      ,[ 0,   0,   1,   0]
+                                      ,[ 0,   0,   0.5, 1] ]
+                          )  
+
+                        , ( Red,
+                            fromLists [[ 0,   1,   0,   0]
+                                      ,[ 0,   0,   1,   0]
+                                      ,[ 1,   0,   0,   0]
+                                      ,[ 0.5, 0,   0,   1] ]
+                          )  
+
+                        , ( Green,
+                              fromLists [[-1,   0,   0,   0]
+                                      ,[ 0,   0,   1,   0]
+                                      ,[ 0,   1,   0,   0]
+                                      ,[ 0,   0.5, 0,   1] ]
+                          )  
+
+                        , ( Blue,
+                              fromLists [[ 0,  -1,   0,   0]
+                                      ,[ 0,   0,   1,   0]
+                                      ,[-1,   0,   0,   0]
+                                      ,[-0.5, 0,   0,   1] ]
+                          )  
+
+                        , ( Yellow,
+                              fromLists [[ 1,   0,   0,   0]
+                                      ,[ 0,   0,   1,   0]
+                                      ,[ 0,  -1,   0,   0]
+                                      ,[ 0,  -0.5, 0,   1] ]
+                          )  
+
+                        , ( Orange,
+                              fromLists [[ 1,   0,   0,   0]
+                                      ,[ 0,  -1,   0,   0]
+                                      ,[ 0,   0,  -1,   0]
+                                      ,[ 0,   0,  -0.5, 1] ]
+                          )
+                        ]
+
+        Just assemble = lookup (val facet) assemblies 
 
         scale3d = 1/2  -- scale down to fit in camera space
         scale3dMatrix = fromLists [ [scale3d, 0,       0,       0]
@@ -344,11 +389,10 @@ makeViewKit facet orientation assemble rotation =
                         `multStd2` perspectivePrep
                         `multStd2` perspective
 
-    in FaceViewKit facet isViewable viewTransform viewTransform
+    in FaceViewKit facet isViewable viewTransform 
 
-kitmapUpdate :: Orientation -> (Map Color FaceViewKit, Facet) -> (Matrix Float, Color, [Facet -> Facet]) -> (Map Color FaceViewKit, Facet) 
-kitmapUpdate orientation (prevMap, face) (assemble, nextColor, advancers)  = 
-
+kitmapUpdate :: Orientation -> (Map Color FaceViewKit, Facet) -> (Color, Color, [Facet -> Facet]) -> (Map Color FaceViewKit, Facet) 
+kitmapUpdate orientation (prevMap, face) (coloe, nextColor, advancers)  = 
     let
         rot0   = fromLists [[ 1, 0, 0, 0]
                            ,[ 0, 1, 0, 0]
@@ -374,7 +418,7 @@ kitmapUpdate orientation (prevMap, face) (assemble, nextColor, advancers)  =
         Just (advance,rotation) =  find colorChecker $ zip advancers [rot0,rot90,rot180,rot270]
 
         color = val face 
-        updatedViewKit = makeViewKit face orientation assemble rotation
+        updatedViewKit = makeViewKit face orientation rotation
         updatedMap = if isVisible updatedViewKit 
                  then insert color updatedViewKit prevMap
                  else prevMap
@@ -385,56 +429,15 @@ kitmapUpdate orientation (prevMap, face) (assemble, nextColor, advancers)  =
 -- failure.
 prepareFaceViews :: OrientedCube -> Map Color FaceViewKit
 prepareFaceViews orientedCube@(startingFace, cubeOrientation) = 
-    let advanceSteps :: [(Matrix Float, Color, [Facet -> Facet])]
+    let advanceSteps :: [(Color, Color, [Facet -> Facet])]
         advanceSteps = 
-            [ ( -- purple / top
-                fromLists [[ 1,   0,   0,   0]
-                          ,[ 0,   1,   0,   0]
-                          ,[ 0,   0,   1,   0]
-                          ,[ 0,   0,   0.5, 1] ]
-              , Red, [east, north, west, south]
-              )  
-
-            , ( -- red / right
-                fromLists [[ 0,   1,   0,   0]
-                          ,[ 0,   0,   1,   0]
-                          ,[ 1,   0,   0,   0]
-                          ,[ 0.5, 0,   0,   1] ]
-              , Green, [east, north, west, south]
-              )  
-
-            , ( -- green / back
-                fromLists [[-1,   0,   0,   0]
-                          ,[ 0,   0,   1,   0]
-                          ,[ 0,   1,   0,   0]
-                          ,[ 0,   0.5, 0,   1] ]
-              , Blue, [east, north, west, south]
-              )  
-
-            , ( -- blue / left
-                fromLists [[ 0,  -1,   0,   0]
-                          ,[ 0,   0,   1,   0]
-                          ,[-1,   0,   0,   0]
-                          ,[-0.5, 0,   0,   1] ]
-              , Yellow, [east, north, west, south]
-              )  
-
-            , ( -- yellow / front
-                fromLists [[ 1,   0,   0,   0]
-                          ,[ 0,   0,   1,   0]
-                          ,[ 0,  -1,   0,   0]
-                          ,[ 0,  -0.5, 0,   1] ]
-              , Orange, [south, east, north, west]
-              )  
-
-            , ( -- orange / bottom
-                fromLists [[ 1,   0,   0,   0]
-                          ,[ 0,  -1,   0,   0]
-                          ,[ 0,   0,  -1,   0]
-                          ,[ 0,   0,  -0.5, 1] ]
-              , Yellow, [north, west, south, east]
-              )
-         ]
+            [ ( Purple, Red, [east, north, west, south])  
+            , ( Red, Green, [east, north, west, south])  
+            , ( Green, Blue, [east, north, west, south])  
+            , ( Blue, Yellow, [east, north, west, south])  
+            , ( Yellow, Orange, [south, east, north, west])  
+            , ( Orange, Yellow, [north, west, south, east])
+            ]
 
         -- for each step, get a face, compute the view kit for that face,
         -- add the view kit to the map, using color as an index, replace
