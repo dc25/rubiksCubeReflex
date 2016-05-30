@@ -1,5 +1,5 @@
 {-# LANGUAGE RecursiveDo #-}
-import Prelude(Eq,Ord(compare),Show,Enum,Num,Bool(True,False),Float,Int,String,Maybe(Just),fst,const,show,fromIntegral,replicate,concat,zip,zipWith,sum,take,not,pi,sin,cos,head,(.),($),(+),(-),(*),(/),(==),(<),(>),(<$>),(!!),(++))
+import Prelude(Eq,Ord(compare),Show,Enum,Num,Bool(True,False),Float,Int,String,Maybe(Just),const,show,fromIntegral,replicate,concat,zip,zipWith,sum,take,not,pi,sin,cos,head,(.),($),(+),(-),(*),(/),(==),(<),(>),(<$>),(!!),(++))
 import Reflex.Dom
 import Data.Map (Map, lookup, insert, empty, fromList, elems)
 import Data.List (foldl, elem, find)
@@ -9,7 +9,7 @@ import Data.Monoid ((<>))
 import Data.Function 
 import Control.Monad.Reader
 
-data Color = Red | Green | Blue | Yellow | Orange | Purple | Black deriving (Show,Eq,Ord)
+data Color = Red | Green | Blue | Yellow | Orange | Purple | Black deriving (Show,Eq,Ord,Enum)
 
 type Vector a = [a]
 
@@ -235,8 +235,10 @@ showArrows dFaceViewKit = do
     let rotationEventCCW = attachWith (\a _ -> RotateFace CCW a)  (current dFacet) arrowEventCCW
     return $ leftmost [rotationEventCW, rotationEventCCW]
 
+-- pain point 
+-- How do I do these repeated "east" operations as a fold (or something )
 showFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
-showFace center = do  -- maybe could use a fold or something for this.
+showFace center = do  
     showFacet 1 1 center 
 
     right <- mapDyn (updateViewKit east) center
@@ -401,11 +403,12 @@ makeViewKit facet orientation turns =
 
     in FaceViewKit facet isFacingCamera viewTransform 
 
-kitmapUpdate :: Matrix Float -> Map Color FaceViewKit -> (Facet, Int) -> Map Color FaceViewKit
-kitmapUpdate orientation prevMap (face, turns) = 
-    let updatedViewKit = makeViewKit face orientation turns
+kitmapUpdate :: Matrix Float -> Map Color (Facet, Int) -> Map Color FaceViewKit -> Color -> Map Color FaceViewKit
+kitmapUpdate orientation faceMap prevMap faceColor = 
+    let Just (face, turns) = lookup faceColor faceMap 
+        updatedViewKit = makeViewKit face orientation turns
         updatedMap = if isVisible updatedViewKit 
-                     then insert (color face) updatedViewKit prevMap
+                     then insert faceColor updatedViewKit prevMap
                      else prevMap
     in updatedMap
     
@@ -428,11 +431,11 @@ prepareFaceViews orientedCube@(startingFace, cubeOrientation) =
                 colorChecker (advance,_) = (nextColor == (color.south.north.advance) face) 
                 Just (advance,turns) = find colorChecker $ zip advancers [0..]
                 nextFace = (south.north.advance) face
-            in (face, turns):getTurns nextFace
+            in (nextColor, (face, turns)):getTurns nextFace  -- face contains color; is color as index necessary.
 
-        facesWithTurns = take 6 $ getTurns startingFace -- 6 faces.
+        facesWithTurns = fromList (take 6 $ getTurns startingFace) -- 6 faces.
 
-        faceViewKits = foldl (kitmapUpdate cubeOrientation) empty facesWithTurns
+        faceViewKits = foldl (kitmapUpdate cubeOrientation facesWithTurns) empty [Red .. Purple]
     in faceViewKits
 
 viewOrientedCube :: MonadWidget t m => Dynamic t OrientedCube -> m (Event t Action)
@@ -461,9 +464,9 @@ view model =
         leftEv <- fmap (const $ NudgeCube Left) <$> elAttr "div" fps (button "left" )
         rightEv <- fmap (const $ NudgeCube Right) <$> elAttr "div" fps ( button "right" )
         upEv <- fmap (const $ NudgeCube Up) <$>  elAttr "div" fps ( button "up")
-        downEv <- fmap (const $ NudgeCube Down) <$> elAttr "div" cps (button "down" )
+        downEv <- fmap (const $ NudgeCube Down) <$> elAttr "div" fps (button "down" )
         (_,ev) <- elDynAttrNS' svgNamespace "svg" 
-                    (constDyn $  "viewBox" =: "-0.47 -0.47 0.94 0.94"
+                    (constDyn $  "viewBox" =: "-0.48 -0.48 0.96 0.96"
                               <> "width" =: "575"
                               <> "height" =: "575") $ do
             orientedCube <- mapDyn orientCube model
@@ -499,7 +502,7 @@ update :: Action -> Model -> Model
 update action model = 
         case action of
             RotateFace rotation facet -> 
-                 model { cube = rotateFace rotation facet $ facet }
+                 model { cube = rotateFace rotation facet $ cube model }
             NudgeCube direction -> 
                 -- pain point : do I pay for making these limited scope?   
                 let step = pi/20
