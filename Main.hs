@@ -133,7 +133,7 @@ mkCube =
         (nBlue,   wBlue,   sBlue,    eBlue)   = mkFace wPurple   eGreen    wOrange   wYellow  Blue
         (nGreen,  wGreen,  sGreen,   eGreen)  = mkFace nPurple   eRed      sOrange   wBlue    Green
         (nRed,    wRed,    sRed,     eRed)    = mkFace ePurple   eYellow   eOrange   wGreen   Red
-        (nOrange, wOrange, sOrange, eOrange)  = mkFace sYellow   sBlue     sGreen    sRed     Orange
+        (nOrange, wOrange, sOrange,  eOrange) = mkFace sYellow   sBlue     sGreen    sRed     Orange
         (_,cube,_) = nPurple
     in south cube
 
@@ -270,9 +270,9 @@ updateViewKit advancer prevViewKit = prevViewKit { face = advancer $ face prevVi
 
 changeViewKitColor :: Color -> FaceViewKit -> FaceViewKit
 changeViewKitColor newColor prevViewKit = 
-        let prevFace = face prevViewKit
-            newFace = prevFace {color=newColor}
-        in prevViewKit {face = newFace}
+    let prevFace = face prevViewKit
+        newFace = prevFace {color=newColor}
+    in prevViewKit {face = newFace}
 
 makeViewKit :: Facet -> Matrix Float -> Matrix Float-> FaceViewKit
 makeViewKit facet orientation rotation = 
@@ -439,7 +439,7 @@ prepareFaceViews orientedCube@(startingFace, cubeOrientation) =
                 nextFace = (south.north.advance) face
             in (face, rotation):getRotations nextFace
 
-        facesWithRotations = take 6 $ getRotations startingFace
+        facesWithRotations = take 6 $ getRotations startingFace -- 6 faces.
 
         -- for each step, get a face, compute the view kit for that face,
         -- add the view kit to the map, using color as an index, replace
@@ -455,14 +455,14 @@ viewOrientedCube orientedCube = do
 
 orientCube :: Model -> OrientedCube
 orientCube model = 
-        let ac@[ax,ay,az] = perpendicular model
-            nv@[nx,ny,nz] = northDirection model
-            ev@[ex,ey,ez] = nv `cross` ac
-            orientation = [[ex,  ey,  ez, 0]
-                          ,[nx,  ny,  nz, 0]
-                          ,[ax,  ay,  az, 0]
-                          ,[ 0,   0,   0, 1] ]
-            in (cube model, fromLists orientation)
+    let ac@[ax,ay,az] = perpendicular model
+        nv@[nx,ny,nz] = northDirection model
+        [ex,ey,ez]    = nv `cross` ac
+        orientation = [[ex,  ey,  ez, 0]
+                      ,[nx,  ny,  nz, 0]
+                      ,[ax,  ay,  az, 0]
+                      ,[ 0,   0,   0, 1] ]
+    in (cube model, fromLists orientation)
 
 fps = "style" =: "float:left;padding:10px" 
 cps = "style" =: "float:clear" 
@@ -511,7 +511,7 @@ update :: Action -> Model -> Model
 update action model = 
         case action of
             RotateFace rotation facet -> 
-                 model { cube = rotateFace rotation facet $ cube model }
+                 model { cube = rotateFace rotation facet $ facet }
             NudgeCube direction -> 
                 -- pain point : do I pay for making these limited scope?   
                 let step = pi/20
