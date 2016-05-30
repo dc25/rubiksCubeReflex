@@ -434,8 +434,8 @@ prepareFaceViews orientedCube@(startingFace, cubeOrientation) =
 
         getRotations face = 
             let Just (nextColor, advancers) = lookup (val face) advanceSteps
-                colorChecker nextColor face (advance,_) = (nextColor == (val.south.north.advance) face) 
-                Just (advance,rotation) = find (colorChecker nextColor face) $ zip advancers [rot0,rot90,rot180,rot270]
+                colorChecker (advance,_) = (nextColor == (val.south.north.advance) face) 
+                Just (advance,rotation) = find colorChecker $ zip advancers [rot0,rot90,rot180,rot270]
                 nextFace = (south.north.advance) face
             in (face, rotation):getRotations nextFace
 
