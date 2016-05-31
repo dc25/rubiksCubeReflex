@@ -46,7 +46,7 @@ instance Ord a => Ord (DNode a) where
 
 type Facet = DNode Color
 type Edge = (Facet,Facet,Facet)
-type OrientedCube = (Facet, Matrix Float)
+type AnnotatedCube = (Facet, Matrix Float, Map Color (Facet,Int) )
 data FaceViewKit = FaceViewKit { face :: Facet
                                , isVisible :: Bool
                                , transform :: Matrix Float
@@ -412,11 +412,33 @@ kitmapUpdate orientation faceMap prevMap faceColor =
                      else prevMap
     in updatedMap
     
--- pain point : Missing comma in red matrix caused difficult to diagnose
--- failure.
-prepareFaceViews :: OrientedCube -> Map Color FaceViewKit
-prepareFaceViews orientedCube@(startingFace, cubeOrientation) = 
-    let advanceSteps :: Map Color (Color, [Facet -> Facet])
+prepareFaceViews :: AnnotatedCube -> Map Color FaceViewKit
+prepareFaceViews annotatedCube@(startingFace, cubeOrientation, facesWithTurns) = 
+    foldl (kitmapUpdate cubeOrientation facesWithTurns) empty [Red .. Purple]
+
+lowerBrokenFace :: AnnotatedCube -> Map Color FaceViewKit
+lowerBrokenFace annotatedCube@(startingFace, cubeOrientation, facesWithTurns) = 
+    let faceViewKits = foldl (kitmapUpdate cubeOrientation facesWithTurns) empty [Red .. Purple]
+    in faceViewKits
+
+viewAnnotatedCube :: MonadWidget t m => Dynamic t AnnotatedCube -> m (Event t Action)
+viewAnnotatedCube annotatedCube = do
+    faceMap <- mapDyn prepareFaceViews annotatedCube
+    -- faceMap <- mapDyn lowerBrokenFace annotatedCube
+    eventsWithKeys <- listWithKey faceMap $ const showFace
+    return (switch $ (leftmost . elems) <$> current eventsWithKeys)
+
+annotateCube :: Model -> AnnotatedCube
+annotateCube model = 
+    let ac@[ax,ay,az] = perpendicular model
+        nv@[nx,ny,nz] = northDirection model
+        [ex,ey,ez]    = nv `cross` ac
+        orientation = fromLists [[ex,  ey,  ez, 0]
+                                ,[nx,  ny,  nz, 0]
+                                ,[ax,  ay,  az, 0]
+                                ,[ 0,   0,   0, 1] ]
+
+        advanceSteps :: Map Color (Color, [Facet -> Facet])
         advanceSteps = 
             fromList [ (Purple, (Red,    [east, south, west, north]))
                      , (Red,    (Orange, [south, west, north, east]))
@@ -427,33 +449,16 @@ prepareFaceViews orientedCube@(startingFace, cubeOrientation) =
                      ]
 
         getTurns face = 
-            let Just (nextColor, advancers) = lookup (color face) advanceSteps
+            let faceColor = color face
+                Just (nextColor, advancers) = lookup faceColor advanceSteps
                 colorChecker (advance,_) = (nextColor == (color.south.north.advance) face) 
                 Just (advance,turns) = find colorChecker $ zip advancers [0..]
                 nextFace = (south.north.advance) face
-            in (nextColor, (face, turns)):getTurns nextFace  -- face contains color; is color as index necessary.
+            in (faceColor, (face, turns)):getTurns nextFace  -- face contains color; is color as index necessary.
 
-        facesWithTurns = fromList (take 6 $ getTurns startingFace) -- 6 faces.
+        facesWithTurns = fromList (take 6 $ getTurns $ cube model) -- 6 faces.
 
-        faceViewKits = foldl (kitmapUpdate cubeOrientation facesWithTurns) empty [Red .. Purple]
-    in faceViewKits
-
-viewOrientedCube :: MonadWidget t m => Dynamic t OrientedCube -> m (Event t Action)
-viewOrientedCube orientedCube = do
-    faceMap <- mapDyn prepareFaceViews orientedCube
-    eventsWithKeys <- listWithKey faceMap $ const showFace
-    return (switch $ (leftmost . elems) <$> current eventsWithKeys)
-
-orientCube :: Model -> OrientedCube
-orientCube model = 
-    let ac@[ax,ay,az] = perpendicular model
-        nv@[nx,ny,nz] = northDirection model
-        [ex,ey,ez]    = nv `cross` ac
-        orientation = [[ex,  ey,  ez, 0]
-                      ,[nx,  ny,  nz, 0]
-                      ,[ax,  ay,  az, 0]
-                      ,[ 0,   0,   0, 1] ]
-    in (cube model, fromLists orientation)
+    in (cube model, orientation, facesWithTurns)
 
 fps = "style" =: "float:left;padding:10px" 
 cps = "style" =: "float:clear" 
@@ -469,8 +474,8 @@ view model =
                     (constDyn $  "viewBox" =: "-0.48 -0.48 0.96 0.96"
                               <> "width" =: "575"
                               <> "height" =: "575") $ do
-            orientedCube <- mapDyn orientCube model
-            viewOrientedCube orientedCube
+            annotatedCube <- mapDyn annotateCube model
+            viewAnnotatedCube annotatedCube
         return $ leftmost [ev, leftEv, rightEv, upEv, downEv]
 
 data Rotation = CCW | CW deriving Eq
