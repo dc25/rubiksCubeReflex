@@ -2,7 +2,7 @@
 import Prelude(Eq,Ord(compare),Show,Enum,Num,Bool(True,False),Float,Int,String,Maybe(Just),const,show,fromIntegral,replicate,concat,zip,zipWith,sum,take,not,pi,sin,cos,head,(.),($),(+),(-),(*),(/),(==),(<),(>),(<$>),(!!),(++))
 import Reflex.Dom
 import Data.Map (Map, lookup, insert, empty, fromList, elems)
-import Data.List (foldl, elem, find)
+import Data.List (foldl, elem, find, scanl)
 import Data.Maybe (maybeToList, fromMaybe)
 import Data.Matrix (Matrix, fromLists, toLists, multStd2, multStd)
 import Data.Monoid ((<>))
@@ -46,7 +46,7 @@ instance Ord a => Ord (DNode a) where
 
 type Facet = DNode Color
 type Edge = (Facet,Facet,Facet)
-type AnnotatedCube = (Facet, Matrix Float, Map Color (Facet,Int) )
+type AnnotatedCube = (Facet, Matrix Float)
 data FaceViewKit = FaceViewKit { face :: Facet
                                , isVisible :: Bool
                                , transform :: Matrix Float
@@ -107,6 +107,7 @@ mkFace ~(nRight, nCenter, nLeft) -- use of '~' specifies lazy evaluation of argu
        , (wsCorner, wSide, nwCorner)
        , (seCorner, sSide, wsCorner)
        , (enCorner, eSide, seCorner))
+
 --- ______________
 --- |     N      |
 --- |            |
@@ -238,19 +239,7 @@ showArrows dFaceViewKit = do
 -- pain point 
 -- How do I do these repeated "east" operations as a fold (or something )
 showFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
-showFace center = do  
-    showFacet 1 1 center 
-
-    right <- mapDyn (updateViewKit east) center
-    showFacet 2 1 right  
-
-    lowerRight <- mapDyn (updateViewKit east) right
-    showFacet 2 0 lowerRight 
-
-    lower <- mapDyn (updateViewKit east) lowerRight
-    showFacet 1 0 lower
-
-    lowerLeft <- mapDyn (updateViewKit east) lower
+showFace lowerLeft = do  
     showFacet 0 0 lowerLeft 
 
     left <- mapDyn (updateViewKit east) lowerLeft
@@ -265,6 +254,18 @@ showFace center = do
     upperRight <- mapDyn (updateViewKit east) upper
     showFacet 2 2 upperRight 
 
+    right <- mapDyn (updateViewKit east) upperRight
+    showFacet 2 1 right  
+
+    lowerRight <- mapDyn (updateViewKit east) right
+    showFacet 2 0 lowerRight 
+
+    lower <- mapDyn (updateViewKit east) lowerRight
+    showFacet 1 0 lower
+
+    center <- mapDyn (updateViewKit south) lower
+    showFacet 1 1 center 
+
     showArrows center
 
 updateViewKit :: (Facet->Facet) -> FaceViewKit -> FaceViewKit
@@ -278,7 +279,6 @@ changeViewKitColor newColor prevViewKit =
 
 facingCamera :: [Float] -> Matrix Float -> Bool
 facingCamera viewPoint modelTransform =
-        -- backface elimination follows.
     let threeUntransformedPoints = fromLists [ [0,0,0,1]   -- lower left corner of original face
                                              , [3,0,0,1]   -- lower right corner of original face
                                              , [0,3,0,1] ] -- upper left corner of original face
@@ -300,8 +300,8 @@ facingCamera viewPoint modelTransform =
         -- should be opposed to each other. 
     in cameraToPlane `dot` perpendicular < 0
 
-makeViewKit :: Facet -> Matrix Float -> Int -> FaceViewKit
-makeViewKit facet orientation turns = 
+makeViewKit :: Facet -> Matrix Float -> FaceViewKit
+makeViewKit facet orientation = 
     let 
         scale2d = 1/3  -- scale from 3x3 square face to 1x1 square face.
         scale2dMatrix = fromLists [ [scale2d, 0,       0,       0]
@@ -315,15 +315,7 @@ makeViewKit facet orientation turns =
                                   , [0,       0,       1,       0]
                                   , [trans2d, trans2d, 0,       1] ]
 
-        -- account for turns away from starting position
-        c = cos (pi * fromIntegral turns / 2.0)
-        s = sin (pi * fromIntegral turns / 2.0)
-
-        rotation = fromLists [[ c, s, 0, 0]
-                             ,[-s, c, 0, 0]
-                             ,[ 0, 0, 1, 0]
-                             ,[ 0, 0, 0, 1]]
-
+        -- position face on cube.
         assemblies = fromList
                         [ ( Purple, 
                             fromLists [[ 1,   0,   0,   0]
@@ -368,7 +360,7 @@ makeViewKit facet orientation turns =
                           )
                         ]
 
-        Just assemble = lookup (color facet) assemblies 
+        Just assemble = lookup ((color.south.south) facet) assemblies 
 
         scale3d = 1/2  -- scale down to fit in camera space
         scale3dMatrix = fromLists [ [scale3d, 0,       0,       0]
@@ -376,13 +368,14 @@ makeViewKit facet orientation turns =
                                   , [0,       0,       scale3d, 0]
                                   , [0,       0,       0,       1] ]
 
+        -- combine to single transform from 2d to 3d
         modelTransform =            scale2dMatrix 
                          `multStd2` trans2dMatrix 
-                         `multStd2` rotation
                          `multStd2` assemble
                          `multStd2` scale3dMatrix 
                          `multStd2` orientation
 
+        -- backface elimination
         isFacingCamera = facingCamera [0,0,-1] modelTransform
 
         -- translate model to (0,0,1) for perspective viewing
@@ -397,34 +390,82 @@ makeViewKit facet orientation turns =
                                     , [0, 0, 1, 1]
                                     , [0, 0, 0, 0] ]
 
+        -- combine to get single transform from 2d face to 2d display
         viewTransform =            modelTransform
                         `multStd2` perspectivePrep
                         `multStd2` perspective
 
     in FaceViewKit facet isFacingCamera viewTransform 
 
-kitmapUpdate :: Matrix Float -> Map Color (Facet, Int) -> Map Color FaceViewKit -> Color -> Map Color FaceViewKit
-kitmapUpdate orientation faceMap prevMap faceColor = 
-    let Just (face, turns) = lookup faceColor faceMap 
-        updatedViewKit = makeViewKit face orientation turns
+kitmapUpdate :: Matrix Float -> Map Color FaceViewKit -> Facet -> Map Color FaceViewKit
+kitmapUpdate orientation prevMap lowerLeft = 
+    let updatedViewKit = makeViewKit lowerLeft orientation 
+        faceColor = (color.south.south) lowerLeft 
         updatedMap = if isVisible updatedViewKit 
                      then insert faceColor updatedViewKit prevMap
                      else prevMap
     in updatedMap
     
-prepareFaceViews :: AnnotatedCube -> Map Color FaceViewKit
-prepareFaceViews annotatedCube@(startingFace, cubeOrientation, facesWithTurns) = 
-    foldl (kitmapUpdate cubeOrientation facesWithTurns) empty [Red .. Purple]
+fullFaceViews :: AnnotatedCube -> Map Color FaceViewKit
+fullFaceViews (center,cubeOrientation) =
+    let lowerLeft = getLowerLeft center
+        advancers = [ west.south.west   -- traverse along left edges
+                    , west.south.west 
+                    , north             -- switch to lower edges
+                    , east.east.north   -- traverse along lower edges
+                    , east.east.north   
+                    ]
+        lowerLefts = scanl (&) lowerLeft advancers  -- get lower left corners of all faces
+    in foldl (kitmapUpdate cubeOrientation) empty lowerLefts
 
-lowerBrokenFace :: AnnotatedCube -> Map Color FaceViewKit
-lowerBrokenFace annotatedCube@(startingFace, cubeOrientation, facesWithTurns) = 
-    let faceViewKits = foldl (kitmapUpdate cubeOrientation facesWithTurns) empty [Red .. Purple]
-    in faceViewKits
+-- lowerFaceViews :: AnnotatedCube -> Map Color FaceViewKit
+-- lowerFaceViews annotatedCube@(startingFace, cubeOrientation, facesWithTurns) = 
+--     let adjacents = fmap (\dir -> color.south.north.dir $ startingFace) [north, west, south, east]
+--     in  foldl (kitmapUpdate cubeOrientation ) empty adjacents
+
+getLowerLeft :: Facet -> Facet
+getLowerLeft centerFace =
+    let centerFaceColor = color centerFace
+        westFaceColor = (color.south.north.west) centerFace
+
+        leftDirs = fromList [ ((Purple,  Blue),   west)
+                            , ((Purple,  Yellow), north)
+                            , ((Purple,  Red),    east)
+                            , ((Purple,  Green),  south)
+ 
+                            , ((Yellow,  Blue),   west)
+                            , ((Yellow,  Orange), north)
+                            , ((Yellow,  Red ),   east)
+                            , ((Yellow,  Purple), south)
+ 
+                            , ((Red,     Yellow), west)
+                            , ((Red,     Orange), north)
+                            , ((Red,     Green ), east)
+                            , ((Red,     Purple), south)
+ 
+                            , ((Green,   Red),    west)
+                            , ((Green,   Orange), north)
+                            , ((Green,   Blue ),  east)
+                            , ((Green,   Purple), south)
+ 
+                            , ((Blue,    Green),  west)
+                            , ((Blue,    Orange), north)
+                            , ((Blue,    Yellow ),east)
+                            , ((Blue,    Purple), south)
+ 
+                            , ((Orange,  Blue),   west)
+                            , ((Orange,  Green),  north)
+                            , ((Orange,  Red ),   east)
+                            , ((Orange,  Yellow), south)
+                            ]
+
+        Just goLeft = lookup (centerFaceColor, westFaceColor) leftDirs
+    in (west.goLeft) centerFace
 
 viewAnnotatedCube :: MonadWidget t m => Dynamic t AnnotatedCube -> m (Event t Action)
 viewAnnotatedCube annotatedCube = do
-    faceMap <- mapDyn prepareFaceViews annotatedCube
-    -- faceMap <- mapDyn lowerBrokenFace annotatedCube
+    faceMap <- mapDyn fullFaceViews annotatedCube
+    -- faceMap <- mapDyn lowerFaceViews annotatedCube
     eventsWithKeys <- listWithKey faceMap $ const showFace
     return (switch $ (leftmost . elems) <$> current eventsWithKeys)
 
@@ -437,28 +478,7 @@ annotateCube model =
                                 ,[nx,  ny,  nz, 0]
                                 ,[ax,  ay,  az, 0]
                                 ,[ 0,   0,   0, 1] ]
-
-        advanceSteps :: Map Color (Color, [Facet -> Facet])
-        advanceSteps = 
-            fromList [ (Purple, (Red,    [east, south, west, north]))
-                     , (Red,    (Orange, [south, west, north, east]))
-                     , (Orange, (Yellow, [north, east, south, west]))
-                     , (Yellow, (Blue,   [west, north, east, south]))
-                     , (Blue,   (Green,  [west, north, east, south]))
-                     , (Green,  (Purple, [north, east, south, west]))
-                     ]
-
-        getTurns face = 
-            let faceColor = color face
-                Just (nextColor, advancers) = lookup faceColor advanceSteps
-                colorChecker (advance,_) = (nextColor == (color.south.north.advance) face) 
-                Just (advance,turns) = find colorChecker $ zip advancers [0..]
-                nextFace = (south.north.advance) face
-            in (faceColor, (face, turns)):getTurns nextFace  -- face contains color; is color as index necessary.
-
-        facesWithTurns = fromList (take 6 $ getTurns $ cube model) -- 6 faces.
-
-    in (cube model, orientation, facesWithTurns)
+    in (cube model, orientation)
 
 fps = "style" =: "float:left;padding:10px" 
 cps = "style" =: "float:clear" 
@@ -487,9 +507,6 @@ data Model = Model { cube :: Facet
                    , perpendicular :: Vector Float
                    , northDirection :: Vector Float
                    }
-
-targets :: Facet -> [FacetSig]
-targets f = fmap signature [ (west.south) f, (east.east) f ]
 
 applyRotation :: Matrix Float -> [Float] -> [Float]
 applyRotation rotationMatrix  vec = 
