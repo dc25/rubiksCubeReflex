@@ -175,17 +175,15 @@ rotateFace rotation face cube =
 -- | Namespace needed for svg elements.
 svgNamespace = Just "http://www.w3.org/2000/svg"
 
--- pain point; what would it take to memoize some of these results?
-transformPoints :: Matrix Float -> [(Float,Float)] -> [(Float,Float)]
+transformPoints :: Matrix Float -> Matrix Float -> [(Float,Float)]
 transformPoints transform points = 
-    let points4d = fmap (\(x,y) -> fromLists[[x,y,0,1]]) points 
-        result4d = fmap (\p -> toLists $ multStd2 p transform) points4d
-        result2d = fmap (\[[x,y,z,w]] -> (x/w,y/w)) result4d
-
+    let result4d = points `multStd2` transform
+        result2d = fmap (\[x,y,z,w] -> (x/w,y/w)) $ toLists result4d
     in result2d
 
 pointsToString :: [(Float,Float)] -> String
-pointsToString points = concat $ fmap (\(x,y) -> show x ++ ", " ++ show y ++ " ") points
+pointsToString points = 
+    concat $ fmap (\(x,y) -> show x ++ ", " ++ show y ++ " ") points
 
 showFacetSquare :: MonadWidget t m => Int -> Int -> Float -> Dynamic t FaceViewKit -> m (Dynamic t FaceViewKit)
 showFacetSquare x y margin dFaceViewKit = do
@@ -193,7 +191,7 @@ showFacetSquare x y margin dFaceViewKit = do
         y0 = fromIntegral y + margin
         x1 = x0 + 1 - 2 * margin
         y1 = y0 + 1 - 2 * margin
-        points = [(x0,y0),(x0,y1),(x1,y1),(x1,y0)]
+        points = fromLists [[x0,y0,0,1],[x0,y1,0,1],[x1,y1,0,1],[x1,y0,0,1]]
     dAttrs <- mapDyn (\fvk -> "fill" =: (show.color.face) fvk  <> 
                               "points" =: pointsToString (transformPoints (transform fvk) points))  dFaceViewKit
     (el,_) <- elDynAttrNS' svgNamespace "polygon" dAttrs $ return ()
@@ -211,37 +209,67 @@ showFacet x y dFaceViewKit = do
     showFacetSquare x y 0.05 dFaceViewKit
     return dFaceViewKit
 
-showArrow :: MonadWidget t m => Rotation -> [(Float,Float)] -> Dynamic t FaceViewKit -> m (Event t ())
-showArrow rotation cwPoints dFaceViewKit = do
-    let points = if rotation == CW then cwPoints else fmap (\(a,b) -> (b,a)) cwPoints
+arrow :: Matrix Float
+arrow = 
+    let hw = 0.35
+        base = 0.8
+        length = 0.6
+    in fromLists [[base, 0.5 - hw, 0, 1], [base, 0.5 + hw, 0, 1], [base-length, 0.5, 0, 1]]
 
+xyRotationMatrix :: Float -> Matrix Float
+xyRotationMatrix rotation = 
+    let c = cos rotation
+        s = sin rotation
+    in fromLists [[ c,  s,  0,  0 ]
+                 ,[-s,  c,  0,  0 ]
+                 ,[ 0,  0,  1,  0 ]
+                 ,[ 0,  0,  0,  1 ]
+                 ]
+
+translationMatrix :: (Float,Float,Float) -> Matrix Float
+translationMatrix (x,y,z) =
+    fromLists  [[ 1,  0,  0,  0 ]
+               ,[ 0,  1,  0,  0 ]
+               ,[ 0,  0,  1,  0 ]
+               ,[ x,  y,  z,  1 ]
+               ]
+
+arrowPoints :: (Rotation,Int) -> Matrix Float
+arrowPoints (rotation,index) = 
+    let cwRotations = [0, pi/2, pi, 3*pi/2]
+        cwTranslations = [(0,0,0),(3,0,0),(3,3,0),(0,3,0)]
+
+        cwTransformations = zipWith multStd2 
+                              (fmap xyRotationMatrix cwRotations) 
+                              (fmap translationMatrix cwTranslations)
+
+        ccwRotations = [ pi, 3*pi/2, 0, pi/2 ]
+        ccwTranslations = [(2,1,0),(2,2,0),(1,2,0),(1,1,0)]
+
+        ccwTransformations = zipWith multStd2 
+                              (fmap xyRotationMatrix ccwRotations) 
+                              (fmap translationMatrix ccwTranslations)
+
+        transformations = if rotation == CW then cwTransformations else ccwTransformations
+        transform = transformations !! index
+    in arrow `multStd2` transform
+
+showArrow :: MonadWidget t m => Dynamic t FaceViewKit -> (Rotation, Int) -> m (Event t ())
+showArrow dFaceViewKit arrowIndex = do
+    let points = arrowPoints arrowIndex
     dAttrs <- mapDyn (\fvk -> "fill" =: "grey" <> 
-                              "points" =: pointsToString (transformPoints (transform fvk) points))  dFaceViewKit
+                              "points" =: pointsToString (transformPoints (transform fvk) points)) dFaceViewKit
     (el,_) <- elDynAttrNS' svgNamespace "polygon" dAttrs $ return ()
     return $ domEvent Click el
 
-showArrowSet :: MonadWidget t m => Rotation -> Dynamic t FaceViewKit -> m (Event t ())
-showArrowSet rotation dFaceViewKit = do
-    let hw = 0.35
-        base = -0.3
-        length = 0.7
-
-        cwPoints0 = [(0.5 - hw,   1.5 + base), (0.5 + hw,   1.5 + base), (0.5,             1.5+base+length)]
-        cwPoints1 = [(1.5 + base, 2.5 - hw),   (1.5 + base, 2.5 + hw),   (1.5+base+length, 2.5)]
-
-    ev0 <- showArrow rotation cwPoints0 dFaceViewKit
-    ev1 <- showArrow rotation cwPoints1 dFaceViewKit
-    return $ leftmost [ev0, ev1]
-
-
-showArrows :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
-showArrows dFaceViewKit = do
+showArrows :: MonadWidget t m => Rotation -> Dynamic t FaceViewKit -> [Int] -> m (Event t Action)
+showArrows rotation dFaceViewKit cornerIndices = do
+    let arrowIndices = fmap ((,) rotation) cornerIndices
     dFacet <- mapDyn face dFaceViewKit  
-    arrowEventCW <- showArrowSet CW dFaceViewKit
-    let rotationEventCW = attachWith (\a _ -> RotateFace CW a)  (current dFacet) arrowEventCW
-    arrowEventCCW <- showArrowSet CCW dFaceViewKit
-    let rotationEventCCW = attachWith (\a _ -> RotateFace CCW a)  (current dFacet) arrowEventCCW
-    return $ leftmost [rotationEventCW, rotationEventCCW]
+    arrowEvents <- sequence $ fmap (showArrow dFaceViewKit) arrowIndices
+    let arrowEvent = leftmost arrowEvents
+    let rotationEvent = attachWith (\a _ -> RotateFace rotation a)  (current dFacet) arrowEvent
+    return $ leftmost [rotationEvent]
 
 advance :: MonadWidget t m => (Facet -> Facet) -> Dynamic t FaceViewKit -> m (Dynamic t FaceViewKit)
 advance adv dFaceViewKit = do
@@ -269,8 +297,10 @@ showFace lowerLeft = do
               >>= showAndAdvance 2 0 east   -- lower right
               >>= showAndAdvance 1 0 south  -- lower
 
-    showFacet 1 1 center 
-    showArrows center
+    showFacet 1 1 center          
+    cwEvent <- showArrows CW  center [0,1,2,3]
+    ccwEvent <- showArrows CCW center [0,1,2,3]
+    return $ leftmost [cwEvent, ccwEvent]
 
 showUpperMiddleFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
 showUpperMiddleFace upperLeft = do  
@@ -281,7 +311,9 @@ showUpperMiddleFace upperLeft = do
     center <- advance south upper        -- upper (already shown)
     advance east upper >>= showFacet 2 2 -- upper right
 
-    showArrows center
+    cwEvent <- showArrows CW  center [2,3]
+    ccwEvent <- showArrows CCW center [2]
+    return $ leftmost [cwEvent, ccwEvent]
 
 showLowerMiddleFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
 showLowerMiddleFace lowerLeft = do  
@@ -298,7 +330,9 @@ showLowerMiddleFace lowerLeft = do
     return center
              >>= showFacet 1 1             -- center
 
-    showArrows center
+    cwEvent <- showArrows CW  center [0,1]
+    ccwEvent <- showArrows CCW center [0,1,3]
+    return $ leftmost [cwEvent, ccwEvent]
 
 facingCamera :: [Float] -> Matrix Float -> Bool
 facingCamera viewPoint modelTransform =
