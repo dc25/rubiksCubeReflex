@@ -28,7 +28,7 @@ data DNode a = DNode { north :: DNode a
                      , west  :: DNode a
                      , south :: DNode a
                      , east  :: DNode a
-                     , color   :: a
+                     , color :: a
                      , index :: Int
                      }
 
@@ -187,7 +187,7 @@ transformPoints transform points =
 pointsToString :: [(Float,Float)] -> String
 pointsToString points = concat $ fmap (\(x,y) -> show x ++ ", " ++ show y ++ " ") points
 
-showFacetSquare :: MonadWidget t m => Int -> Int -> Float -> Dynamic t FaceViewKit -> m ()
+showFacetSquare :: MonadWidget t m => Int -> Int -> Float -> Dynamic t FaceViewKit -> m (Dynamic t FaceViewKit)
 showFacetSquare x y margin dFaceViewKit = do
     let x0 = fromIntegral x + margin
         y0 = fromIntegral y + margin
@@ -197,12 +197,19 @@ showFacetSquare x y margin dFaceViewKit = do
     dAttrs <- mapDyn (\fvk -> "fill" =: (show.color.face) fvk  <> 
                               "points" =: pointsToString (transformPoints (transform fvk) points))  dFaceViewKit
     (el,_) <- elDynAttrNS' svgNamespace "polygon" dAttrs $ return ()
-    return ()
+    return dFaceViewKit
 
-showFacet :: MonadWidget t m => Int -> Int -> Dynamic t FaceViewKit -> m ()
+changeViewKitColor :: Color -> FaceViewKit -> FaceViewKit
+changeViewKitColor newColor prevViewKit = 
+    let prevFace = face prevViewKit
+        newFace = prevFace {color=newColor}
+    in prevViewKit {face = newFace}
+
+showFacet :: MonadWidget t m => Int -> Int -> Dynamic t FaceViewKit -> m (Dynamic t FaceViewKit)
 showFacet x y dFaceViewKit = do
     showFacetSquare x y 0 =<< mapDyn (changeViewKitColor Black) dFaceViewKit 
     showFacetSquare x y 0.05 dFaceViewKit
+    return dFaceViewKit
 
 showArrow :: MonadWidget t m => Rotation -> [(Float,Float)] -> Dynamic t FaceViewKit -> m (Event t ())
 showArrow rotation cwPoints dFaceViewKit = do
@@ -236,37 +243,62 @@ showArrows dFaceViewKit = do
     let rotationEventCCW = attachWith (\a _ -> RotateFace CCW a)  (current dFacet) arrowEventCCW
     return $ leftmost [rotationEventCW, rotationEventCCW]
 
+advance :: MonadWidget t m => (Facet -> Facet) -> Dynamic t FaceViewKit -> m (Dynamic t FaceViewKit)
+advance adv dFaceViewKit = do
+    let updateViewKit advancer prevViewKit = prevViewKit { face = advancer $ face prevViewKit }
+    mapDyn (updateViewKit adv) dFaceViewKit
+
 -- pain point how do I get the compiler to tell me what the type sig for
 -- this function should be.
 showAndAdvance :: MonadWidget t m => Int -> Int -> (Facet -> Facet) -> Dynamic t FaceViewKit -> m (Dynamic t FaceViewKit)
 showAndAdvance x y adv dFaceViewKit = do
     showFacet x y dFaceViewKit
-    mapDyn (updateViewKit adv) dFaceViewKit
+    advance adv dFaceViewKit
 
 -- pain point 
 -- How do I do these repeated "east" operations as a fold (or something )
 showFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
 showFace lowerLeft = do  
-    center <-     showAndAdvance 0 0 east lowerLeft
-              >>= showAndAdvance 0 1 east 
-              >>= showAndAdvance 0 2 east 
-              >>= showAndAdvance 1 2 east 
-              >>= showAndAdvance 2 2 east 
-              >>= showAndAdvance 2 1 east 
-              >>= showAndAdvance 2 0 east
-              >>= showAndAdvance 1 0 south 
+    center <-     return lowerLeft
+              >>= showAndAdvance 0 0 east   -- lower left
+              >>= showAndAdvance 0 1 east   -- left
+              >>= showAndAdvance 0 2 east   -- upper left
+              >>= showAndAdvance 1 2 east   -- upper
+              >>= showAndAdvance 2 2 east   -- upper right
+              >>= showAndAdvance 2 1 east   -- right
+              >>= showAndAdvance 2 0 east   -- lower right
+              >>= showAndAdvance 1 0 south  -- lower
 
     showFacet 1 1 center 
     showArrows center
 
-updateViewKit :: (Facet->Facet) -> FaceViewKit -> FaceViewKit
-updateViewKit advancer prevViewKit = prevViewKit { face = advancer $ face prevViewKit }
+showUpperMiddleFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
+showUpperMiddleFace upperLeft = do  
+    upper <-     return upperLeft
+             >>= showAndAdvance 0 2 east -- upper left
+             >>= showFacet 1 2           -- upper
 
-changeViewKitColor :: Color -> FaceViewKit -> FaceViewKit
-changeViewKitColor newColor prevViewKit = 
-    let prevFace = face prevViewKit
-        newFace = prevFace {color=newColor}
-    in prevViewKit {face = newFace}
+    center <- advance south upper        -- upper (already shown)
+    advance east upper >>= showFacet 2 2 -- upper right
+
+    showArrows center
+
+showLowerMiddleFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
+showLowerMiddleFace lowerLeft = do  
+    return lowerLeft
+             >>= showAndAdvance 0 0 east   -- lower left
+             >>= showFacet 0 1             -- left 
+
+    center <- return lowerLeft 
+             >>= advance south             -- lower left (already shown)
+             >>= showAndAdvance 1 0 west   -- lower
+             >>= showAndAdvance 2 0 south  -- lower right
+             >>= showAndAdvance 2 1 south  -- right (advance to center)
+
+    return center
+             >>= showFacet 1 1             -- center
+
+    showArrows center
 
 facingCamera :: [Float] -> Matrix Float -> Bool
 facingCamera viewPoint modelTransform =
@@ -397,22 +429,33 @@ kitmapUpdate orientation prevMap lowerLeft =
                      else prevMap
     in updatedMap
     
-fullFaceViews :: AnnotatedCube -> Map Color FaceViewKit
-fullFaceViews (center,cubeOrientation) =
-    let lowerLeft = getLowerLeft center
-        advancers = [ west.south.west   -- traverse along left edges
-                    , west.south.west 
-                    , north             -- switch to lower edges
-                    , east.east.north   -- traverse along lower edges
-                    , east.east.north   
+topView :: AnnotatedCube -> Map Color FaceViewKit
+topView (center,cubeOrientation) =
+    foldl (kitmapUpdate cubeOrientation) empty [getLowerLeft center]
+
+bottomView :: AnnotatedCube -> Map Color FaceViewKit
+bottomView (center,cubeOrientation) =
+    foldl (kitmapUpdate cubeOrientation) empty [(west.south.west.west.south.west.getLowerLeft) center]
+
+upperMiddleView :: AnnotatedCube -> Map Color FaceViewKit
+upperMiddleView (center,cubeOrientation) =
+    let upperLeft = (west.getLowerLeft) center
+        advancers = [ north.east.east
+                    , north.east.east
+                    , north.east.east
+                    ]
+        upperLefts = scanl (&) upperLeft advancers  -- get upper left corners of all faces
+    in foldl (kitmapUpdate cubeOrientation) empty upperLefts
+
+lowerMiddleView :: AnnotatedCube -> Map Color FaceViewKit
+lowerMiddleView (center,cubeOrientation) =
+    let lowerLeft = (west.south.west.getLowerLeft) center
+        advancers = [ west.west.south
+                    , west.west.south
+                    , west.west.south
                     ]
         lowerLefts = scanl (&) lowerLeft advancers  -- get lower left corners of all faces
     in foldl (kitmapUpdate cubeOrientation) empty lowerLefts
-
--- lowerFaceViews :: AnnotatedCube -> Map Color FaceViewKit
--- lowerFaceViews annotatedCube@(startingFace, cubeOrientation, facesWithTurns) = 
---     let adjacents = fmap (\dir -> color.south.north.dir $ startingFace) [north, west, south, east]
---     in  foldl (kitmapUpdate cubeOrientation ) empty adjacents
 
 getLowerLeft :: Facet -> Facet
 getLowerLeft centerFace =
@@ -455,10 +498,23 @@ getLowerLeft centerFace =
 
 viewAnnotatedCube :: MonadWidget t m => Dynamic t AnnotatedCube -> m (Event t Action)
 viewAnnotatedCube annotatedCube = do
-    faceMap <- mapDyn fullFaceViews annotatedCube
-    -- faceMap <- mapDyn lowerFaceViews annotatedCube
-    eventsWithKeys <- listWithKey faceMap $ const showFace
-    return (switch $ (leftmost . elems) <$> current eventsWithKeys)
+    topMap <- mapDyn topView annotatedCube
+    topEventsWithKeys <- listWithKey topMap $ const showFace
+
+    bottomMap <- mapDyn bottomView annotatedCube
+    bottomEventsWithKeys <- listWithKey bottomMap $ const showFace
+
+    upperMiddleMap <- mapDyn upperMiddleView annotatedCube
+    upperMiddleEventsWithKeys <- listWithKey upperMiddleMap $ const showUpperMiddleFace
+
+    lowerMiddleMap <- mapDyn lowerMiddleView annotatedCube
+    lowerMiddleEventsWithKeys <- listWithKey lowerMiddleMap $ const showLowerMiddleFace
+
+    let topEvent = switch $ (leftmost . elems) <$> current topEventsWithKeys
+        bottomEvent = switch $ (leftmost . elems) <$> current bottomEventsWithKeys
+        lowerMiddleEvent = switch $ (leftmost . elems) <$> current lowerMiddleEventsWithKeys
+        upperMiddleEvent = switch $ (leftmost . elems) <$> current upperMiddleEventsWithKeys
+    return $ leftmost [topEvent, lowerMiddleEvent, upperMiddleEvent, bottomEvent]
 
 annotateCube :: Model -> AnnotatedCube
 annotateCube model = 
