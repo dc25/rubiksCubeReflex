@@ -1,5 +1,5 @@
 {-# LANGUAGE RecursiveDo #-}
-import Prelude(Eq,Ord(compare),Show,Enum,Num,Bool(True,False),Float,Int,String,Maybe(Just),const,show,fromIntegral,replicate,concat,zip,zipWith,sum,take,not,pi,sin,cos,head,(.),($),(+),(-),(*),(/),(==),(<),(>),(<$>),(!!),(++))
+import Prelude(Eq,Ord(compare),Show,Enum,Num,Bool(True,False),Float,Int,String,Maybe(Just),const,show,fromIntegral,replicate,concat,concatMap,zip,zipWith,sum,take,not,pi,sin,cos,head,(.),($),(+),(-),(*),(/),(==),(<),(>),(<$>),(!!),(++))
 import Reflex.Dom
 import Data.Map (Map, lookup, insert, empty, fromList, elems)
 import Data.List (foldl, elem, find, scanl)
@@ -178,12 +178,11 @@ svgNamespace = Just "http://www.w3.org/2000/svg"
 transformPoints :: Matrix Float -> Matrix Float -> [(Float,Float)]
 transformPoints transform points = 
     let result4d = points `multStd2` transform
-        result2d = fmap (\[x,y,z,w] -> (x/w,y/w)) $ toLists result4d
+        result2d = (\[x,y,z,w] -> (x/w,y/w)) <$> toLists result4d
     in result2d
 
 pointsToString :: [(Float,Float)] -> String
-pointsToString points = 
-    concat $ fmap (\(x,y) -> show x ++ ", " ++ show y ++ " ") points
+pointsToString = concatMap (\(x,y) -> show x ++ ", " ++ show y ++ " ") 
 
 showFacetSquare :: MonadWidget t m => Int -> Int -> Float -> Dynamic t FaceViewKit -> m (Dynamic t FaceViewKit)
 showFacetSquare x y margin dFaceViewKit = do
@@ -226,12 +225,40 @@ xyRotationMatrix rotation =
                  ,[ 0,  0,  0,  1 ]
                  ]
 
+yzRotationMatrix :: Float -> Matrix Float
+yzRotationMatrix rotation = 
+    let c = cos rotation
+        s = sin rotation
+    in fromLists [[ 1,  0,  0,  0 ]
+                 ,[ 0,  c,  s,  0 ]
+                 ,[ 0, -s,  c,  0 ]
+                 ,[ 0,  0,  0,  1 ]
+                 ]
+
+zxRotationMatrix :: Float -> Matrix Float
+zxRotationMatrix rotation = 
+    let c = cos rotation
+        s = sin rotation
+    in fromLists [[ c,  0,  s,  0 ]
+                 ,[ 0,  1,  0,  0 ]
+                 ,[-s,  0,  c,  0 ]
+                 ,[ 0,  0,  0,  1 ]
+                 ]
+
 translationMatrix :: (Float,Float,Float) -> Matrix Float
 translationMatrix (x,y,z) =
     fromLists  [[ 1,  0,  0,  0 ]
                ,[ 0,  1,  0,  0 ]
                ,[ 0,  0,  1,  0 ]
                ,[ x,  y,  z,  1 ]
+               ]
+
+scaleMatrix :: Float -> Matrix Float
+scaleMatrix scale =
+    fromLists  [[ scale,     0,     0,     0 ]
+               ,[     0, scale,     0,     0 ]
+               ,[     0,     0, scale,     0 ]
+               ,[     0,     0,     0,     1 ]
                ]
 
 arrowPoints :: (Rotation,Int) -> Matrix Float
@@ -262,14 +289,19 @@ showArrow dFaceViewKit arrowIndex = do
     (el,_) <- elDynAttrNS' svgNamespace "polygon" dAttrs $ return ()
     return $ domEvent Click el
 
-showArrows :: MonadWidget t m => Rotation -> Dynamic t FaceViewKit -> [Int] -> m (Event t Action)
-showArrows rotation dFaceViewKit cornerIndices = do
-    let arrowIndices = fmap ((,) rotation) cornerIndices
+arrowRotationEvent :: MonadWidget t m => Dynamic t FaceViewKit -> Rotation -> [Int] -> m (Event t Action)
+arrowRotationEvent dFaceViewKit rotation cornerIndices = do
     dFacet <- mapDyn face dFaceViewKit  
+    let arrowIndices = fmap ((,) rotation) cornerIndices
     arrowEvents <- sequence $ fmap (showArrow dFaceViewKit) arrowIndices
     let arrowEvent = leftmost arrowEvents
-    let rotationEvent = attachWith (\a _ -> RotateFace rotation a)  (current dFacet) arrowEvent
-    return $ leftmost [rotationEvent]
+    return $ attachWith (\a _ -> RotateFace rotation a)  (current dFacet) arrowEvent
+
+showArrows :: MonadWidget t m => Dynamic t FaceViewKit -> [Int] -> [Int] -> m (Event t Action)
+showArrows dFaceViewKit cwCornerIndices ccwCornerIndices = do
+    cwRotationEvent <- arrowRotationEvent dFaceViewKit CW cwCornerIndices 
+    ccwRotationEvent <- arrowRotationEvent dFaceViewKit CCW ccwCornerIndices 
+    return $ leftmost [cwRotationEvent, ccwRotationEvent]
 
 advance :: MonadWidget t m => (Facet -> Facet) -> Dynamic t FaceViewKit -> m (Dynamic t FaceViewKit)
 advance adv dFaceViewKit = do
@@ -287,8 +319,7 @@ showAndAdvance x y adv dFaceViewKit = do
 -- How do I do these repeated "east" operations as a fold (or something )
 showFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
 showFace lowerLeft = do  
-    center <-     return lowerLeft
-              >>= showAndAdvance 0 0 east   -- lower left
+    center <-     showAndAdvance 0 0 east lowerLeft  -- lower left
               >>= showAndAdvance 0 1 east   -- left
               >>= showAndAdvance 0 2 east   -- upper left
               >>= showAndAdvance 1 2 east   -- upper
@@ -298,41 +329,30 @@ showFace lowerLeft = do
               >>= showAndAdvance 1 0 south  -- lower
 
     showFacet 1 1 center          
-    cwEvent <- showArrows CW  center [0,1,2,3]
-    ccwEvent <- showArrows CCW center [0,1,2,3]
-    return $ leftmost [cwEvent, ccwEvent]
+    showArrows center [0,1,2,3] [0,1,2,3]
 
 showUpperMiddleFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
 showUpperMiddleFace upperLeft = do  
-    upper <-     return upperLeft
-             >>= showAndAdvance 0 2 east -- upper left
+    upper <-     showAndAdvance 0 2 east upperLeft -- upper left
              >>= showFacet 1 2           -- upper
 
     center <- advance south upper        -- upper (already shown)
     advance east upper >>= showFacet 2 2 -- upper right
 
-    cwEvent <- showArrows CW  center [2,3]
-    ccwEvent <- showArrows CCW center [2]
-    return $ leftmost [cwEvent, ccwEvent]
+    showArrows center [2,3] [2]
 
 showLowerMiddleFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
 showLowerMiddleFace lowerLeft = do  
-    return lowerLeft
-             >>= showAndAdvance 0 0 east   -- lower left
+    _ <-         showAndAdvance 0 0 east lowerLeft  -- lower left
              >>= showFacet 0 1             -- left 
 
-    center <- return lowerLeft 
-             >>= advance south             -- lower left (already shown)
+    center <-    advance south lowerLeft   -- lower left (already shown)
              >>= showAndAdvance 1 0 west   -- lower
              >>= showAndAdvance 2 0 south  -- lower right
              >>= showAndAdvance 2 1 south  -- right (advance to center)
 
-    return center
-             >>= showFacet 1 1             -- center
-
-    cwEvent <- showArrows CW  center [0,1]
-    ccwEvent <- showArrows CCW center [0,1,3]
-    return $ leftmost [cwEvent, ccwEvent]
+    showFacet 1 1 center            -- center
+    showArrows center [0,1] [0,1,3]
 
 facingCamera :: [Float] -> Matrix Float -> Bool
 facingCamera viewPoint modelTransform =
@@ -360,11 +380,9 @@ facingCamera viewPoint modelTransform =
 makeViewKit :: Facet -> Matrix Float -> FaceViewKit
 makeViewKit facet orientation = 
     let 
+
         scale2d = 1/3  -- scale from 3x3 square face to 1x1 square face.
-        scale2dMatrix = fromLists [ [scale2d, 0,       0,       0]
-                                  , [0,       scale2d, 0,       0]
-                                  , [0,       0,       0,       0]
-                                  , [0,       0,       0,       1] ]
+        scale2dMatrix = scaleMatrix scale2d
 
         trans2d = -1/2  -- translate center of 1x1 square face to origin.
         trans2dMatrix = fromLists [ [1,       0,       0,       0]
@@ -419,17 +437,15 @@ makeViewKit facet orientation =
 
         Just assemble = lookup ((color.south.south) facet) assemblies 
 
-        scale3d = 1/2  -- scale down to fit in camera space
-        scale3dMatrix = fromLists [ [scale3d, 0,       0,       0]
-                                  , [0,       scale3d, 0,       0]
-                                  , [0,       0,       scale3d, 0]
-                                  , [0,       0,       0,       1] ]
+        -- scale down to fit in camera space
+        scale3d = 1/2  
+        scale3dMatrix = scaleMatrix scale3d
 
         -- combine to single transform from 2d to 3d
-        modelTransform =            scale2dMatrix 
+        modelTransform =            scale2dMatrix
                          `multStd2` trans2dMatrix 
                          `multStd2` assemble
-                         `multStd2` scale3dMatrix 
+                         `multStd2` scale3dMatrix
                          `multStd2` orientation
 
         -- backface elimination
