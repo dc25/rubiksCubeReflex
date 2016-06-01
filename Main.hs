@@ -45,7 +45,6 @@ instance Ord a => Ord (DNode a) where
 
 type Facet = DNode Color
 type Edge = (Facet,Facet,Facet)
-type AnnotatedCube = (Facet, Matrix Float)
 data FaceViewKit = FaceViewKit { face :: Facet
                                , isVisible :: Bool
                                , transform :: Matrix Float
@@ -368,7 +367,7 @@ facingCamera viewPoint modelTransform =
                                              , [0,3,0,1] ] -- upper left corner of original face
 
         threeTransformedPoints = toLists $ threeUntransformedPoints `multStd2` modelTransform
-        pt00 = take 3 $ threeTransformedPoints !! 0
+        pt00 = take 3 $ head threeTransformedPoints 
         pt30 = take 3 $ threeTransformedPoints !! 1
         pt03 = take 3 $ threeTransformedPoints !! 2
 
@@ -388,8 +387,7 @@ makeViewKit :: Facet -> Matrix Float -> FaceViewKit
 makeViewKit facet orientation = 
     let 
 
-        scale2d = 1/3  -- scale from 3x3 square face to 1x1 square face.
-        scale2dMatrix = scaleMatrix scale2d
+        scale2dMatrix = scaleMatrix (1/3) -- scale from 3x3 square face to 1x1 square face.
 
         trans2d = -1/2  -- translate center of 1x1 square face to origin.
         trans2dMatrix = translationMatrix (trans2d,trans2d,0)
@@ -431,8 +429,7 @@ makeViewKit facet orientation =
         Just assemble = lookup ((color.south.south) facet) assemblies 
 
         -- scale down to fit in camera space
-        scale3d = 1/2  
-        scale3dMatrix = scaleMatrix scale3d
+        scale3dMatrix = scaleMatrix (1/2)
 
         -- combine to single transform from 2d to 3d
         modelTransform =            scale2dMatrix
@@ -469,16 +466,16 @@ kitmapUpdate orientation prevMap lowerLeft =
                      else prevMap
     in updatedMap
     
-topView :: AnnotatedCube -> Map Color FaceViewKit
-topView (center,cubeOrientation) =
+topView :: Model -> Map Color FaceViewKit
+topView (Model center cubeOrientation)  =
     foldl (kitmapUpdate cubeOrientation) empty [getLowerLeft center]
 
-bottomView :: AnnotatedCube -> Map Color FaceViewKit
-bottomView (center,cubeOrientation) =
+bottomView :: Model -> Map Color FaceViewKit
+bottomView (Model center cubeOrientation) =
     foldl (kitmapUpdate cubeOrientation) empty [(west.south.west.west.south.west.getLowerLeft) center]
 
-upperMiddleView :: AnnotatedCube -> Map Color FaceViewKit
-upperMiddleView (center,cubeOrientation) =
+upperMiddleView :: Model -> Map Color FaceViewKit
+upperMiddleView (Model center cubeOrientation)  =
     let upperLeft = (west.getLowerLeft) center
         advancers = [ north.east.east
                     , north.east.east
@@ -487,8 +484,8 @@ upperMiddleView (center,cubeOrientation) =
         upperLefts = scanl (&) upperLeft advancers  -- get upper left corners of all faces
     in foldl (kitmapUpdate cubeOrientation) empty upperLefts
 
-lowerMiddleView :: AnnotatedCube -> Map Color FaceViewKit
-lowerMiddleView (center,cubeOrientation) =
+lowerMiddleView :: Model -> Map Color FaceViewKit
+lowerMiddleView (Model center cubeOrientation) =
     let lowerLeft = (west.south.west.getLowerLeft) center
         advancers = [ west.west.south
                     , west.west.south
@@ -536,18 +533,18 @@ getLowerLeft centerFace =
         Just goLeft = lookup (centerFaceColor, westFaceColor) leftDirs
     in (west.goLeft) centerFace
 
-viewAnnotatedCube :: MonadWidget t m => Dynamic t AnnotatedCube -> m (Event t Action)
-viewAnnotatedCube annotatedCube = do
-    topMap <- mapDyn topView annotatedCube
+viewModel :: MonadWidget t m => Dynamic t Model -> m (Event t Action)
+viewModel model = do
+    topMap <- mapDyn topView model
     topEventsWithKeys <- listWithKey topMap $ const showFace
 
-    bottomMap <- mapDyn bottomView annotatedCube
+    bottomMap <- mapDyn bottomView model
     bottomEventsWithKeys <- listWithKey bottomMap $ const showFace
 
-    upperMiddleMap <- mapDyn upperMiddleView annotatedCube
+    upperMiddleMap <- mapDyn upperMiddleView model
     upperMiddleEventsWithKeys <- listWithKey upperMiddleMap $ const showUpperMiddleFace
 
-    lowerMiddleMap <- mapDyn lowerMiddleView annotatedCube
+    lowerMiddleMap <- mapDyn lowerMiddleView model
     lowerMiddleEventsWithKeys <- listWithKey lowerMiddleMap $ const showLowerMiddleFace
 
     let topEvent = switch $ (leftmost . elems) <$> current topEventsWithKeys
@@ -555,17 +552,6 @@ viewAnnotatedCube annotatedCube = do
         lowerMiddleEvent = switch $ (leftmost . elems) <$> current lowerMiddleEventsWithKeys
         upperMiddleEvent = switch $ (leftmost . elems) <$> current upperMiddleEventsWithKeys
     return $ leftmost [topEvent, lowerMiddleEvent, upperMiddleEvent, bottomEvent]
-
-annotateCube :: Model -> AnnotatedCube
-annotateCube model = 
-    let ac@[ax,ay,az] = perpendicular model
-        nv@[nx,ny,nz] = northDirection model
-        [ex,ey,ez]    = nv `cross` ac
-        orientation = fromLists [[ex,  ey,  ez, 0]
-                                ,[nx,  ny,  nz, 0]
-                                ,[ax,  ay,  az, 0]
-                                ,[ 0,   0,   0, 1] ]
-    in (cube model, orientation)
 
 fps = "style" =: "float:left;padding:10px" 
 cps = "style" =: "float:clear" 
@@ -580,9 +566,7 @@ view model =
         (_,ev) <- elDynAttrNS' svgNamespace "svg" 
                     (constDyn $  "viewBox" =: "-0.48 -0.48 0.96 0.96"
                               <> "width" =: "575"
-                              <> "height" =: "575") $ do
-            annotatedCube <- mapDyn annotateCube model
-            viewAnnotatedCube annotatedCube
+                              <> "height" =: "575") $ viewModel model
         return $ leftmost [ev, leftEv, rightEv, upEv, downEv]
 
 data Rotation = CCW | CW deriving Eq
@@ -591,20 +575,15 @@ data Direction = Up | Down | Left | Right
 data Action = NudgeCube Direction | RotateFace Rotation Facet 
 
 data Model = Model { cube :: Facet 
-                   , perpendicular :: Vector Float
-                   , northDirection :: Vector Float
+                   , orientation :: Matrix Float
                    }
 
-applyRotation :: Matrix Float -> [Float] -> [Float]
-applyRotation rotationMatrix  vec = 
-    let vecMat = fromLists [vec]
-        vecMatResult = vecMat `multStd2` rotationMatrix
-    in head $ toLists vecMatResult
+applyRotation :: Matrix Float -> Matrix Float -> Matrix Float
+applyRotation rotationMatrix  prevOrientation = 
+    prevOrientation `multStd2` rotationMatrix
 
 rotateModel rotationMatrix model = 
-    model { perpendicular = applyRotation rotationMatrix $ perpendicular model,
-            northDirection = applyRotation rotationMatrix $ northDirection model
-          }
+    model { orientation = applyRotation rotationMatrix $ orientation model }
 
 -- | FRP style update function. Given action and model, return updated model.
 update :: Action -> Model -> Model
@@ -613,36 +592,14 @@ update action model =
             RotateFace rotation facet -> 
                  model { cube = rotateFace rotation facet $ cube model }
             NudgeCube direction -> 
-                -- pain point : do I pay for making these limited scope?   
                 let step = pi/20
-                    c = cos step
-                    s = sin step
-
-                    -- left and right hold y axis const, rotate x,z
-                    leftRotation =  fromLists [ [ c, 0,-s ]
-                                              , [ 0, 1, 0 ]
-                                              , [ s, 0, c ] ]
-
-                    rightRotation = fromLists [ [ c, 0, s ]
-                                              , [ 0, 1, 0 ]
-                                              , [-s, 0, c ] ]
-
-                    -- up and down hold x axis const, rotate y,z
-                    upRotation =    fromLists [ [ 1, 0, 0 ]
-                                              , [ 0, c,-s ]
-                                              , [ 0, s, c ] ]
-
-                    downRotation =  fromLists [ [ 1, 0, 0 ]
-                                              , [ 0, c, s ]
-                                              , [ 0,-s, c ] ]
-
                 in case direction of
-                       Left ->  rotateModel leftRotation model
-                       Right -> rotateModel rightRotation model
-                       Up ->    rotateModel upRotation model
-                       Down ->  rotateModel downRotation model
+                       Left ->  rotateModel (zxRotationMatrix (-step) ) model
+                       Right -> rotateModel (zxRotationMatrix   step  ) model
+                       Up ->    rotateModel (yzRotationMatrix (-step) ) model
+                       Down ->  rotateModel (yzRotationMatrix   step  ) model
  
-initModel = Model mkCube [0,0,1]  [0,1,0] 
+initModel = Model mkCube identityMatrix
 
 main = mainWidget $ do 
            rec
