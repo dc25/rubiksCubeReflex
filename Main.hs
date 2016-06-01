@@ -236,36 +236,27 @@ showArrows dFaceViewKit = do
     let rotationEventCCW = attachWith (\a _ -> RotateFace CCW a)  (current dFacet) arrowEventCCW
     return $ leftmost [rotationEventCW, rotationEventCCW]
 
+-- pain point how do I get the compiler to tell me what the type sig for
+-- this function should be.
+showAndAdvance :: MonadWidget t m => Int -> Int -> (Facet -> Facet) -> Dynamic t FaceViewKit -> m (Dynamic t FaceViewKit)
+showAndAdvance x y adv dFaceViewKit = do
+    showFacet x y dFaceViewKit
+    mapDyn (updateViewKit adv) dFaceViewKit
+
 -- pain point 
 -- How do I do these repeated "east" operations as a fold (or something )
 showFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
 showFace lowerLeft = do  
-    showFacet 0 0 lowerLeft 
+    center <-     showAndAdvance 0 0 east lowerLeft
+              >>= showAndAdvance 0 1 east 
+              >>= showAndAdvance 0 2 east 
+              >>= showAndAdvance 1 2 east 
+              >>= showAndAdvance 2 2 east 
+              >>= showAndAdvance 2 1 east 
+              >>= showAndAdvance 2 0 east
+              >>= showAndAdvance 1 0 south 
 
-    left <- mapDyn (updateViewKit east) lowerLeft
-    showFacet 0 1  left
-
-    upperLeft <- mapDyn (updateViewKit east) left
-    showFacet 0 2 upperLeft 
-
-    upper <- mapDyn (updateViewKit east) upperLeft
-    showFacet 1 2 upper
-
-    upperRight <- mapDyn (updateViewKit east) upper
-    showFacet 2 2 upperRight 
-
-    right <- mapDyn (updateViewKit east) upperRight
-    showFacet 2 1 right  
-
-    lowerRight <- mapDyn (updateViewKit east) right
-    showFacet 2 0 lowerRight 
-
-    lower <- mapDyn (updateViewKit east) lowerRight
-    showFacet 1 0 lower
-
-    center <- mapDyn (updateViewKit south) lower
     showFacet 1 1 center 
-
     showArrows center
 
 updateViewKit :: (Facet->Facet) -> FaceViewKit -> FaceViewKit
