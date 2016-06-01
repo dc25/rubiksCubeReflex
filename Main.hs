@@ -6,8 +6,7 @@ import Data.List (foldl, elem, find, scanl)
 import Data.Maybe (maybeToList, fromMaybe)
 import Data.Matrix (Matrix, fromLists, toLists, multStd2, multStd)
 import Data.Monoid ((<>))
-import Data.Function 
-import Control.Monad.Reader
+import Control.Monad
 
 data Color = Red | Green | Blue | Yellow | Orange | Purple | Black deriving (Show,Eq,Ord,Enum)
 
@@ -208,12 +207,13 @@ showFacet x y dFaceViewKit = do
     showFacetSquare x y 0.05 dFaceViewKit
     return dFaceViewKit
 
-arrow :: Matrix Float
-arrow = 
-    let hw = 0.35
-        base = 0.8
-        length = 0.6
-    in fromLists [[base, 0.5 - hw, 0, 1], [base, 0.5 + hw, 0, 1], [base-length, 0.5, 0, 1]]
+identityMatrix :: Matrix Float
+identityMatrix = 
+    fromLists [[ 1,  0,  0,  0 ]
+              ,[ 0,  1,  0,  0 ]
+              ,[ 0,  0,  1,  0 ]
+              ,[ 0,  0,  0,  1 ]
+              ]
 
 xyRotationMatrix :: Float -> Matrix Float
 xyRotationMatrix rotation = 
@@ -260,6 +260,13 @@ scaleMatrix scale =
                ,[     0,     0, scale,     0 ]
                ,[     0,     0,     0,     1 ]
                ]
+
+arrow :: Matrix Float
+arrow = 
+    let hw = 0.35
+        base = 0.8
+        length = 0.6
+    in fromLists [[base, 0.5 - hw, 0, 1], [base, 0.5 + hw, 0, 1], [base-length, 0.5, 0, 1]]
 
 arrowPoints :: (Rotation,Int) -> Matrix Float
 arrowPoints (rotation,index) = 
@@ -385,53 +392,39 @@ makeViewKit facet orientation =
         scale2dMatrix = scaleMatrix scale2d
 
         trans2d = -1/2  -- translate center of 1x1 square face to origin.
-        trans2dMatrix = fromLists [ [1,       0,       0,       0]
-                                  , [0,       1,       0,       0]
-                                  , [0,       0,       1,       0]
-                                  , [trans2d, trans2d, 0,       1] ]
+        trans2dMatrix = translationMatrix (trans2d,trans2d,0)
 
         -- position face on cube.
         assemblies = fromList
-                        [ ( Purple, 
-                            fromLists [[ 1,   0,   0,   0]
-                                      ,[ 0,   1,   0,   0]
-                                      ,[ 0,   0,   1,   0]
-                                      ,[ 0,   0,   0.5, 1] ]
+                        [ ( Purple,    translationMatrix (0,0,0.5)
                           )  
 
                         , ( Red,
-                            fromLists [[ 0,   1,   0,   0]
-                                      ,[ 0,   0,   1,   0]
-                                      ,[ 1,   0,   0,   0]
-                                      ,[ 0.5, 0,   0,   1] ]
+                                       yzRotationMatrix (pi/2)
+                            `multStd2` xyRotationMatrix (pi/2)
+                            `multStd2` translationMatrix (0.5,0,0)
                           )  
 
                         , ( Green,
-                            fromLists [[-1,   0,   0,   0]
-                                      ,[ 0,   0,   1,   0]
-                                      ,[ 0,   1,   0,   0]
-                                      ,[ 0,   0.5, 0,   1] ]
+                                       yzRotationMatrix (pi/2)
+                            `multStd2` xyRotationMatrix pi
+                            `multStd2` translationMatrix (0.0,0.5,0.0)
                           )  
 
                         , ( Blue,
-                            fromLists [[ 0,  -1,   0,   0]
-                                      ,[ 0,   0,   1,   0]
-                                      ,[-1,   0,   0,   0]
-                                      ,[-0.5, 0,   0,   1] ]
+                                       yzRotationMatrix (pi/2)
+                            `multStd2` xyRotationMatrix (-pi/2)
+                            `multStd2` translationMatrix (-0.5,0,0)
                           )  
 
                         , ( Yellow,
-                            fromLists [[ 1,   0,   0,   0]
-                                      ,[ 0,   0,   1,   0]
-                                      ,[ 0,  -1,   0,   0]
-                                      ,[ 0,  -0.5, 0,   1] ]
+                                       yzRotationMatrix (pi/2)
+                            `multStd2` translationMatrix (0.0,-0.5,0.0)
                           )  
 
                         , ( Orange,
-                            fromLists [[ 1,   0,   0,   0]
-                                      ,[ 0,  -1,   0,   0]
-                                      ,[ 0,   0,  -1,   0]
-                                      ,[ 0,   0,  -0.5, 1] ]
+                                       yzRotationMatrix pi
+                            `multStd2` translationMatrix (0,0,-0.5)
                           )
                         ]
 
@@ -452,10 +445,7 @@ makeViewKit facet orientation =
         isFacingCamera = facingCamera [0,0,-1] modelTransform
 
         -- translate model to (0,0,1) for perspective viewing
-        perspectivePrep = fromLists [ [1, 0, 0, 0]
-                                    , [0, 1, 0, 0]
-                                    , [0, 0, 1, 0]
-                                    , [0, 0, 1, 1] ]
+        perspectivePrep = translationMatrix (0,0,1)
 
         -- perspective transformation 
         perspective     = fromLists [ [1, 0, 0, 0]
