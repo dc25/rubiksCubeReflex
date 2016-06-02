@@ -115,7 +115,7 @@ mkFace ~(nRight, nCenter, nLeft) -- use of '~' specifies lazy evaluation of argu
 --- |_____S_____ |_______________________________________
 --- |     N      |     N      |     N      |     N      |
 --- |            |            |            |            |
---- |W  yellow  E|W   red    E|W   green  E|W   blue    E|
+--- |W  yellow  E|W   red    E|W   green  E|W   blue   E|
 --- |            |            |            |            |
 --- |            |            |            |            |
 --- |_____S______|_____S______|_____S______|_____S______|
@@ -165,10 +165,10 @@ getRotationMap advanceToPost f =
         (_,_,rotationMap) = foldl ff (preStart, postStart, empty) fullCrawl
     in rotationMap
 
-rotateFace :: Rotation -> Facet -> Facet -> Facet
-rotateFace rotation face cube = 
+rotateFace :: Rotation -> Facet -> Facet
+rotateFace rotation face = 
         let advancer = if rotation == CW then south.west.west else east.north.east
-        in copyWithRotation (getRotationMap advancer face) cube
+        in copyWithRotation (getRotationMap advancer face) face
 
 -- | Namespace needed for svg elements.
 svgNamespace = Just "http://www.w3.org/2000/svg"
@@ -384,12 +384,14 @@ facingCamera viewPoint modelTransform =
         -- should be opposed to each other. 
     in cameraToPlane `dot` perpendicular < 0
 
-makeViewKit :: Facet -> Matrix Float -> FaceViewKit
-makeViewKit facet orientation = 
+makeViewKit :: Facet -> Matrix Float -> Int -> FaceViewKit
+makeViewKit facet orientation turnCount = 
     let scale2dMatrix = scaleMatrix (1/3) -- scale from 3x3 square face to 1x1 square face.
 
         trans2d = -1/2  -- translate center of 1x1 square face to origin.
         trans2dMatrix = translationMatrix (trans2d,trans2d,0)
+
+        turnMatrix = xyRotationMatrix (fromIntegral turnCount * pi / 2)
 
         -- position face on cube.
         assemblies = fromList
@@ -433,6 +435,7 @@ makeViewKit facet orientation =
         -- combine to single transform from 2d to 3d
         modelTransform =            scale2dMatrix
                          `multStd2` trans2dMatrix 
+                         `multStd2` turnMatrix 
                          `multStd2` assemble
                          `multStd2` scale3dMatrix
                          `multStd2` orientation
@@ -456,42 +459,107 @@ makeViewKit facet orientation =
 
     in FaceViewKit facet isFacingCamera viewTransform 
 
-kitmapUpdate :: Matrix Float -> Map Color FaceViewKit -> Facet -> Map Color FaceViewKit
-kitmapUpdate orientation prevMap lowerLeft = 
-    let updatedViewKit = makeViewKit lowerLeft orientation 
-        faceColor = (color.south.south) lowerLeft 
+--- ______________
+--- |     N      |
+--- |            |
+--- |W  purple  E|
+--- |            |
+--- |            |
+--- |_____S_____ |_______________________________________
+--- |     N      |     N      |     N      |     N      |
+--- |            |            |            |            |
+--- |W  yellow  E|W   red    E|W   green  E|W   blue   E|
+--- |            |            |            |            |
+--- |            |            |            |            |
+--- |_____S______|_____S______|_____S______|_____S______|
+--- |     N      |
+--- |            |
+--- |W  orange  E|
+--- |            |
+--- |            |
+--- |_____S______|
+
+kitmapUpdate :: Model -> Map Color FaceViewKit -> Facet -> Map Color FaceViewKit
+kitmapUpdate (Model center orientation) prevMap lowerLeft = 
+    let faceColor = (color.south.south) lowerLeft 
+        centerColor = color center
+        turns = fromList [( (Purple, Yellow),  0)
+                         ,( (Purple, Red),     0)
+                         ,( (Purple, Purple),  0)
+                         ,( (Purple, Green),   0)
+                         ,( (Purple, Blue),    0)
+                         ,( (Purple, Orange),  0)
+
+                         ,( (Blue, Yellow),  1)
+                         ,( (Blue, Red),     2)
+                         ,( (Blue, Purple),  1)
+                         ,( (Blue, Green),   3)
+                         ,( (Blue, Blue),    0)
+                         ,( (Blue, Orange),  1)
+
+                         ,( (Orange, Yellow),  2)
+                         ,( (Orange, Red),     2)
+                         ,( (Orange, Purple),  0)
+                         ,( (Orange, Green),   2)
+                         ,( (Orange, Blue),    2)
+                         ,( (Orange, Orange),  0)
+
+                         ,( (Green, Yellow),  2)
+                         ,( (Green, Red),     3)
+                         ,( (Green, Purple),  0)
+                         ,( (Green, Green),   0)
+                         ,( (Green, Blue),    1)
+                         ,( (Green, Orange),  2)
+
+                         ,( (Yellow, Yellow), 0)
+                         ,( (Yellow, Red),    1)
+                         ,( (Yellow, Purple), 2)
+                         ,( (Yellow, Green),  2)
+                         ,( (Yellow, Blue),   3)
+                         ,( (Yellow, Orange), 0)
+
+                         ,( (Red,    Yellow), 3)
+                         ,( (Red,    Red),    0)
+                         ,( (Red,    Purple), 3)
+                         ,( (Red,    Green),  1)
+                         ,( (Red,    Blue),   2)
+                         ,( (Red,    Orange), 3) ]
+
+        Just turnCount = lookup (centerColor, faceColor) turns 
+
+        updatedViewKit = makeViewKit lowerLeft orientation turnCount
         updatedMap = if isVisible updatedViewKit 
                      then insert faceColor updatedViewKit prevMap
                      else prevMap
     in updatedMap
     
 topView :: Model -> Map Color FaceViewKit
-topView (Model center cubeOrientation)  =
-    foldl (kitmapUpdate cubeOrientation) empty [getLowerLeft center]
+topView model@(Model center _)  =
+    foldl (kitmapUpdate model) empty [getLowerLeft center]
 
 bottomView :: Model -> Map Color FaceViewKit
-bottomView (Model center cubeOrientation) =
-    foldl (kitmapUpdate cubeOrientation) empty [(west.south.west.west.south.west.getLowerLeft) center]
+bottomView model@(Model center _)  =
+    foldl (kitmapUpdate model) empty [(west.south.west.west.south.west.getLowerLeft) center]
 
 upperMiddleView :: Model -> Map Color FaceViewKit
-upperMiddleView (Model center cubeOrientation)  =
+upperMiddleView model@(Model center _)   =
     let upperLeft = (west.getLowerLeft) center
         advancers = [ north.east.east
                     , north.east.east
                     , north.east.east
                     ]
         upperLefts = scanl (&) upperLeft advancers  -- get upper left corners of all faces
-    in foldl (kitmapUpdate cubeOrientation) empty upperLefts
+    in foldl (kitmapUpdate model) empty upperLefts
 
 lowerMiddleView :: Model -> Map Color FaceViewKit
-lowerMiddleView (Model center cubeOrientation) =
+lowerMiddleView model@(Model center _)  =
     let lowerLeft = (west.south.west.getLowerLeft) center
         advancers = [ west.west.south
                     , west.west.south
                     , west.west.south
                     ]
         lowerLefts = scanl (&) lowerLeft advancers  -- get lower left corners of all faces
-    in foldl (kitmapUpdate cubeOrientation) empty lowerLefts
+    in foldl (kitmapUpdate model) empty lowerLefts
 
 getLowerLeft :: Facet -> Facet
 getLowerLeft centerFace =
@@ -589,7 +657,7 @@ update :: Action -> Model -> Model
 update action model = 
         case action of
             RotateFace rotation facet -> 
-                 model { cube = rotateFace rotation facet $ cube model }
+                 model { cube = rotateFace rotation facet }
             NudgeCube direction -> 
                 let step = pi/20
                 in case direction of
