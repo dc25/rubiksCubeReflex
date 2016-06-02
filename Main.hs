@@ -326,36 +326,37 @@ showAndAdvance x y adv dFaceViewKit = do
 showFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
 showFace lowerLeft = do  
     center <-     showAndAdvance 0 0 east lowerLeft  -- lower left
-              >>= showAndAdvance 0 1 east   -- left
-              >>= showAndAdvance 0 2 east   -- upper left
-              >>= showAndAdvance 1 2 east   -- upper
-              >>= showAndAdvance 2 2 east   -- upper right
-              >>= showAndAdvance 2 1 east   -- right
-              >>= showAndAdvance 2 0 east   -- lower right
-              >>= showAndAdvance 1 0 south  -- lower
+              >>= showAndAdvance 0 1 east            -- left
+              >>= showAndAdvance 0 2 east            -- upper left
+              >>= showAndAdvance 1 2 east            -- upper
+              >>= showAndAdvance 2 2 east            -- upper right
+              >>= showAndAdvance 2 1 east            -- right
+              >>= showAndAdvance 2 0 east            -- lower right
+              >>= showAndAdvance 1 0 south           -- lower
 
     showFacet 1 1 center          
     showArrows center [0,1,2,3] [0,1,2,3]
 
 showUpperMiddleFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
 showUpperMiddleFace upperLeft = do  
-    upper <-     showAndAdvance 0 2 east upperLeft -- upper left
-             >>= showFacet 1 2           -- upper
+    upper <-      showAndAdvance 0 2 east upperLeft  -- upper left
+              >>= showFacet 1 2                      -- upper
 
-    center <- advance south upper        -- upper (already shown)
-    advance east upper >>= showFacet 2 2 -- upper right
+    center <-     advance south upper                -- upper (already shown)
+    _      <-     advance east upper 
+              >>= showFacet 2 2                      -- upper right
 
     showArrows center [2,3] [2]
 
 showLowerMiddleFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
 showLowerMiddleFace lowerLeft = do  
-    _ <-         showAndAdvance 0 0 east lowerLeft  -- lower left
-             >>= showFacet 0 1             -- left 
+    _ <-          showAndAdvance 0 0 east lowerLeft  -- lower left
+              >>= showFacet 0 1                      -- left 
 
-    center <-    advance south lowerLeft   -- lower left (already shown)
-             >>= showAndAdvance 1 0 west   -- lower
-             >>= showAndAdvance 2 0 south  -- lower right
-             >>= showAndAdvance 2 1 south  -- right (advance to center)
+    center <-     advance south lowerLeft            -- lower left (already shown)
+              >>= showAndAdvance 1 0 west            -- lower
+              >>= showAndAdvance 2 0 south           -- lower right
+              >>= showAndAdvance 2 1 south           -- right (advance to center)
 
     showFacet 1 1 center            -- center
     showArrows center [0,1] [0,1,3]
@@ -385,9 +386,7 @@ facingCamera viewPoint modelTransform =
 
 makeViewKit :: Facet -> Matrix Float -> FaceViewKit
 makeViewKit facet orientation = 
-    let 
-
-        scale2dMatrix = scaleMatrix (1/3) -- scale from 3x3 square face to 1x1 square face.
+    let scale2dMatrix = scaleMatrix (1/3) -- scale from 3x3 square face to 1x1 square face.
 
         trans2d = -1/2  -- translate center of 1x1 square face to origin.
         trans2dMatrix = translationMatrix (trans2d,trans2d,0)
@@ -599,10 +598,8 @@ update action model =
                        Up ->    rotateModel (yzRotationMatrix (-step) ) model
                        Down ->  rotateModel (yzRotationMatrix   step  ) model
  
-initModel = Model mkCube identityMatrix
-
 main = mainWidget $ do 
            rec
                selectEvent <- view model
-               model <- foldDyn Main.update initModel selectEvent
+               model <- foldDyn Main.update (Model mkCube identityMatrix) selectEvent
            return ()
