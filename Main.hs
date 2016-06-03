@@ -390,92 +390,80 @@ makeViewKit (Model referenceFace orientation twist) lowerLeft turnCount withTwis
 
         trans2d = -1/2  -- translate center of 1x1 square face to origin.
         trans2dMatrix = translationMatrix (trans2d,trans2d,0)
-
         turnMatrix = xyRotationMatrix (fromIntegral turnCount * pi / 2)
+        offsetMatrix = translationMatrix (0,0,offset)
 
-        -- position face on cube.
+        -- Rotate face into position .  Rotations and inverses specified.
         assemblies = fromList
                         [ ( Purple
-                          , (  translationMatrix (0,0,offset)
-                            ,  translationMatrix (0,0,-offset)
-                            )
-                          )  
-
-                        , ( Red
-                          , (          yzRotationMatrix (pi/2)
-                            `multStd2` xyRotationMatrix (pi/2)
-                            `multStd2` translationMatrix (offset,0,0)
-
-                            ,          translationMatrix (-offset,0,0)
-                            `multStd2` xyRotationMatrix (-pi/2)
-                            `multStd2` yzRotationMatrix (-pi/2)
-                            )
-                          )  
-
-                        , ( Green
-                          , (          yzRotationMatrix (pi/2)
-                            `multStd2` xyRotationMatrix pi
-                            `multStd2` translationMatrix (0.0,offset,0.0)
-
-                            ,          translationMatrix (0.0,-offset,0.0)
-                            `multStd2` xyRotationMatrix (-pi)
-                            `multStd2` yzRotationMatrix (-pi/2)
-                            )
-                          )  
-
-                        , ( Blue
-                          , (          yzRotationMatrix (pi/2)
-                            `multStd2` xyRotationMatrix (-pi/2)
-                            `multStd2` translationMatrix (-offset,0,0)
-
-                            ,          translationMatrix (offset,0,0)
-                            `multStd2` xyRotationMatrix (pi/2)
-                            `multStd2` yzRotationMatrix (-pi/2)
+                          , (  []
+                            ,  []
                             )
                           )  
 
                         , ( Yellow
-                          , (          yzRotationMatrix (pi/2)
-                            `multStd2` translationMatrix (0.0,-offset,0.0)
+                          , ([ yzRotationMatrix (pi/2) ]
+                            ,[ yzRotationMatrix (-pi/2) ]
+                            )
+                          )  
 
-                            ,          translationMatrix (0.0,offset,0.0)
-                            `multStd2` yzRotationMatrix (-pi/2)
+                        , ( Red
+                          , ([ yzRotationMatrix (pi/2)
+                             , xyRotationMatrix (pi/2) ]
+                            ,[ xyRotationMatrix (-pi/2)
+                             , yzRotationMatrix (-pi/2) ]
+                            )
+                          )  
+
+                        , ( Green
+                          , ([ yzRotationMatrix (pi/2)
+                             , xyRotationMatrix pi ]
+                            ,[ xyRotationMatrix (-pi)
+                             , yzRotationMatrix (-pi/2) ]
+                            )
+                          )  
+
+                        , ( Blue
+                          , ([ yzRotationMatrix (pi/2)
+                             , xyRotationMatrix (-pi/2) ]
+                            ,[ xyRotationMatrix (pi/2)
+                             , yzRotationMatrix (-pi/2) ]
                             )
                           )  
 
                         , ( Orange
-                          , (          yzRotationMatrix pi
-                            `multStd2` translationMatrix (0,0,-offset)
-
-                            ,          translationMatrix (0,0,offset)
-                            `multStd2` yzRotationMatrix (-pi)
+                          , ([ yzRotationMatrix pi ]
+                            ,[ yzRotationMatrix (-pi) ]
                             )
                           )
                         ]
 
-        Just (assemble,_) = lookup ((color.south.south) lowerLeft) assemblies 
+        Just (assembleMatricies,_) = lookup ((color.south.south) lowerLeft) assemblies 
         Just (postTwist,preTwist) = lookup (color referenceFace) assemblies 
 
-        withoutTwist =            scale2dMatrix
-                       `multStd2` trans2dMatrix 
-                       `multStd2` turnMatrix 
-                       `multStd2` assemble
-
-        twistedTransform = 
+        twistMatricies = 
             if withTwist 
-            then            withoutTwist
-                 `multStd2` preTwist
-                 `multStd2` xyRotationMatrix (2*pi * twist/360)
-                 `multStd2` postTwist
-            else withoutTwist
+            then preTwist ++
+                 [ xyRotationMatrix (2*pi * twist/360) ] ++
+                 postTwist
+            else []
 
         -- scale down to fit in camera space
         scale3dMatrix = scaleMatrix (1/2)
 
+        modelTransformations = [ scale2dMatrix
+                               , trans2dMatrix 
+                               , turnMatrix 
+                               , offsetMatrix
+                               ] ++ 
+                               assembleMatricies ++ -- may be 0,1 or 2 matricies
+                               twistMatricies ++ -- may be 0 or up to 5 ( I think ) matricies
+                               [ scale3dMatrix,
+                                 orientation
+                               ]
+
         -- combine to single transform from 2d to 3d
-        modelTransform =            twistedTransform
-                         `multStd2` scale3dMatrix
-                         `multStd2` orientation
+        modelTransform =  foldl multStd2 identityMatrix modelTransformations
 
         -- backface elimination
         isFacingCamera = facingCamera [0,0,-1] modelTransform
