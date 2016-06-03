@@ -459,30 +459,18 @@ makeViewKit facet orientation turnCount =
 
     in FaceViewKit facet isFacingCamera viewTransform 
 
---- ______________
---- |     N      |
---- |            |
---- |W  purple  E|
---- |            |
---- |            |
---- |_____S_____ |_______________________________________
---- |     N      |     N      |     N      |     N      |
---- |            |            |            |            |
---- |W  yellow  E|W   red    E|W   green  E|W   blue   E|
---- |            |            |            |            |
---- |            |            |            |            |
---- |_____S______|_____S______|_____S______|_____S______|
---- |     N      |
---- |            |
---- |W  orange  E|
---- |            |
---- |            |
---- |_____S______|
-
-kitmapUpdate :: Model -> Map Color FaceViewKit -> Facet -> Map Color FaceViewKit
-kitmapUpdate (Model center orientation) prevMap lowerLeft = 
+kitmapUpdate :: Model -> Bool -> Map Color FaceViewKit -> Facet -> Map Color FaceViewKit
+kitmapUpdate (Model center orientation twist) withTwist prevMap lowerLeft = 
     let faceColor = (color.south.south) lowerLeft 
         centerColor = color center
+
+        -- If face A is the face being rendered and face B is the face that
+        -- cooresponds to face A if the center were Purple, then this map
+        -- contains the number of turns to get the frame for face A
+        -- to match the frame for face B.
+        -- This is necessary because lowerLeft is determined "as if" the
+        -- Purple face is at the top of the model ( as it initially is ).
+        
         turns = fromList [( (Purple, Yellow), 0)
                          ,( (Purple, Red),    0)
                          ,( (Purple, Purple), 0)
@@ -490,40 +478,43 @@ kitmapUpdate (Model center orientation) prevMap lowerLeft =
                          ,( (Purple, Blue),   0)
                          ,( (Purple, Orange), 0)
 
-                         ,( (Blue,   Yellow), 1)
-                         ,( (Blue,   Red),    2)
-                         ,( (Blue,   Purple), 1)
-                         ,( (Blue,   Green),  3)
                          ,( (Blue,   Blue),   0)
+                         ,( (Green,  Green),  0)
+                         ,( (Red,    Red),    0)
+                         ,( (Yellow, Yellow), 0)
+                         ,( (Orange, Orange), 0)
+
+                         ,( (Blue,   Yellow), 1)
+                         ,( (Green,  Blue),   1)
+                         ,( (Red,    Green),  1)
+                         ,( (Yellow, Red),    1)
+
+                         ,( (Blue,   Red),    2)
+                         ,( (Green,  Yellow), 2)
+                         ,( (Red,    Blue),   2)
+                         ,( (Yellow, Green),  2)
+
+                         ,( (Blue,   Green),  3)
+                         ,( (Green,  Red),    3)
+                         ,( (Red,    Yellow), 3)
+                         ,( (Yellow, Blue),   3)
+
+                         ,( (Green,  Purple), 0)
+                         ,( (Blue,   Purple), 1)
+                         ,( (Yellow, Purple), 2)
+                         ,( (Red,    Purple), 3)
+
+                         ,( (Yellow, Orange), 0)
                          ,( (Blue,   Orange), 1)
+                         ,( (Green,  Orange), 2)
+                         ,( (Red,    Orange), 3) 
 
                          ,( (Orange, Yellow), 2)
                          ,( (Orange, Red),    2)
-                         ,( (Orange, Purple), 0)
                          ,( (Orange, Green),  2)
-                         ,( (Orange, Blue),   2)
-                         ,( (Orange, Orange), 0)
-
-                         ,( (Green,  Yellow), 2)
-                         ,( (Green,  Red),    3)
-                         ,( (Green,  Purple), 0)
-                         ,( (Green,  Green),  0)
-                         ,( (Green,  Blue),   1)
-                         ,( (Green,  Orange), 2)
-
-                         ,( (Yellow, Yellow), 0)
-                         ,( (Yellow, Red),    1)
-                         ,( (Yellow, Purple), 2)
-                         ,( (Yellow, Green),  2)
-                         ,( (Yellow, Blue),   3)
-                         ,( (Yellow, Orange), 0)
-
-                         ,( (Red,    Yellow), 3)
-                         ,( (Red,    Red),    0)
-                         ,( (Red,    Purple), 3)
-                         ,( (Red,    Green),  1)
-                         ,( (Red,    Blue),   2)
-                         ,( (Red,    Orange), 3) ]
+                         ,( (Orange, Blue),   2) 
+                         
+                         ,( (Orange, Purple), 0) ]
 
         Just turnCount = lookup (centerColor, faceColor) turns 
 
@@ -532,34 +523,36 @@ kitmapUpdate (Model center orientation) prevMap lowerLeft =
                      then insert faceColor updatedViewKit prevMap
                      else prevMap
     in updatedMap
-    
-topView :: Model -> Map Color FaceViewKit
-topView model@(Model center _)  =
-    foldl (kitmapUpdate model) empty [getLowerLeft center]
 
-bottomView :: Model -> Map Color FaceViewKit
-bottomView model@(Model center _)  =
-    foldl (kitmapUpdate model) empty [(west.south.west.west.south.west.getLowerLeft) center]
+withTwist = True -- just a constant for readability
+
+topView :: Model -> Map Color FaceViewKit
+topView model@(Model center _ _)  =
+    foldl (kitmapUpdate model withTwist ) empty [getLowerLeft center]
 
 upperMiddleView :: Model -> Map Color FaceViewKit
-upperMiddleView model@(Model center _)   =
+upperMiddleView model@(Model center _ _)   =
     let upperLeft = (west.getLowerLeft) center
         advancers = [ north.east.east
                     , north.east.east
                     , north.east.east
                     ]
         upperLefts = scanl (&) upperLeft advancers  -- get upper left corners of all faces
-    in foldl (kitmapUpdate model) empty upperLefts
+    in foldl (kitmapUpdate model withTwist) empty upperLefts
+
+bottomView :: Model -> Map Color FaceViewKit
+bottomView model@(Model center _ _)  =
+    foldl (kitmapUpdate model $ not withTwist) empty [(west.south.west.west.south.west.getLowerLeft) center]
 
 lowerMiddleView :: Model -> Map Color FaceViewKit
-lowerMiddleView model@(Model center _)  =
+lowerMiddleView model@(Model center _ _)  =
     let lowerLeft = (west.south.west.getLowerLeft) center
         advancers = [ west.west.south
                     , west.west.south
                     , west.west.south
                     ]
         lowerLefts = scanl (&) lowerLeft advancers  -- get lower left corners of all faces
-    in foldl (kitmapUpdate model) empty lowerLefts
+    in foldl (kitmapUpdate model $ not withTwist) empty lowerLefts
 
 getLowerLeft :: Facet -> Facet
 getLowerLeft centerFace =
@@ -643,6 +636,7 @@ data Action = NudgeCube Direction | RotateFace Rotation Facet
 
 data Model = Model { cube :: Facet 
                    , orientation :: Matrix Float
+                   , twist :: Float
                    }
 
 applyRotation :: Matrix Float -> Matrix Float -> Matrix Float
@@ -669,5 +663,5 @@ update action model =
 main = mainWidget $ do 
            rec
                selectEvent <- view model
-               model <- foldDyn Main.update (Model mkCube identityMatrix) selectEvent
+               model <- foldDyn Main.update (Model mkCube identityMatrix 0) selectEvent
            return ()
