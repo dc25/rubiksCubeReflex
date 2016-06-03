@@ -253,11 +253,11 @@ translationMatrix (x,y,z) =
                ]
 
 scaleMatrix :: Float -> Matrix Float
-scaleMatrix scale =
-    fromLists  [[ scale,     0,     0,     0 ]
-               ,[     0, scale,     0,     0 ]
-               ,[     0,     0, scale,     0 ]
-               ,[     0,     0,     0,     1 ]
+scaleMatrix s =
+    fromLists  [[ s,  0,  0,  0 ]
+               ,[ 0,  s,  0,  0 ]
+               ,[ 0,  0,  s,  0 ]
+               ,[ 0,  0,  0,  1 ]
                ]
 
 arrow :: Matrix Float
@@ -358,7 +358,7 @@ showLowerMiddleFace lowerLeft = do
               >>= showAndAdvance 2 0 south           -- lower right
               >>= showAndAdvance 2 1 south           -- right (advance to center)
 
-    showFacet 1 1 center            -- center
+    showFacet 1 1 center                             -- center
     showArrows center [0,1] [0,1,3]
 
 facingCamera :: [Float] -> Matrix Float -> Bool
@@ -384,8 +384,8 @@ facingCamera viewPoint modelTransform =
         -- should be opposed to each other. 
     in cameraToPlane `dot` perpendicular < 0
 
-makeViewKit :: Facet -> Matrix Float -> Int -> FaceViewKit
-makeViewKit facet orientation turnCount = 
+makeViewKit :: Model -> Facet -> Int -> Bool -> FaceViewKit
+makeViewKit (Model referenceFace orientation twist) lowerLeft turnCount withTwist = 
     let scale2dMatrix = scaleMatrix (1/3) -- scale from 3x3 square face to 1x1 square face.
 
         trans2d = -1/2  -- translate center of 1x1 square face to origin.
@@ -395,48 +395,85 @@ makeViewKit facet orientation turnCount =
 
         -- position face on cube.
         assemblies = fromList
-                        [ ( Purple,    translationMatrix (0,0,0.5)
+                        [ ( Purple
+                          , (  translationMatrix (0,0,0.5)
+                            ,  translationMatrix (0,0,-0.5)
+                            )
                           )  
 
-                        , ( Red,
-                                       yzRotationMatrix (pi/2)
+                        , ( Red
+                          , (          yzRotationMatrix (pi/2)
                             `multStd2` xyRotationMatrix (pi/2)
                             `multStd2` translationMatrix (0.5,0,0)
+
+                            ,          translationMatrix (-0.5,0,0)
+                            `multStd2` xyRotationMatrix (-pi/2)
+                            `multStd2` yzRotationMatrix (-pi/2)
+                            )
                           )  
 
-                        , ( Green,
-                                       yzRotationMatrix (pi/2)
+                        , ( Green
+                          , (          yzRotationMatrix (pi/2)
                             `multStd2` xyRotationMatrix pi
                             `multStd2` translationMatrix (0.0,0.5,0.0)
+
+                            ,          translationMatrix (0.0,-0.5,0.0)
+                            `multStd2` xyRotationMatrix (-pi)
+                            `multStd2` yzRotationMatrix (-pi/2)
+                            )
                           )  
 
-                        , ( Blue,
-                                       yzRotationMatrix (pi/2)
+                        , ( Blue
+                          , (          yzRotationMatrix (pi/2)
                             `multStd2` xyRotationMatrix (-pi/2)
                             `multStd2` translationMatrix (-0.5,0,0)
+
+                            ,          translationMatrix (0.5,0,0)
+                            `multStd2` xyRotationMatrix (pi/2)
+                            `multStd2` yzRotationMatrix (-pi/2)
+                            )
                           )  
 
-                        , ( Yellow,
-                                       yzRotationMatrix (pi/2)
+                        , ( Yellow
+                          , (          yzRotationMatrix (pi/2)
                             `multStd2` translationMatrix (0.0,-0.5,0.0)
+
+                            ,          translationMatrix (0.0,0.5,0.0)
+                            `multStd2` yzRotationMatrix (-pi/2)
+                            )
                           )  
 
-                        , ( Orange,
-                                       yzRotationMatrix pi
+                        , ( Orange
+                          , (          yzRotationMatrix pi
                             `multStd2` translationMatrix (0,0,-0.5)
+
+                            ,          translationMatrix (0,0,0.5)
+                            `multStd2` yzRotationMatrix (-pi)
+                            )
                           )
                         ]
 
-        Just assemble = lookup ((color.south.south) facet) assemblies 
+        Just (assemble,_) = lookup ((color.south.south) lowerLeft) assemblies 
+        Just (postTwist,preTwist) = lookup ((color.south.south) referenceFace) assemblies 
+
+        withoutTwist =            scale2dMatrix
+                       `multStd2` trans2dMatrix 
+                       `multStd2` turnMatrix 
+                       `multStd2` assemble
+
+        twistedTransform = if not withTwist 
+                           then withoutTwist
+                           else let twistMatrix =            preTwist
+                                                  `multStd2` xyRotationMatrix (2*pi * twist/fromIntegral 360)
+                                                  `multStd2` postTwist
+                                in            withoutTwist
+                                   `multStd2` twistMatrix
 
         -- scale down to fit in camera space
         scale3dMatrix = scaleMatrix (1/2)
 
         -- combine to single transform from 2d to 3d
-        modelTransform =            scale2dMatrix
-                         `multStd2` trans2dMatrix 
-                         `multStd2` turnMatrix 
-                         `multStd2` assemble
+        modelTransform =            twistedTransform
                          `multStd2` scale3dMatrix
                          `multStd2` orientation
 
@@ -457,15 +494,15 @@ makeViewKit facet orientation turnCount =
                         `multStd2` perspectivePrep
                         `multStd2` perspective
 
-    in FaceViewKit facet isFacingCamera viewTransform 
+    in FaceViewKit lowerLeft isFacingCamera viewTransform 
 
 kitmapUpdate :: Model -> Bool -> Map Color FaceViewKit -> Facet -> Map Color FaceViewKit
-kitmapUpdate (Model center orientation twist) withTwist prevMap lowerLeft = 
+kitmapUpdate model@(Model center orientation twist) withTwist prevMap lowerLeft = 
     let faceColor = (color.south.south) lowerLeft 
         centerColor = color center
 
         -- If face A is the face being rendered and face B is the face that
-        -- cooresponds to face A if the center were Purple, then this map
+        -- cooresponds to face A if the top face were Purple, then this map
         -- contains the number of turns to get the frame for face A
         -- to match the frame for face B.
         -- This is necessary because lowerLeft is determined "as if" the
@@ -518,7 +555,7 @@ kitmapUpdate (Model center orientation twist) withTwist prevMap lowerLeft =
 
         Just turnCount = lookup (centerColor, faceColor) turns 
 
-        updatedViewKit = makeViewKit lowerLeft orientation turnCount
+        updatedViewKit = makeViewKit model lowerLeft turnCount withTwist
         updatedMap = if isVisible updatedViewKit 
                      then insert faceColor updatedViewKit prevMap
                      else prevMap
@@ -595,17 +632,17 @@ getLowerLeft centerFace =
 
 viewModel :: MonadWidget t m => Dynamic t Model -> m (Event t Action)
 viewModel model = do
-    topMap <- mapDyn topView model
-    topEventsWithKeys <- listWithKey topMap $ const showFace
-
     bottomMap <- mapDyn bottomView model
     bottomEventsWithKeys <- listWithKey bottomMap $ const showFace
+
+    lowerMiddleMap <- mapDyn lowerMiddleView model
+    lowerMiddleEventsWithKeys <- listWithKey lowerMiddleMap $ const showLowerMiddleFace
 
     upperMiddleMap <- mapDyn upperMiddleView model
     upperMiddleEventsWithKeys <- listWithKey upperMiddleMap $ const showUpperMiddleFace
 
-    lowerMiddleMap <- mapDyn lowerMiddleView model
-    lowerMiddleEventsWithKeys <- listWithKey lowerMiddleMap $ const showLowerMiddleFace
+    topMap <- mapDyn topView model
+    topEventsWithKeys <- listWithKey topMap $ const showFace
 
     let topEvent = switch $ (leftmost . elems) <$> current topEventsWithKeys
         bottomEvent = switch $ (leftmost . elems) <$> current bottomEventsWithKeys
@@ -663,5 +700,5 @@ update action model =
 main = mainWidget $ do 
            rec
                selectEvent <- view model
-               model <- foldDyn Main.update (Model mkCube identityMatrix 0) selectEvent
+               model <- foldDyn Main.update (Model mkCube identityMatrix 20) selectEvent
            return ()
