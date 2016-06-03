@@ -8,7 +8,7 @@ import Data.Matrix (Matrix, fromLists, toLists, multStd2, multStd)
 import Data.Monoid ((<>))
 import Control.Monad
 
-data Color = Red | Green | Blue | Yellow | Orange | Purple | Black deriving (Show,Eq,Ord,Enum)
+data Color = Red | Green | Blue | Yellow | Orange | Purple | Black | Brown deriving (Show,Eq,Ord,Enum)
 
 type Vector a = [a]
 
@@ -182,17 +182,21 @@ transformPoints transform points =
 pointsToString :: [(Float,Float)] -> String
 pointsToString = concatMap (\(x,y) -> show x ++ ", " ++ show y ++ " ") 
 
+showFacetRectangle :: MonadWidget t m => Float -> Float -> Float -> Float -> Dynamic t FaceViewKit -> m (Dynamic t FaceViewKit)
+showFacetRectangle x0 y0 x1 y1 dFaceViewKit = do
+    let points = fromLists [[x0,y0,0,1],[x0,y1,0,1],[x1,y1,0,1],[x1,y0,0,1]]
+    dAttrs <- mapDyn (\fvk -> "fill" =: (show.color.face) fvk  <> 
+                              "points" =: pointsToString (transformPoints (transform fvk) points))  dFaceViewKit
+    (el,_) <- elDynAttrNS' svgNamespace "polygon" dAttrs $ return ()
+    return dFaceViewKit
+
 showFacetSquare :: MonadWidget t m => Int -> Int -> Float -> Dynamic t FaceViewKit -> m (Dynamic t FaceViewKit)
 showFacetSquare x y margin dFaceViewKit = do
     let x0 = fromIntegral x + margin
         y0 = fromIntegral y + margin
         x1 = x0 + 1 - 2 * margin
         y1 = y0 + 1 - 2 * margin
-        points = fromLists [[x0,y0,0,1],[x0,y1,0,1],[x1,y1,0,1],[x1,y0,0,1]]
-    dAttrs <- mapDyn (\fvk -> "fill" =: (show.color.face) fvk  <> 
-                              "points" =: pointsToString (transformPoints (transform fvk) points))  dFaceViewKit
-    (el,_) <- elDynAttrNS' svgNamespace "polygon" dAttrs $ return ()
-    return dFaceViewKit
+    showFacetRectangle x0 y0 x1 y1 dFaceViewKit
 
 changeViewKitColor :: Color -> FaceViewKit -> FaceViewKit
 changeViewKitColor newColor prevViewKit = 
@@ -336,6 +340,11 @@ showFace lowerLeft = do
 
     showFacet 1 1 center          
     showArrows center [0,1,2,3] [0,1,2,3]
+
+-- pain point 
+-- How do I do these repeated "east" operations as a fold (or something )
+showInside :: MonadWidget t m => Dynamic t FaceViewKit -> m (Dynamic t FaceViewKit)
+showInside dFaceViewKit = showFacetRectangle 0 0 3 3 =<< mapDyn (changeViewKitColor Brown) dFaceViewKit 
 
 showUpperMiddleFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
 showUpperMiddleFace upperLeft = do  
@@ -553,7 +562,15 @@ withTwist = True -- just a constant for readability
 
 topView :: Model -> Map Color FaceViewKit
 topView model@(Model center _ _)  =
-    foldl (kitmapUpdate model withTwist 0.5) empty [getLowerLeft center]
+    foldl (kitmapUpdate model withTwist (1.0/2.0)) empty [getLowerLeft center]
+
+bottomInsideView :: Model -> Map Color FaceViewKit
+bottomInsideView model@(Model center _ _)  =
+    foldl (kitmapUpdate model withTwist (-1.0/6.0)) empty [(west.south.west.west.south.west.getLowerLeft) center]
+
+topInsideView :: Model -> Map Color FaceViewKit
+topInsideView model@(Model center _ _)  =
+    foldl (kitmapUpdate model (not withTwist) (1.0/6.0)) empty [getLowerLeft center]
 
 upperMiddleView :: Model -> Map Color FaceViewKit
 upperMiddleView model@(Model center _ _)   =
@@ -618,18 +635,21 @@ getLowerLeft centerFace =
         Just goLeft = lookup (centerFaceColor, westFaceColor) leftDirs
     in (west.goLeft) centerFace
 
+-- pain point : How do I make the order of display conditional
 viewModel :: MonadWidget t m => Dynamic t Model -> m (Event t Action)
 viewModel model = do
     bottomMap <- mapDyn bottomView model
-    bottomEventsWithKeys <- listWithKey bottomMap $ const showFace
-
     lowerMiddleMap <- mapDyn lowerMiddleView model
-    lowerMiddleEventsWithKeys <- listWithKey lowerMiddleMap $ const showLowerMiddleFace
-
+    bottomInsideMap <- mapDyn bottomInsideView model
+    topInsideMap <- mapDyn topInsideView model
     upperMiddleMap <- mapDyn upperMiddleView model
-    upperMiddleEventsWithKeys <- listWithKey upperMiddleMap $ const showUpperMiddleFace
-
     topMap <- mapDyn topView model
+
+    bottomEventsWithKeys <- listWithKey bottomMap $ const showFace
+    lowerMiddleEventsWithKeys <- listWithKey lowerMiddleMap $ const showLowerMiddleFace
+    listWithKey bottomInsideMap $ const showInside
+    listWithKey topInsideMap $ const showInside
+    upperMiddleEventsWithKeys <- listWithKey upperMiddleMap $ const showUpperMiddleFace
     topEventsWithKeys <- listWithKey topMap $ const showFace
 
     let topEvent = switch $ (leftmost . elems) <$> current topEventsWithKeys
