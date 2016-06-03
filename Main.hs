@@ -384,8 +384,8 @@ facingCamera viewPoint modelTransform =
         -- should be opposed to each other. 
     in cameraToPlane `dot` perpendicular < 0
 
-makeViewKit :: Model -> Facet -> Int -> Bool -> FaceViewKit
-makeViewKit (Model referenceFace orientation twist) lowerLeft turnCount withTwist = 
+makeViewKit :: Model -> Facet -> Int -> Bool -> Float -> FaceViewKit
+makeViewKit (Model referenceFace orientation twist) lowerLeft turnCount withTwist offset = 
     let scale2dMatrix = scaleMatrix (1/3) -- scale from 3x3 square face to 1x1 square face.
 
         trans2d = -1/2  -- translate center of 1x1 square face to origin.
@@ -396,17 +396,17 @@ makeViewKit (Model referenceFace orientation twist) lowerLeft turnCount withTwis
         -- position face on cube.
         assemblies = fromList
                         [ ( Purple
-                          , (  translationMatrix (0,0,0.5)
-                            ,  translationMatrix (0,0,-0.5)
+                          , (  translationMatrix (0,0,offset)
+                            ,  translationMatrix (0,0,-offset)
                             )
                           )  
 
                         , ( Red
                           , (          yzRotationMatrix (pi/2)
                             `multStd2` xyRotationMatrix (pi/2)
-                            `multStd2` translationMatrix (0.5,0,0)
+                            `multStd2` translationMatrix (offset,0,0)
 
-                            ,          translationMatrix (-0.5,0,0)
+                            ,          translationMatrix (-offset,0,0)
                             `multStd2` xyRotationMatrix (-pi/2)
                             `multStd2` yzRotationMatrix (-pi/2)
                             )
@@ -415,9 +415,9 @@ makeViewKit (Model referenceFace orientation twist) lowerLeft turnCount withTwis
                         , ( Green
                           , (          yzRotationMatrix (pi/2)
                             `multStd2` xyRotationMatrix pi
-                            `multStd2` translationMatrix (0.0,0.5,0.0)
+                            `multStd2` translationMatrix (0.0,offset,0.0)
 
-                            ,          translationMatrix (0.0,-0.5,0.0)
+                            ,          translationMatrix (0.0,-offset,0.0)
                             `multStd2` xyRotationMatrix (-pi)
                             `multStd2` yzRotationMatrix (-pi/2)
                             )
@@ -426,9 +426,9 @@ makeViewKit (Model referenceFace orientation twist) lowerLeft turnCount withTwis
                         , ( Blue
                           , (          yzRotationMatrix (pi/2)
                             `multStd2` xyRotationMatrix (-pi/2)
-                            `multStd2` translationMatrix (-0.5,0,0)
+                            `multStd2` translationMatrix (-offset,0,0)
 
-                            ,          translationMatrix (0.5,0,0)
+                            ,          translationMatrix (offset,0,0)
                             `multStd2` xyRotationMatrix (pi/2)
                             `multStd2` yzRotationMatrix (-pi/2)
                             )
@@ -436,18 +436,18 @@ makeViewKit (Model referenceFace orientation twist) lowerLeft turnCount withTwis
 
                         , ( Yellow
                           , (          yzRotationMatrix (pi/2)
-                            `multStd2` translationMatrix (0.0,-0.5,0.0)
+                            `multStd2` translationMatrix (0.0,-offset,0.0)
 
-                            ,          translationMatrix (0.0,0.5,0.0)
+                            ,          translationMatrix (0.0,offset,0.0)
                             `multStd2` yzRotationMatrix (-pi/2)
                             )
                           )  
 
                         , ( Orange
                           , (          yzRotationMatrix pi
-                            `multStd2` translationMatrix (0,0,-0.5)
+                            `multStd2` translationMatrix (0,0,-offset)
 
-                            ,          translationMatrix (0,0,0.5)
+                            ,          translationMatrix (0,0,offset)
                             `multStd2` yzRotationMatrix (-pi)
                             )
                           )
@@ -496,8 +496,8 @@ makeViewKit (Model referenceFace orientation twist) lowerLeft turnCount withTwis
 
     in FaceViewKit lowerLeft isFacingCamera viewTransform 
 
-kitmapUpdate :: Model -> Bool -> Map Color FaceViewKit -> Facet -> Map Color FaceViewKit
-kitmapUpdate model@(Model center orientation twist) withTwist prevMap lowerLeft = 
+kitmapUpdate :: Model -> Bool -> Float -> Map Color FaceViewKit -> Facet -> Map Color FaceViewKit
+kitmapUpdate model@(Model center orientation twist) withTwist offset prevMap lowerLeft = 
     let faceColor = (color.south.south) lowerLeft 
         centerColor = color center
 
@@ -555,7 +555,7 @@ kitmapUpdate model@(Model center orientation twist) withTwist prevMap lowerLeft 
 
         Just turnCount = lookup (centerColor, faceColor) turns 
 
-        updatedViewKit = makeViewKit model lowerLeft turnCount withTwist
+        updatedViewKit = makeViewKit model lowerLeft turnCount withTwist offset
         updatedMap = if isVisible updatedViewKit 
                      then insert faceColor updatedViewKit prevMap
                      else prevMap
@@ -565,7 +565,7 @@ withTwist = True -- just a constant for readability
 
 topView :: Model -> Map Color FaceViewKit
 topView model@(Model center _ _)  =
-    foldl (kitmapUpdate model withTwist ) empty [getLowerLeft center]
+    foldl (kitmapUpdate model withTwist 0.5) empty [getLowerLeft center]
 
 upperMiddleView :: Model -> Map Color FaceViewKit
 upperMiddleView model@(Model center _ _)   =
@@ -575,11 +575,11 @@ upperMiddleView model@(Model center _ _)   =
                     , north.east.east
                     ]
         upperLefts = scanl (&) upperLeft advancers  -- get upper left corners of all faces
-    in foldl (kitmapUpdate model withTwist) empty upperLefts
+    in foldl (kitmapUpdate model withTwist 0.5) empty upperLefts
 
 bottomView :: Model -> Map Color FaceViewKit
 bottomView model@(Model center _ _)  =
-    foldl (kitmapUpdate model $ not withTwist) empty [(west.south.west.west.south.west.getLowerLeft) center]
+    foldl (kitmapUpdate model (not withTwist) 0.5) empty [(west.south.west.west.south.west.getLowerLeft) center]
 
 lowerMiddleView :: Model -> Map Color FaceViewKit
 lowerMiddleView model@(Model center _ _)  =
@@ -589,7 +589,7 @@ lowerMiddleView model@(Model center _ _)  =
                     , west.west.south
                     ]
         lowerLefts = scanl (&) lowerLeft advancers  -- get lower left corners of all faces
-    in foldl (kitmapUpdate model $ not withTwist) empty lowerLefts
+    in foldl (kitmapUpdate model (not withTwist) 0.5) empty lowerLefts
 
 getLowerLeft :: Facet -> Facet
 getLowerLeft centerFace =
