@@ -454,20 +454,20 @@ makeViewKit (Model referenceFace orientation twist) lowerLeft turnCount withTwis
                         ]
 
         Just (assemble,_) = lookup ((color.south.south) lowerLeft) assemblies 
-        Just (postTwist,preTwist) = lookup ((color.south.south) referenceFace) assemblies 
+        Just (postTwist,preTwist) = lookup (color referenceFace) assemblies 
 
         withoutTwist =            scale2dMatrix
                        `multStd2` trans2dMatrix 
                        `multStd2` turnMatrix 
                        `multStd2` assemble
 
-        twistedTransform = if not withTwist 
-                           then withoutTwist
-                           else let twistMatrix =            preTwist
-                                                  `multStd2` xyRotationMatrix (2*pi * twist/fromIntegral 360)
-                                                  `multStd2` postTwist
-                                in            withoutTwist
-                                   `multStd2` twistMatrix
+        twistedTransform = 
+            if withTwist 
+            then            withoutTwist
+                 `multStd2` preTwist
+                 `multStd2` xyRotationMatrix (2*pi * twist/360)
+                 `multStd2` postTwist
+            else withoutTwist
 
         -- scale down to fit in camera space
         scale3dMatrix = scaleMatrix (1/2)
