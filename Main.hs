@@ -27,6 +27,70 @@ dot v0 v1 = sum $ zipWith (*) v0 v1
 vMinus :: Num a => Vector a -> Vector a -> Vector a
 vMinus = zipWith (-) 
 
+identityMatrix :: Matrix Float
+identityMatrix = 
+    fromLists [[ 1,  0,  0,  0 ]
+              ,[ 0,  1,  0,  0 ]
+              ,[ 0,  0,  1,  0 ]
+              ,[ 0,  0,  0,  1 ]
+              ]
+
+xyRotationMatrix :: Float -> Matrix Float
+xyRotationMatrix rotation = 
+    let c = cos rotation
+        s = sin rotation
+    in fromLists [[ c,  s,  0,  0 ]
+                 ,[-s,  c,  0,  0 ]
+                 ,[ 0,  0,  1,  0 ]
+                 ,[ 0,  0,  0,  1 ]
+                 ]
+
+yzRotationMatrix :: Float -> Matrix Float
+yzRotationMatrix rotation = 
+    let c = cos rotation
+        s = sin rotation
+    in fromLists [[ 1,  0,  0,  0 ]
+                 ,[ 0,  c,  s,  0 ]
+                 ,[ 0, -s,  c,  0 ]
+                 ,[ 0,  0,  0,  1 ]
+                 ]
+
+zxRotationMatrix :: Float -> Matrix Float
+zxRotationMatrix rotation = 
+    let c = cos rotation
+        s = sin rotation
+    in fromLists [[ c,  0,  s,  0 ]
+                 ,[ 0,  1,  0,  0 ]
+                 ,[-s,  0,  c,  0 ]
+                 ,[ 0,  0,  0,  1 ]
+                 ]
+
+translationMatrix :: (Float,Float,Float) -> Matrix Float
+translationMatrix (x,y,z) =
+    fromLists  [[ 1,  0,  0,  0 ]
+               ,[ 0,  1,  0,  0 ]
+               ,[ 0,  0,  1,  0 ]
+               ,[ x,  y,  z,  1 ]
+               ]
+
+scaleMatrix :: Float -> Matrix Float
+scaleMatrix s =
+    fromLists  [[ s,  0,  0,  0 ]
+               ,[ 0,  s,  0,  0 ]
+               ,[ 0,  0,  s,  0 ]
+               ,[ 0,  0,  0,  1 ]
+               ]
+
+-- translate model to (0,0,1) for perspective viewing
+perspectivePrepMatrix = translationMatrix (0,0,1)
+
+-- perspective transformation 
+perspectiveMatrix = 
+    fromLists  [[ 1,  0,  0,  0 ]
+               ,[ 0,  1,  0,  0 ]
+               ,[ 0,  0,  1,  1 ]
+               ,[ 0,  0,  0,  0 ] ]
+
 data DNode a = DNode { north :: DNode a
                      , west  :: DNode a
                      , south :: DNode a
@@ -214,60 +278,6 @@ showFacet x y dFaceViewKit = do
     showFacetSquare x y 0.05 dFaceViewKit
     return dFaceViewKit
 
-identityMatrix :: Matrix Float
-identityMatrix = 
-    fromLists [[ 1,  0,  0,  0 ]
-              ,[ 0,  1,  0,  0 ]
-              ,[ 0,  0,  1,  0 ]
-              ,[ 0,  0,  0,  1 ]
-              ]
-
-xyRotationMatrix :: Float -> Matrix Float
-xyRotationMatrix rotation = 
-    let c = cos rotation
-        s = sin rotation
-    in fromLists [[ c,  s,  0,  0 ]
-                 ,[-s,  c,  0,  0 ]
-                 ,[ 0,  0,  1,  0 ]
-                 ,[ 0,  0,  0,  1 ]
-                 ]
-
-yzRotationMatrix :: Float -> Matrix Float
-yzRotationMatrix rotation = 
-    let c = cos rotation
-        s = sin rotation
-    in fromLists [[ 1,  0,  0,  0 ]
-                 ,[ 0,  c,  s,  0 ]
-                 ,[ 0, -s,  c,  0 ]
-                 ,[ 0,  0,  0,  1 ]
-                 ]
-
-zxRotationMatrix :: Float -> Matrix Float
-zxRotationMatrix rotation = 
-    let c = cos rotation
-        s = sin rotation
-    in fromLists [[ c,  0,  s,  0 ]
-                 ,[ 0,  1,  0,  0 ]
-                 ,[-s,  0,  c,  0 ]
-                 ,[ 0,  0,  0,  1 ]
-                 ]
-
-translationMatrix :: (Float,Float,Float) -> Matrix Float
-translationMatrix (x,y,z) =
-    fromLists  [[ 1,  0,  0,  0 ]
-               ,[ 0,  1,  0,  0 ]
-               ,[ 0,  0,  1,  0 ]
-               ,[ x,  y,  z,  1 ]
-               ]
-
-scaleMatrix :: Float -> Matrix Float
-scaleMatrix s =
-    fromLists  [[ s,  0,  0,  0 ]
-               ,[ 0,  s,  0,  0 ]
-               ,[ 0,  0,  s,  0 ]
-               ,[ 0,  0,  0,  1 ]
-               ]
-
 arrow :: Matrix Float
 arrow = 
     let hw = 0.35
@@ -345,8 +355,6 @@ showFace lowerLeft = do
     showFacet 1 1 center          
     showArrows center [0,1,2,3] [0,1,2,3]
 
--- pain point 
--- How do I do these repeated "east" operations as a fold (or something )
 showInside :: MonadWidget t m => Dynamic t FaceViewKit -> m (Dynamic t FaceViewKit)
 showInside dFaceViewKit = showFacetRectangle 0 0 3 3 =<< mapDyn (changeViewKitColor Brown) dFaceViewKit 
 
@@ -481,19 +489,10 @@ makeViewKit (Model referenceFace orientation twist) lowerLeft turnCount withTwis
         -- backface elimination
         isFacingCamera = facingCamera [0,0,-1] modelTransform
 
-        -- translate model to (0,0,1) for perspective viewing
-        perspectivePrep = translationMatrix (0,0,1)
-
-        -- perspective transformation 
-        perspective     = fromLists [ [1, 0, 0, 0]
-                                    , [0, 1, 0, 0]
-                                    , [0, 0, 1, 1]
-                                    , [0, 0, 0, 0] ]
-
         -- combine to get single transform from 2d face to 2d display
         viewTransform =            modelTransform
-                        `multStd2` perspectivePrep
-                        `multStd2` perspective
+                        `multStd2` perspectivePrepMatrix
+                        `multStd2` perspectiveMatrix
 
     in FaceViewKit lowerLeft isFacingCamera viewTransform 
 
@@ -714,7 +713,7 @@ update action model =
         Animate ->
             untwist model
         RotateFace rotation facet -> 
-            model { cube = rotateFace rotation facet, twist = (if rotation == CW then 90 else (-90)) }
+            model { cube = rotateFace rotation facet, twist = if rotation == CW then 90 else (-90) }
         NudgeCube direction -> 
             let step = pi/20
             in case direction of
@@ -724,7 +723,9 @@ update action model =
                    Down ->  rotateModel (yzRotationMatrix   step  ) model
  
 main = mainWidget $ do 
-    let initialOrientation = (identityMatrix `multStd2` zxRotationMatrix pi)
+    let initialOrientation =             identityMatrix 
+                              `multStd2` zxRotationMatrix (3*pi/4) 
+                              `multStd2` yzRotationMatrix (pi/4)
         dt = 0.4
 
     now <- liftIO getCurrentTime
