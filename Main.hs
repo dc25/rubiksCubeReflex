@@ -655,8 +655,8 @@ viewModel model = do
 
     bottomEventsWithKeys <-         listWithKey bottomMap $ const showFace
     lowerMiddleEventsWithKeys <-    listWithKey lowerMiddleMap $ const showLowerMiddleFace
-    listWithKey bottomInsideMap $ const showInside
-    listWithKey topInsideMap $ const showInside
+    _ <-                            listWithKey bottomInsideMap $ const showInside
+    _ <-                            listWithKey topInsideMap $ const showInside
     upperMiddleEventsWithKeys <-    listWithKey upperMiddleMap $ const showUpperMiddleFace
     topEventsWithKeys <-            listWithKey topMap $ const showFace
 
@@ -710,27 +710,27 @@ untwist model =
 -- | FRP style update function. Given action and model, return updated model.
 update :: Action -> Model -> Model
 update action model = 
-        case action of
-            Animate ->
-                untwist model
-            RotateFace rotation facet -> 
-                model { cube = rotateFace rotation facet, twist = (if rotation == CW then 90 else (-90)) }
-            NudgeCube direction -> 
-                let step = pi/20
-                in case direction of
-                       Left ->  rotateModel (zxRotationMatrix (-step) ) model
-                       Right -> rotateModel (zxRotationMatrix   step  ) model
-                       Up ->    rotateModel (yzRotationMatrix (-step) ) model
-                       Down ->  rotateModel (yzRotationMatrix   step  ) model
+    case action of
+        Animate ->
+            untwist model
+        RotateFace rotation facet -> 
+            model { cube = rotateFace rotation facet, twist = (if rotation == CW then 90 else (-90)) }
+        NudgeCube direction -> 
+            let step = pi/20
+            in case direction of
+                   Left ->  rotateModel (zxRotationMatrix (-step) ) model
+                   Right -> rotateModel (zxRotationMatrix   step  ) model
+                   Up ->    rotateModel (yzRotationMatrix (-step) ) model
+                   Down ->  rotateModel (yzRotationMatrix   step  ) model
  
 main = mainWidget $ do 
-           let initialOrientation = (identityMatrix `multStd2` zxRotationMatrix pi)
-               dt = 0.4
+    let initialOrientation = (identityMatrix `multStd2` zxRotationMatrix pi)
+        dt = 0.4
 
-           now <- liftIO getCurrentTime
-           tick <- tickLossy dt now
-           let advanceAction = fmap (const Animate) tick
-           rec
-               selectAction <- view model
-               model <- foldDyn Main.update (Model mkCube initialOrientation 0) $ leftmost [selectAction, advanceAction]
-           return ()
+    now <- liftIO getCurrentTime
+    tick <- tickLossy dt now
+    let advanceAction = fmap (const Animate) tick
+    rec
+        selectAction <- view model
+        model <- foldDyn Main.update (Model mkCube initialOrientation 0) $ leftmost [selectAction, advanceAction]
+    return ()
