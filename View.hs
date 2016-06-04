@@ -196,12 +196,69 @@ facingCamera viewPoint modelTransform =
         -- should be opposed to each other. 
     in cameraToPlane `dot` perpendicular < 0
 
-makeViewKit :: Model -> Facet -> Int -> Bool -> Float -> FaceViewKit
-makeViewKit (Model referenceFace orientation twist) lowerLeft turnCount withTwist offset = 
+makeViewKit :: Model -> Facet -> Bool -> Float -> FaceViewKit
+makeViewKit (Model referenceFace orientation twist) lowerLeft withTwist offset = 
     let scale2dMatrix = scaleMatrix (1/3) -- scale from 3x3 square face to 1x1 square face.
 
         trans2d = -1/2  -- translate center of 1x1 square face to origin.
         trans2dMatrix = translationMatrix (trans2d,trans2d,0)
+
+        faceColor = (color.south.south) lowerLeft 
+        referenceColor = color referenceFace
+
+        -- If face A is the face being rendered and face B is the face that
+        -- cooresponds to face A if the top face were Purple, then this map
+        -- contains the number of turns to get the frame for face A
+        -- to match the frame for face B.
+        -- This is necessary because lowerLeft is determined "as if" the
+        -- Purple face is at the top of the model ( as it initially is ).
+        
+        turns = fromList [( (Purple, Yellow), 0)
+                         ,( (Purple, Red),    0)
+                         ,( (Purple, Purple), 0)
+                         ,( (Purple, Green),  0)
+                         ,( (Purple, Blue),   0)
+                         ,( (Purple, Orange), 0)
+
+                         ,( (Blue,   Blue),   0)
+                         ,( (Green,  Green),  0)
+                         ,( (Red,    Red),    0)
+                         ,( (Yellow, Yellow), 0)
+                         ,( (Orange, Orange), 0)
+
+                         ,( (Blue,   Yellow), 1)
+                         ,( (Green,  Blue),   1)
+                         ,( (Red,    Green),  1)
+                         ,( (Yellow, Red),    1)
+
+                         ,( (Blue,   Red),    2)
+                         ,( (Green,  Yellow), 2)
+                         ,( (Red,    Blue),   2)
+                         ,( (Yellow, Green),  2)
+
+                         ,( (Blue,   Green),  3)
+                         ,( (Green,  Red),    3)
+                         ,( (Red,    Yellow), 3)
+                         ,( (Yellow, Blue),   3)
+
+                         ,( (Green,  Purple), 0)
+                         ,( (Blue,   Purple), 1)
+                         ,( (Yellow, Purple), 2)
+                         ,( (Red,    Purple), 3)
+
+                         ,( (Yellow, Orange), 0)
+                         ,( (Blue,   Orange), 1)
+                         ,( (Green,  Orange), 2)
+                         ,( (Red,    Orange), 3) 
+
+                         ,( (Orange, Yellow), 2)
+                         ,( (Orange, Red),    2)
+                         ,( (Orange, Green),  2)
+                         ,( (Orange, Blue),   2) 
+                         
+                         ,( (Orange, Purple), 0) ]
+
+        Just turnCount = lookup (referenceColor, faceColor) turns 
         turnMatrix = xyRotationMatrix (fromIntegral turnCount * pi / 2)
         offsetMatrix = translationMatrix (0,0,offset)
 
@@ -289,68 +346,10 @@ makeViewKit (Model referenceFace orientation twist) lowerLeft turnCount withTwis
 
 kitmapUpdate :: Model -> Bool -> Float -> Map Color FaceViewKit -> Facet -> Map Color FaceViewKit
 kitmapUpdate model@(Model center orientation twist) withTwist offset prevMap lowerLeft = 
-    let faceColor = (color.south.south) lowerLeft 
-        centerColor = color center
-
-        -- If face A is the face being rendered and face B is the face that
-        -- cooresponds to face A if the top face were Purple, then this map
-        -- contains the number of turns to get the frame for face A
-        -- to match the frame for face B.
-        -- This is necessary because lowerLeft is determined "as if" the
-        -- Purple face is at the top of the model ( as it initially is ).
-        
-        turns = fromList [( (Purple, Yellow), 0)
-                         ,( (Purple, Red),    0)
-                         ,( (Purple, Purple), 0)
-                         ,( (Purple, Green),  0)
-                         ,( (Purple, Blue),   0)
-                         ,( (Purple, Orange), 0)
-
-                         ,( (Blue,   Blue),   0)
-                         ,( (Green,  Green),  0)
-                         ,( (Red,    Red),    0)
-                         ,( (Yellow, Yellow), 0)
-                         ,( (Orange, Orange), 0)
-
-                         ,( (Blue,   Yellow), 1)
-                         ,( (Green,  Blue),   1)
-                         ,( (Red,    Green),  1)
-                         ,( (Yellow, Red),    1)
-
-                         ,( (Blue,   Red),    2)
-                         ,( (Green,  Yellow), 2)
-                         ,( (Red,    Blue),   2)
-                         ,( (Yellow, Green),  2)
-
-                         ,( (Blue,   Green),  3)
-                         ,( (Green,  Red),    3)
-                         ,( (Red,    Yellow), 3)
-                         ,( (Yellow, Blue),   3)
-
-                         ,( (Green,  Purple), 0)
-                         ,( (Blue,   Purple), 1)
-                         ,( (Yellow, Purple), 2)
-                         ,( (Red,    Purple), 3)
-
-                         ,( (Yellow, Orange), 0)
-                         ,( (Blue,   Orange), 1)
-                         ,( (Green,  Orange), 2)
-                         ,( (Red,    Orange), 3) 
-
-                         ,( (Orange, Yellow), 2)
-                         ,( (Orange, Red),    2)
-                         ,( (Orange, Green),  2)
-                         ,( (Orange, Blue),   2) 
-                         
-                         ,( (Orange, Purple), 0) ]
-
-        Just turnCount = lookup (centerColor, faceColor) turns 
-
-        updatedViewKit = makeViewKit model lowerLeft turnCount withTwist offset
-        updatedMap = if isVisible updatedViewKit 
-                     then insert faceColor updatedViewKit prevMap
-                     else prevMap
-    in updatedMap
+    let updatedViewKit = makeViewKit model lowerLeft withTwist offset
+    in  if isVisible updatedViewKit 
+        then insert ((color.south.south) lowerLeft) updatedViewKit prevMap
+        else prevMap
 
 withTwist = True -- just a constant for readability
 
