@@ -6,7 +6,11 @@ import Data.List (foldl, elem, find, scanl)
 import Data.Maybe (maybeToList, fromMaybe)
 import Data.Matrix (Matrix, fromLists, toLists, multStd2, multStd)
 import Data.Monoid ((<>))
-import Control.Monad
+import Control.Monad(sequence,fmap,return,(>>=),(=<<))
+import Reflex.Dom.Time ( tickLossy )
+import Data.Time.Clock (getCurrentTime)
+import Control.Monad.Trans (liftIO)
+
 
 data Color = Red | Green | Blue | Yellow | Orange | Purple | Black | Brown deriving (Show,Eq,Ord,Enum)
 
@@ -566,11 +570,15 @@ topView model@(Model center _ _)  =
 
 bottomInsideView :: Model -> Map Color FaceViewKit
 bottomInsideView model@(Model center _ _)  =
-    foldl (kitmapUpdate model withTwist (-1.0/6.0)) empty [(west.south.west.west.south.west.getLowerLeft) center]
+    if twist model == 0 
+    then empty
+    else foldl (kitmapUpdate model withTwist (-1.0/6.0)) empty [(west.south.west.west.south.west.getLowerLeft) center]
 
 topInsideView :: Model -> Map Color FaceViewKit
 topInsideView model@(Model center _ _)  =
-    foldl (kitmapUpdate model (not withTwist) (1.0/6.0)) empty [getLowerLeft center]
+    if twist model == 0 
+    then empty
+    else foldl (kitmapUpdate model (not withTwist) (1.0/6.0)) empty [getLowerLeft center]
 
 upperMiddleView :: Model -> Map Color FaceViewKit
 upperMiddleView model@(Model center _ _)   =
@@ -638,19 +646,19 @@ getLowerLeft centerFace =
 -- pain point : How do I make the order of display conditional
 viewModel :: MonadWidget t m => Dynamic t Model -> m (Event t Action)
 viewModel model = do
-    bottomMap <- mapDyn bottomView model
-    lowerMiddleMap <- mapDyn lowerMiddleView model
-    bottomInsideMap <- mapDyn bottomInsideView model
-    topInsideMap <- mapDyn topInsideView model
-    upperMiddleMap <- mapDyn upperMiddleView model
-    topMap <- mapDyn topView model
+    bottomMap <-                    mapDyn bottomView model
+    lowerMiddleMap <-               mapDyn lowerMiddleView model
+    bottomInsideMap <-              mapDyn bottomInsideView model
+    topInsideMap <-                 mapDyn topInsideView model
+    upperMiddleMap <-               mapDyn upperMiddleView model
+    topMap <-                       mapDyn topView model
 
-    bottomEventsWithKeys <- listWithKey bottomMap $ const showFace
-    lowerMiddleEventsWithKeys <- listWithKey lowerMiddleMap $ const showLowerMiddleFace
+    bottomEventsWithKeys <-         listWithKey bottomMap $ const showFace
+    lowerMiddleEventsWithKeys <-    listWithKey lowerMiddleMap $ const showLowerMiddleFace
     listWithKey bottomInsideMap $ const showInside
     listWithKey topInsideMap $ const showInside
-    upperMiddleEventsWithKeys <- listWithKey upperMiddleMap $ const showUpperMiddleFace
-    topEventsWithKeys <- listWithKey topMap $ const showFace
+    upperMiddleEventsWithKeys <-    listWithKey upperMiddleMap $ const showUpperMiddleFace
+    topEventsWithKeys <-            listWithKey topMap $ const showFace
 
     let topEvent = switch $ (leftmost . elems) <$> current topEventsWithKeys
         bottomEvent = switch $ (leftmost . elems) <$> current bottomEventsWithKeys
@@ -677,7 +685,7 @@ view model =
 data Rotation = CCW | CW deriving Eq
 data Direction = Up | Down | Left | Right 
 
-data Action = NudgeCube Direction | RotateFace Rotation Facet 
+data Action = NudgeCube Direction | RotateFace Rotation Facet | Animate
 
 data Model = Model { cube :: Facet 
                    , orientation :: Matrix Float
@@ -691,12 +699,22 @@ applyRotation rotationMatrix  prevOrientation =
 rotateModel rotationMatrix model = 
     model { orientation = applyRotation rotationMatrix $ orientation model }
 
+untwist model = 
+    let prev_twist = twist model
+        new_twist
+            | prev_twist == 0 = 0
+            | prev_twist > 0 = prev_twist - 30
+            | prev_twist < 0 = prev_twist + 30
+    in model { twist = new_twist }
+
 -- | FRP style update function. Given action and model, return updated model.
 update :: Action -> Model -> Model
 update action model = 
         case action of
+            Animate ->
+                untwist model
             RotateFace rotation facet -> 
-                 model { cube = rotateFace rotation facet }
+                model { cube = rotateFace rotation facet, twist = (if rotation == CW then 90 else (-90)) }
             NudgeCube direction -> 
                 let step = pi/20
                 in case direction of
@@ -706,7 +724,13 @@ update action model =
                        Down ->  rotateModel (yzRotationMatrix   step  ) model
  
 main = mainWidget $ do 
+           let initialOrientation = (identityMatrix `multStd2` zxRotationMatrix pi)
+               dt = 0.4
+
+           now <- liftIO getCurrentTime
+           tick <- tickLossy dt now
+           let advanceAction = fmap (const Animate) tick
            rec
-               selectEvent <- view model
-               model <- foldDyn Main.update (Model mkCube identityMatrix 20) selectEvent
+               selectAction <- view model
+               model <- foldDyn Main.update (Model mkCube initialOrientation 0) $ leftmost [selectAction, advanceAction]
            return ()
