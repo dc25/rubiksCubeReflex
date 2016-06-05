@@ -199,14 +199,14 @@ facingCamera viewPoint modelTransform =
     in cameraToPlane `dot` perpendicular < 0
 
 makeViewKit :: Model -> Facet -> Bool -> Float -> FaceViewKit
-makeViewKit (Model referenceFace orientation twist) lowerLeft withTwist offset = 
+makeViewKit (Model topFace orientation twist) lowerLeft withTwist offset = 
     let scale2dMatrix = scaleMatrix (1/3) -- scale from 3x3 square face to 1x1 square face.
 
         trans2d = -1/2  -- translate center of 1x1 square face to origin.
         trans2dMatrix = translationMatrix (trans2d,trans2d,0)
 
         faceColor = (color.south.south) lowerLeft 
-        referenceColor = color referenceFace
+        topColor = color topFace
 
         -- If face A is the face being rendered and face B is the face that
         -- cooresponds to face A if the top face were Purple, then this map
@@ -260,7 +260,7 @@ makeViewKit (Model referenceFace orientation twist) lowerLeft withTwist offset =
                          
                          ,( (Orange, Purple), 0) ]
 
-        Just turnCount = lookup (referenceColor, faceColor) turns 
+        Just turnCount = lookup (topColor, faceColor) turns 
         turnMatrix = xyRotationMatrix (fromIntegral turnCount * pi / 2)
         offsetMatrix = translationMatrix (0,0,offset)
 
@@ -309,8 +309,8 @@ makeViewKit (Model referenceFace orientation twist) lowerLeft withTwist offset =
                           )
                         ]
 
-        Just (assembleMatricies,_) = lookup ((color.south.south) lowerLeft) assemblies 
-        Just (postTwist,preTwist) = lookup referenceColor assemblies 
+        Just (assembleMatricies,_) = lookup faceColor assemblies 
+        Just (postTwist,preTwist) = lookup topColor assemblies 
 
         twistMatricies = 
             if withTwist 
