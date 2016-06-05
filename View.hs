@@ -1,7 +1,9 @@
 module View (view) where
 
 import Prelude(Int,Bool(True,False),Float,String,fromIntegral,concatMap,zipWith,sum,take,pi,not,const,show,(<$>),($),(.),(*),(/),(+),(-),(++),(==),(!!),(<))
-import Reflex.Dom
+
+import Reflex.Dom ( MonadWidget ,Dynamic ,Event ,EventName(Click) ,attachWith ,button ,constDyn ,current ,domEvent ,el ,elAttr ,elDynAttrNS' ,leftmost ,listWithKey ,mapDyn ,switch ,(=:) ,(&))
+
 import Data.Map (Map, lookup, insert, empty, fromList, elems)
 import Data.List (foldl, scanl,head)
 import Data.Maybe (Maybe(Just))
@@ -345,7 +347,7 @@ makeViewKit (Model referenceFace orientation twist) lowerLeft withTwist offset =
     in FaceViewKit lowerLeft isFacingCamera viewTransform 
 
 kitmapUpdate :: Model -> Bool -> Float -> Map Color FaceViewKit -> Facet -> Map Color FaceViewKit
-kitmapUpdate model@(Model center orientation twist) withTwist offset prevMap lowerLeft = 
+kitmapUpdate model withTwist offset prevMap lowerLeft = 
     let updatedViewKit = makeViewKit model lowerLeft withTwist offset
     in  if isVisible updatedViewKit 
         then insert ((color.south.south) lowerLeft) updatedViewKit prevMap
@@ -455,20 +457,19 @@ viewModel model = do
         upperMiddleEvent = switch $ (leftmost . elems) <$> current upperMiddleEventsWithKeys
     return $ leftmost [topEvent, lowerMiddleEvent, upperMiddleEvent, bottomEvent]
 
-
 fps = "style" =: "float:left;padding:10px" 
 cps = "style" =: "float:clear" 
 
 view :: MonadWidget t m => Dynamic t Model -> m (Event t Action)
 view model = 
     el "div" $ do
-        leftEv <- fmap (const $ NudgeCube Left) <$> elAttr "div" fps (button "left" )
-        rightEv <- fmap (const $ NudgeCube Right) <$> elAttr "div" fps ( button "right" )
-        upEv <- fmap (const $ NudgeCube Up) <$>  elAttr "div" fps ( button "up")
-        downEv <- fmap (const $ NudgeCube Down) <$> elAttr "div" fps (button "down" )
-        (_,ev) <- elDynAttrNS' svgNamespace "svg" 
-                    (constDyn $  "viewBox" =: "-0.48 -0.48 0.96 0.96"
-                              <> "width" =: "575"
-                              <> "height" =: "575") $ viewModel model
+        leftEv <-    fmap (const $ NudgeCube Left)  <$> elAttr "div" fps (button "left")
+        rightEv <-   fmap (const $ NudgeCube Right) <$> elAttr "div" fps (button "right")
+        upEv <-      fmap (const $ NudgeCube Up)    <$> elAttr "div" fps (button "up")
+        downEv <-    fmap (const $ NudgeCube Down)  <$> elAttr "div" fps (button "down")
+        (_,ev) <-    elDynAttrNS' svgNamespace "svg" 
+                       (constDyn $  "viewBox" =: "-0.48 -0.48 0.96 0.96"
+                                 <> "width" =: "575"
+                                 <> "height" =: "575") $ viewModel model
         return $ leftmost [ev, leftEv, rightEv, upEv, downEv]
 

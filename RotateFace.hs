@@ -1,7 +1,6 @@
 module RotateFace ( rotateFace) where
 
 import Prelude(Eq, Ord, (==), ($), (.), (+), compare, concat, replicate, Show, Enum, Int)
-import Reflex.Dom
 import Data.Map (Map, lookup, insert, empty)
 import Data.List (foldl)
 import Data.Maybe (fromMaybe)

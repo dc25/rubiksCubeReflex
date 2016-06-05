@@ -1,6 +1,6 @@
 {-# LANGUAGE RecursiveDo #-}
 import Prelude(($),(*),(/),pi,const)
-import Reflex.Dom
+import Reflex.Dom (mainWidget,tickLossy,foldDyn,leftmost)
 import Data.Matrix (multStd2)
 import Control.Monad(fmap,return)
 import Data.Time.Clock (getCurrentTime)
