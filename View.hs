@@ -310,7 +310,7 @@ makeViewKit (Model referenceFace orientation twist) lowerLeft withTwist offset =
                         ]
 
         Just (assembleMatricies,_) = lookup ((color.south.south) lowerLeft) assemblies 
-        Just (postTwist,preTwist) = lookup (color referenceFace) assemblies 
+        Just (postTwist,preTwist) = lookup referenceColor assemblies 
 
         twistMatricies = 
             if withTwist 
