@@ -199,13 +199,13 @@ facingCamera viewPoint modelTransform =
     in cameraToPlane `dot` perpendicular < 0
 
 makeViewKit :: Model -> Facet -> Bool -> Float -> FaceViewKit
-makeViewKit (Model topFace orientation twist) lowerLeft withTwist offset = 
+makeViewKit (Model topFace orientation twist) viewFacet withTwist offset = 
     let scale2dMatrix = scaleMatrix (1/3) -- scale from 3x3 square face to 1x1 square face.
 
         trans2d = -1/2  -- translate center of 1x1 square face to origin.
         trans2dMatrix = translationMatrix (trans2d,trans2d,0)
 
-        faceColor = (color.south.south) lowerLeft 
+        faceColor = (color.south.south) viewFacet 
         topColor = color topFace
 
         -- If face A is the face being rendered and face B is the face that
@@ -344,7 +344,7 @@ makeViewKit (Model topFace orientation twist) lowerLeft withTwist offset =
                         `multStd2` perspectivePrepMatrix
                         `multStd2` perspectiveMatrix
 
-    in FaceViewKit lowerLeft isFacingCamera viewTransform 
+    in FaceViewKit viewFacet isFacingCamera viewTransform 
 
 kitmapUpdate :: Model -> Bool -> Float -> Map Color FaceViewKit -> Facet -> Map Color FaceViewKit
 kitmapUpdate model withTwist offset prevMap lowerLeft = 
