@@ -1,6 +1,6 @@
 module View (view, facetFacesCamera) where
 
-import Prelude(Int,Bool(True,False),Float,String,fromIntegral,concatMap,zipWith,sum,take,pi,not,const,show,(<$>),($),(.),(*),(/),(+),(-),(++),(==),(!!),(<))
+import Prelude(Int,Bool(True,False),Float,String,fromIntegral,concatMap,zipWith,sum,take,pi,not,const,show,(<$>),($),(.),(*),(/),(+),(-),(++),(==),(/=),(!!),(<),(&&))
 
 import Reflex.Dom ( MonadWidget ,Dynamic ,Event ,EventName(Click) ,attachWith ,button ,constDyn ,current ,domEvent ,el ,elAttr ,elDynAttrNS' ,leftmost ,listWithKey ,mapDyn ,switch ,(=:) ,(&))
 
@@ -15,6 +15,7 @@ import Matrices
 import Rotation
 import Direction
 import Action
+import TwistMode
 import Cube
 import Model
 
@@ -240,7 +241,7 @@ facingCamera viewPoint modelTransform =
     in cameraToPlane `dot` perpendicular < 0
 
 viewTransformation :: Model -> Facet -> Bool -> Float -> (Matrix Float, Bool)
-viewTransformation model@(Model topFace orientation twist) viewCenterFacet withTwist offset = 
+viewTransformation model@(Model topFace orientation twist twistMode) viewCenterFacet withTwist offset = 
     let faceColor = color viewCenterFacet 
         topColor = color topFace
 
@@ -354,7 +355,7 @@ viewTransformation model@(Model topFace orientation twist) viewCenterFacet withT
         Just (postTwist,preTwist) = lookup topColor assemblies 
 
         twistMatricies = 
-            if withTwist 
+            if withTwist && twist /= 0
             then preTwist ++
                  [ xyRotationMatrix (2*pi * twist/360) ] ++
                  postTwist
@@ -384,11 +385,11 @@ viewTransformation model@(Model topFace orientation twist) viewCenterFacet withT
 facetFacesCamera :: Model -> Facet -> Bool
 facetFacesCamera model facet = 
     let (_,isFacingCamera) = 
-            viewTransformation model facet (not withTwist) 0.5
+            viewTransformation model facet False 0.5
     in isFacingCamera
 
 viewKit :: Model -> Facet -> Bool -> Float -> (Bool, FaceViewKit)
-viewKit model@(Model topFace orientation twist) viewFacet withTwist offset = 
+viewKit model@(Model topFace orientation twist twistMode) viewFacet withTwist offset = 
     let viewCenterFacet = (south.south) viewFacet 
         (modelTransform, isFacingCamera) 
             = viewTransformation model viewCenterFacet withTwist offset
@@ -411,23 +412,23 @@ kitmapUpdate model withTwist offset prevMap lowerLeft =
 withTwist = True -- just a constant for readability
 
 topView :: Model -> Map Color FaceViewKit
-topView model@(Model center _ _)  =
-    foldl (kitmapUpdate model withTwist (1.0/2.0)) empty [getLowerLeft center]
+topView model@(Model center _ _ twistMode)  =
+    foldl (kitmapUpdate model (twistMode == TopTwist) (1.0/2.0)) empty [getLowerLeft center]
 
 bottomInsideView :: Model -> Map Color FaceViewKit
-bottomInsideView model@(Model center _ _)  =
+bottomInsideView model@(Model center _ _ twistMode)  =
     if twist model == 0 
     then empty
-    else foldl (kitmapUpdate model withTwist (-1.0/6.0)) empty [(west.south.west.west.south.west.getLowerLeft) center]
+    else foldl (kitmapUpdate model (twistMode == TopTwist) (-1.0/6.0)) empty [(west.south.west.west.south.west.getLowerLeft) center]
 
 topInsideView :: Model -> Map Color FaceViewKit
-topInsideView model@(Model center _ _)  =
+topInsideView model@(Model center _ _ twistMode)  =
     if twist model == 0 
     then empty
     else foldl (kitmapUpdate model (not withTwist) (1.0/6.0)) empty [getLowerLeft center]
 
 upperRights :: Model -> [Facet]
-upperRights model@(Model center _ _)   =
+upperRights model@(Model center _ _ _)   =
     let upperRight = (north.getLowerLeft) center
         advancers = [ west.west.south
                     , west.west.south
@@ -436,27 +437,27 @@ upperRights model@(Model center _ _)   =
     in scanl (&) upperRight advancers  -- get upper left corners of all faces
 
 upperMiddleView :: Model -> Map Color FaceViewKit
-upperMiddleView model@(Model center _ _)   =
-    foldl (kitmapUpdate model withTwist 0.5) empty $ upperRights model
+upperMiddleView model@(Model center _ _ twistMode)   =
+    foldl (kitmapUpdate model (twistMode == TopTwist) 0.5) empty $ upperRights model
 
 middleMiddleView :: Model -> Map Color FaceViewKit
-middleMiddleView model@(Model center _ _)   =
+middleMiddleView model@(Model center _ _ twistMode)   =
     foldl (kitmapUpdate model (not withTwist) 0.5) empty $ upperRights model
 
 
 bottomView :: Model -> Map Color FaceViewKit
-bottomView model@(Model center _ _)  =
-    foldl (kitmapUpdate model (not withTwist) 0.5) empty [(west.south.west.west.south.west.getLowerLeft) center]
+bottomView model@(Model center _ _ twistMode)  =
+    foldl (kitmapUpdate model (twistMode == BottomTwist) 0.5) empty [(west.south.west.west.south.west.getLowerLeft) center]
 
 lowerMiddleView :: Model -> Map Color FaceViewKit
-lowerMiddleView model@(Model center _ _)  =
+lowerMiddleView model@(Model center _ _ twistMode)  =
     let lowerLeft = (west.south.west.getLowerLeft) center
         advancers = [ west.west.south
                     , west.west.south
                     , west.west.south
                     ]
         lowerLefts = scanl (&) lowerLeft advancers  -- get lower left corners of all faces
-    in foldl (kitmapUpdate model (not withTwist) 0.5) empty lowerLefts
+    in foldl (kitmapUpdate model (twistMode == BottomTwist) 0.5) empty lowerLefts
 
 getLowerLeft :: Facet -> Facet
 getLowerLeft centerFace =

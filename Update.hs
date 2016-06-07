@@ -7,6 +7,7 @@ import Matrices
 import Action
 import Direction
 import Rotation
+import TwistMode
 import Model
 import Cube
 import View
@@ -34,11 +35,18 @@ update action model =
         Animate ->
             untwist model
         RotateFace rotation facet -> 
-            let topFacet = 
+            let (topFacet, twistMode) = 
                     if facetFacesCamera model facet
-                    then facet
-                    else (south.east. north.east.east. north.west.north) facet -- go to other side of cube
-            in model { cube = rotateFace rotation facet topFacet, twist = if rotation == CW then 90 else (-90) }
+                    then (facet, TopTwist)
+                    else ((south.east. north.east.east. north.west.north) facet, BottomTwist) 
+                twist 
+                    | ((rotation,twistMode) == (CW,  TopTwist)) = 90
+                    | ((rotation,twistMode) == (CCW, TopTwist)) = (-90)
+                    | ((rotation,twistMode) == (CW,  BottomTwist)) = (-90)
+                    | ((rotation,twistMode) == (CCW,  BottomTwist)) = 90
+            in model { cube = rotateFace rotation facet topFacet
+                     , twist = twist
+                     , twistMode = twistMode }
         NudgeCube direction -> 
             let step = pi/20
             in case direction of
