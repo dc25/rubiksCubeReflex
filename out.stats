@@ -5,12 +5,12 @@ conta_5w3UY4chXx62LVUOUrXeRm:185823
 depen_5vw10fkSDDD0LdF4Qk8khv:2849
 depen_HCFzp6ZGqMz1lvJkHhl9BD:46847
 excep_GsT9breZyJSLZ8kkCjLGTR:4696
-ghc-prim:                49814
+ghc-prim:                50079
 ghcjs_B7KLFJ07Vte3zPHAgRIBTb:11013
 ghcjs_D7BYGeMTlMGF2My8KZzKUS:152503
 ghcjs_Kc7TQ2cEDg1F5e5cgY2Vuk:9821
 integer-gmp:             42831
-main:                    272965
+main:                    273111
 matri_682HBa36TWs8HIx1KnWQ3t:31549
 primi_293YT17zdlWL9QJgnLTQSn:2385
 refle_BP42iAL8rA7IBOuWCaV0zs:401306
@@ -102,7 +102,7 @@ excep_GsT9breZyJSLZ8kkCjLGTR
 
 ghc-prim
     GHC.CString:                        4537
-    GHC.Classes:                        42191
+    GHC.Classes:                        42456
     GHC.IntWord64:                      146
     GHC.Tuple:                          1451
     GHC.Types:                          1489
@@ -139,9 +139,9 @@ main
     Model:                              830
     RotateFace:                         8811
     Rotation:                           997
-    TwistMode:                          13285
-    Update:                             10597
-    View:                               168332
+    TwistMode:                          13287
+    Update:                             10598
+    View:                               168475
 
 matri_682HBa36TWs8HIx1KnWQ3t
     Data.Matrix:                        31549
@@ -204,5 +204,5 @@ vecto_FNLwpzrmeRC6Ra1RihE2cq
 
 
 
-packed metadata: 438548
+packed metadata: 438646
 
