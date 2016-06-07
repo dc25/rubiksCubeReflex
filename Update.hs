@@ -1,6 +1,6 @@
 module Update(update) where
 
-import Prelude(Float,pi,($),(+),(-),(*),(/),(==),(<),(>),(.))
+import Prelude(Float,pi,not,($),(+),(-),(*),(/),(==),(<),(>),(.))
 import Data.Matrix (Matrix,multStd2)
 
 import Matrices
@@ -35,10 +35,12 @@ update action model =
         Animate ->
             untwist model
         RotateFace rotation facet -> 
-            let (topFacet, twistMode) = 
-                    if facetFacesCamera model facet
-                    then (facet, TopTwist)
-                    else ((south.east. north.east.east. north.west.north) facet, BottomTwist) 
+            let 
+                opposingFacet = (south.east. north.east.east. north.west.north) facet
+                (topFacet, twistMode) = 
+                    if insideFacesCamera model facet
+                    then (facet, TopTwist)  
+                    else (opposingFacet, BottomTwist) 
                 twist 
                     | ((rotation,twistMode) == (CW,  TopTwist)) = 90
                     | ((rotation,twistMode) == (CCW, TopTwist)) = (-90)

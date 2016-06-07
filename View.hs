@@ -1,6 +1,6 @@
-module View (view, facetFacesCamera) where
+module View (view, insideFacesCamera) where
 
-import Prelude(Int,Bool(True,False),Float,String,fromIntegral,concatMap,zipWith,sum,take,pi,not,const,show,(<$>),($),(.),(*),(/),(+),(-),(++),(==),(/=),(!!),(<),(&&))
+import Prelude(Int,Bool(True,False),Float,String,fromIntegral,concatMap,zipWith,sum,take,pi,not,const,show,(<$>),($),(.),(*),(/),(+),(-),(++),(==),(/=),(!!),(<),(&&),(||))
 
 import Reflex.Dom ( MonadWidget ,Dynamic ,Event ,EventName(Click) ,attachWith ,button ,constDyn ,current ,domEvent ,el ,elAttr ,elDynAttrNS' ,leftmost ,listWithKey ,mapDyn ,switch ,(=:) ,(&))
 
@@ -382,10 +382,10 @@ viewTransformation model@(Model topFace orientation twist twistMode) viewCenterF
         isFacingCamera = facingCamera [0,0,-1] modelTransform
     in (modelTransform, isFacingCamera)
 
-facetFacesCamera :: Model -> Facet -> Bool
-facetFacesCamera model facet = 
+insideFacesCamera :: Model -> Facet -> Bool
+insideFacesCamera model facet = 
     let (_,isFacingCamera) = 
-            viewTransformation model facet False 0.5
+            viewTransformation model facet False (1.0/6.0)
     in isFacingCamera
 
 viewKit :: Model -> Facet -> Bool -> Float -> (Bool, FaceViewKit)
@@ -413,17 +413,17 @@ topView :: Model -> Map Color FaceViewKit
 topView model@(Model center _ _ twistMode)  =
     foldl (kitmapUpdate model (twistMode == TopTwist) (1.0/2.0)) empty [getLowerLeft center]
 
-bottomInsideView :: Model -> Map Color FaceViewKit
-bottomInsideView model@(Model center _ _ twistMode)  =
-    if twistMode /= TopTwist
-    then empty
-    else foldl (kitmapUpdate model True (-1.0/6.0)) empty [(west.south.west.west.south.west.getLowerLeft) center]
-
-topInsideView :: Model -> Map Color FaceViewKit
-topInsideView model@(Model center _ _ twistMode)  =
-    if twistMode /= TopTwist
+middleUpView :: Model -> Map Color FaceViewKit
+middleUpView model@(Model center _ twist twistMode)  =
+    if twist == 0 || twistMode /= TopTwist
     then empty
     else foldl (kitmapUpdate model False (1.0/6.0)) empty [getLowerLeft center]
+
+bottomUpView :: Model -> Map Color FaceViewKit
+bottomUpView model@(Model center _ twist twistMode)  =
+    if twist == 0 || twistMode /= BottomTwist
+    then empty
+    else foldl (kitmapUpdate model True (-1.0/6.0)) empty [getLowerLeft center]
 
 upperRights :: Model -> [Facet]
 upperRights model@(Model center _ _ _)   =
@@ -501,17 +501,17 @@ viewModel :: MonadWidget t m => Dynamic t Model -> m (Event t Action)
 viewModel model = do
     bottomMap <-                    mapDyn bottomView model
     lowerMiddleMap <-               mapDyn lowerMiddleView model
+    bottomUpMap <-                  mapDyn bottomUpView model
     middleMiddleMap <-              mapDyn middleMiddleView model
-    bottomInsideMap <-              mapDyn bottomInsideView model
-    topInsideMap <-                 mapDyn topInsideView model
+    middleUpMap <-                  mapDyn middleUpView model
     upperMiddleMap <-               mapDyn upperMiddleView model
     topMap <-                       mapDyn topView model
 
     bottomEventsWithKeys <-         listWithKey bottomMap $ const showFace
     lowerMiddleEventsWithKeys <-    listWithKey lowerMiddleMap $ const showLowerMiddleFace
+    _ <-                            listWithKey bottomUpMap $ const showInside
     middleMiddleEventsWithKeys <-   listWithKey middleMiddleMap $ const showMiddleMiddleFace
-    _ <-                            listWithKey bottomInsideMap $ const showInside
-    _ <-                            listWithKey topInsideMap $ const showInside
+    _ <-                            listWithKey middleUpMap $ const showInside
     upperMiddleEventsWithKeys <-    listWithKey upperMiddleMap $ const showUpperMiddleFace
     topEventsWithKeys <-            listWithKey topMap $ const showFace
 
