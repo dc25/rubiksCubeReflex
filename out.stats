@@ -1,6 +1,6 @@
 code size summary per package:
 
-base:                    453985
+base:                    448971
 conta_5w3UY4chXx62LVUOUrXeRm:185823
 depen_5vw10fkSDDD0LdF4Qk8khv:2849
 depen_HCFzp6ZGqMz1lvJkHhl9BD:46847
@@ -10,7 +10,7 @@ ghcjs_B7KLFJ07Vte3zPHAgRIBTb:11013
 ghcjs_D7BYGeMTlMGF2My8KZzKUS:152503
 ghcjs_Kc7TQ2cEDg1F5e5cgY2Vuk:9821
 integer-gmp:             42831
-main:                    240966
+main:                    255921
 matri_682HBa36TWs8HIx1KnWQ3t:31549
 primi_293YT17zdlWL9QJgnLTQSn:2385
 refle_BP42iAL8rA7IBOuWCaV0zs:401306
@@ -36,7 +36,6 @@ base
     Data.Maybe:                         1489
     Data.Monoid:                        108
     Data.OldList:                       513
-    Data.Traversable:                   3601
     Data.Tuple:                         167
     Data.Type.Equality:                 287
     Data.Typeable:                      885
@@ -46,7 +45,7 @@ base
     Foreign.Marshal.Array:              2038
     Foreign.Storable:                   2680
     GHC.Arr:                            3667
-    GHC.Base:                           10045
+    GHC.Base:                           8632
     GHC.Conc.Sync:                      7822
     GHC.Enum:                           23093
     GHC.Err:                            382
@@ -135,13 +134,13 @@ main
     Action:                             467
     Cube:                               46097
     Direction:                          279
-    Main:                               14759
-    Matrices:                           8429
-    Model:                              654
-    RotateFace:                         8696
+    Main:                               14790
+    Matrices:                           8452
+    Model:                              660
+    RotateFace:                         8746
     Rotation:                           987
     Update:                             7609
-    View:                               152989
+    View:                               167834
 
 matri_682HBa36TWs8HIx1KnWQ3t
     Data.Matrix:                        31549
@@ -204,5 +203,5 @@ vecto_FNLwpzrmeRC6Ra1RihE2cq
 
 
 
-packed metadata: 434849
+packed metadata: 435780
 
