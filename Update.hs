@@ -34,10 +34,10 @@ update action model =
         Animate ->
             untwist model
         RotateFace rotation facet -> 
-            let vis = facetFacesCamera model facet
-                topFacet = if (vis) 
-                           then facet
-                           else (south.east. north.east.east. north.west.north) facet -- go to other side of cube
+            let topFacet = 
+                    if facetFacesCamera model facet
+                    then facet
+                    else (south.east. north.east.east. north.west.north) facet -- go to other side of cube
             in model { cube = rotateFace rotation facet topFacet, twist = if rotation == CW then 90 else (-90) }
         NudgeCube direction -> 
             let step = pi/20
