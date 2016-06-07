@@ -409,23 +409,21 @@ kitmapUpdate model withTwist offset prevMap lowerLeft =
         then insert ((color.south.south) lowerLeft) newViewKit prevMap
         else prevMap
 
-withTwist = True -- just a constant for readability
-
 topView :: Model -> Map Color FaceViewKit
 topView model@(Model center _ _ twistMode)  =
     foldl (kitmapUpdate model (twistMode == TopTwist) (1.0/2.0)) empty [getLowerLeft center]
 
 bottomInsideView :: Model -> Map Color FaceViewKit
 bottomInsideView model@(Model center _ _ twistMode)  =
-    if twist model == 0 
+    if twistMode /= TopTwist
     then empty
-    else foldl (kitmapUpdate model (twistMode == TopTwist) (-1.0/6.0)) empty [(west.south.west.west.south.west.getLowerLeft) center]
+    else foldl (kitmapUpdate model True (-1.0/6.0)) empty [(west.south.west.west.south.west.getLowerLeft) center]
 
 topInsideView :: Model -> Map Color FaceViewKit
 topInsideView model@(Model center _ _ twistMode)  =
-    if twist model == 0 
+    if twistMode /= TopTwist
     then empty
-    else foldl (kitmapUpdate model (not withTwist) (1.0/6.0)) empty [getLowerLeft center]
+    else foldl (kitmapUpdate model False (1.0/6.0)) empty [getLowerLeft center]
 
 upperRights :: Model -> [Facet]
 upperRights model@(Model center _ _ _)   =
@@ -442,7 +440,7 @@ upperMiddleView model@(Model center _ _ twistMode)   =
 
 middleMiddleView :: Model -> Map Color FaceViewKit
 middleMiddleView model@(Model center _ _ twistMode)   =
-    foldl (kitmapUpdate model (not withTwist) 0.5) empty $ upperRights model
+    foldl (kitmapUpdate model False 0.5) empty $ upperRights model
 
 
 bottomView :: Model -> Map Color FaceViewKit
