@@ -1,4 +1,4 @@
-module View (view) where
+module View (view, facetFacesCamera) where
 
 import Prelude(Int,Bool(True,False),Float,String,fromIntegral,concatMap,zipWith,sum,take,pi,not,const,show,(<$>),($),(.),(*),(/),(+),(-),(++),(==),(!!),(<))
 
@@ -19,7 +19,6 @@ import Cube
 import Model
 
 data FaceViewKit = FaceViewKit { face :: Facet
-                               , isVisible :: Bool
                                , transform :: Matrix Float
                                }
 
@@ -198,15 +197,15 @@ facingCamera viewPoint modelTransform =
         -- should be opposed to each other. 
     in cameraToPlane `dot` perpendicular < 0
 
-viewKit :: Model -> Facet -> Bool -> Float -> FaceViewKit
-viewKit (Model topFace orientation twist) viewFacet withTwist offset = 
-    let scale2dMatrix = scaleMatrix (1/3) -- scale from 3x3 square face to 1x1 square face.
+viewTransformation :: Model -> Facet -> Bool -> Float -> (Matrix Float, Bool)
+viewTransformation model@(Model topFace orientation twist) viewCenterFacet withTwist offset = 
+    let faceColor = color viewCenterFacet 
+        topColor = color topFace
 
+        scale2dMatrix = scaleMatrix (1/3) -- scale from 3x3 square face to 1x1 square face.
         trans2d = -1/2  -- translate center of 1x1 square face to origin.
         trans2dMatrix = translationMatrix (trans2d,trans2d,0)
 
-        faceColor = (color.south.south) viewFacet 
-        topColor = color topFace
 
         -- If face A is the face being rendered and face B is the face that
         -- cooresponds to face A if the top face were Purple, then this map
@@ -338,18 +337,32 @@ viewKit (Model topFace orientation twist) viewFacet withTwist offset =
 
         -- backface elimination
         isFacingCamera = facingCamera [0,0,-1] modelTransform
+    in (modelTransform, isFacingCamera)
+
+facetFacesCamera :: Model -> Facet -> Bool
+facetFacesCamera model facet = 
+    let (_,isFacingCamera) = 
+            viewTransformation model facet (not withTwist) 0.5
+    in isFacingCamera
+
+viewKit :: Model -> Facet -> Bool -> Float -> (Bool, FaceViewKit)
+viewKit model@(Model topFace orientation twist) viewFacet withTwist offset = 
+    let viewCenterFacet = (south.south) viewFacet 
+        (modelTransform, isFacingCamera) 
+            = viewTransformation model viewCenterFacet withTwist offset
 
         -- combine to get single transform from 2d face to 2d display
         viewTransform =            modelTransform
                         `multStd2` perspectivePrepMatrix
                         `multStd2` perspectiveMatrix
 
-    in FaceViewKit viewFacet isFacingCamera viewTransform 
+    in (isFacingCamera, FaceViewKit viewFacet viewTransform)
 
 kitmapUpdate :: Model -> Bool -> Float -> Map Color FaceViewKit -> Facet -> Map Color FaceViewKit
 kitmapUpdate model withTwist offset prevMap lowerLeft = 
-    let newViewKit = viewKit model lowerLeft withTwist offset
-    in  if isVisible newViewKit 
+    let (isVisible, newViewKit) 
+            = viewKit model lowerLeft withTwist offset
+    in  if isVisible 
         then insert ((color.south.south) lowerLeft) newViewKit prevMap
         else prevMap
 

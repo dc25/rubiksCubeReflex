@@ -1,6 +1,6 @@
 module Update(update) where
 
-import Prelude(Float,pi,($),(+),(-),(*),(/),(==),(<),(>))
+import Prelude(Float,pi,($),(+),(-),(*),(/),(==),(<),(>),(.))
 import Data.Matrix (Matrix,multStd2)
 
 import Matrices
@@ -8,6 +8,8 @@ import Action
 import Direction
 import Rotation
 import Model
+import Cube
+import View
 import RotateFace
 
 applyRotation :: Matrix Float -> Matrix Float -> Matrix Float
@@ -32,7 +34,11 @@ update action model =
         Animate ->
             untwist model
         RotateFace rotation facet -> 
-            model { cube = rotateFace rotation facet, twist = if rotation == CW then 90 else (-90) }
+            let vis = facetFacesCamera model facet
+                topFacet = if (vis) 
+                           then facet
+                           else (south.east. north.east.east. north.west.north) facet -- go to other side of cube
+            in model { cube = rotateFace rotation facet topFacet, twist = if rotation == CW then 90 else (-90) }
         NudgeCube direction -> 
             let step = pi/20
             in case direction of

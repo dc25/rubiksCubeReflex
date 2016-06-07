@@ -37,8 +37,8 @@ getRotationMap advanceToPost f =
         (_,_,rotationMap) = foldl ff (preStart, postStart, empty) fullCrawl
     in rotationMap
 
-rotateFace :: Rotation -> Facet -> Facet
-rotateFace rotation face = 
+rotateFace :: Rotation -> Facet -> Facet -> Facet
+rotateFace rotation rotatedFace newTop = 
         let advancer = if rotation == CW then south.west.west else east.north.east
-        in copyWithRotation (getRotationMap advancer face) face
+        in copyWithRotation (getRotationMap advancer rotatedFace) newTop
 
