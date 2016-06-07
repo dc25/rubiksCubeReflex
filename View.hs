@@ -65,21 +65,25 @@ showFacet x y dFaceViewKit = do
 arrow :: Matrix Float
 arrow = 
     let hw = 0.35
-        base = 0.8
+        base = -0.3
         length = 0.6
-    in fromLists [[base, 0.5 - hw, 0, 1], [base, 0.5 + hw, 0, 1], [base-length, 0.5, 0, 1]]
+    in fromLists [[base, (-hw), 0, 1], [base, hw, 0, 1], [base+length, 0, 0, 1]]
 
 arrowPoints :: (Rotation,Int) -> Matrix Float
 arrowPoints (rotation,index) = 
-    let cwRotations = [0, pi/2, pi, 3*pi/2]
-        cwTranslations = [(0,0,0),(3,0,0),(3,3,0),(0,3,0)]
+    let cwRotations = [3*pi/2, pi, pi/2, 0]
+        cwTranslations = [(0.5,0.5,0)
+                         ,(0.5,2.5,0)
+                         ,(2.5,2.5,0)
+                         ,(2.5,0.5,0)
+                         ]
 
         cwTransformations = zipWith multStd2 
                               (fmap xyRotationMatrix cwRotations) 
                               (fmap translationMatrix cwTranslations)
 
-        ccwRotations = [ pi, 3*pi/2, 0, pi/2 ]
-        ccwTranslations = [(2,1,0),(2,2,0),(1,2,0),(1,1,0)]
+        ccwRotations = [pi/2, 0, 3*pi/2, pi]
+        ccwTranslations = [(0.5,1.5,0),(1.5,2.5,0),(2.5,1.5,0),(1.5,0.5,0)]
 
         ccwTransformations = zipWith multStd2 
                               (fmap xyRotationMatrix ccwRotations) 
@@ -89,27 +93,14 @@ arrowPoints (rotation,index) =
         transform = transformations !! index
     in arrow `multStd2` transform
 
-showArrow :: MonadWidget t m => Dynamic t FaceViewKit -> (Rotation, Int) -> m (Event t ())
-showArrow dFaceViewKit arrowIndex = do
+showArrow :: MonadWidget t m => (Rotation, Int) -> Dynamic t FaceViewKit -> m (Event t Action)
+showArrow arrowIndex@(rotation,_) dFaceViewKit = do
     let points = arrowPoints arrowIndex
+    dFacet <- mapDyn face dFaceViewKit  
     dAttrs <- mapDyn (\fvk -> "fill" =: "grey" <> 
                               "points" =: pointsToString (transformPoints (transform fvk) points)) dFaceViewKit
     (el,_) <- elDynAttrNS' svgNamespace "polygon" dAttrs $ return ()
-    return $ domEvent Click el
-
-arrowRotationEvent :: MonadWidget t m => Dynamic t FaceViewKit -> Rotation -> [Int] -> m (Event t Action)
-arrowRotationEvent dFaceViewKit rotation cornerIndices = do
-    dFacet <- mapDyn face dFaceViewKit  
-    let arrowIndices = fmap ((,) rotation) cornerIndices
-    arrowEvents <- sequence $ fmap (showArrow dFaceViewKit) arrowIndices
-    let arrowEvent = leftmost arrowEvents
-    return $ attachWith (\a _ -> RotateFace rotation a)  (current dFacet) arrowEvent
-
-showArrows :: MonadWidget t m => Dynamic t FaceViewKit -> [Int] -> [Int] -> m (Event t Action)
-showArrows dFaceViewKit cwCornerIndices ccwCornerIndices = do
-    cwRotationEvent <- arrowRotationEvent dFaceViewKit CW cwCornerIndices 
-    ccwRotationEvent <- arrowRotationEvent dFaceViewKit CCW ccwCornerIndices 
-    return $ leftmost [cwRotationEvent, ccwRotationEvent]
+    return $ attachWith (\a _ -> RotateFace rotation a)  (current dFacet) $ domEvent Click el
 
 advance :: MonadWidget t m => (Facet -> Facet) -> Dynamic t FaceViewKit -> m (Dynamic t FaceViewKit)
 advance adv dFaceViewKit = do
@@ -127,44 +118,95 @@ showAndAdvance x y adv dFaceViewKit = do
 -- How do I do these repeated "east" operations as a fold (or something )
 showFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
 showFace lowerLeft = do  
-    center <-     showAndAdvance 0 0 east lowerLeft  -- lower left
-              >>= showAndAdvance 0 1 east            -- left
-              >>= showAndAdvance 0 2 east            -- upper left
-              >>= showAndAdvance 1 2 east            -- upper
-              >>= showAndAdvance 2 2 east            -- upper right
-              >>= showAndAdvance 2 1 east            -- right
-              >>= showAndAdvance 2 0 east            -- lower right
-              >>= showAndAdvance 1 0 south           -- lower
+    left <-       showAndAdvance 0 0 east lowerLeft   -- lower left
+    upperLeft <-  showAndAdvance 0 1 east left        -- left
+    upper <-      showAndAdvance 0 2 east upperLeft   -- upper left
+    upperRight <- showAndAdvance 1 2 east upper       -- upper
+    right <-      showAndAdvance 2 2 east upperRight  -- upper right
+    lowerRight <- showAndAdvance 2 1 east right       -- right
+    lower <-      showAndAdvance 2 0 east lowerRight  -- lower right
+    center <-     showAndAdvance 1 0 south lower      -- lower
+    _ <-          showFacet      1 1       center          
 
-    showFacet 1 1 center          
-    showArrows center [0,1,2,3] [0,1,2,3]
+    leftFace <-      advance (south.north) left
+    leftEv <-        showArrow (CCW,0) leftFace
+    leftCornerEv <-  showArrow (CW,0) leftFace
+
+    upperFace <-     advance (south.north) upper
+    upperEv <-       showArrow (CCW,1) upperFace
+    upperCornerEv <- showArrow (CW,1) upperFace
+
+    rightFace <-     advance (south.north) right
+    rightEv <-       showArrow (CCW,2) rightFace
+    rightCornerEv <- showArrow (CW,2) rightFace
+
+    lowerFace <-     advance (south.north) lower
+    lowerEv <-       showArrow (CCW,3) lowerFace
+    lowerCornerEv <- showArrow (CW,3) lowerFace
+
+    return $ leftmost [ leftEv , leftCornerEv 
+                      , upperEv , upperCornerEv 
+                      , rightEv , rightCornerEv 
+                      , lowerEv , lowerCornerEv 
+                      ]
 
 showInside :: MonadWidget t m => Dynamic t FaceViewKit -> m (Dynamic t FaceViewKit)
 showInside dFaceViewKit = showFacetRectangle 0 0 3 3 =<< mapDyn (changeViewKitColor Brown) dFaceViewKit 
 
 showUpperMiddleFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
-showUpperMiddleFace upperLeft = do  
-    upper <-      showAndAdvance 0 2 east upperLeft  -- upper left
-              >>= showFacet 1 2                      -- upper
+showUpperMiddleFace upperRight = do  
+    upper <-       showAndAdvance 2 2 south upperRight  
+    upperLeft <-  showAndAdvance 1 2 west upper      
+                    >>= showFacet 0 2                 
 
-    center <-     advance south upper                -- upper (already shown)
-    _      <-     advance east upper 
-              >>= showFacet 2 2                      -- upper right
+    upperFace <-     advance (south.north) upper
+    upperCornerEv <- showArrow (CW,1) upperFace
+    upperEv <-       showArrow (CCW,1) upperFace
 
-    showArrows center [2,3] [2]
+    rightFace <-     advance (south.north.east) upperRight
+    rightCornerEv <- showArrow (CW,2) rightFace
+
+    return $ leftmost [ upperEv , upperCornerEv 
+                                , rightCornerEv 
+                      ]
+
+
+showMiddleMiddleFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
+showMiddleMiddleFace upperRight = do  
+    right <-      advance east upperRight 
+    _     <-      showAndAdvance 2 1 south right 
+              >>= showFacet 1 1            
+
+    left <-       advance (south.west.south) upperRight
+              >>= showFacet 0 1            
+
+    rightFace <-     advance (south.north) right
+    rightEv <-       showArrow (CCW,2) rightFace
+
+    leftFace <-      advance (south.north) left
+    leftEv <-        showArrow (CCW,0) leftFace
+
+
+    return $ leftmost [ leftEv 
+                      , rightEv 
+                      ]
 
 showLowerMiddleFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
 showLowerMiddleFace lowerLeft = do  
-    _ <-          showAndAdvance 0 0 east lowerLeft  -- lower left
-              >>= showFacet 0 1                      -- left 
+    lower <-       showAndAdvance 0 0 south lowerLeft  
+    lowerRight <-  showAndAdvance 1 0 west lower      
+                    >>= showFacet 2 0                 
 
-    center <-     advance south lowerLeft            -- lower left (already shown)
-              >>= showAndAdvance 1 0 west            -- lower
-              >>= showAndAdvance 2 0 south           -- lower right
-              >>= showAndAdvance 2 1 south           -- right (advance to center)
+    lowerFace <-     advance (south.north) lower
+    lowerCornerEv <- showArrow (CW,3) lowerFace
+    lowerEv <-       showArrow (CCW,3) lowerFace
 
-    showFacet 1 1 center                             -- center
-    showArrows center [0,1] [0,1,3]
+    leftFace <-     advance (south.north.east) lowerLeft
+    leftCornerEv <- showArrow (CW,0) leftFace
+
+    return $ leftmost [ lowerEv , lowerCornerEv 
+                                , leftCornerEv 
+                      ]
 
 facingCamera :: [Float] -> Matrix Float -> Bool
 facingCamera viewPoint modelTransform =
@@ -384,15 +426,23 @@ topInsideView model@(Model center _ _)  =
     then empty
     else foldl (kitmapUpdate model (not withTwist) (1.0/6.0)) empty [getLowerLeft center]
 
+upperRights :: Model -> [Facet]
+upperRights model@(Model center _ _)   =
+    let upperRight = (north.getLowerLeft) center
+        advancers = [ west.west.south
+                    , west.west.south
+                    , west.west.south
+                    ]
+    in scanl (&) upperRight advancers  -- get upper left corners of all faces
+
 upperMiddleView :: Model -> Map Color FaceViewKit
 upperMiddleView model@(Model center _ _)   =
-    let upperLeft = (west.getLowerLeft) center
-        advancers = [ north.east.east
-                    , north.east.east
-                    , north.east.east
-                    ]
-        upperLefts = scanl (&) upperLeft advancers  -- get upper left corners of all faces
-    in foldl (kitmapUpdate model withTwist 0.5) empty upperLefts
+    foldl (kitmapUpdate model withTwist 0.5) empty $ upperRights model
+
+middleMiddleView :: Model -> Map Color FaceViewKit
+middleMiddleView model@(Model center _ _)   =
+    foldl (kitmapUpdate model (not withTwist) 0.5) empty $ upperRights model
+
 
 bottomView :: Model -> Map Color FaceViewKit
 bottomView model@(Model center _ _)  =
@@ -452,6 +502,7 @@ viewModel :: MonadWidget t m => Dynamic t Model -> m (Event t Action)
 viewModel model = do
     bottomMap <-                    mapDyn bottomView model
     lowerMiddleMap <-               mapDyn lowerMiddleView model
+    middleMiddleMap <-              mapDyn middleMiddleView model
     bottomInsideMap <-              mapDyn bottomInsideView model
     topInsideMap <-                 mapDyn topInsideView model
     upperMiddleMap <-               mapDyn upperMiddleView model
@@ -459,6 +510,7 @@ viewModel model = do
 
     bottomEventsWithKeys <-         listWithKey bottomMap $ const showFace
     lowerMiddleEventsWithKeys <-    listWithKey lowerMiddleMap $ const showLowerMiddleFace
+    middleMiddleEventsWithKeys <-   listWithKey middleMiddleMap $ const showMiddleMiddleFace
     _ <-                            listWithKey bottomInsideMap $ const showInside
     _ <-                            listWithKey topInsideMap $ const showInside
     upperMiddleEventsWithKeys <-    listWithKey upperMiddleMap $ const showUpperMiddleFace
@@ -467,8 +519,9 @@ viewModel model = do
     let topEvent = switch $ (leftmost . elems) <$> current topEventsWithKeys
         bottomEvent = switch $ (leftmost . elems) <$> current bottomEventsWithKeys
         lowerMiddleEvent = switch $ (leftmost . elems) <$> current lowerMiddleEventsWithKeys
+        middleMiddleEvent = switch $ (leftmost . elems) <$> current middleMiddleEventsWithKeys
         upperMiddleEvent = switch $ (leftmost . elems) <$> current upperMiddleEventsWithKeys
-    return $ leftmost [topEvent, lowerMiddleEvent, upperMiddleEvent, bottomEvent]
+    return $ leftmost [topEvent, lowerMiddleEvent, middleMiddleEvent, upperMiddleEvent, bottomEvent]
 
 fps = "style" =: "float:left;padding:10px" 
 cps = "style" =: "float:clear" 
