@@ -15,6 +15,7 @@ import Matrices
 import Rotation
 import Direction
 import Action
+import Color
 import TwistMode
 import Cube
 import Model
@@ -152,7 +153,7 @@ showFace lowerLeft = do
                       ]
 
 showInside :: MonadWidget t m => Dynamic t FaceViewKit -> m (Dynamic t FaceViewKit)
-showInside dFaceViewKit = showFacetRectangle 0 0 3 3 =<< mapDyn (changeViewKitColor Brown) dFaceViewKit 
+showInside dFaceViewKit = showFacetRectangle 0 0 3 3 =<< mapDyn (changeViewKitColor Maroon) dFaceViewKit 
 
 showUpperMiddleFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
 showUpperMiddleFace upperRight = do  
@@ -384,8 +385,7 @@ viewTransformation model@(Model topFace orientation twist twistMode) viewCenterF
 
 insideFacesCamera :: Model -> Facet -> Bool
 insideFacesCamera model facet = 
-    let (_,isFacingCamera) = 
-            viewTransformation model facet False (1.0/6.0)
+    let (_,isFacingCamera) = viewTransformation model facet False (1.0/6.0)
     in isFacingCamera
 
 viewKit :: Model -> Facet -> Bool -> Float -> (Bool, FaceViewKit)

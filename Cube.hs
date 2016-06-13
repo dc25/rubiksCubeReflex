@@ -10,15 +10,6 @@ module Cube ( DNode(DNode)
             , color
             , index
 
-            , Color( Red 
-                   , Green 
-                   , Blue 
-                   , Yellow 
-                   , Orange 
-                   , Purple 
-                   , Black 
-                   , Brown  )
-
             ) where
 
 import Prelude(Eq, Ord, (==), ($), (.), (+), compare, concat, replicate, Show, Enum, Int)
@@ -27,8 +18,7 @@ import Data.List (foldl)
 import Data.Maybe (fromMaybe)
 
 import Rotation
-
-data Color = Red | Green | Blue | Yellow | Orange | Purple | Black | Brown deriving (Show,Eq,Ord,Enum)
+import Color
 
 data DNode a = DNode { north :: DNode a
                      , west  :: DNode a
