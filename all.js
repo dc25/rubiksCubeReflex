@@ -63829,150 +63829,150 @@ function h$$Od()
 function h$$Op()
 {
   h$bh();
-  h$l3(h$mainZCCubezizdfEqColor, h$mainZCCubezizdfEqColor, h$ghczmprimZCGHCziClasseszizdfEqZLz2cUZR);
+  h$l3(h$mainZCColorzizdfEqColor, h$mainZCColorzizdfEqColor, h$ghczmprimZCGHCziClasseszizdfEqZLz2cUZR);
   return h$ap_2_2_fast();
 };
 function h$$Oo()
 {
   h$bh();
-  h$l4(h$mainZCCubezizdfOrdColor, h$mainZCCubezizdfOrdColor, h$c(h$$Op), h$ghczmprimZCGHCziClasseszizdfOrdZLz2cUZR);
+  h$l4(h$mainZCColorzizdfOrdColor, h$mainZCColorzizdfOrdColor, h$c(h$$Op), h$ghczmprimZCGHCziClasseszizdfOrdZLz2cUZR);
   return h$ap_3_3_fast();
 };
 function h$$On()
 {
   h$bh();
-  var a = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziYellow);
+  var a = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziYellow);
   var b = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$mainZCCubeziOrange, h$mainZCCubeziYellow), h$mainZCCubezisouth);
+  h$mainZCColorziOrange, h$mainZCColorziYellow), h$mainZCCubezisouth);
   var c = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziYellow), h$mainZCCubezisouth),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziYellow), h$mainZCCubezisouth),
   h$ghczmprimZCGHCziTypesziZMZN);
-  var d = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziRed);
+  var d = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziRed);
   var e = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$mainZCCubeziOrange, h$mainZCCubeziRed), h$mainZCCubezieast);
+  h$mainZCColorziOrange, h$mainZCColorziRed), h$mainZCCubezieast);
   var f = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziRed), h$mainZCCubezieast),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziRed), h$mainZCCubezieast),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziYellow), h$mainZCCubezisouth),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziYellow), h$mainZCCubezisouth),
   h$ghczmprimZCGHCziTypesziZMZN));
-  var g = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziGreen);
+  var g = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziGreen);
   var h = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$mainZCCubeziOrange, h$mainZCCubeziGreen), h$mainZCCubezinorth);
+  h$mainZCColorziOrange, h$mainZCColorziGreen), h$mainZCCubezinorth);
   var i = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziGreen), h$mainZCCubezinorth),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziGreen), h$mainZCCubezinorth),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziRed), h$mainZCCubezieast),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziRed), h$mainZCCubezieast),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziYellow), h$mainZCCubezisouth),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziYellow), h$mainZCCubezisouth),
   h$ghczmprimZCGHCziTypesziZMZN)));
-  var j = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziBlue);
+  var j = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziBlue);
   var k = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$mainZCCubeziOrange, h$mainZCCubeziBlue), h$mainZCCubeziwest);
+  h$mainZCColorziOrange, h$mainZCColorziBlue), h$mainZCCubeziwest);
   var l = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziBlue), h$mainZCCubeziwest),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziBlue), h$mainZCCubeziwest),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziGreen), h$mainZCCubezinorth),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziGreen), h$mainZCCubezinorth),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziRed), h$mainZCCubezieast),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziRed), h$mainZCCubezieast),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziYellow), h$mainZCCubezisouth),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziYellow), h$mainZCCubezisouth),
   h$ghczmprimZCGHCziTypesziZMZN))));
-  var m = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue, h$mainZCCubeziPurple);
-  var n = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue,
-  h$mainZCCubeziPurple), h$mainZCCubezisouth);
+  var m = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue, h$mainZCColorziPurple);
+  var n = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue,
+  h$mainZCColorziPurple), h$mainZCCubezisouth);
   var o = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue, h$mainZCCubeziPurple), h$mainZCCubezisouth),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue, h$mainZCColorziPurple), h$mainZCCubezisouth),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziBlue), h$mainZCCubeziwest),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziBlue), h$mainZCCubeziwest),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziGreen), h$mainZCCubezinorth),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziGreen), h$mainZCCubezinorth),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziRed), h$mainZCCubezieast),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziRed), h$mainZCCubezieast),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziYellow), h$mainZCCubezisouth),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziYellow), h$mainZCCubezisouth),
   h$ghczmprimZCGHCziTypesziZMZN)))));
-  var p = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue, h$mainZCCubeziYellow);
-  var q = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue,
-  h$mainZCCubeziYellow), h$mainZCCubezieast);
-  var r = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue, h$mainZCCubeziOrange);
+  var p = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue, h$mainZCColorziYellow);
+  var q = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue,
+  h$mainZCColorziYellow), h$mainZCCubezieast);
+  var r = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue, h$mainZCColorziOrange);
   var s = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue, h$mainZCCubeziOrange), h$mainZCCubezinorth),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue, h$mainZCColorziOrange), h$mainZCCubezinorth),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue, h$mainZCCubeziYellow), h$mainZCCubezieast),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue, h$mainZCColorziYellow), h$mainZCCubezieast),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue, h$mainZCCubeziPurple), h$mainZCCubezisouth),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue, h$mainZCColorziPurple), h$mainZCCubezisouth),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziBlue), h$mainZCCubeziwest),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziBlue), h$mainZCCubeziwest),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziGreen), h$mainZCCubezinorth),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziGreen), h$mainZCCubezinorth),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziRed), h$mainZCCubezieast),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziRed), h$mainZCCubezieast),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, a, h$mainZCCubezisouth),
   h$ghczmprimZCGHCziTypesziZMZN)))))));
-  var t = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue,
-  h$mainZCCubeziGreen), h$mainZCCubeziwest);
-  var u = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen, h$mainZCCubeziPurple);
+  var t = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue,
+  h$mainZCColorziGreen), h$mainZCCubeziwest);
+  var u = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen, h$mainZCColorziPurple);
   var v = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen, h$mainZCCubeziPurple), h$mainZCCubezisouth),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen, h$mainZCColorziPurple), h$mainZCCubezisouth),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue, h$mainZCCubeziGreen), h$mainZCCubeziwest),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue, h$mainZCColorziGreen), h$mainZCCubeziwest),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue, h$mainZCCubeziOrange), h$mainZCCubezinorth),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue, h$mainZCColorziOrange), h$mainZCCubezinorth),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue, h$mainZCCubeziYellow), h$mainZCCubezieast),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue, h$mainZCColorziYellow), h$mainZCCubezieast),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue, h$mainZCCubeziPurple), h$mainZCCubezisouth),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue, h$mainZCColorziPurple), h$mainZCCubezisouth),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziBlue), h$mainZCCubeziwest),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziBlue), h$mainZCCubeziwest),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, g, h$mainZCCubezinorth),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, e, c))))))));
-  var w = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen,
-  h$mainZCCubeziBlue), h$mainZCCubezieast);
-  var x = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen, h$mainZCCubeziOrange);
+  var w = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
+  h$mainZCColorziGreen, h$mainZCColorziBlue), h$mainZCCubezieast);
+  var x = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen, h$mainZCColorziOrange);
   var y = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed, h$mainZCCubeziPurple), h$mainZCCubezisouth),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed, h$mainZCColorziPurple), h$mainZCCubezisouth),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen, h$mainZCCubeziRed), h$mainZCCubeziwest),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen, h$mainZCColorziRed), h$mainZCCubeziwest),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen, h$mainZCCubeziOrange), h$mainZCCubezinorth),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen, h$mainZCColorziOrange), h$mainZCCubezinorth),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen, h$mainZCCubeziBlue), h$mainZCCubezieast),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen, h$mainZCColorziBlue), h$mainZCCubezieast),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen, h$mainZCCubeziPurple), h$mainZCCubezisouth),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen, h$mainZCColorziPurple), h$mainZCCubezisouth),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue, h$mainZCCubeziGreen), h$mainZCCubeziwest),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue, h$mainZCColorziGreen), h$mainZCCubeziwest),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, r, h$mainZCCubezinorth),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, q, o))))))));
-  var z = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed,
-  h$mainZCCubeziGreen), h$mainZCCubezieast);
-  var A = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed, h$mainZCCubeziOrange);
+  var z = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed,
+  h$mainZCColorziGreen), h$mainZCCubezieast);
+  var A = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed, h$mainZCColorziOrange);
   var B = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow, h$mainZCCubeziPurple), h$mainZCCubezisouth),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow, h$mainZCColorziPurple), h$mainZCCubezisouth),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed, h$mainZCCubeziYellow), h$mainZCCubeziwest),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed, h$mainZCColorziYellow), h$mainZCCubeziwest),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed, h$mainZCCubeziOrange), h$mainZCCubezinorth),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed, h$mainZCColorziOrange), h$mainZCCubezinorth),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed, h$mainZCCubeziGreen), h$mainZCCubezieast),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed, h$mainZCColorziGreen), h$mainZCCubezieast),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed, h$mainZCCubeziPurple), h$mainZCCubezisouth),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed, h$mainZCColorziPurple), h$mainZCCubezisouth),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen, h$mainZCCubeziRed), h$mainZCCubeziwest),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen, h$mainZCColorziRed), h$mainZCCubeziwest),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, x, h$mainZCCubezinorth),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, w, v))))))));
   var C = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$mainZCCubeziYellow, h$mainZCCubeziRed), h$mainZCCubezieast);
-  var D = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow, h$mainZCCubeziOrange);
+  h$mainZCColorziYellow, h$mainZCColorziRed), h$mainZCCubezieast);
+  var D = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow, h$mainZCColorziOrange);
   h$l3(h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziPurple, h$mainZCCubeziBlue), h$mainZCCubeziwest),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziPurple, h$mainZCColorziBlue), h$mainZCCubeziwest),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziPurple, h$mainZCCubeziYellow), h$mainZCCubezinorth),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziPurple, h$mainZCColorziYellow), h$mainZCCubezinorth),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziPurple, h$mainZCCubeziRed), h$mainZCCubezieast),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziPurple, h$mainZCColorziRed), h$mainZCCubezieast),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziPurple, h$mainZCCubeziGreen), h$mainZCCubezisouth),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziPurple, h$mainZCColorziGreen), h$mainZCCubezisouth),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow, h$mainZCCubeziBlue), h$mainZCCubeziwest),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow, h$mainZCColorziBlue), h$mainZCCubeziwest),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, D, h$mainZCCubezinorth),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, C, B))))))), h$c(h$$Oo),
   h$contazu5w3UY4chXx62LVUOUrXeRmZCDataziMapziBasezifromList);
@@ -64007,13 +64007,13 @@ function h$$Oj()
 function h$$Oi()
 {
   h$bh();
-  h$l3(h$mainZCCubezizdfEqColor, h$mainZCCubezizdfEqColor, h$ghczmprimZCGHCziClasseszizdfEqZLz2cUZR);
+  h$l3(h$mainZCColorzizdfEqColor, h$mainZCColorzizdfEqColor, h$ghczmprimZCGHCziClasseszizdfEqZLz2cUZR);
   return h$ap_2_2_fast();
 };
 function h$$Oh()
 {
   h$bh();
-  h$l4(h$mainZCCubezizdfOrdColor, h$mainZCCubezizdfOrdColor, h$c(h$$Oi), h$ghczmprimZCGHCziClasseszizdfOrdZLz2cUZR);
+  h$l4(h$mainZCColorzizdfOrdColor, h$mainZCColorzizdfOrdColor, h$c(h$$Oi), h$ghczmprimZCGHCziClasseszizdfOrdZLz2cUZR);
   return h$ap_3_3_fast();
 };
 var h$$mainZCView_e = h$str("View.hs:496:9-70|Just goLeft");
@@ -64646,7 +64646,7 @@ function h$$Pv()
   h$sp -= 4;
   if(a)
   {
-    h$l5(b, h$c1(h$$Py, d), h$c1(h$$Pw, c), h$mainZCCubezizdfOrdColor,
+    h$l5(b, h$c1(h$$Py, d), h$c1(h$$Pw, c), h$mainZCColorzizdfOrdColor,
     h$contazu5w3UY4chXx62LVUOUrXeRmZCDataziMapziBaseziinsert);
     return h$ap_4_4_fast();
   }
@@ -64995,21 +64995,21 @@ function h$$Q9()
   var g = h$c(h$$Rv);
   var h = h$c(h$$Rr);
   var i = h$c(h$$Rk);
-  h$l3(h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziPurple,
+  h$l3(h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziPurple,
   h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$ghczmprimZCGHCziTypesziZMZN, h$ghczmprimZCGHCziTypesziZMZN)),
-  h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow,
+  h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow,
   h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c(h$$Ra),
   h$ghczmprimZCGHCziTypesziZMZN), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c(h$$Rd), h$ghczmprimZCGHCziTypesziZMZN))),
-  h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed,
+  h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed,
   h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c(h$$Rh),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, i, h$ghczmprimZCGHCziTypesziZMZN)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
   h$c(h$$Rn), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h, h$ghczmprimZCGHCziTypesziZMZN)))),
-  h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen,
+  h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen,
   h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, g, f),
   h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, e, d))), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, c, b)),
-  h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, a),
-  h$ghczmprimZCGHCziTypesziZMZN)))))), h$mainZCCubezizdfOrdColor,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, c, b)),
+  h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, a),
+  h$ghczmprimZCGHCziTypesziZMZN)))))), h$mainZCColorzizdfOrdColor,
   h$contazu5w3UY4chXx62LVUOUrXeRmZCDataziMapziBasezifromList);
   return h$ap_2_2_fast();
 };
@@ -65032,7 +65032,7 @@ function h$$Q6()
   h$l2(a, h$mainZCCubezicolor);
   return h$ap_1_1_fast();
 };
-var h$$mainZCView_F = h$str("View.hs:355:9-62|Just (postTwist, preTwist)");
+var h$$mainZCView_F = h$str("View.hs:356:9-62|Just (postTwist, preTwist)");
 function h$$Q5()
 {
   var a = h$r1;
@@ -65055,7 +65055,7 @@ function h$$Q4()
   var b = h$r1.d2;
   h$bh();
   h$p1(h$$Q5);
-  h$l4(a, b, h$mainZCCubezizdfOrdColor, h$contazu5w3UY4chXx62LVUOUrXeRmZCDataziMapziBasezilookup);
+  h$l4(a, b, h$mainZCColorzizdfOrdColor, h$contazu5w3UY4chXx62LVUOUrXeRmZCDataziMapziBasezilookup);
   return h$ap_3_3_fast();
 };
 function h$$Q3()
@@ -65204,7 +65204,7 @@ function h$$QL()
   h$ghczmprimZCGHCziTypesziZMZN)), h$c3(h$$QM, a, d, b.d3), h$baseZCGHCziBasezizpzp);
   return h$ap_2_2_fast();
 };
-var h$$mainZCView_R = h$str("View.hs:354:9-64|Just (assembleMatricies, _)");
+var h$$mainZCView_R = h$str("View.hs:355:9-64|Just (assembleMatricies, _)");
 function h$$QK()
 {
   var a = h$r1;
@@ -65234,7 +65234,7 @@ function h$$QI()
   var b = h$r1.d2;
   h$bh();
   h$p1(h$$QJ);
-  h$l4(a, b, h$mainZCCubezizdfOrdColor, h$contazu5w3UY4chXx62LVUOUrXeRmZCDataziMapziBasezilookup);
+  h$l4(a, b, h$mainZCColorzizdfOrdColor, h$contazu5w3UY4chXx62LVUOUrXeRmZCDataziMapziBasezilookup);
   return h$ap_3_3_fast();
 };
 function h$$QH()
@@ -65264,378 +65264,378 @@ function h$$QF()
 function h$$QE()
 {
   h$bh();
-  h$l3(h$mainZCCubezizdfEqColor, h$mainZCCubezizdfEqColor, h$ghczmprimZCGHCziClasseszizdfEqZLz2cUZR);
+  h$l3(h$mainZCColorzizdfEqColor, h$mainZCColorzizdfEqColor, h$ghczmprimZCGHCziClasseszizdfEqZLz2cUZR);
   return h$ap_2_2_fast();
 };
 function h$$QD()
 {
   h$bh();
-  h$l4(h$mainZCCubezizdfOrdColor, h$mainZCCubezizdfOrdColor, h$c(h$$QE), h$ghczmprimZCGHCziClasseszizdfOrdZLz2cUZR);
+  h$l4(h$mainZCColorzizdfOrdColor, h$mainZCColorzizdfOrdColor, h$c(h$$QE), h$ghczmprimZCGHCziClasseszizdfOrdZLz2cUZR);
   return h$ap_3_3_fast();
 };
 function h$$QC()
 {
   h$bh();
   var a = h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0);
-  var b = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziPurple);
+  var b = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziPurple);
   var c = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$mainZCCubeziOrange, h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0));
+  h$mainZCColorziOrange, h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0));
   var d = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziPurple),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziPurple),
   h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$ghczmprimZCGHCziTypesziZMZN);
   var e = h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2);
-  var f = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziBlue);
+  var f = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziBlue);
   var g = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$mainZCCubeziOrange, h$mainZCCubeziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2));
+  h$mainZCColorziOrange, h$mainZCColorziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2));
   var h = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziBlue),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziBlue),
   h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$ghczmprimZCGHCziTypesziZMZN));
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$ghczmprimZCGHCziTypesziZMZN));
   var i = h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2);
-  var j = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziGreen);
+  var j = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziGreen);
   var k = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$mainZCCubeziOrange, h$mainZCCubeziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2));
+  h$mainZCColorziOrange, h$mainZCColorziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2));
   var l = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziGreen),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziGreen),
   h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$ghczmprimZCGHCziTypesziZMZN)));
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$ghczmprimZCGHCziTypesziZMZN)));
   var m = h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2);
-  var n = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziRed);
+  var n = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziRed);
   var o = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$mainZCCubeziOrange, h$mainZCCubeziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2));
+  h$mainZCColorziOrange, h$mainZCColorziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2));
   var p = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziRed),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziRed),
   h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$ghczmprimZCGHCziTypesziZMZN))));
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$ghczmprimZCGHCziTypesziZMZN))));
   var q = h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2);
-  var r = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziYellow);
+  var r = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziYellow);
   var s = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$mainZCCubeziOrange, h$mainZCCubeziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2));
+  h$mainZCColorziOrange, h$mainZCColorziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2));
   var t = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange, h$mainZCCubeziYellow),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange, h$mainZCColorziYellow),
   h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$ghczmprimZCGHCziTypesziZMZN)))));
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$ghczmprimZCGHCziTypesziZMZN)))));
   var u = h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3);
-  var v = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed, h$mainZCCubeziOrange);
-  var w = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed,
-  h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3));
+  var v = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed, h$mainZCColorziOrange);
+  var w = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed,
+  h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3));
   var x = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed, h$mainZCCubeziOrange),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed, h$mainZCColorziOrange),
   h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$ghczmprimZCGHCziTypesziZMZN))))));
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$ghczmprimZCGHCziTypesziZMZN))))));
   var y = h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2);
-  var z = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen, h$mainZCCubeziOrange);
-  var A = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen,
-  h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2));
+  var z = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen, h$mainZCColorziOrange);
+  var A = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
+  h$mainZCColorziGreen, h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2));
   var B = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen, h$mainZCCubeziOrange),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen, h$mainZCColorziOrange),
   h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed,
-  h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed,
+  h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
   h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, b, a), h$ghczmprimZCGHCziTypesziZMZN)))))));
   var C = h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1);
-  var D = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue, h$mainZCCubeziOrange);
-  var E = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue,
-  h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1));
+  var D = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue, h$mainZCColorziOrange);
+  var E = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue,
+  h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1));
   var F = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue, h$mainZCCubeziOrange),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue, h$mainZCColorziOrange),
   h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen,
-  h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed,
-  h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen,
+  h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed,
+  h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
   h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, f, e), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, c,
   h$ghczmprimZCGHCziTypesziZMZN))))))));
   var G = h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0);
-  var H = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow, h$mainZCCubeziOrange);
+  var H = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow, h$mainZCColorziOrange);
   var I = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$mainZCCubeziYellow, h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0));
+  h$mainZCColorziYellow, h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0));
   var J = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow, h$mainZCCubeziOrange),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow, h$mainZCColorziOrange),
   h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue,
-  h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen,
-  h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed,
-  h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue,
+  h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen,
+  h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed,
+  h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
   h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, j, i), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, g, d))))))));
   var K = h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3);
-  var L = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed, h$mainZCCubeziPurple);
-  var M = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3));
+  var L = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed, h$mainZCColorziPurple);
+  var M = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3));
   var N = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed, h$mainZCCubeziPurple),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed, h$mainZCColorziPurple),
   h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow,
-  h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue,
-  h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen,
-  h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed,
-  h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow,
+  h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue,
+  h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen,
+  h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed,
+  h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
   h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, n, m), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, k, h))))))));
   var O = h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2);
-  var P = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow, h$mainZCCubeziPurple);
+  var P = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow, h$mainZCColorziPurple);
   var Q = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$mainZCCubeziYellow, h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2));
+  h$mainZCColorziYellow, h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2));
   var R = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow, h$mainZCCubeziPurple),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow, h$mainZCColorziPurple),
   h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow,
-  h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue,
-  h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen,
-  h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed,
-  h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow,
+  h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue,
+  h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen,
+  h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed,
+  h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
   h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, r, q), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, o, l))))))));
   var S = h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1);
-  var T = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue, h$mainZCCubeziPurple);
-  var U = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1));
+  var T = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue, h$mainZCColorziPurple);
+  var U = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1));
   var V = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue, h$mainZCCubeziPurple),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue, h$mainZCColorziPurple),
   h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow,
-  h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue,
-  h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen,
-  h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow,
+  h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue,
+  h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen,
+  h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
   h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, v, u), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, s, p))))))));
   var W = h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0);
-  var X = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen, h$mainZCCubeziPurple);
-  var Y = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0));
+  var X = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen, h$mainZCColorziPurple);
+  var Y = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
+  h$mainZCColorziGreen, h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0));
   var Z = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen, h$mainZCCubeziPurple),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen, h$mainZCColorziPurple),
   h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow,
-  h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue,
-  h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow,
+  h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue,
+  h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
   h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, z, y), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, w, t))))))));
   var aa = h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3);
-  var ab = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow, h$mainZCCubeziBlue);
+  var ab = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow, h$mainZCColorziBlue);
   var ac = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$mainZCCubeziYellow, h$mainZCCubeziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3));
+  h$mainZCColorziYellow, h$mainZCColorziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3));
   var ad = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow, h$mainZCCubeziBlue),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow, h$mainZCColorziBlue),
   h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow,
-  h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow,
+  h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
   h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, D, C), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, A, x))))))));
   var ae = h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3);
-  var af = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed, h$mainZCCubeziYellow);
-  var ag = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed,
-  h$mainZCCubeziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3));
+  var af = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed, h$mainZCColorziYellow);
+  var ag = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed,
+  h$mainZCColorziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3));
   var ah = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed, h$mainZCCubeziYellow),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed, h$mainZCColorziYellow),
   h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow,
-  h$mainZCCubeziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow,
+  h$mainZCColorziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
   h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, H, G), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, E, B))))))));
   var ai = h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3);
-  var aj = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen, h$mainZCCubeziRed);
+  var aj = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen, h$mainZCColorziRed);
   var ak = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$mainZCCubeziGreen, h$mainZCCubeziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3));
+  h$mainZCColorziGreen, h$mainZCColorziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3));
   var al = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen, h$mainZCCubeziRed),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen, h$mainZCColorziRed),
   h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed,
-  h$mainZCCubeziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow,
-  h$mainZCCubeziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed,
+  h$mainZCColorziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow,
+  h$mainZCColorziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
   h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, L, K), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, I, F))))))));
   var am = h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3);
-  var an = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue, h$mainZCCubeziGreen);
-  var ao = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue,
-  h$mainZCCubeziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3));
+  var an = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue, h$mainZCColorziGreen);
+  var ao = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
+  h$mainZCColorziBlue, h$mainZCColorziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3));
   var ap = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue, h$mainZCCubeziGreen),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue, h$mainZCColorziGreen),
   h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen,
-  h$mainZCCubeziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed,
-  h$mainZCCubeziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow,
-  h$mainZCCubeziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen,
+  h$mainZCColorziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed,
+  h$mainZCColorziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow,
+  h$mainZCColorziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
   h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, P, O), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, M, J))))))));
   var aq = h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2);
-  var ar = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow, h$mainZCCubeziGreen);
+  var ar = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow, h$mainZCColorziGreen);
   var as = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$mainZCCubeziYellow, h$mainZCCubeziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2));
+  h$mainZCColorziYellow, h$mainZCColorziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2));
   var at = h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2);
-  var au = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed, h$mainZCCubeziBlue);
+  var au = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed, h$mainZCColorziBlue);
   var av = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed, h$mainZCCubeziBlue),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed, h$mainZCColorziBlue),
   h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow,
-  h$mainZCCubeziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue,
-  h$mainZCCubeziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen,
-  h$mainZCCubeziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed,
-  h$mainZCCubeziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow,
-  h$mainZCCubeziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow,
+  h$mainZCColorziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue,
+  h$mainZCColorziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen,
+  h$mainZCColorziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed,
+  h$mainZCColorziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow,
+  h$mainZCColorziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
   h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, X, W), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, U, R))))))));
   var aw = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$mainZCCubeziGreen, h$mainZCCubeziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2));
+  h$mainZCColorziGreen, h$mainZCColorziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2));
   var ax = h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2);
-  var ay = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue, h$mainZCCubeziRed);
+  var ay = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue, h$mainZCColorziRed);
   var az = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue, h$mainZCCubeziRed),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue, h$mainZCColorziRed),
   h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen,
-  h$mainZCCubeziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed,
-  h$mainZCCubeziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow,
-  h$mainZCCubeziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue,
-  h$mainZCCubeziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen,
-  h$mainZCCubeziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen,
+  h$mainZCColorziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed,
+  h$mainZCColorziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow,
+  h$mainZCColorziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue,
+  h$mainZCColorziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen,
+  h$mainZCColorziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 3)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
   h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, af, ae), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, ac, Z))))))));
   var aA = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$mainZCCubeziYellow, h$mainZCCubeziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1));
+  h$mainZCColorziYellow, h$mainZCColorziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1));
   var aB = h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1);
-  var aC = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed, h$mainZCCubeziGreen);
+  var aC = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed, h$mainZCColorziGreen);
   var aD = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue, h$mainZCCubeziYellow),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue, h$mainZCColorziYellow),
   h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen,
-  h$mainZCCubeziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed,
-  h$mainZCCubeziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow,
-  h$mainZCCubeziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue,
-  h$mainZCCubeziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen,
-  h$mainZCCubeziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen,
+  h$mainZCColorziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed,
+  h$mainZCColorziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow,
+  h$mainZCColorziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue,
+  h$mainZCColorziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen,
+  h$mainZCColorziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 2)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
   h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, au, at), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, as, ap))))))));
   var aE = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$mainZCCubeziOrange, h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0));
+  h$mainZCColorziOrange, h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0));
   var aF = h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0);
-  var aG = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow, h$mainZCCubeziYellow);
+  var aG = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow, h$mainZCColorziYellow);
   var aH = h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen, h$mainZCCubeziGreen),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen, h$mainZCColorziGreen),
   h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziRed,
-  h$mainZCCubeziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziYellow,
-  h$mainZCCubeziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziOrange,
-  h$mainZCCubeziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue,
-  h$mainZCCubeziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziGreen,
-  h$mainZCCubeziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziRed,
+  h$mainZCColorziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziYellow,
+  h$mainZCColorziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziOrange,
+  h$mainZCColorziOrange), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziBlue,
+  h$mainZCColorziYellow), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziGreen,
+  h$mainZCColorziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 1)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
   h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, aC, aB), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, aA, az))))))));
-  var aI = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziBlue,
-  h$mainZCCubeziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0));
+  var aI = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
+  h$mainZCColorziBlue, h$mainZCColorziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0));
   var aJ = h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0);
-  var aK = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziPurple, h$mainZCCubeziOrange);
+  var aK = h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziPurple, h$mainZCColorziOrange);
   h$l3(h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziPurple, h$mainZCCubeziYellow),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziPurple, h$mainZCColorziYellow),
   h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziPurple,
-  h$mainZCCubeziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziPurple,
-  h$mainZCCubeziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziPurple,
-  h$mainZCCubeziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCCubeziPurple,
-  h$mainZCCubeziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziPurple,
+  h$mainZCColorziRed), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziPurple,
+  h$mainZCColorziPurple), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziPurple,
+  h$mainZCColorziGreen), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$mainZCColorziPurple,
+  h$mainZCColorziBlue), h$c1(h$integerzmgmpZCGHCziIntegerziTypeziSzh_con_e, 0)), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e,
   h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, aK, aJ), h$c2(h$ghczmprimZCGHCziTypesziZC_con_e, aI, aH))))))),
   h$c(h$$QD), h$contazu5w3UY4chXx62LVUOUrXeRmZCDataziMapziBasezifromList);
   return h$ap_2_2_fast();
@@ -65643,16 +65643,16 @@ function h$$QC()
 function h$$QB()
 {
   h$bh();
-  h$l3(h$mainZCCubezizdfEqColor, h$mainZCCubezizdfEqColor, h$ghczmprimZCGHCziClasseszizdfEqZLz2cUZR);
+  h$l3(h$mainZCColorzizdfEqColor, h$mainZCColorzizdfEqColor, h$ghczmprimZCGHCziClasseszizdfEqZLz2cUZR);
   return h$ap_2_2_fast();
 };
 function h$$QA()
 {
   h$bh();
-  h$l4(h$mainZCCubezizdfOrdColor, h$mainZCCubezizdfOrdColor, h$c(h$$QB), h$ghczmprimZCGHCziClasseszizdfOrdZLz2cUZR);
+  h$l4(h$mainZCColorzizdfOrdColor, h$mainZCColorzizdfOrdColor, h$c(h$$QB), h$ghczmprimZCGHCziClasseszizdfOrdZLz2cUZR);
   return h$ap_3_3_fast();
 };
-var h$$mainZCView_U = h$str("View.hs:305:9-59|Just turnCount");
+var h$$mainZCView_U = h$str("View.hs:306:9-59|Just turnCount");
 function h$$Qz()
 {
   var a = h$r1;
@@ -65826,7 +65826,7 @@ function h$$Qh()
   h$l2(h$c(h$$Qi), h$baseZCGHCziListzizzipWith);
   return h$ap_1_1_fast();
 };
-var h$$mainZCView_Y = h$str("View.hs:(214,9)-(216,54)|function cross");
+var h$$mainZCView_Y = h$str("View.hs:(215,9)-(217,54)|function cross");
 function h$$Qg()
 {
   --h$sp;
@@ -66169,7 +66169,7 @@ function h$$Sa()
   var d = c.d1;
   var e = c.d2;
   var f = c.d3;
-  h$r1 = h$c6(h$mainZCCubeziDNode_con_e, b, d, e, f, h$mainZCCubeziBrown, c.d5);
+  h$r1 = h$c6(h$mainZCCubeziDNode_con_e, b, d, e, f, h$mainZCColorziMaroon, c.d5);
   return h$stack[h$sp];
 };
 function h$$R9()
@@ -67294,7 +67294,7 @@ function h$$Uc()
   var d = c.d1;
   var e = c.d2;
   var f = c.d3;
-  h$r1 = h$c6(h$mainZCCubeziDNode_con_e, b, d, e, f, h$mainZCCubeziBlack, c.d5);
+  h$r1 = h$c6(h$mainZCCubeziDNode_con_e, b, d, e, f, h$mainZCColorziBlack, c.d5);
   return h$stack[h$sp];
 };
 function h$$Ub()
@@ -67612,7 +67612,7 @@ function h$$UA()
 function h$$Uz()
 {
   h$bh();
-  h$l2(h$mainZCCubezizdfShowColor, h$baseZCGHCziShowzishow);
+  h$l2(h$mainZCColorzizdfShowColor, h$baseZCGHCziShowzishow);
   return h$ap_1_1_fast();
 };
 function h$$Uy()
@@ -67686,7 +67686,7 @@ function h$$U4()
   h$l2(h$c2(h$$U5, a, b), h$matrizu682HBa36TWs8HIx1KnWQ3tZCDataziMatrixzitoLists);
   return h$ap_1_1_fast();
 };
-var h$$mainZCView_b7 = h$str("View.hs:32:21-43|lambda");
+var h$$mainZCView_b7 = h$str("View.hs:33:21-43|lambda");
 function h$$U3()
 {
   --h$sp;
@@ -68232,7 +68232,7 @@ function h$$Xu()
   var a = h$r1.d1;
   var b = h$r1.d2;
   h$bh();
-  h$l5(h$c1(h$$Xv, a), b, a, h$mainZCCubezizdfOrdColor,
+  h$l5(h$c1(h$$Xv, a), b, a, h$mainZCColorzizdfOrdColor,
   h$reflezuIbNW0IEhD2N2cZZrEG6FTBQZCReflexziDomziWidgetziBasiczilistWithKey);
   return h$ap_4_4_fast();
 };
@@ -68457,7 +68457,7 @@ function h$$W3()
   var a = h$r1.d1;
   var b = h$r1.d2;
   h$bh();
-  h$l5(h$c1(h$$W4, a), b, a, h$mainZCCubezizdfOrdColor,
+  h$l5(h$c1(h$$W4, a), b, a, h$mainZCColorzizdfOrdColor,
   h$reflezuIbNW0IEhD2N2cZZrEG6FTBQZCReflexziDomziWidgetziBasiczilistWithKey);
   return h$ap_4_4_fast();
 };
@@ -68491,7 +68491,7 @@ function h$$WZ()
   var a = h$r1.d1;
   var b = h$r1.d2;
   h$bh();
-  h$l5(h$c1(h$$W0, a), b, a, h$mainZCCubezizdfOrdColor,
+  h$l5(h$c1(h$$W0, a), b, a, h$mainZCColorzizdfOrdColor,
   h$reflezuIbNW0IEhD2N2cZZrEG6FTBQZCReflexziDomziWidgetziBasiczilistWithKey);
   return h$ap_4_4_fast();
 };
@@ -68734,7 +68734,7 @@ function h$$Wv()
   var a = h$r1.d1;
   var b = h$r1.d2;
   h$bh();
-  h$l5(h$c1(h$$Ww, a), b, a, h$mainZCCubezizdfOrdColor,
+  h$l5(h$c1(h$$Ww, a), b, a, h$mainZCColorzizdfOrdColor,
   h$reflezuIbNW0IEhD2N2cZZrEG6FTBQZCReflexziDomziWidgetziBasiczilistWithKey);
   return h$ap_4_4_fast();
 };
@@ -68769,7 +68769,7 @@ function h$$Wr()
   var a = h$r1.d1;
   var b = h$r1.d2;
   h$bh();
-  h$l5(h$c1(h$$Ws, a), b, a, h$mainZCCubezizdfOrdColor,
+  h$l5(h$c1(h$$Ws, a), b, a, h$mainZCColorzizdfOrdColor,
   h$reflezuIbNW0IEhD2N2cZZrEG6FTBQZCReflexziDomziWidgetziBasiczilistWithKey);
   return h$ap_4_4_fast();
 };
@@ -68996,7 +68996,7 @@ function h$$V0()
   var a = h$r1.d1;
   var b = h$r1.d2;
   h$bh();
-  h$l5(h$c1(h$$V1, a), b, a, h$mainZCCubezizdfOrdColor,
+  h$l5(h$c1(h$$V1, a), b, a, h$mainZCColorzizdfOrdColor,
   h$reflezuIbNW0IEhD2N2cZZrEG6FTBQZCReflexziDomziWidgetziBasiczilistWithKey);
   return h$ap_4_4_fast();
 };
@@ -69031,7 +69031,7 @@ function h$$VW()
   var a = h$r1.d1;
   var b = h$r1.d2;
   h$bh();
-  h$l5(h$c1(h$$VX, a), b, a, h$mainZCCubezizdfOrdColor,
+  h$l5(h$c1(h$$VX, a), b, a, h$mainZCColorzizdfOrdColor,
   h$reflezuIbNW0IEhD2N2cZZrEG6FTBQZCReflexziDomziWidgetziBasiczilistWithKey);
   return h$ap_4_4_fast();
 };
@@ -71081,13 +71081,13 @@ function h$$abq()
 function h$$abM()
 {
   h$bh();
-  h$l3(h$mainZCCubezizdfOrdColor, h$$ach, h$mainZCCubezizdfOrdDNode);
+  h$l3(h$mainZCColorzizdfOrdColor, h$$ach, h$mainZCCubezizdfOrdDNode);
   return h$ap_2_2_fast();
 };
 function h$$abN()
 {
   h$bh();
-  h$l2(h$mainZCCubezizdfEqColor, h$mainZCCubezizdfEqDNode);
+  h$l2(h$mainZCColorzizdfEqColor, h$mainZCCubezizdfEqDNode);
   return h$ap_1_1_fast();
 };
 function h$$ace()
@@ -71153,27 +71153,27 @@ function h$$ab8()
 function h$$ab7()
 {
   h$bh();
-  h$l2(h$mainZCCubezizdfEqColor, h$mainZCCubezizdfEqDNode);
+  h$l2(h$mainZCColorzizdfEqColor, h$mainZCCubezizdfEqDNode);
   return h$ap_1_1_fast();
 };
 function h$$ab6()
 {
   var a = h$r1.d1;
   h$bh();
-  h$l3(h$mainZCCubezizdfOrdColor, a, h$mainZCCubezizdfOrdDNode);
+  h$l3(h$mainZCColorzizdfOrdColor, a, h$mainZCCubezizdfOrdDNode);
   return h$ap_2_2_fast();
 };
 function h$$ab5()
 {
   h$bh();
-  h$l2(h$mainZCCubezizdfEqColor, h$mainZCCubezizdfEqDNode);
+  h$l2(h$mainZCColorzizdfEqColor, h$mainZCCubezizdfEqDNode);
   return h$ap_1_1_fast();
 };
 function h$$ab4()
 {
   var a = h$r1.d1;
   h$bh();
-  h$l3(h$mainZCCubezizdfOrdColor, a, h$mainZCCubezizdfOrdDNode);
+  h$l3(h$mainZCColorzizdfOrdColor, a, h$mainZCCubezizdfOrdDNode);
   return h$ap_2_2_fast();
 };
 function h$$ab3()
@@ -72227,188 +72227,251 @@ function h$$aff()
 {
   h$bh();
   h$p1(h$$afg);
-  return h$e(h$$aiI);
+  return h$e(h$$ahi);
 };
 function h$$afd()
 {
   h$bh();
   h$p1(h$$afe);
-  return h$e(h$$aiI);
+  return h$e(h$$ahi);
 };
 function h$$afb()
 {
   h$bh();
   h$p1(h$$afc);
-  return h$e(h$$aiI);
+  return h$e(h$$ahi);
 };
 function h$$ae9()
 {
   h$bh();
   h$p1(h$$afa);
-  return h$e(h$$aiR);
+  return h$e(h$$ahr);
 };
 function h$$ae7()
 {
   h$bh();
   h$p1(h$$ae8);
-  return h$e(h$$aiR);
+  return h$e(h$$ahr);
 };
 function h$$ae5()
 {
   h$bh();
   h$p1(h$$ae6);
-  return h$e(h$$aiR);
+  return h$e(h$$ahr);
 };
 function h$$ae3()
 {
   h$bh();
   h$p1(h$$ae4);
-  return h$e(h$$aiR);
+  return h$e(h$$ahr);
 };
 function h$$ae1()
 {
   h$bh();
   h$p1(h$$ae2);
-  return h$e(h$$aiP);
+  return h$e(h$$ahp);
 };
 function h$$aeZ()
 {
   h$bh();
   h$p1(h$$ae0);
-  return h$e(h$$aiP);
+  return h$e(h$$ahp);
 };
 function h$$aeX()
 {
   h$bh();
   h$p1(h$$aeY);
-  return h$e(h$$aiP);
+  return h$e(h$$ahp);
 };
 function h$$aeV()
 {
   h$bh();
   h$p1(h$$aeW);
-  return h$e(h$$aiQ);
+  return h$e(h$$ahq);
 };
 function h$$aeT()
 {
   h$bh();
   h$p1(h$$aeU);
-  return h$e(h$$aiQ);
+  return h$e(h$$ahq);
 };
 function h$$aeR()
 {
   h$bh();
   h$p1(h$$aeS);
-  return h$e(h$$aiQ);
+  return h$e(h$$ahq);
 };
 function h$$aeP()
 {
   h$bh();
   h$p1(h$$aeQ);
-  return h$e(h$$aiN);
+  return h$e(h$$ahn);
 };
 function h$$aeN()
 {
   h$bh();
   h$p1(h$$aeO);
-  return h$e(h$$aiN);
+  return h$e(h$$ahn);
 };
 function h$$aeL()
 {
   h$bh();
   h$p1(h$$aeM);
-  return h$e(h$$aiN);
+  return h$e(h$$ahn);
 };
 function h$$aeJ()
 {
   h$bh();
   h$p1(h$$aeK);
-  return h$e(h$$aiO);
+  return h$e(h$$aho);
 };
 function h$$aeH()
 {
   h$bh();
   h$p1(h$$aeI);
-  return h$e(h$$aiO);
+  return h$e(h$$aho);
 };
 function h$$aeF()
 {
   h$bh();
   h$p1(h$$aeG);
-  return h$e(h$$aiO);
+  return h$e(h$$aho);
 };
 function h$$aeE()
 {
   h$bh();
-  h$l6(h$mainZCCubeziOrange, h$$ai2, h$$aiZ, h$$aiW, h$$aiT, h$$ajH);
+  h$l6(h$mainZCColorziOrange, h$$ahC, h$$ahz, h$$ahw, h$$aht, h$$ahU);
   return h$ap_gen_fast(1285);
 };
 function h$$aeD()
 {
   h$bh();
-  h$l6(h$mainZCCubeziGreen, h$$aiV, h$$ai6, h$$ai3, h$$aiH, h$$ajH);
+  h$l6(h$mainZCColorziGreen, h$$ahv, h$$ahG, h$$ahD, h$$ahh, h$$ahU);
   return h$ap_gen_fast(1285);
 };
 function h$$aeC()
 {
   h$bh();
-  h$l6(h$mainZCCubeziRed, h$$aiY, h$$ai7, h$$aiU, h$$aja, h$$ajH);
+  h$l6(h$mainZCColorziRed, h$$ahy, h$$ahH, h$$ahu, h$$ahK, h$$ahU);
   return h$ap_gen_fast(1285);
 };
 function h$$aeB()
 {
   h$bh();
-  h$l6(h$mainZCCubeziYellow, h$$ai1, h$$ai4, h$$aiX, h$$ai9, h$$ajH);
+  h$l6(h$mainZCColorziYellow, h$$ahB, h$$ahE, h$$ahx, h$$ahJ, h$$ahU);
   return h$ap_gen_fast(1285);
 };
 function h$$aeA()
 {
   h$bh();
-  h$l6(h$mainZCCubeziBlue, h$$aiS, h$$ai5, h$$ai0, h$$ai8, h$$ajH);
+  h$l6(h$mainZCColorziBlue, h$$ahs, h$$ahF, h$$ahA, h$$ahI, h$$ahU);
   return h$ap_gen_fast(1285);
 };
 function h$$aey()
 {
   h$bh();
   h$p1(h$$aez);
-  return h$e(h$$aiN);
+  return h$e(h$$ahn);
 };
 function h$$aew()
 {
   h$bh();
   h$p1(h$$aex);
-  return h$e(h$$aiO);
+  return h$e(h$$aho);
 };
 function h$$aeu()
 {
   h$bh();
   h$p1(h$$aev);
-  return h$e(h$$aiP);
+  return h$e(h$$ahp);
 };
 function h$$aes()
 {
   h$bh();
   h$p1(h$$aet);
-  return h$e(h$$aiQ);
+  return h$e(h$$ahq);
 };
 function h$$aer()
 {
   h$bh();
-  h$l6(h$mainZCCubeziPurple, h$$aiK, h$$aiL, h$$aiM, h$$aiJ, h$$ajH);
+  h$l6(h$mainZCColorziPurple, h$$ahk, h$$ahl, h$$ahm, h$$ahj, h$$ahU);
   return h$ap_gen_fast(1285);
 };
 function h$$aep()
 {
   h$bh();
   h$p1(h$$aeq);
-  return h$e(h$$aiI);
+  return h$e(h$$ahi);
+};
+function h$$afk()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$l2(a, h$$ahL);
+  return h$ap_1_1_fast();
+};
+function h$$afj()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$l2(a, h$$ahT);
+  return h$ap_1_1_fast();
+};
+function h$$afi()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$l2(a, h$mainZCCubezizdfEqDNode);
+  return h$ap_1_1_fast();
+};
+function h$mainZCCubezizdfEqDNode_e()
+{
+  h$r1 = h$c2(h$ghczmprimZCGHCziClassesziDZCEq_con_e, h$c1(h$$afj, h$r2), h$c1(h$$afk, h$r2));
+  return h$stack[h$sp];
+};
+function h$$afh()
+{
+  h$l2(h$c1(h$$afi, h$r2), h$ghczmprimZCGHCziClasseszizddmzsze);
+  return h$ap_1_1_fast();
+};
+function h$$afD()
+{
+  var a = h$r1.d1;
+  var b = h$r1.d2;
+  h$bh();
+  h$l3(b, a, h$$ahR);
+  return h$ap_2_2_fast();
+};
+function h$$afC()
+{
+  var a = h$r1.d1;
+  var b = h$r1.d2;
+  h$bh();
+  h$l3(b, a, h$$ahQ);
+  return h$ap_2_2_fast();
+};
+function h$$afB()
+{
+  var a = h$r1.d1;
+  var b = h$r1.d2;
+  h$bh();
+  h$l3(b, a, h$$ahP);
+  return h$ap_2_2_fast();
+};
+function h$$afA()
+{
+  var a = h$r1.d1;
+  var b = h$r1.d2;
+  h$bh();
+  h$l3(b, a, h$$ahO);
+  return h$ap_2_2_fast();
 };
 function h$$afz()
 {
   var a = h$r1.d1;
   var b = h$r1.d2;
   h$bh();
-  h$l3(b, a, h$$ajg);
+  h$l3(b, a, h$$ahN);
   return h$ap_2_2_fast();
 };
 function h$$afy()
@@ -72416,7 +72479,7 @@ function h$$afy()
   var a = h$r1.d1;
   var b = h$r1.d2;
   h$bh();
-  h$l3(b, a, h$$ajf);
+  h$l3(b, a, h$$ahM);
   return h$ap_2_2_fast();
 };
 function h$$afx()
@@ -72424,7 +72487,7 @@ function h$$afx()
   var a = h$r1.d1;
   var b = h$r1.d2;
   h$bh();
-  h$l3(b, a, h$$aje);
+  h$l3(b, a, h$$ahS);
   return h$ap_2_2_fast();
 };
 function h$$afw()
@@ -72432,15 +72495,7 @@ function h$$afw()
   var a = h$r1.d1;
   var b = h$r1.d2;
   h$bh();
-  h$l3(b, a, h$$ajd);
-  return h$ap_2_2_fast();
-};
-function h$$afv()
-{
-  var a = h$r1.d1;
-  var b = h$r1.d2;
-  h$bh();
-  h$l3(b, a, h$$ajc);
+  h$l3(b, a, h$mainZCCubezizdfOrdDNode);
   return h$ap_2_2_fast();
 };
 function h$$afu()
@@ -72448,15 +72503,7 @@ function h$$afu()
   var a = h$r1.d1;
   var b = h$r1.d2;
   h$bh();
-  h$l3(b, a, h$$ajb);
-  return h$ap_2_2_fast();
-};
-function h$$aft()
-{
-  var a = h$r1.d1;
-  var b = h$r1.d2;
-  h$bh();
-  h$l3(b, a, h$$ajz);
+  h$l3(b, a, h$mainZCCubezizdfOrdDNode);
   return h$ap_2_2_fast();
 };
 function h$$afs()
@@ -72491,146 +72538,952 @@ function h$$afm()
   h$l3(b, a, h$mainZCCubezizdfOrdDNode);
   return h$ap_2_2_fast();
 };
-function h$$afk()
-{
-  var a = h$r1.d1;
-  var b = h$r1.d2;
-  h$bh();
-  h$l3(b, a, h$mainZCCubezizdfOrdDNode);
-  return h$ap_2_2_fast();
-};
-function h$$afi()
-{
-  var a = h$r1.d1;
-  var b = h$r1.d2;
-  h$bh();
-  h$l3(b, a, h$mainZCCubezizdfOrdDNode);
-  return h$ap_2_2_fast();
-};
 function h$mainZCCubezizdfOrdDNode_e()
 {
-  h$r1 = h$c8(h$ghczmprimZCGHCziClassesziDZCOrd_con_e, h$r2, h$c2(h$$aft, h$r2, h$r3), h$c2(h$$afu, h$r2, h$r3),
-  h$c2(h$$afv, h$r2, h$r3), h$c2(h$$afw, h$r2, h$r3), h$c2(h$$afx, h$r2, h$r3), h$c2(h$$afy, h$r2, h$r3), h$c2(h$$afz,
+  h$r1 = h$c8(h$ghczmprimZCGHCziClassesziDZCOrd_con_e, h$r2, h$c2(h$$afx, h$r2, h$r3), h$c2(h$$afy, h$r2, h$r3),
+  h$c2(h$$afz, h$r2, h$r3), h$c2(h$$afA, h$r2, h$r3), h$c2(h$$afB, h$r2, h$r3), h$c2(h$$afC, h$r2, h$r3), h$c2(h$$afD,
   h$r2, h$r3));
   return h$stack[h$sp];
 };
+function h$$afv()
+{
+  h$l2(h$c2(h$$afw, h$r2, h$r3), h$ghczmprimZCGHCziClasseszizddmmin);
+  return h$ap_1_1_fast();
+};
+function h$$aft()
+{
+  h$l2(h$c2(h$$afu, h$r2, h$r3), h$ghczmprimZCGHCziClasseszizddmmax);
+  return h$ap_1_1_fast();
+};
 function h$$afr()
 {
-  h$l2(h$c2(h$$afs, h$r2, h$r3), h$ghczmprimZCGHCziClasseszizddmmin);
+  h$l2(h$c2(h$$afs, h$r2, h$r3), h$ghczmprimZCGHCziClasseszizddmzgze);
   return h$ap_1_1_fast();
 };
 function h$$afp()
 {
-  h$l2(h$c2(h$$afq, h$r2, h$r3), h$ghczmprimZCGHCziClasseszizddmmax);
+  h$l2(h$c2(h$$afq, h$r2, h$r3), h$ghczmprimZCGHCziClasseszizddmzg);
   return h$ap_1_1_fast();
 };
 function h$$afn()
 {
-  h$l2(h$c2(h$$afo, h$r2, h$r3), h$ghczmprimZCGHCziClasseszizddmzgze);
+  h$l2(h$c2(h$$afo, h$r2, h$r3), h$ghczmprimZCGHCziClasseszizddmzlze);
   return h$ap_1_1_fast();
 };
 function h$$afl()
 {
-  h$l2(h$c2(h$$afm, h$r2, h$r3), h$ghczmprimZCGHCziClasseszizddmzg);
+  h$l2(h$c2(h$$afm, h$r2, h$r3), h$ghczmprimZCGHCziClasseszizddmzl);
   return h$ap_1_1_fast();
 };
-function h$$afj()
-{
-  h$l2(h$c2(h$$afk, h$r2, h$r3), h$ghczmprimZCGHCziClasseszizddmzlze);
-  return h$ap_1_1_fast();
-};
-function h$$afh()
-{
-  h$l2(h$c2(h$$afi, h$r2, h$r3), h$ghczmprimZCGHCziClasseszizddmzl);
-  return h$ap_1_1_fast();
-};
-function h$$afD()
+function h$$afQ()
 {
   var a = h$r1.d1;
   h$bh();
-  h$l2(a, h$$ajh);
+  h$l2(a, h$ghczmprimZCGHCziClasseszizdp1Ord);
   return h$ap_1_1_fast();
 };
-function h$$afC()
+function h$$afP()
 {
   var a = h$r1.d1;
   h$bh();
-  h$l2(a, h$$ajy);
-  return h$ap_1_1_fast();
+  h$l3(h$ghczmprimZCGHCziClasseszizdfEqInt, a, h$ghczmprimZCGHCziClasseszizdfEqZLz2cUZR);
+  return h$ap_2_2_fast();
 };
-function h$$afB()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$l2(a, h$mainZCCubezizdfEqDNode);
-  return h$ap_1_1_fast();
-};
-function h$mainZCCubezizdfEqDNode_e()
-{
-  h$r1 = h$c2(h$ghczmprimZCGHCziClassesziDZCEq_con_e, h$c1(h$$afC, h$r2), h$c1(h$$afD, h$r2));
-  return h$stack[h$sp];
-};
-function h$$afA()
-{
-  h$l2(h$c1(h$$afB, h$r2), h$ghczmprimZCGHCziClasseszizddmzsze);
-  return h$ap_1_1_fast();
-};
-function h$$afF()
-{
-  h$bh();
-  h$l2(h$mainZCCubezizdfEnumColor, h$baseZCGHCziEnumzizddmenumFromThenTo);
-  return h$ap_1_1_fast();
-};
-function h$$afE()
-{
-  h$bh();
-  h$l2(h$mainZCCubezizdfEnumColor, h$baseZCGHCziEnumzizddmenumFromTo);
-  return h$ap_1_1_fast();
-};
-function h$$afH()
+function h$$afO()
 {
   var a = h$r1.d1;
   var b = h$r1.d2;
   h$bh();
-  h$l4(b, a, h$mainZCCubezizdfEqColor, h$ghczmprimZCGHCziClasseszizeze);
+  h$l4(h$ghczmprimZCGHCziClasseszizdfOrdInt, a, b, h$ghczmprimZCGHCziClasseszizdfOrdZLz2cUZR);
   return h$ap_3_3_fast();
 };
-function h$$afG()
+function h$$afN()
 {
-  h$l2(h$c2(h$$afH, h$r2, h$r3), h$ghczmprimZCGHCziClasseszinot);
-  return h$ap_1_1_fast();
-};
-function h$$afJ()
-{
-  h$bh();
-  h$l2(h$mainZCCubezizdfOrdColor, h$ghczmprimZCGHCziClasseszizddmmin);
-  return h$ap_1_1_fast();
-};
-function h$$afI()
-{
-  h$bh();
-  h$l2(h$mainZCCubezizdfOrdColor, h$ghczmprimZCGHCziClasseszizddmmax);
-  return h$ap_1_1_fast();
+  var a = h$r1;
+  --h$sp;
+  var b = a.d2;
+  return h$e(b.d5);
 };
 function h$$afM()
 {
+  var a = h$r1.d1;
   h$bh();
-  h$l3(0, h$mainZCCubezizdfShowColor, h$baseZCGHCziShowzishowsPrec);
-  return h$ap_2_2_fast();
+  h$p1(h$$afN);
+  return h$e(a);
 };
 function h$$afL()
 {
-  h$bh();
-  h$l2(h$$ajp, h$baseZCGHCziShowzishowListzuzu);
-  return h$ap_1_1_fast();
+  var a = h$r1;
+  --h$sp;
+  var b = a.d2;
+  h$r1 = b.d4;
+  return h$ap_0_0_fast();
 };
 function h$$afK()
 {
+  var a = h$r1.d1;
   h$bh();
-  h$l2(h$mainZCCubezizdfShowColor, h$baseZCGHCziShowzizddmshow);
+  h$p1(h$$afL);
+  return h$e(a);
+};
+function h$$afJ()
+{
+  var a = h$r1;
+  --h$sp;
+  var b = a.d2;
+  return h$e(b.d5);
+};
+function h$$afI()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$afJ);
+  return h$e(a);
+};
+function h$$afH()
+{
+  var a = h$r1;
+  --h$sp;
+  var b = a.d2;
+  h$r1 = b.d4;
+  return h$ap_0_0_fast();
+};
+function h$$afG()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$afH);
+  return h$e(a);
+};
+function h$$afF()
+{
+  h$l4(h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c1(h$$afK, h$r3), h$c1(h$$afM, h$r3)),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c1(h$$afG, h$r2), h$c1(h$$afI, h$r2)), h$r1.d1,
+  h$ghczmprimZCGHCziClasseszicompare);
+  return h$ap_3_3_fast();
+};
+function h$$afE()
+{
+  h$r1 = h$c1(h$$afF, h$c2(h$$afO, h$r3, h$c1(h$$afP, h$c1(h$$afQ, h$r3))));
+  return h$stack[h$sp];
+};
+function h$$af1()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$l3(h$ghczmprimZCGHCziClasseszizdfEqInt, a, h$ghczmprimZCGHCziClasseszizdfEqZLz2cUZR);
+  return h$ap_2_2_fast();
+};
+function h$$af0()
+{
+  var a = h$r1;
+  --h$sp;
+  var b = a.d2;
+  return h$e(b.d5);
+};
+function h$$afZ()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$af0);
+  return h$e(a);
+};
+function h$$afY()
+{
+  var a = h$r1;
+  --h$sp;
+  var b = a.d2;
+  h$r1 = b.d4;
+  return h$ap_0_0_fast();
+};
+function h$$afX()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$afY);
+  return h$e(a);
+};
+function h$$afW()
+{
+  var a = h$r1;
+  --h$sp;
+  var b = a.d2;
+  return h$e(b.d5);
+};
+function h$$afV()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$afW);
+  return h$e(a);
+};
+function h$$afU()
+{
+  var a = h$r1;
+  --h$sp;
+  var b = a.d2;
+  h$r1 = b.d4;
+  return h$ap_0_0_fast();
+};
+function h$$afT()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$afU);
+  return h$e(a);
+};
+function h$$afS()
+{
+  h$l4(h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c1(h$$afX, h$r3), h$c1(h$$afZ, h$r3)),
+  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c1(h$$afT, h$r2), h$c1(h$$afV, h$r2)), h$r1.d1,
+  h$ghczmprimZCGHCziClasseszizeze);
+  return h$ap_3_3_fast();
+};
+function h$$afR()
+{
+  h$r1 = h$c1(h$$afS, h$c1(h$$af1, h$r2));
+  return h$stack[h$sp];
+};
+function h$mainZCCubeziDNode_con_e()
+{
+  return h$stack[h$sp];
+};
+function h$mainZCCubeziDNode_e()
+{
+  h$r1 = h$c6(h$mainZCCubeziDNode_con_e, h$r2, h$r3, h$r4, h$r5, h$r6, h$r7);
+  return h$stack[h$sp];
+};
+function h$$ag8()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$l4(1, a, h$baseZCGHCziNumzizdfNumInt, h$baseZCGHCziNumzizp);
+  return h$ap_3_3_fast();
+};
+function h$$ag7()
+{
+  var a = h$r1;
+  --h$sp;
+  return h$e(a.d1);
+};
+function h$$ag6()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$ag7);
+  return h$e(a);
+};
+function h$$ag5()
+{
+  var a = h$r1;
+  --h$sp;
+  var b = a.d2;
+  return h$e(b.d2);
+};
+function h$$ag4()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$ag5);
+  return h$e(a);
+};
+function h$$ag3()
+{
+  var a = h$r1;
+  --h$sp;
+  var b = a.d2;
+  return h$e(b.d1);
+};
+function h$$ag2()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$ag3);
+  return h$e(a);
+};
+function h$$ag1()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$l4(1, a, h$baseZCGHCziNumzizdfNumInt, h$baseZCGHCziNumzizp);
+  return h$ap_3_3_fast();
+};
+function h$$ag0()
+{
+  var a = h$r1;
+  --h$sp;
+  return h$e(a.d1);
+};
+function h$$agZ()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$ag0);
+  return h$e(a);
+};
+function h$$agY()
+{
+  var a = h$r1;
+  --h$sp;
+  var b = a.d2;
+  return h$e(b.d2);
+};
+function h$$agX()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$agY);
+  return h$e(a);
+};
+function h$$agW()
+{
+  var a = h$r1;
+  --h$sp;
+  var b = a.d2;
+  return h$e(b.d1);
+};
+function h$$agV()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$agW);
+  return h$e(a);
+};
+function h$$agU()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$l4(1, a, h$baseZCGHCziNumzizdfNumInt, h$baseZCGHCziNumzizp);
+  return h$ap_3_3_fast();
+};
+function h$$agT()
+{
+  var a = h$r1;
+  --h$sp;
+  return h$e(a.d1);
+};
+function h$$agS()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$agT);
+  return h$e(a);
+};
+function h$$agR()
+{
+  var a = h$r1;
+  --h$sp;
+  var b = a.d2;
+  return h$e(b.d2);
+};
+function h$$agQ()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$agR);
+  return h$e(a);
+};
+function h$$agP()
+{
+  var a = h$r1;
+  --h$sp;
+  var b = a.d2;
+  return h$e(b.d1);
+};
+function h$$agO()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$agP);
+  return h$e(a);
+};
+function h$$agN()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$l4(1, a, h$baseZCGHCziNumzizdfNumInt, h$baseZCGHCziNumzizp);
+  return h$ap_3_3_fast();
+};
+function h$$agM()
+{
+  var a = h$r1;
+  --h$sp;
+  return h$e(a.d1);
+};
+function h$$agL()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$agM);
+  return h$e(a);
+};
+function h$$agK()
+{
+  var a = h$r1;
+  --h$sp;
+  var b = a.d2;
+  return h$e(b.d2);
+};
+function h$$agJ()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$agK);
+  return h$e(a);
+};
+function h$$agI()
+{
+  var a = h$r1;
+  --h$sp;
+  var b = a.d2;
+  return h$e(b.d1);
+};
+function h$$agH()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$agI);
+  return h$e(a);
+};
+function h$$agG()
+{
+  var a = h$r1;
+  --h$sp;
+  return h$e(a.d1);
+};
+function h$$agF()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$agG);
+  return h$e(a);
+};
+function h$$agE()
+{
+  var a = h$r1;
+  --h$sp;
+  return h$e(a.d2);
+};
+function h$$agD()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$agE);
+  return h$e(a);
+};
+function h$$agC()
+{
+  var a = h$r1;
+  --h$sp;
+  return h$e(a.d1);
+};
+function h$$agB()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$agC);
+  return h$e(a);
+};
+function h$$agA()
+{
+  var a = h$r1;
+  --h$sp;
+  return h$e(a.d1);
+};
+function h$$agz()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$agA);
+  return h$e(a);
+};
+function h$$agy()
+{
+  var a = h$r1;
+  --h$sp;
+  return h$e(a.d1);
+};
+function h$$agx()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$agy);
+  return h$e(a);
+};
+function h$$agw()
+{
+  var a = h$r1;
+  --h$sp;
+  return h$e(a.d1);
+};
+function h$$agv()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$agw);
+  return h$e(a);
+};
+function h$$agu()
+{
+  var a = h$r1;
+  --h$sp;
+  return h$e(a.d2);
+};
+function h$$agt()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$agu);
+  return h$e(a);
+};
+function h$$ags()
+{
+  var a = h$r1;
+  --h$sp;
+  return h$e(a.d2);
+};
+function h$$agr()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$ags);
+  return h$e(a);
+};
+function h$$agq()
+{
+  var a = h$r1;
+  --h$sp;
+  return h$e(a.d2);
+};
+function h$$agp()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$agq);
+  return h$e(a);
+};
+function h$$ago()
+{
+  var a = h$r1;
+  --h$sp;
+  return h$e(a.d2);
+};
+function h$$agn()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$ago);
+  return h$e(a);
+};
+function h$$agm()
+{
+  var a = h$r1;
+  --h$sp;
+  return h$e(a.d1);
+};
+function h$$agl()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$agm);
+  return h$e(a);
+};
+function h$$agk()
+{
+  var a = h$r1;
+  --h$sp;
+  return h$e(a.d2);
+};
+function h$$agj()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$agk);
+  return h$e(a);
+};
+function h$$agi()
+{
+  var a = h$r1;
+  --h$sp;
+  return h$e(a.d2);
+};
+function h$$agh()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$agi);
+  return h$e(a);
+};
+function h$$agg()
+{
+  var a = h$r1;
+  --h$sp;
+  return h$e(a.d1);
+};
+function h$$agf()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$agg);
+  return h$e(a);
+};
+function h$$age()
+{
+  var a = h$r1;
+  --h$sp;
+  return h$e(a.d1);
+};
+function h$$agd()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$age);
+  return h$e(a);
+};
+function h$$agc()
+{
+  var a = h$r1;
+  --h$sp;
+  return h$e(a.d2);
+};
+function h$$agb()
+{
+  var a = h$r1.d1;
+  h$bh();
+  h$p1(h$$agc);
+  return h$e(a);
+};
+function h$$aga()
+{
+  var a = h$r1.d1;
+  h$bh();
+  var b = a;
+  var c = b.d2;
+  return h$e(c.d7);
+};
+function h$$af9()
+{
+  var a = h$r1.d1;
+  h$bh();
+  var b = a;
+  var c = b.d2;
+  return h$e(c.d5);
+};
+function h$$af8()
+{
+  var a = h$r1.d1;
+  h$bh();
+  var b = a;
+  var c = b.d2;
+  return h$e(c.d3);
+};
+function h$$af7()
+{
+  var a = h$r1.d1;
+  h$bh();
+  var b = a;
+  var c = b.d2;
+  return h$e(c.d1);
+};
+function h$$af6()
+{
+  var a = h$r1.d1;
+  h$bh();
+  var b = a;
+  var c = b.d2;
+  return h$e(c.d8);
+};
+function h$$af5()
+{
+  var a = h$r1.d1;
+  h$bh();
+  var b = a;
+  var c = b.d2;
+  return h$e(c.d6);
+};
+function h$$af4()
+{
+  var a = h$r1.d1;
+  h$bh();
+  var b = a;
+  var c = b.d2;
+  return h$e(c.d4);
+};
+function h$$af3()
+{
+  var a = h$r1.d1;
+  h$bh();
+  var b = a;
+  var c = b.d2;
+  return h$e(c.d2);
+};
+function h$$af2()
+{
+  var a = h$r6;
+  var b = 0;
+  var c = 7;
+  var d = h$c1(h$$ag8, 7);
+  var e = h$c1(h$$ag6, h$r2);
+  var f = h$c1(h$$ag4, h$r5);
+  var g = h$c1(h$$ag2, h$r5);
+  var h = 5;
+  var i = h$c1(h$$ag1, 5);
+  var j = h$c1(h$$agZ, h$r5);
+  var k = h$c1(h$$agX, h$r4);
+  var l = h$c1(h$$agV, h$r4);
+  var m = 3;
+  var n = h$c1(h$$agU, 3);
+  var o = h$c1(h$$agS, h$r4);
+  var p = h$c1(h$$agQ, h$r3);
+  var q = h$c1(h$$agO, h$r3);
+  var r = 1;
+  var s = h$c1(h$$agN, 1);
+  var t = h$c1(h$$agL, h$r3);
+  var u = h$c1(h$$agJ, h$r2);
+  var v = h$c1(h$$agH, h$r2);
+  var w = h$c(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e);
+  var x = h$c(h$$agF);
+  var y = h$c(h$$agD);
+  var z = h$c(h$mainZCCubeziDNode_con_e);
+  var A = h$c(h$mainZCCubeziDNode_con_e);
+  var B = h$c(h$mainZCCubeziDNode_con_e);
+  var C = h$c(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e);
+  var D = h$c(h$mainZCCubeziDNode_con_e);
+  var E = h$c(h$mainZCCubeziDNode_con_e);
+  var F = h$c(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e);
+  var G = h$c(h$mainZCCubeziDNode_con_e);
+  var H = h$c(h$mainZCCubeziDNode_con_e);
+  var I = h$c(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e);
+  var J = h$c(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e);
+  var K = h$c(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e);
+  var L = h$c(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e);
+  var M = h$c(h$$agB);
+  var N = h$c(h$$agz);
+  var O = h$c(h$$agx);
+  var P = h$c(h$$agv);
+  var Q = h$c(h$$agt);
+  var R = h$c(h$$agr);
+  var S = h$c(h$$agp);
+  var T = h$c(h$$agn);
+  var U = h$c(h$$agl);
+  var V = h$c(h$$agj);
+  var W = h$c(h$$agh);
+  var X = h$c(h$$agf);
+  var Y = h$c(h$mainZCCubeziDNode_con_e);
+  var Z = h$c(h$mainZCCubeziDNode_con_e);
+  var aa = h$c(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e);
+  var ab = h$c(h$$agd);
+  var ac = h$c(h$$agb);
+  w.d1 = ab;
+  w.d2 = ac;
+  x.d1 = w;
+  y.d1 = w;
+  z.d1 = T;
+  z.d2 = h$d5(R, W, y, a, b);
+  A.d1 = k;
+  A.d2 = h$d5(j, y, B, a, h);
+  B.d1 = l;
+  B.d2 = h$d5(A, z, M, a, i);
+  C.d1 = A;
+  C.d2 = B;
+  D.d1 = p;
+  D.d2 = h$d5(o, W, E, a, m);
+  E.d1 = q;
+  E.d2 = h$d5(D, z, P, a, n);
+  F.d1 = D;
+  F.d2 = E;
+  G.d1 = u;
+  G.d2 = h$d5(t, R, H, a, r);
+  H.d1 = v;
+  H.d2 = h$d5(G, z, x, a, s);
+  I.d1 = G;
+  I.d2 = H;
+  J.d1 = N;
+  J.d2 = S;
+  K.d1 = O;
+  K.d2 = Q;
+  L.d1 = U;
+  L.d2 = V;
+  M.d1 = K;
+  N.d1 = I;
+  O.d1 = F;
+  P.d1 = J;
+  Q.d1 = F;
+  R.d1 = K;
+  S.d1 = I;
+  T.d1 = J;
+  U.d1 = C;
+  V.d1 = C;
+  W.d1 = L;
+  X.d1 = L;
+  Y.d1 = g;
+  Y.d2 = h$d5(Z, z, X, a, d);
+  Z.d1 = f;
+  Z.d2 = h$d5(e, T, Y, a, c);
+  aa.d1 = Z;
+  aa.d2 = Y;
+  ab.d1 = aa;
+  ac.d1 = aa;
+  var ad = h$c9(h$ghczmprimZCGHCziTupleziZLz2cUz2cUz2cUz2cUz2cUz2cUz2cUz2cUZR_con_e, z, P, T, M, R, X, W, x, y);
+  var ae = h$c1(h$$aga, ad);
+  var af = h$c1(h$$af9, ad);
+  var ag = h$c1(h$$af8, ad);
+  var ah = h$c1(h$$af7, ad);
+  h$r1 = h$c4(h$ghczmprimZCGHCziTupleziZLz2cUz2cUz2cUZR_con_e, h$c3(h$ghczmprimZCGHCziTupleziZLz2cUz2cUZR_con_e, ah,
+  h$c1(h$$af3, ad), ae), h$c3(h$ghczmprimZCGHCziTupleziZLz2cUz2cUZR_con_e, ag, h$c1(h$$af4, ad), ah),
+  h$c3(h$ghczmprimZCGHCziTupleziZLz2cUz2cUZR_con_e, af, h$c1(h$$af5, ad), ag),
+  h$c3(h$ghczmprimZCGHCziTupleziZLz2cUz2cUZR_con_e, ae, h$c1(h$$af6, ad), af));
+  return h$stack[h$sp];
+};
+function h$$aha()
+{
+  var a = h$r1;
+  --h$sp;
+  var b = a.d2;
+  return h$e(b.d2);
+};
+function h$$ag9()
+{
+  var a = h$r1;
+  --h$sp;
+  var b = a.d2;
+  h$p1(h$$aha);
+  return h$e(b.d1);
+};
+function h$mainZCCubezimkCube_e()
+{
+  h$bh();
+  h$p1(h$$ag9);
+  return h$e(h$$ahh);
+};
+function h$$ahb()
+{
+  var a = h$r1;
+  --h$sp;
+  var b = a.d2;
+  h$r1 = b.d4;
+  return h$ap_0_0_fast();
+};
+function h$mainZCCubezicolor_e()
+{
+  h$p1(h$$ahb);
+  return h$e(h$r2);
+};
+function h$$ahc()
+{
+  var a = h$r1;
+  --h$sp;
+  var b = a.d2;
+  return h$e(b.d3);
+};
+function h$mainZCCubezieast_e()
+{
+  h$p1(h$$ahc);
+  return h$e(h$r2);
+};
+function h$$ahd()
+{
+  var a = h$r1;
+  --h$sp;
+  var b = a.d2;
+  return h$e(b.d5);
+};
+function h$mainZCCubeziindex_e()
+{
+  h$p1(h$$ahd);
+  return h$e(h$r2);
+};
+function h$$ahe()
+{
+  var a = h$r1;
+  --h$sp;
+  return h$e(a.d1);
+};
+function h$mainZCCubezinorth_e()
+{
+  h$p1(h$$ahe);
+  return h$e(h$r2);
+};
+function h$$ahf()
+{
+  var a = h$r1;
+  --h$sp;
+  var b = a.d2;
+  return h$e(b.d2);
+};
+function h$mainZCCubezisouth_e()
+{
+  h$p1(h$$ahf);
+  return h$e(h$r2);
+};
+function h$$ahg()
+{
+  var a = h$r1;
+  --h$sp;
+  var b = a.d2;
+  return h$e(b.d1);
+};
+function h$mainZCCubeziwest_e()
+{
+  h$p1(h$$ahg);
+  return h$e(h$r2);
+};
+function h$$ahW()
+{
+  h$bh();
+  h$l2(h$mainZCColorzizdfEnumColor, h$baseZCGHCziEnumzizddmenumFromThenTo);
   return h$ap_1_1_fast();
 };
-function h$$afO()
+function h$$ahV()
+{
+  h$bh();
+  h$l2(h$mainZCColorzizdfEnumColor, h$baseZCGHCziEnumzizddmenumFromTo);
+  return h$ap_1_1_fast();
+};
+function h$$ahY()
+{
+  var a = h$r1.d1;
+  var b = h$r1.d2;
+  h$bh();
+  h$l4(b, a, h$mainZCColorzizdfEqColor, h$ghczmprimZCGHCziClasseszizeze);
+  return h$ap_3_3_fast();
+};
+function h$$ahX()
+{
+  h$l2(h$c2(h$$ahY, h$r2, h$r3), h$ghczmprimZCGHCziClasseszinot);
+  return h$ap_1_1_fast();
+};
+function h$$ah0()
+{
+  h$bh();
+  h$l2(h$mainZCColorzizdfOrdColor, h$ghczmprimZCGHCziClasseszizddmmin);
+  return h$ap_1_1_fast();
+};
+function h$$ahZ()
+{
+  h$bh();
+  h$l2(h$mainZCColorzizdfOrdColor, h$ghczmprimZCGHCziClasseszizddmmax);
+  return h$ap_1_1_fast();
+};
+function h$$ah3()
+{
+  h$bh();
+  h$l3(0, h$mainZCColorzizdfShowColor, h$baseZCGHCziShowzishowsPrec);
+  return h$ap_2_2_fast();
+};
+function h$$ah2()
+{
+  h$bh();
+  h$l2(h$$ajs, h$baseZCGHCziShowzishowListzuzu);
+  return h$ap_1_1_fast();
+};
+function h$$ah1()
+{
+  h$bh();
+  h$l2(h$mainZCColorzizdfShowColor, h$baseZCGHCziShowzizddmshow);
+  return h$ap_1_1_fast();
+};
+function h$$ah5()
 {
   var a = h$r1;
   --h$sp;
@@ -72665,17 +73518,17 @@ function h$$afO()
       h$l2(h, h$baseZCGHCziShowzishowString);
       return h$ap_1_1_fast();
     default:
-      var i = h$ustra("Brown");
+      var i = h$ustra("Maroon");
       h$l2(i, h$baseZCGHCziShowzishowString);
       return h$ap_1_1_fast();
   };
 };
-function h$$afN()
+function h$$ah4()
 {
-  h$p1(h$$afO);
+  h$p1(h$$ah5);
   return h$e(h$r3);
 };
-function h$$afY()
+function h$$aif()
 {
   var a = h$r1;
   --h$sp;
@@ -72689,7 +73542,7 @@ function h$$afY()
   };
   return h$stack[h$sp];
 };
-function h$$afX()
+function h$$aie()
 {
   var a = h$r1;
   --h$sp;
@@ -72703,7 +73556,7 @@ function h$$afX()
   };
   return h$stack[h$sp];
 };
-function h$$afW()
+function h$$aid()
 {
   var a = h$r1;
   --h$sp;
@@ -72717,7 +73570,7 @@ function h$$afW()
   };
   return h$stack[h$sp];
 };
-function h$$afV()
+function h$$aic()
 {
   var a = h$r1;
   --h$sp;
@@ -72731,7 +73584,7 @@ function h$$afV()
   };
   return h$stack[h$sp];
 };
-function h$$afU()
+function h$$aib()
 {
   var a = h$r1;
   --h$sp;
@@ -72745,7 +73598,7 @@ function h$$afU()
   };
   return h$stack[h$sp];
 };
-function h$$afT()
+function h$$aia()
 {
   var a = h$r1;
   --h$sp;
@@ -72759,7 +73612,7 @@ function h$$afT()
   };
   return h$stack[h$sp];
 };
-function h$$afS()
+function h$$ah9()
 {
   var a = h$r1;
   --h$sp;
@@ -72773,7 +73626,7 @@ function h$$afS()
   };
   return h$stack[h$sp];
 };
-function h$$afR()
+function h$$ah8()
 {
   var a = h$r1;
   --h$sp;
@@ -72787,7 +73640,7 @@ function h$$afR()
   };
   return h$stack[h$sp];
 };
-function h$$afQ()
+function h$$ah7()
 {
   var a = h$r1;
   var b = h$stack[(h$sp - 1)];
@@ -72795,37 +73648,37 @@ function h$$afQ()
   switch (a.f.a)
   {
     case (1):
-      h$p1(h$$afY);
+      h$p1(h$$aif);
       return h$e(b);
     case (2):
-      h$p1(h$$afX);
+      h$p1(h$$aie);
       return h$e(b);
     case (3):
-      h$p1(h$$afW);
+      h$p1(h$$aid);
       return h$e(b);
     case (4):
-      h$p1(h$$afV);
+      h$p1(h$$aic);
       return h$e(b);
     case (5):
-      h$p1(h$$afU);
+      h$p1(h$$aib);
       return h$e(b);
     case (6):
-      h$p1(h$$afT);
+      h$p1(h$$aia);
       return h$e(b);
     case (7):
-      h$p1(h$$afS);
+      h$p1(h$$ah9);
       return h$e(b);
     default:
-      h$p1(h$$afR);
+      h$p1(h$$ah8);
       return h$e(b);
   };
 };
-function h$$afP()
+function h$$ah6()
 {
-  h$p2(h$r3, h$$afQ);
+  h$p2(h$r3, h$$ah7);
   return h$e(h$r2);
 };
-function h$$af8()
+function h$$aip()
 {
   var a = h$r1;
   --h$sp;
@@ -72857,7 +73710,7 @@ function h$$af8()
   };
   return h$stack[h$sp];
 };
-function h$$af7()
+function h$$aio()
 {
   var a = h$r1;
   --h$sp;
@@ -72889,7 +73742,7 @@ function h$$af7()
   };
   return h$stack[h$sp];
 };
-function h$$af6()
+function h$$ain()
 {
   var a = h$r1;
   --h$sp;
@@ -72918,7 +73771,7 @@ function h$$af6()
   };
   return h$stack[h$sp];
 };
-function h$$af5()
+function h$$aim()
 {
   var a = h$r1;
   --h$sp;
@@ -72944,7 +73797,7 @@ function h$$af5()
   };
   return h$stack[h$sp];
 };
-function h$$af4()
+function h$$ail()
 {
   var a = h$r1;
   --h$sp;
@@ -72967,7 +73820,7 @@ function h$$af4()
   };
   return h$stack[h$sp];
 };
-function h$$af3()
+function h$$aik()
 {
   var a = h$r1;
   --h$sp;
@@ -72987,7 +73840,7 @@ function h$$af3()
   };
   return h$stack[h$sp];
 };
-function h$$af2()
+function h$$aij()
 {
   var a = h$r1;
   --h$sp;
@@ -73004,7 +73857,7 @@ function h$$af2()
   };
   return h$stack[h$sp];
 };
-function h$$af1()
+function h$$aii()
 {
   var a = h$r1;
   --h$sp;
@@ -73018,7 +73871,7 @@ function h$$af1()
   };
   return h$stack[h$sp];
 };
-function h$$af0()
+function h$$aih()
 {
   var a = h$r1;
   var b = h$stack[(h$sp - 1)];
@@ -73026,37 +73879,37 @@ function h$$af0()
   switch (a.f.a)
   {
     case (1):
-      h$p1(h$$af8);
+      h$p1(h$$aip);
       return h$e(b);
     case (2):
-      h$p1(h$$af7);
+      h$p1(h$$aio);
       return h$e(b);
     case (3):
-      h$p1(h$$af6);
+      h$p1(h$$ain);
       return h$e(b);
     case (4):
-      h$p1(h$$af5);
+      h$p1(h$$aim);
       return h$e(b);
     case (5):
-      h$p1(h$$af4);
+      h$p1(h$$ail);
       return h$e(b);
     case (6):
-      h$p1(h$$af3);
+      h$p1(h$$aik);
       return h$e(b);
     case (7):
-      h$p1(h$$af2);
+      h$p1(h$$aij);
       return h$e(b);
     default:
-      h$p1(h$$af1);
+      h$p1(h$$aii);
       return h$e(b);
   };
 };
-function h$$afZ()
+function h$$aig()
 {
-  h$p2(h$r3, h$$af0);
+  h$p2(h$r3, h$$aih);
   return h$e(h$r2);
 };
-function h$$agc()
+function h$$ait()
 {
   var a = h$r1;
   var b = h$stack[(h$sp - 1)];
@@ -73097,14 +73950,14 @@ function h$$agc()
   };
   return h$stack[h$sp];
 };
-function h$$agb()
+function h$$ais()
 {
   var a = h$stack[(h$sp - 1)];
   h$sp -= 2;
-  h$p2(h$r1, h$$agc);
+  h$p2(h$r1, h$$ait);
   return h$e(a);
 };
-function h$$aga()
+function h$$air()
 {
   var a = h$r1;
   --h$sp;
@@ -73115,51 +73968,51 @@ function h$$aga()
       h$r1 = 0;
       ++h$sp;
       ++h$sp;
-      return h$$agb;
+      return h$$ais;
     case (2):
       h$r1 = 1;
       ++h$sp;
       ++h$sp;
-      return h$$agb;
+      return h$$ais;
     case (3):
       h$r1 = 2;
       ++h$sp;
       ++h$sp;
-      return h$$agb;
+      return h$$ais;
     case (4):
       h$r1 = 3;
       ++h$sp;
       ++h$sp;
-      return h$$agb;
+      return h$$ais;
     case (5):
       h$r1 = 4;
       ++h$sp;
       ++h$sp;
-      return h$$agb;
+      return h$$ais;
     case (6):
       h$r1 = 5;
       ++h$sp;
       ++h$sp;
-      return h$$agb;
+      return h$$ais;
     case (7):
       h$r1 = 6;
       ++h$sp;
       ++h$sp;
-      return h$$agb;
+      return h$$ais;
     default:
       h$r1 = 7;
       ++h$sp;
       ++h$sp;
-      return h$$agb;
+      return h$$ais;
   };
 };
-function h$$af9()
+function h$$aiq()
 {
   h$p1(h$r3);
-  h$p1(h$$aga);
+  h$p1(h$$air);
   return h$e(h$r2);
 };
-function h$$agg()
+function h$$aix()
 {
   var a = h$r1;
   var b = h$stack[(h$sp - 1)];
@@ -73200,14 +74053,14 @@ function h$$agg()
   };
   return h$stack[h$sp];
 };
-function h$$agf()
+function h$$aiw()
 {
   var a = h$stack[(h$sp - 1)];
   h$sp -= 2;
-  h$p2(h$r1, h$$agg);
+  h$p2(h$r1, h$$aix);
   return h$e(a);
 };
-function h$$age()
+function h$$aiv()
 {
   var a = h$r1;
   --h$sp;
@@ -73218,51 +74071,51 @@ function h$$age()
       h$r1 = 0;
       ++h$sp;
       ++h$sp;
-      return h$$agf;
+      return h$$aiw;
     case (2):
       h$r1 = 1;
       ++h$sp;
       ++h$sp;
-      return h$$agf;
+      return h$$aiw;
     case (3):
       h$r1 = 2;
       ++h$sp;
       ++h$sp;
-      return h$$agf;
+      return h$$aiw;
     case (4):
       h$r1 = 3;
       ++h$sp;
       ++h$sp;
-      return h$$agf;
+      return h$$aiw;
     case (5):
       h$r1 = 4;
       ++h$sp;
       ++h$sp;
-      return h$$agf;
+      return h$$aiw;
     case (6):
       h$r1 = 5;
       ++h$sp;
       ++h$sp;
-      return h$$agf;
+      return h$$aiw;
     case (7):
       h$r1 = 6;
       ++h$sp;
       ++h$sp;
-      return h$$agf;
+      return h$$aiw;
     default:
       h$r1 = 7;
       ++h$sp;
       ++h$sp;
-      return h$$agf;
+      return h$$aiw;
   };
 };
-function h$$agd()
+function h$$aiu()
 {
   h$p1(h$r3);
-  h$p1(h$$age);
+  h$p1(h$$aiv);
   return h$e(h$r2);
 };
-function h$$agk()
+function h$$aiB()
 {
   var a = h$r1;
   var b = h$stack[(h$sp - 1)];
@@ -73303,14 +74156,14 @@ function h$$agk()
   };
   return h$stack[h$sp];
 };
-function h$$agj()
+function h$$aiA()
 {
   var a = h$stack[(h$sp - 1)];
   h$sp -= 2;
-  h$p2(h$r1, h$$agk);
+  h$p2(h$r1, h$$aiB);
   return h$e(a);
 };
-function h$$agi()
+function h$$aiz()
 {
   var a = h$r1;
   --h$sp;
@@ -73321,51 +74174,51 @@ function h$$agi()
       h$r1 = 0;
       ++h$sp;
       ++h$sp;
-      return h$$agj;
+      return h$$aiA;
     case (2):
       h$r1 = 1;
       ++h$sp;
       ++h$sp;
-      return h$$agj;
+      return h$$aiA;
     case (3):
       h$r1 = 2;
       ++h$sp;
       ++h$sp;
-      return h$$agj;
+      return h$$aiA;
     case (4):
       h$r1 = 3;
       ++h$sp;
       ++h$sp;
-      return h$$agj;
+      return h$$aiA;
     case (5):
       h$r1 = 4;
       ++h$sp;
       ++h$sp;
-      return h$$agj;
+      return h$$aiA;
     case (6):
       h$r1 = 5;
       ++h$sp;
       ++h$sp;
-      return h$$agj;
+      return h$$aiA;
     case (7):
       h$r1 = 6;
       ++h$sp;
       ++h$sp;
-      return h$$agj;
+      return h$$aiA;
     default:
       h$r1 = 7;
       ++h$sp;
       ++h$sp;
-      return h$$agj;
+      return h$$aiA;
   };
 };
-function h$$agh()
+function h$$aiy()
 {
   h$p1(h$r3);
-  h$p1(h$$agi);
+  h$p1(h$$aiz);
   return h$e(h$r2);
 };
-function h$$ago()
+function h$$aiF()
 {
   var a = h$r1;
   var b = h$stack[(h$sp - 1)];
@@ -73406,14 +74259,14 @@ function h$$ago()
   };
   return h$stack[h$sp];
 };
-function h$$agn()
+function h$$aiE()
 {
   var a = h$stack[(h$sp - 1)];
   h$sp -= 2;
-  h$p2(h$r1, h$$ago);
+  h$p2(h$r1, h$$aiF);
   return h$e(a);
 };
-function h$$agm()
+function h$$aiD()
 {
   var a = h$r1;
   --h$sp;
@@ -73424,58 +74277,58 @@ function h$$agm()
       h$r1 = 0;
       ++h$sp;
       ++h$sp;
-      return h$$agn;
+      return h$$aiE;
     case (2):
       h$r1 = 1;
       ++h$sp;
       ++h$sp;
-      return h$$agn;
+      return h$$aiE;
     case (3):
       h$r1 = 2;
       ++h$sp;
       ++h$sp;
-      return h$$agn;
+      return h$$aiE;
     case (4):
       h$r1 = 3;
       ++h$sp;
       ++h$sp;
-      return h$$agn;
+      return h$$aiE;
     case (5):
       h$r1 = 4;
       ++h$sp;
       ++h$sp;
-      return h$$agn;
+      return h$$aiE;
     case (6):
       h$r1 = 5;
       ++h$sp;
       ++h$sp;
-      return h$$agn;
+      return h$$aiE;
     case (7):
       h$r1 = 6;
       ++h$sp;
       ++h$sp;
-      return h$$agn;
+      return h$$aiE;
     default:
       h$r1 = 7;
       ++h$sp;
       ++h$sp;
-      return h$$agn;
+      return h$$aiE;
   };
 };
-function h$$agl()
+function h$$aiC()
 {
   h$p1(h$r3);
-  h$p1(h$$agm);
+  h$p1(h$$aiD);
   return h$e(h$r2);
 };
-function h$$agt()
+function h$$aiK()
 {
   var a = h$r1;
   --h$sp;
   h$r1 = h$tagToEnum(a);
   return h$stack[h$sp];
 };
-function h$$ags()
+function h$$aiJ()
 {
   var a = h$r1;
   var b = h$stack[(h$sp - 1)];
@@ -73488,19 +74341,19 @@ function h$$ags()
   }
   else
   {
-    h$p1(h$$agt);
+    h$p1(h$$aiK);
     h$l4(1, b, h$baseZCGHCziNumzizdfNumInt, h$baseZCGHCziNumzizp);
     return h$ap_3_3_fast();
   };
 };
-function h$$agr()
+function h$$aiI()
 {
   --h$sp;
-  h$p2(h$r1, h$$ags);
-  h$l4(h$r1, h$$ajF, h$ghczmprimZCGHCziClasseszizdfEqInt, h$ghczmprimZCGHCziClasseszizeze);
+  h$p2(h$r1, h$$aiJ);
+  h$l4(h$r1, h$$ajG, h$ghczmprimZCGHCziClasseszizdfEqInt, h$ghczmprimZCGHCziClasseszizeze);
   return h$ap_3_3_fast();
 };
-function h$$agq()
+function h$$aiH()
 {
   var a = h$r1;
   --h$sp;
@@ -73509,219 +74362,50 @@ function h$$agq()
     case (1):
       h$r1 = 0;
       ++h$sp;
-      return h$$agr;
+      return h$$aiI;
     case (2):
       h$r1 = 1;
       ++h$sp;
-      return h$$agr;
+      return h$$aiI;
     case (3):
       h$r1 = 2;
       ++h$sp;
-      return h$$agr;
+      return h$$aiI;
     case (4):
       h$r1 = 3;
       ++h$sp;
-      return h$$agr;
+      return h$$aiI;
     case (5):
       h$r1 = 4;
       ++h$sp;
-      return h$$agr;
+      return h$$aiI;
     case (6):
       h$r1 = 5;
       ++h$sp;
-      return h$$agr;
+      return h$$aiI;
     case (7):
       h$r1 = 6;
       ++h$sp;
-      return h$$agr;
+      return h$$aiI;
     default:
       h$r1 = 7;
       ++h$sp;
-      return h$$agr;
+      return h$$aiI;
   };
 };
-function h$$agp()
+function h$$aiG()
 {
-  h$p1(h$$agq);
+  h$p1(h$$aiH);
   return h$e(h$r2);
 };
-function h$$agE()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$l3(h$ghczmprimZCGHCziClasseszizdfEqInt, a, h$ghczmprimZCGHCziClasseszizdfEqZLz2cUZR);
-  return h$ap_2_2_fast();
-};
-function h$$agD()
-{
-  var a = h$r1;
-  --h$sp;
-  var b = a.d2;
-  return h$e(b.d5);
-};
-function h$$agC()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$agD);
-  return h$e(a);
-};
-function h$$agB()
-{
-  var a = h$r1;
-  --h$sp;
-  var b = a.d2;
-  h$r1 = b.d4;
-  return h$ap_0_0_fast();
-};
-function h$$agA()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$agB);
-  return h$e(a);
-};
-function h$$agz()
-{
-  var a = h$r1;
-  --h$sp;
-  var b = a.d2;
-  return h$e(b.d5);
-};
-function h$$agy()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$agz);
-  return h$e(a);
-};
-function h$$agx()
-{
-  var a = h$r1;
-  --h$sp;
-  var b = a.d2;
-  h$r1 = b.d4;
-  return h$ap_0_0_fast();
-};
-function h$$agw()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$agx);
-  return h$e(a);
-};
-function h$$agv()
-{
-  h$l4(h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c1(h$$agA, h$r3), h$c1(h$$agC, h$r3)),
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c1(h$$agw, h$r2), h$c1(h$$agy, h$r2)), h$r1.d1,
-  h$ghczmprimZCGHCziClasseszizeze);
-  return h$ap_3_3_fast();
-};
-function h$$agu()
-{
-  h$r1 = h$c1(h$$agv, h$c1(h$$agE, h$r2));
-  return h$stack[h$sp];
-};
-function h$$agR()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$l2(a, h$ghczmprimZCGHCziClasseszizdp1Ord);
-  return h$ap_1_1_fast();
-};
-function h$$agQ()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$l3(h$ghczmprimZCGHCziClasseszizdfEqInt, a, h$ghczmprimZCGHCziClasseszizdfEqZLz2cUZR);
-  return h$ap_2_2_fast();
-};
-function h$$agP()
-{
-  var a = h$r1.d1;
-  var b = h$r1.d2;
-  h$bh();
-  h$l4(h$ghczmprimZCGHCziClasseszizdfOrdInt, a, b, h$ghczmprimZCGHCziClasseszizdfOrdZLz2cUZR);
-  return h$ap_3_3_fast();
-};
-function h$$agO()
-{
-  var a = h$r1;
-  --h$sp;
-  var b = a.d2;
-  return h$e(b.d5);
-};
-function h$$agN()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$agO);
-  return h$e(a);
-};
-function h$$agM()
-{
-  var a = h$r1;
-  --h$sp;
-  var b = a.d2;
-  h$r1 = b.d4;
-  return h$ap_0_0_fast();
-};
-function h$$agL()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$agM);
-  return h$e(a);
-};
-function h$$agK()
-{
-  var a = h$r1;
-  --h$sp;
-  var b = a.d2;
-  return h$e(b.d5);
-};
-function h$$agJ()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$agK);
-  return h$e(a);
-};
-function h$$agI()
-{
-  var a = h$r1;
-  --h$sp;
-  var b = a.d2;
-  h$r1 = b.d4;
-  return h$ap_0_0_fast();
-};
-function h$$agH()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$agI);
-  return h$e(a);
-};
-function h$$agG()
-{
-  h$l4(h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c1(h$$agL, h$r3), h$c1(h$$agN, h$r3)),
-  h$c2(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e, h$c1(h$$agH, h$r2), h$c1(h$$agJ, h$r2)), h$r1.d1,
-  h$ghczmprimZCGHCziClasseszicompare);
-  return h$ap_3_3_fast();
-};
-function h$$agF()
-{
-  h$r1 = h$c1(h$$agG, h$c2(h$$agP, h$r3, h$c1(h$$agQ, h$c1(h$$agR, h$r3))));
-  return h$stack[h$sp];
-};
-function h$$agW()
+function h$$aiP()
 {
   var a = h$r1;
   --h$sp;
   h$r1 = h$tagToEnum(a);
   return h$stack[h$sp];
 };
-function h$$agV()
+function h$$aiO()
 {
   var a = h$r1;
   var b = h$stack[(h$sp - 1)];
@@ -73734,19 +74418,19 @@ function h$$agV()
   }
   else
   {
-    h$p1(h$$agW);
+    h$p1(h$$aiP);
     h$l4((-1), b, h$baseZCGHCziNumzizdfNumInt, h$baseZCGHCziNumzizp);
     return h$ap_3_3_fast();
   };
 };
-function h$$agU()
+function h$$aiN()
 {
   --h$sp;
-  h$p2(h$r1, h$$agV);
+  h$p2(h$r1, h$$aiO);
   h$l4(h$r1, 0, h$ghczmprimZCGHCziClasseszizdfEqInt, h$ghczmprimZCGHCziClasseszizeze);
   return h$ap_3_3_fast();
 };
-function h$$agT()
+function h$$aiM()
 {
   var a = h$r1;
   --h$sp;
@@ -73755,118 +74439,118 @@ function h$$agT()
     case (1):
       h$r1 = 0;
       ++h$sp;
-      return h$$agU;
+      return h$$aiN;
     case (2):
       h$r1 = 1;
       ++h$sp;
-      return h$$agU;
+      return h$$aiN;
     case (3):
       h$r1 = 2;
       ++h$sp;
-      return h$$agU;
+      return h$$aiN;
     case (4):
       h$r1 = 3;
       ++h$sp;
-      return h$$agU;
+      return h$$aiN;
     case (5):
       h$r1 = 4;
       ++h$sp;
-      return h$$agU;
+      return h$$aiN;
     case (6):
       h$r1 = 5;
       ++h$sp;
-      return h$$agU;
+      return h$$aiN;
     case (7):
       h$r1 = 6;
       ++h$sp;
-      return h$$agU;
+      return h$$aiN;
     default:
       h$r1 = 7;
       ++h$sp;
-      return h$$agU;
+      return h$$aiN;
   };
 };
-function h$$agS()
+function h$$aiL()
 {
-  h$p1(h$$agT);
+  h$p1(h$$aiM);
   return h$e(h$r2);
 };
-function h$$ag5()
+function h$$aiY()
 {
   var a = h$r1.d1;
   h$bh();
-  h$l4(h$$ajF, a, h$ghczmprimZCGHCziClasseszizdfOrdInt, h$ghczmprimZCGHCziClasseszizlze);
+  h$l4(h$$ajG, a, h$ghczmprimZCGHCziClasseszizdfOrdInt, h$ghczmprimZCGHCziClasseszizlze);
   return h$ap_3_3_fast();
 };
-function h$$ag4()
+function h$$aiX()
 {
   var a = h$r1.d1;
   h$bh();
   h$l4(0, a, h$ghczmprimZCGHCziClasseszizdfOrdInt, h$ghczmprimZCGHCziClasseszizgze);
   return h$ap_3_3_fast();
 };
-function h$$ag3()
+function h$$aiW()
 {
   h$bh();
   var a = h$ustra(")");
-  h$l5(a, h$$ajF, 0, h$baseZCGHCziShowzizdfShowInt, h$baseZCGHCziShowzishowsPrec);
+  h$l5(a, h$$ajG, 0, h$baseZCGHCziShowzizdfShowInt, h$baseZCGHCziShowzishowsPrec);
   return h$ap_4_4_fast();
 };
-function h$$ag2()
+function h$$aiV()
 {
   h$bh();
-  var a = h$c(h$$ag3);
+  var a = h$c(h$$aiW);
   var b = h$ustra(") is outside of enumeration's range (0,");
   h$l3(a, b, h$baseZCGHCziBasezizpzp);
   return h$ap_2_2_fast();
 };
-function h$$ag1()
+function h$$aiU()
 {
   var a = h$r1.d1;
   h$bh();
-  h$l5(h$c(h$$ag2), a, 0, h$baseZCGHCziShowzizdfShowInt, h$baseZCGHCziShowzishowsPrec);
+  h$l5(h$c(h$$aiV), a, 0, h$baseZCGHCziShowzizdfShowInt, h$baseZCGHCziShowzishowsPrec);
   return h$ap_4_4_fast();
 };
-function h$$ag0()
+function h$$aiT()
 {
   var a = h$r1;
   --h$sp;
   h$l2(a, h$baseZCGHCziErrzierror);
   return h$ap_1_1_fast();
 };
-function h$$agZ()
+function h$$aiS()
 {
   var a = h$r1;
   --h$sp;
   h$r1 = h$tagToEnum(a);
   return h$stack[h$sp];
 };
-function h$$agY()
+function h$$aiR()
 {
   var a = h$r1;
   var b = h$stack[(h$sp - 1)];
   h$sp -= 2;
   if(a)
   {
-    h$p1(h$$agZ);
+    h$p1(h$$aiS);
     return h$e(b);
   }
   else
   {
-    var c = h$c1(h$$ag1, b);
+    var c = h$c1(h$$aiU, b);
     var d = h$ustra("toEnum{Color}: tag (");
-    h$p1(h$$ag0);
+    h$p1(h$$aiT);
     h$l3(c, d, h$baseZCGHCziBasezizpzp);
     return h$ap_2_2_fast();
   };
 };
-function h$$agX()
+function h$$aiQ()
 {
-  h$p2(h$r2, h$$agY);
-  h$l3(h$c1(h$$ag5, h$r2), h$c1(h$$ag4, h$r2), h$ghczmprimZCGHCziClasseszizaza);
+  h$p2(h$r2, h$$aiR);
+  h$l3(h$c1(h$$aiY, h$r2), h$c1(h$$aiX, h$r2), h$ghczmprimZCGHCziClasseszizaza);
   return h$ap_2_2_fast();
 };
-function h$$ahd()
+function h$$ai6()
 {
   var a = h$r1;
   --h$sp;
@@ -73876,35 +74560,35 @@ function h$$ahd()
   }
   else
   {
-    return h$e(h$$ajF);
+    return h$e(h$$ajG);
   };
   return h$stack[h$sp];
 };
-function h$$ahc()
+function h$$ai5()
 {
   var a = h$r1.d1;
   var b = h$r1.d2;
   h$bh();
-  h$p1(h$$ahd);
+  h$p1(h$$ai6);
   h$l4(b, a, h$ghczmprimZCGHCziClasseszizdfOrdInt, h$ghczmprimZCGHCziClasseszizg);
   return h$ap_3_3_fast();
 };
-function h$$ahb()
+function h$$ai4()
 {
   var a = h$r1.d1;
   var b = h$r1.d2;
   h$bh();
-  h$l5(h$c2(h$$ahc, a, b), b, a, h$baseZCGHCziEnumzizdfEnumInt, h$baseZCGHCziEnumzienumFromThenTo);
+  h$l5(h$c2(h$$ai5, a, b), b, a, h$baseZCGHCziEnumzizdfEnumInt, h$baseZCGHCziEnumzienumFromThenTo);
   return h$ap_4_4_fast();
 };
-function h$$aha()
+function h$$ai3()
 {
   var a = h$stack[(h$sp - 1)];
   h$sp -= 3;
-  h$l3(h$c2(h$$ahb, a, h$r1), h$$ajG, h$baseZCGHCziBasezimap);
+  h$l3(h$c2(h$$ai4, a, h$r1), h$$ajH, h$baseZCGHCziBasezimap);
   return h$ap_2_2_fast();
 };
-function h$$ag9()
+function h$$ai2()
 {
   var a = h$r1;
   --h$sp;
@@ -73915,53 +74599,53 @@ function h$$ag9()
       h$r1 = 0;
       h$sp += 2;
       ++h$sp;
-      return h$$aha;
+      return h$$ai3;
     case (2):
       h$r1 = 1;
       h$sp += 2;
       ++h$sp;
-      return h$$aha;
+      return h$$ai3;
     case (3):
       h$r1 = 2;
       h$sp += 2;
       ++h$sp;
-      return h$$aha;
+      return h$$ai3;
     case (4):
       h$r1 = 3;
       h$sp += 2;
       ++h$sp;
-      return h$$aha;
+      return h$$ai3;
     case (5):
       h$r1 = 4;
       h$sp += 2;
       ++h$sp;
-      return h$$aha;
+      return h$$ai3;
     case (6):
       h$r1 = 5;
       h$sp += 2;
       ++h$sp;
-      return h$$aha;
+      return h$$ai3;
     case (7):
       h$r1 = 6;
       h$sp += 2;
       ++h$sp;
-      return h$$aha;
+      return h$$ai3;
     default:
       h$r1 = 7;
       h$sp += 2;
       ++h$sp;
-      return h$$aha;
+      return h$$ai3;
   };
 };
-function h$$ag8()
+function h$$ai1()
 {
   var a = h$stack[(h$sp - 1)];
   h$sp -= 2;
   h$pp2(h$r1);
-  h$p1(h$$ag9);
+  h$p1(h$$ai2);
   return h$e(a);
 };
-function h$$ag7()
+function h$$ai0()
 {
   var a = h$r1;
   --h$sp;
@@ -73972,51 +74656,51 @@ function h$$ag7()
       h$r1 = 0;
       ++h$sp;
       ++h$sp;
-      return h$$ag8;
+      return h$$ai1;
     case (2):
       h$r1 = 1;
       ++h$sp;
       ++h$sp;
-      return h$$ag8;
+      return h$$ai1;
     case (3):
       h$r1 = 2;
       ++h$sp;
       ++h$sp;
-      return h$$ag8;
+      return h$$ai1;
     case (4):
       h$r1 = 3;
       ++h$sp;
       ++h$sp;
-      return h$$ag8;
+      return h$$ai1;
     case (5):
       h$r1 = 4;
       ++h$sp;
       ++h$sp;
-      return h$$ag8;
+      return h$$ai1;
     case (6):
       h$r1 = 5;
       ++h$sp;
       ++h$sp;
-      return h$$ag8;
+      return h$$ai1;
     case (7):
       h$r1 = 6;
       ++h$sp;
       ++h$sp;
-      return h$$ag8;
+      return h$$ai1;
     default:
       h$r1 = 7;
       ++h$sp;
       ++h$sp;
-      return h$$ag8;
+      return h$$ai1;
   };
 };
-function h$$ag6()
+function h$$aiZ()
 {
   h$p1(h$r3);
-  h$p1(h$$ag7);
+  h$p1(h$$ai0);
   return h$e(h$r2);
 };
-function h$$ahf()
+function h$$ai8()
 {
   var a = h$r1;
   --h$sp;
@@ -74048,823 +74732,139 @@ function h$$ahf()
   };
   return h$stack[h$sp];
 };
-function h$$ahe()
+function h$$ai7()
 {
-  h$p1(h$$ahf);
+  h$p1(h$$ai8);
   return h$e(h$r2);
 };
-function h$$ahp()
+function h$$aji()
 {
   h$bh();
-  h$l4(h$$ajF, 0, h$baseZCGHCziEnumzizdfEnumInt, h$baseZCGHCziEnumzienumFromTo);
+  h$l4(h$$ajG, 0, h$baseZCGHCziEnumzizdfEnumInt, h$baseZCGHCziEnumzienumFromTo);
   return h$ap_3_3_fast();
 };
-function h$$aho()
+function h$$ajh()
 {
   h$bh();
-  h$l4(h$$ajF, 1, h$baseZCGHCziEnumzizdfEnumInt, h$baseZCGHCziEnumzienumFromTo);
+  h$l4(h$$ajG, 1, h$baseZCGHCziEnumzizdfEnumInt, h$baseZCGHCziEnumzienumFromTo);
   return h$ap_3_3_fast();
 };
-function h$$ahn()
+function h$$ajg()
 {
   h$bh();
-  h$l4(h$$ajF, 2, h$baseZCGHCziEnumzizdfEnumInt, h$baseZCGHCziEnumzienumFromTo);
+  h$l4(h$$ajG, 2, h$baseZCGHCziEnumzizdfEnumInt, h$baseZCGHCziEnumzienumFromTo);
   return h$ap_3_3_fast();
 };
-function h$$ahm()
+function h$$ajf()
 {
   h$bh();
-  h$l4(h$$ajF, 3, h$baseZCGHCziEnumzizdfEnumInt, h$baseZCGHCziEnumzienumFromTo);
+  h$l4(h$$ajG, 3, h$baseZCGHCziEnumzizdfEnumInt, h$baseZCGHCziEnumzienumFromTo);
   return h$ap_3_3_fast();
 };
-function h$$ahl()
+function h$$aje()
 {
   h$bh();
-  h$l4(h$$ajF, 4, h$baseZCGHCziEnumzizdfEnumInt, h$baseZCGHCziEnumzienumFromTo);
+  h$l4(h$$ajG, 4, h$baseZCGHCziEnumzizdfEnumInt, h$baseZCGHCziEnumzienumFromTo);
   return h$ap_3_3_fast();
 };
-function h$$ahk()
+function h$$ajd()
 {
   h$bh();
-  h$l4(h$$ajF, 5, h$baseZCGHCziEnumzizdfEnumInt, h$baseZCGHCziEnumzienumFromTo);
+  h$l4(h$$ajG, 5, h$baseZCGHCziEnumzizdfEnumInt, h$baseZCGHCziEnumzienumFromTo);
   return h$ap_3_3_fast();
 };
-function h$$ahj()
+function h$$ajc()
 {
   h$bh();
-  h$l4(h$$ajF, 6, h$baseZCGHCziEnumzizdfEnumInt, h$baseZCGHCziEnumzienumFromTo);
+  h$l4(h$$ajG, 6, h$baseZCGHCziEnumzizdfEnumInt, h$baseZCGHCziEnumzienumFromTo);
   return h$ap_3_3_fast();
 };
-function h$$ahi()
+function h$$ajb()
 {
   h$bh();
-  h$l4(h$$ajF, 7, h$baseZCGHCziEnumzizdfEnumInt, h$baseZCGHCziEnumzienumFromTo);
+  h$l4(h$$ajG, 7, h$baseZCGHCziEnumzizdfEnumInt, h$baseZCGHCziEnumzienumFromTo);
   return h$ap_3_3_fast();
 };
-function h$$ahh()
+function h$$aja()
 {
   var a = h$r1;
   --h$sp;
   switch (a.f.a)
   {
     case (1):
-      h$l3(h$c(h$$ahp), h$$ajG, h$baseZCGHCziBasezimap);
+      h$l3(h$c(h$$aji), h$$ajH, h$baseZCGHCziBasezimap);
       return h$ap_2_2_fast();
     case (2):
-      h$l3(h$c(h$$aho), h$$ajG, h$baseZCGHCziBasezimap);
+      h$l3(h$c(h$$ajh), h$$ajH, h$baseZCGHCziBasezimap);
       return h$ap_2_2_fast();
     case (3):
-      h$l3(h$c(h$$ahn), h$$ajG, h$baseZCGHCziBasezimap);
+      h$l3(h$c(h$$ajg), h$$ajH, h$baseZCGHCziBasezimap);
       return h$ap_2_2_fast();
     case (4):
-      h$l3(h$c(h$$ahm), h$$ajG, h$baseZCGHCziBasezimap);
+      h$l3(h$c(h$$ajf), h$$ajH, h$baseZCGHCziBasezimap);
       return h$ap_2_2_fast();
     case (5):
-      h$l3(h$c(h$$ahl), h$$ajG, h$baseZCGHCziBasezimap);
+      h$l3(h$c(h$$aje), h$$ajH, h$baseZCGHCziBasezimap);
       return h$ap_2_2_fast();
     case (6):
-      h$l3(h$c(h$$ahk), h$$ajG, h$baseZCGHCziBasezimap);
+      h$l3(h$c(h$$ajd), h$$ajH, h$baseZCGHCziBasezimap);
       return h$ap_2_2_fast();
     case (7):
-      h$l3(h$c(h$$ahj), h$$ajG, h$baseZCGHCziBasezimap);
+      h$l3(h$c(h$$ajc), h$$ajH, h$baseZCGHCziBasezimap);
       return h$ap_2_2_fast();
     default:
-      h$l3(h$c(h$$ahi), h$$ajG, h$baseZCGHCziBasezimap);
+      h$l3(h$c(h$$ajb), h$$ajH, h$baseZCGHCziBasezimap);
       return h$ap_2_2_fast();
   };
 };
-function h$$ahg()
+function h$$ai9()
 {
-  h$p1(h$$ahh);
+  h$p1(h$$aja);
   return h$e(h$r2);
 };
-function h$$ahr()
+function h$$ajk()
 {
   var a = h$r1;
   --h$sp;
   h$r1 = h$tagToEnum(a);
   return h$stack[h$sp];
 };
-function h$$ahq()
+function h$$ajj()
 {
-  h$p1(h$$ahr);
+  h$p1(h$$ajk);
   return h$e(h$r2);
 };
-function h$mainZCCubeziDNode_con_e()
+function h$mainZCColorziMaroon_con_e()
 {
   return h$stack[h$sp];
 };
-function h$mainZCCubeziDNode_e()
-{
-  h$r1 = h$c6(h$mainZCCubeziDNode_con_e, h$r2, h$r3, h$r4, h$r5, h$r6, h$r7);
-  return h$stack[h$sp];
-};
-function h$mainZCCubeziBrown_con_e()
+function h$mainZCColorziBlack_con_e()
 {
   return h$stack[h$sp];
 };
-function h$mainZCCubeziBlack_con_e()
+function h$mainZCColorziPurple_con_e()
 {
   return h$stack[h$sp];
 };
-function h$mainZCCubeziPurple_con_e()
+function h$mainZCColorziOrange_con_e()
 {
   return h$stack[h$sp];
 };
-function h$mainZCCubeziOrange_con_e()
+function h$mainZCColorziYellow_con_e()
 {
   return h$stack[h$sp];
 };
-function h$mainZCCubeziYellow_con_e()
+function h$mainZCColorziBlue_con_e()
 {
   return h$stack[h$sp];
 };
-function h$mainZCCubeziBlue_con_e()
+function h$mainZCColorziGreen_con_e()
 {
   return h$stack[h$sp];
 };
-function h$mainZCCubeziGreen_con_e()
+function h$mainZCColorziRed_con_e()
 {
   return h$stack[h$sp];
-};
-function h$mainZCCubeziRed_con_e()
-{
-  return h$stack[h$sp];
-};
-function h$$aiy()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$l4(1, a, h$baseZCGHCziNumzizdfNumInt, h$baseZCGHCziNumzizp);
-  return h$ap_3_3_fast();
-};
-function h$$aix()
-{
-  var a = h$r1;
-  --h$sp;
-  return h$e(a.d1);
-};
-function h$$aiw()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$aix);
-  return h$e(a);
-};
-function h$$aiv()
-{
-  var a = h$r1;
-  --h$sp;
-  var b = a.d2;
-  return h$e(b.d2);
-};
-function h$$aiu()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$aiv);
-  return h$e(a);
-};
-function h$$ait()
-{
-  var a = h$r1;
-  --h$sp;
-  var b = a.d2;
-  return h$e(b.d1);
-};
-function h$$ais()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$ait);
-  return h$e(a);
-};
-function h$$air()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$l4(1, a, h$baseZCGHCziNumzizdfNumInt, h$baseZCGHCziNumzizp);
-  return h$ap_3_3_fast();
-};
-function h$$aiq()
-{
-  var a = h$r1;
-  --h$sp;
-  return h$e(a.d1);
-};
-function h$$aip()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$aiq);
-  return h$e(a);
-};
-function h$$aio()
-{
-  var a = h$r1;
-  --h$sp;
-  var b = a.d2;
-  return h$e(b.d2);
-};
-function h$$ain()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$aio);
-  return h$e(a);
-};
-function h$$aim()
-{
-  var a = h$r1;
-  --h$sp;
-  var b = a.d2;
-  return h$e(b.d1);
-};
-function h$$ail()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$aim);
-  return h$e(a);
-};
-function h$$aik()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$l4(1, a, h$baseZCGHCziNumzizdfNumInt, h$baseZCGHCziNumzizp);
-  return h$ap_3_3_fast();
-};
-function h$$aij()
-{
-  var a = h$r1;
-  --h$sp;
-  return h$e(a.d1);
-};
-function h$$aii()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$aij);
-  return h$e(a);
-};
-function h$$aih()
-{
-  var a = h$r1;
-  --h$sp;
-  var b = a.d2;
-  return h$e(b.d2);
-};
-function h$$aig()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$aih);
-  return h$e(a);
-};
-function h$$aif()
-{
-  var a = h$r1;
-  --h$sp;
-  var b = a.d2;
-  return h$e(b.d1);
-};
-function h$$aie()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$aif);
-  return h$e(a);
-};
-function h$$aid()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$l4(1, a, h$baseZCGHCziNumzizdfNumInt, h$baseZCGHCziNumzizp);
-  return h$ap_3_3_fast();
-};
-function h$$aic()
-{
-  var a = h$r1;
-  --h$sp;
-  return h$e(a.d1);
-};
-function h$$aib()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$aic);
-  return h$e(a);
-};
-function h$$aia()
-{
-  var a = h$r1;
-  --h$sp;
-  var b = a.d2;
-  return h$e(b.d2);
-};
-function h$$ah9()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$aia);
-  return h$e(a);
-};
-function h$$ah8()
-{
-  var a = h$r1;
-  --h$sp;
-  var b = a.d2;
-  return h$e(b.d1);
-};
-function h$$ah7()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$ah8);
-  return h$e(a);
-};
-function h$$ah6()
-{
-  var a = h$r1;
-  --h$sp;
-  return h$e(a.d1);
-};
-function h$$ah5()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$ah6);
-  return h$e(a);
-};
-function h$$ah4()
-{
-  var a = h$r1;
-  --h$sp;
-  return h$e(a.d2);
-};
-function h$$ah3()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$ah4);
-  return h$e(a);
-};
-function h$$ah2()
-{
-  var a = h$r1;
-  --h$sp;
-  return h$e(a.d1);
-};
-function h$$ah1()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$ah2);
-  return h$e(a);
-};
-function h$$ah0()
-{
-  var a = h$r1;
-  --h$sp;
-  return h$e(a.d2);
-};
-function h$$ahZ()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$ah0);
-  return h$e(a);
-};
-function h$$ahY()
-{
-  var a = h$r1;
-  --h$sp;
-  return h$e(a.d1);
-};
-function h$$ahX()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$ahY);
-  return h$e(a);
-};
-function h$$ahW()
-{
-  var a = h$r1;
-  --h$sp;
-  return h$e(a.d1);
-};
-function h$$ahV()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$ahW);
-  return h$e(a);
-};
-function h$$ahU()
-{
-  var a = h$r1;
-  --h$sp;
-  return h$e(a.d2);
-};
-function h$$ahT()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$ahU);
-  return h$e(a);
-};
-function h$$ahS()
-{
-  var a = h$r1;
-  --h$sp;
-  return h$e(a.d1);
-};
-function h$$ahR()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$ahS);
-  return h$e(a);
-};
-function h$$ahQ()
-{
-  var a = h$r1;
-  --h$sp;
-  return h$e(a.d2);
-};
-function h$$ahP()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$ahQ);
-  return h$e(a);
-};
-function h$$ahO()
-{
-  var a = h$r1;
-  --h$sp;
-  return h$e(a.d2);
-};
-function h$$ahN()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$ahO);
-  return h$e(a);
-};
-function h$$ahM()
-{
-  var a = h$r1;
-  --h$sp;
-  return h$e(a.d1);
-};
-function h$$ahL()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$ahM);
-  return h$e(a);
-};
-function h$$ahK()
-{
-  var a = h$r1;
-  --h$sp;
-  return h$e(a.d2);
-};
-function h$$ahJ()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$ahK);
-  return h$e(a);
-};
-function h$$ahI()
-{
-  var a = h$r1;
-  --h$sp;
-  return h$e(a.d2);
-};
-function h$$ahH()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$ahI);
-  return h$e(a);
-};
-function h$$ahG()
-{
-  var a = h$r1;
-  --h$sp;
-  return h$e(a.d1);
-};
-function h$$ahF()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$ahG);
-  return h$e(a);
-};
-function h$$ahE()
-{
-  var a = h$r1;
-  --h$sp;
-  return h$e(a.d1);
-};
-function h$$ahD()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$ahE);
-  return h$e(a);
-};
-function h$$ahC()
-{
-  var a = h$r1;
-  --h$sp;
-  return h$e(a.d2);
-};
-function h$$ahB()
-{
-  var a = h$r1.d1;
-  h$bh();
-  h$p1(h$$ahC);
-  return h$e(a);
-};
-function h$$ahA()
-{
-  var a = h$r1.d1;
-  h$bh();
-  var b = a;
-  var c = b.d2;
-  return h$e(c.d7);
-};
-function h$$ahz()
-{
-  var a = h$r1.d1;
-  h$bh();
-  var b = a;
-  var c = b.d2;
-  return h$e(c.d5);
-};
-function h$$ahy()
-{
-  var a = h$r1.d1;
-  h$bh();
-  var b = a;
-  var c = b.d2;
-  return h$e(c.d3);
-};
-function h$$ahx()
-{
-  var a = h$r1.d1;
-  h$bh();
-  var b = a;
-  var c = b.d2;
-  return h$e(c.d1);
-};
-function h$$ahw()
-{
-  var a = h$r1.d1;
-  h$bh();
-  var b = a;
-  var c = b.d2;
-  return h$e(c.d8);
-};
-function h$$ahv()
-{
-  var a = h$r1.d1;
-  h$bh();
-  var b = a;
-  var c = b.d2;
-  return h$e(c.d6);
-};
-function h$$ahu()
-{
-  var a = h$r1.d1;
-  h$bh();
-  var b = a;
-  var c = b.d2;
-  return h$e(c.d4);
-};
-function h$$aht()
-{
-  var a = h$r1.d1;
-  h$bh();
-  var b = a;
-  var c = b.d2;
-  return h$e(c.d2);
-};
-function h$$ahs()
-{
-  var a = h$r6;
-  var b = 0;
-  var c = 7;
-  var d = h$c1(h$$aiy, 7);
-  var e = h$c1(h$$aiw, h$r2);
-  var f = h$c1(h$$aiu, h$r5);
-  var g = h$c1(h$$ais, h$r5);
-  var h = 5;
-  var i = h$c1(h$$air, 5);
-  var j = h$c1(h$$aip, h$r5);
-  var k = h$c1(h$$ain, h$r4);
-  var l = h$c1(h$$ail, h$r4);
-  var m = 3;
-  var n = h$c1(h$$aik, 3);
-  var o = h$c1(h$$aii, h$r4);
-  var p = h$c1(h$$aig, h$r3);
-  var q = h$c1(h$$aie, h$r3);
-  var r = 1;
-  var s = h$c1(h$$aid, 1);
-  var t = h$c1(h$$aib, h$r3);
-  var u = h$c1(h$$ah9, h$r2);
-  var v = h$c1(h$$ah7, h$r2);
-  var w = h$c(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e);
-  var x = h$c(h$$ah5);
-  var y = h$c(h$$ah3);
-  var z = h$c(h$mainZCCubeziDNode_con_e);
-  var A = h$c(h$mainZCCubeziDNode_con_e);
-  var B = h$c(h$mainZCCubeziDNode_con_e);
-  var C = h$c(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e);
-  var D = h$c(h$mainZCCubeziDNode_con_e);
-  var E = h$c(h$mainZCCubeziDNode_con_e);
-  var F = h$c(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e);
-  var G = h$c(h$mainZCCubeziDNode_con_e);
-  var H = h$c(h$mainZCCubeziDNode_con_e);
-  var I = h$c(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e);
-  var J = h$c(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e);
-  var K = h$c(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e);
-  var L = h$c(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e);
-  var M = h$c(h$$ah1);
-  var N = h$c(h$$ahZ);
-  var O = h$c(h$$ahX);
-  var P = h$c(h$$ahV);
-  var Q = h$c(h$$ahT);
-  var R = h$c(h$$ahR);
-  var S = h$c(h$$ahP);
-  var T = h$c(h$$ahN);
-  var U = h$c(h$$ahL);
-  var V = h$c(h$$ahJ);
-  var W = h$c(h$$ahH);
-  var X = h$c(h$$ahF);
-  var Y = h$c(h$mainZCCubeziDNode_con_e);
-  var Z = h$c(h$mainZCCubeziDNode_con_e);
-  var aa = h$c(h$ghczmprimZCGHCziTupleziZLz2cUZR_con_e);
-  var ab = h$c(h$$ahD);
-  var ac = h$c(h$$ahB);
-  w.d1 = ab;
-  w.d2 = ac;
-  x.d1 = w;
-  y.d1 = w;
-  z.d1 = N;
-  z.d2 = h$d5(T, W, y, a, b);
-  A.d1 = k;
-  A.d2 = h$d5(j, y, B, a, h);
-  B.d1 = l;
-  B.d2 = h$d5(A, z, M, a, i);
-  C.d1 = A;
-  C.d2 = B;
-  D.d1 = p;
-  D.d2 = h$d5(o, W, E, a, m);
-  E.d1 = q;
-  E.d2 = h$d5(D, z, R, a, n);
-  F.d1 = D;
-  F.d2 = E;
-  G.d1 = u;
-  G.d2 = h$d5(t, T, H, a, r);
-  H.d1 = v;
-  H.d2 = h$d5(G, z, x, a, s);
-  I.d1 = G;
-  I.d2 = H;
-  J.d1 = P;
-  J.d2 = Q;
-  K.d1 = O;
-  K.d2 = S;
-  L.d1 = U;
-  L.d2 = V;
-  M.d1 = K;
-  N.d1 = J;
-  O.d1 = F;
-  P.d1 = I;
-  Q.d1 = I;
-  R.d1 = J;
-  S.d1 = F;
-  T.d1 = K;
-  U.d1 = C;
-  V.d1 = C;
-  W.d1 = L;
-  X.d1 = L;
-  Y.d1 = g;
-  Y.d2 = h$d5(Z, z, X, a, d);
-  Z.d1 = f;
-  Z.d2 = h$d5(e, N, Y, a, c);
-  aa.d1 = Z;
-  aa.d2 = Y;
-  ab.d1 = aa;
-  ac.d1 = aa;
-  var ad = h$c9(h$ghczmprimZCGHCziTupleziZLz2cUz2cUz2cUz2cUz2cUz2cUz2cUz2cUZR_con_e, z, R, N, M, T, X, W, x, y);
-  var ae = h$c1(h$$ahA, ad);
-  var af = h$c1(h$$ahz, ad);
-  var ag = h$c1(h$$ahy, ad);
-  var ah = h$c1(h$$ahx, ad);
-  h$r1 = h$c4(h$ghczmprimZCGHCziTupleziZLz2cUz2cUz2cUZR_con_e, h$c3(h$ghczmprimZCGHCziTupleziZLz2cUz2cUZR_con_e, ah,
-  h$c1(h$$aht, ad), ae), h$c3(h$ghczmprimZCGHCziTupleziZLz2cUz2cUZR_con_e, ag, h$c1(h$$ahu, ad), ah),
-  h$c3(h$ghczmprimZCGHCziTupleziZLz2cUz2cUZR_con_e, af, h$c1(h$$ahv, ad), ag),
-  h$c3(h$ghczmprimZCGHCziTupleziZLz2cUz2cUZR_con_e, ae, h$c1(h$$ahw, ad), af));
-  return h$stack[h$sp];
-};
-function h$$aiA()
-{
-  var a = h$r1;
-  --h$sp;
-  var b = a.d2;
-  return h$e(b.d2);
-};
-function h$$aiz()
-{
-  var a = h$r1;
-  --h$sp;
-  var b = a.d2;
-  h$p1(h$$aiA);
-  return h$e(b.d1);
-};
-function h$mainZCCubezimkCube_e()
-{
-  h$bh();
-  h$p1(h$$aiz);
-  return h$e(h$$aiH);
-};
-function h$$aiB()
-{
-  var a = h$r1;
-  --h$sp;
-  var b = a.d2;
-  h$r1 = b.d4;
-  return h$ap_0_0_fast();
-};
-function h$mainZCCubezicolor_e()
-{
-  h$p1(h$$aiB);
-  return h$e(h$r2);
-};
-function h$$aiC()
-{
-  var a = h$r1;
-  --h$sp;
-  var b = a.d2;
-  return h$e(b.d3);
-};
-function h$mainZCCubezieast_e()
-{
-  h$p1(h$$aiC);
-  return h$e(h$r2);
-};
-function h$$aiD()
-{
-  var a = h$r1;
-  --h$sp;
-  var b = a.d2;
-  return h$e(b.d5);
-};
-function h$mainZCCubeziindex_e()
-{
-  h$p1(h$$aiD);
-  return h$e(h$r2);
-};
-function h$$aiE()
-{
-  var a = h$r1;
-  --h$sp;
-  return h$e(a.d1);
-};
-function h$mainZCCubezinorth_e()
-{
-  h$p1(h$$aiE);
-  return h$e(h$r2);
-};
-function h$$aiF()
-{
-  var a = h$r1;
-  --h$sp;
-  var b = a.d2;
-  return h$e(b.d2);
-};
-function h$mainZCCubezisouth_e()
-{
-  h$p1(h$$aiF);
-  return h$e(h$r2);
-};
-function h$$aiG()
-{
-  var a = h$r1;
-  --h$sp;
-  var b = a.d2;
-  return h$e(b.d1);
-};
-function h$mainZCCubeziwest_e()
-{
-  h$p1(h$$aiG);
-  return h$e(h$r2);
 };
 function h$mainZCActionziAnimate_con_e()
 {
@@ -127558,59 +127558,67 @@ var h$mainZCDirectionziRight = h$d();
 var h$mainZCDirectionziLeft = h$d();
 var h$mainZCDirectionziDown = h$d();
 var h$mainZCDirectionziUp = h$d();
-var h$$aiH = h$d();
-var h$$aiI = h$d();
-var h$$aiJ = h$d();
-var h$$aiK = h$d();
-var h$$aiL = h$d();
-var h$$aiM = h$d();
-var h$$aiN = h$d();
-var h$$aiO = h$d();
-var h$$aiP = h$d();
-var h$$aiQ = h$d();
-var h$$aiR = h$d();
-var h$$aiS = h$d();
-var h$$aiT = h$d();
-var h$$aiU = h$d();
-var h$$aiV = h$d();
-var h$$aiW = h$d();
-var h$$aiX = h$d();
-var h$$aiY = h$d();
-var h$$aiZ = h$d();
-var h$$ai0 = h$d();
-var h$$ai1 = h$d();
-var h$$ai2 = h$d();
-var h$$ai3 = h$d();
-var h$$ai4 = h$d();
-var h$$ai5 = h$d();
-var h$$ai6 = h$d();
-var h$$ai7 = h$d();
-var h$$ai8 = h$d();
-var h$$ai9 = h$d();
-var h$$aja = h$d();
-var h$$ajb = h$d();
-var h$$ajc = h$d();
-var h$$ajd = h$d();
-var h$$aje = h$d();
-var h$$ajf = h$d();
-var h$$ajg = h$d();
-var h$mainZCCubezizdfOrdDNode = h$d();
-var h$$ajh = h$d();
+var h$$ahh = h$d();
+var h$$ahi = h$d();
+var h$$ahj = h$d();
+var h$$ahk = h$d();
+var h$$ahl = h$d();
+var h$$ahm = h$d();
+var h$$ahn = h$d();
+var h$$aho = h$d();
+var h$$ahp = h$d();
+var h$$ahq = h$d();
+var h$$ahr = h$d();
+var h$$ahs = h$d();
+var h$$aht = h$d();
+var h$$ahu = h$d();
+var h$$ahv = h$d();
+var h$$ahw = h$d();
+var h$$ahx = h$d();
+var h$$ahy = h$d();
+var h$$ahz = h$d();
+var h$$ahA = h$d();
+var h$$ahB = h$d();
+var h$$ahC = h$d();
+var h$$ahD = h$d();
+var h$$ahE = h$d();
+var h$$ahF = h$d();
+var h$$ahG = h$d();
+var h$$ahH = h$d();
+var h$$ahI = h$d();
+var h$$ahJ = h$d();
+var h$$ahK = h$d();
+var h$$ahL = h$d();
 var h$mainZCCubezizdfEqDNode = h$d();
-var h$$aji = h$d();
-var h$$ajj = h$d();
-var h$mainZCCubezizdfEnumColor = h$d();
-var h$$ajk = h$d();
-var h$mainZCCubezizdfEqColor = h$d();
+var h$$ahM = h$d();
+var h$$ahN = h$d();
+var h$$ahO = h$d();
+var h$$ahP = h$d();
+var h$$ahQ = h$d();
+var h$$ahR = h$d();
+var h$mainZCCubezizdfOrdDNode = h$d();
+var h$$ahS = h$d();
+var h$$ahT = h$d();
+var h$mainZCCubeziDNode = h$d();
+var h$$ahU = h$d();
+var h$mainZCCubezimkCube = h$d();
+var h$mainZCCubezicolor = h$d();
+var h$mainZCCubezieast = h$d();
+var h$mainZCCubeziindex = h$d();
+var h$mainZCCubezinorth = h$d();
+var h$mainZCCubezisouth = h$d();
+var h$mainZCCubeziwest = h$d();
 var h$$ajl = h$d();
 var h$$ajm = h$d();
-var h$mainZCCubezizdfOrdColor = h$d();
+var h$mainZCColorzizdfEnumColor = h$d();
 var h$$ajn = h$d();
+var h$mainZCColorzizdfEqColor = h$d();
 var h$$ajo = h$d();
-var h$mainZCCubezizdfShowColor = h$d();
 var h$$ajp = h$d();
+var h$mainZCColorzizdfOrdColor = h$d();
 var h$$ajq = h$d();
 var h$$ajr = h$d();
+var h$mainZCColorzizdfShowColor = h$d();
 var h$$ajs = h$d();
 var h$$ajt = h$d();
 var h$$aju = h$d();
@@ -127624,25 +127632,17 @@ var h$$ajB = h$d();
 var h$$ajC = h$d();
 var h$$ajD = h$d();
 var h$$ajE = h$d();
-var h$$ajF = h$p(7);
-var h$$ajG = h$d();
-var h$mainZCCubeziDNode = h$d();
-var h$mainZCCubeziBrown = h$d();
-var h$mainZCCubeziBlack = h$d();
-var h$mainZCCubeziPurple = h$d();
-var h$mainZCCubeziOrange = h$d();
-var h$mainZCCubeziYellow = h$d();
-var h$mainZCCubeziBlue = h$d();
-var h$mainZCCubeziGreen = h$d();
-var h$mainZCCubeziRed = h$d();
+var h$$ajF = h$d();
+var h$$ajG = h$p(7);
 var h$$ajH = h$d();
-var h$mainZCCubezimkCube = h$d();
-var h$mainZCCubezicolor = h$d();
-var h$mainZCCubezieast = h$d();
-var h$mainZCCubeziindex = h$d();
-var h$mainZCCubezinorth = h$d();
-var h$mainZCCubezisouth = h$d();
-var h$mainZCCubeziwest = h$d();
+var h$mainZCColorziMaroon = h$d();
+var h$mainZCColorziBlack = h$d();
+var h$mainZCColorziPurple = h$d();
+var h$mainZCColorziOrange = h$d();
+var h$mainZCColorziYellow = h$d();
+var h$mainZCColorziBlue = h$d();
+var h$mainZCColorziGreen = h$d();
+var h$mainZCColorziRed = h$d();
 var h$mainZCActionziAnimate = h$d();
 var h$mainZCActionziRotateFace = h$d();
 var h$mainZCActionziNudgeCube = h$d();
@@ -129633,26 +129633,26 @@ h$mainZCDirectionziDown_con_e, h$mainZCDirectionziUp_con_e, h$$aep, h$$aeq, h$$a
 h$$aew, h$$aex, h$$aey, h$$aez, h$$aeA, h$$aeB, h$$aeC, h$$aeD, h$$aeE, h$$aeF, h$$aeG, h$$aeH, h$$aeI, h$$aeJ, h$$aeK,
 h$$aeL, h$$aeM, h$$aeN, h$$aeO, h$$aeP, h$$aeQ, h$$aeR, h$$aeS, h$$aeT, h$$aeU, h$$aeV, h$$aeW, h$$aeX, h$$aeY, h$$aeZ,
 h$$ae0, h$$ae1, h$$ae2, h$$ae3, h$$ae4, h$$ae5, h$$ae6, h$$ae7, h$$ae8, h$$ae9, h$$afa, h$$afb, h$$afc, h$$afd, h$$afe,
-h$$aff, h$$afg, h$$afh, h$$afi, h$$afj, h$$afk, h$$afl, h$$afm, h$$afn, h$$afo, h$$afp, h$$afq, h$$afr, h$$afs,
-h$mainZCCubezizdfOrdDNode_e, h$$aft, h$$afu, h$$afv, h$$afw, h$$afx, h$$afy, h$$afz, h$$afA, h$$afB,
-h$mainZCCubezizdfEqDNode_e, h$$afC, h$$afD, h$$afE, h$$afF, h$$afG, h$$afH, h$$afI, h$$afJ, h$$afK, h$$afL, h$$afM,
-h$$afN, h$$afO, h$$afP, h$$afQ, h$$afR, h$$afS, h$$afT, h$$afU, h$$afV, h$$afW, h$$afX, h$$afY, h$$afZ, h$$af0, h$$af1,
-h$$af2, h$$af3, h$$af4, h$$af5, h$$af6, h$$af7, h$$af8, h$$af9, h$$aga, h$$agb, h$$agc, h$$agd, h$$age, h$$agf, h$$agg,
-h$$agh, h$$agi, h$$agj, h$$agk, h$$agl, h$$agm, h$$agn, h$$ago, h$$agp, h$$agq, h$$agr, h$$ags, h$$agt, h$$agu, h$$agv,
-h$$agw, h$$agx, h$$agy, h$$agz, h$$agA, h$$agB, h$$agC, h$$agD, h$$agE, h$$agF, h$$agG, h$$agH, h$$agI, h$$agJ, h$$agK,
-h$$agL, h$$agM, h$$agN, h$$agO, h$$agP, h$$agQ, h$$agR, h$$agS, h$$agT, h$$agU, h$$agV, h$$agW, h$$agX, h$$agY, h$$agZ,
-h$$ag0, h$$ag1, h$$ag2, h$$ag3, h$$ag4, h$$ag5, h$$ag6, h$$ag7, h$$ag8, h$$ag9, h$$aha, h$$ahb, h$$ahc, h$$ahd, h$$ahe,
-h$$ahf, h$$ahg, h$$ahh, h$$ahi, h$$ahj, h$$ahk, h$$ahl, h$$ahm, h$$ahn, h$$aho, h$$ahp, h$$ahq, h$$ahr,
-h$mainZCCubeziDNode_e, h$mainZCCubeziDNode_con_e, h$mainZCCubeziBrown_con_e, h$mainZCCubeziBlack_con_e,
-h$mainZCCubeziPurple_con_e, h$mainZCCubeziOrange_con_e, h$mainZCCubeziYellow_con_e, h$mainZCCubeziBlue_con_e,
-h$mainZCCubeziGreen_con_e, h$mainZCCubeziRed_con_e, h$$ahs, h$$aht, h$$ahu, h$$ahv, h$$ahw, h$$ahx, h$$ahy, h$$ahz,
-h$$ahA, h$$ahB, h$$ahC, h$$ahD, h$$ahE, h$$ahF, h$$ahG, h$$ahH, h$$ahI, h$$ahJ, h$$ahK, h$$ahL, h$$ahM, h$$ahN, h$$ahO,
-h$$ahP, h$$ahQ, h$$ahR, h$$ahS, h$$ahT, h$$ahU, h$$ahV, h$$ahW, h$$ahX, h$$ahY, h$$ahZ, h$$ah0, h$$ah1, h$$ah2, h$$ah3,
-h$$ah4, h$$ah5, h$$ah6, h$$ah7, h$$ah8, h$$ah9, h$$aia, h$$aib, h$$aic, h$$aid, h$$aie, h$$aif, h$$aig, h$$aih, h$$aii,
-h$$aij, h$$aik, h$$ail, h$$aim, h$$ain, h$$aio, h$$aip, h$$aiq, h$$air, h$$ais, h$$ait, h$$aiu, h$$aiv, h$$aiw, h$$aix,
-h$$aiy, h$mainZCCubezimkCube_e, h$$aiz, h$$aiA, h$mainZCCubezicolor_e, h$$aiB, h$mainZCCubezieast_e, h$$aiC,
-h$mainZCCubeziindex_e, h$$aiD, h$mainZCCubezinorth_e, h$$aiE, h$mainZCCubezisouth_e, h$$aiF, h$mainZCCubeziwest_e,
-h$$aiG, h$mainZCActionziAnimate_con_e, h$mainZCActionziRotateFace_e, h$mainZCActionziRotateFace_con_e,
+h$$aff, h$$afg, h$$afh, h$$afi, h$mainZCCubezizdfEqDNode_e, h$$afj, h$$afk, h$$afl, h$$afm, h$$afn, h$$afo, h$$afp,
+h$$afq, h$$afr, h$$afs, h$$aft, h$$afu, h$$afv, h$$afw, h$mainZCCubezizdfOrdDNode_e, h$$afx, h$$afy, h$$afz, h$$afA,
+h$$afB, h$$afC, h$$afD, h$$afE, h$$afF, h$$afG, h$$afH, h$$afI, h$$afJ, h$$afK, h$$afL, h$$afM, h$$afN, h$$afO, h$$afP,
+h$$afQ, h$$afR, h$$afS, h$$afT, h$$afU, h$$afV, h$$afW, h$$afX, h$$afY, h$$afZ, h$$af0, h$$af1, h$mainZCCubeziDNode_e,
+h$mainZCCubeziDNode_con_e, h$$af2, h$$af3, h$$af4, h$$af5, h$$af6, h$$af7, h$$af8, h$$af9, h$$aga, h$$agb, h$$agc,
+h$$agd, h$$age, h$$agf, h$$agg, h$$agh, h$$agi, h$$agj, h$$agk, h$$agl, h$$agm, h$$agn, h$$ago, h$$agp, h$$agq, h$$agr,
+h$$ags, h$$agt, h$$agu, h$$agv, h$$agw, h$$agx, h$$agy, h$$agz, h$$agA, h$$agB, h$$agC, h$$agD, h$$agE, h$$agF, h$$agG,
+h$$agH, h$$agI, h$$agJ, h$$agK, h$$agL, h$$agM, h$$agN, h$$agO, h$$agP, h$$agQ, h$$agR, h$$agS, h$$agT, h$$agU, h$$agV,
+h$$agW, h$$agX, h$$agY, h$$agZ, h$$ag0, h$$ag1, h$$ag2, h$$ag3, h$$ag4, h$$ag5, h$$ag6, h$$ag7, h$$ag8,
+h$mainZCCubezimkCube_e, h$$ag9, h$$aha, h$mainZCCubezicolor_e, h$$ahb, h$mainZCCubezieast_e, h$$ahc,
+h$mainZCCubeziindex_e, h$$ahd, h$mainZCCubezinorth_e, h$$ahe, h$mainZCCubezisouth_e, h$$ahf, h$mainZCCubeziwest_e,
+h$$ahg, h$$ahV, h$$ahW, h$$ahX, h$$ahY, h$$ahZ, h$$ah0, h$$ah1, h$$ah2, h$$ah3, h$$ah4, h$$ah5, h$$ah6, h$$ah7, h$$ah8,
+h$$ah9, h$$aia, h$$aib, h$$aic, h$$aid, h$$aie, h$$aif, h$$aig, h$$aih, h$$aii, h$$aij, h$$aik, h$$ail, h$$aim, h$$ain,
+h$$aio, h$$aip, h$$aiq, h$$air, h$$ais, h$$ait, h$$aiu, h$$aiv, h$$aiw, h$$aix, h$$aiy, h$$aiz, h$$aiA, h$$aiB, h$$aiC,
+h$$aiD, h$$aiE, h$$aiF, h$$aiG, h$$aiH, h$$aiI, h$$aiJ, h$$aiK, h$$aiL, h$$aiM, h$$aiN, h$$aiO, h$$aiP, h$$aiQ, h$$aiR,
+h$$aiS, h$$aiT, h$$aiU, h$$aiV, h$$aiW, h$$aiX, h$$aiY, h$$aiZ, h$$ai0, h$$ai1, h$$ai2, h$$ai3, h$$ai4, h$$ai5, h$$ai6,
+h$$ai7, h$$ai8, h$$ai9, h$$aja, h$$ajb, h$$ajc, h$$ajd, h$$aje, h$$ajf, h$$ajg, h$$ajh, h$$aji, h$$ajj, h$$ajk,
+h$mainZCColorziMaroon_con_e, h$mainZCColorziBlack_con_e, h$mainZCColorziPurple_con_e, h$mainZCColorziOrange_con_e,
+h$mainZCColorziYellow_con_e, h$mainZCColorziBlue_con_e, h$mainZCColorziGreen_con_e, h$mainZCColorziRed_con_e,
+h$mainZCActionziAnimate_con_e, h$mainZCActionziRotateFace_e, h$mainZCActionziRotateFace_con_e,
 h$mainZCActionziNudgeCube_e, h$mainZCActionziNudgeCube_con_e, h$$ajI, h$$ajJ, h$$ajK, h$$ajL, h$$ajM, h$$ajN, h$$ajO,
 h$$ajP, h$$ajQ, h$$ajR, h$$ajS, h$$ajT, h$$ajU, h$$ajV, h$$ajW, h$$ajX, h$$ajY, h$$ajZ,
 h$matrizu682HBa36TWs8HIx1KnWQ3tZCDataziMatrixzizdwtoLists_e, h$$aj0, h$$aj1, h$$aj2, h$$aj3, h$$aj4, h$$aj5, h$$aj6,
@@ -130829,8 +130829,8 @@ h$timezuKPHTSoBSjtZZ5lswdMFwFfYZCDataziTimeziClockziCTimevalziMkCTimeval_e,
 h$timezuKPHTSoBSjtZZ5lswdMFwFfYZCDataziTimeziClockziCTimevalziMkCTimeval_con_e,
 h$timezuKPHTSoBSjtZZ5lswdMFwFfYZCDataziTimeziClockzigetCurrentTime1_e, h$$bqk, h$$bql,
 h$timezuKPHTSoBSjtZZ5lswdMFwFfYZCDataziTimeziClockzigetCurrentTime_e], h$staticDelayed, [],
-"#$! ##! #!! !!#! #!! !!%! #!# ##! #!! !!%! #!# !!%! #!# #!! !#'! ##$ !!%! #!# !*5! #!+ !'\/! #!( !%+! #!& !$)! #!% !#'! #!$ #!! !!%! !#'! $$# $$$ $$% $$% $$! !$)! $$$ $$% $$% $$! !#'! $$# $$$ $$% $$% $$! !$)! $$$ $$% $$% $$! !%+! $$! !%+! $$! !%+! $$! !%+! $$! !%+! $$$ !%+! $$$ !#'! $$! !#'! $$! !#'! $$! !#'! $$! !#'! $$$ !#'! $$$ !#'! $$# $$$ !#'! $$# $$$ !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !#'! $$# $$$ !#'! $$# $$$ !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !#'! $$# $$$ !#'! $$# $$$ !'\/! $$% !&-! $$% $$& !'\/! $$% !&-! $$% $$& !'\/! $$% !&-! $$% $$& !'\/! $$% !&-! $$% $$& !'\/! $$% !&-! $$% $$& !&-! $$% $$' $$' $$$ !&-! $$% $$' $$' $$$ !$)! $$! !#'! $$! !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !'\/! $$% !%+! $$% $$& !'\/! $$% $$! !%+! $$% $$& !#'! !#($ !#($ !$)! !#(% !#(% !#(% !#(% !#(% !#(% !#(% !!%! !#(# !#(# !#'! !#(# !#($ !#($ !#($ !#($ !#($ !#($ !)3! #!* !!%! $$! !$)! $$$ !$)! $$$ !$)! $$! !$)! $$! !$)! $$! !$)! $$! !#'! #!$ !$)! $$! !#'! !#'! !!%! $$! !#'! $$# !#'! $$# !#'! !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !#)! !!&&  $ !!'! !!&%  $ !$+! !!&'  $ !!'! !!&%  $  $  $  $ !#'! !$*$ !#($ !#(# !!&$ !%+! $$$ !!&# !$)! !!&$ !&-!  $ !!&# $$# !$)! !!&#  $ !#'! !!&$ !!&$  $  # !$)! !!&$  $  $ !!&# $$#  $ !$)! !!&$  $  $ !!&# $$# !&-!  $ !%+!  $ !!&$ $$$  $ !!&$ $$$  $ !&-!  $ !!%! !#(# !#(# !$)! !#(# !$*# !#(% !#(% !#'! !$*$ !#($ !#(# !!&$ !%+! $$$ !!&# !&-!  $ !!&#  # $$!  # $$! !$)! !!&#  $ !#'! !!&$ !!&$  $  # !$)! !!&$  $  $ !!&#  $  # $$!  # $$! !$)! !!&$  $  $ !!&#  # $$! !&-!  $ !%+!  $ !!&$  $  # $$! !!&$  $ $$#  # $$!  # $$! !&-!  $ !!%! !#(# !#(# !$)! !#(# !$*# !#(% !#(% !#'! !!&# !#'! !$*$ !#($ !!&$ !!&$ !%+! $$$ !!&# !$)!  $ !&-!  $ !!&$ !$)! !!&#  $ !$)! !!&#  $ !#'! !#(#  $  $ !#'! !#(#  $  $ !!&# !$)! !!&#  $ !%+! !!&%  $  $  $ !%+! !!&%  $  $  $ !!%! !!&# !!&# !#'! !!&$ !$*#  $  $ !#($ !#($ !#'! #!$ !!%! $$! !!%! $$! !!%! #!# !!%! #!# !%+! $$% $$% !!$% !!%! !!%! !#'! #!$ !!%! $$! !!%! $$! !#%! $$! $$! !#%! $$! $$$ $$! $!( $$! $$! $!( $$# $$! $$# !!#! !#%! !#%! !#%! !#%!  !!|'D !!|'B !!|!%!!%!!|!$!!%!!|!&!!%! $$! $$# !#'!!|!.!$)!!|!.!#'!!|!(!!#!!|!6!!%!!|!,$$!!|!,$$#!|!,!!%!!|!.!$)! $$#  $ !#'! $$#  $ !#'! !!#!!|!9!!%!!|!:$$!!|!:$$#!|!:!#'! !!%! $$! #!! !#'! #!$ !!%! #!# !!%! $$# $$! !!%! !!%! $$! !#'!#|!F|!`$$##|!F|!`$$$!|!`!&-!#|!F|!`$$$!|!`!%+!#|!`|!H$$$#|!`|!H # $$!  %!|!`$$$!|!` &!|!H$&! !#'!#|!I|!_$$##|!I|!_$$$!|!_!&-!#|!I|!_$$$!|!_!%+!#|!_|!K$$$#|!_|!K # $$!  %!|!_$$$!|!_ &!|!K$&! !&-!&|!a|!`|!_|!M|!L$$&&|!a|!`|!_|!M|!L$$$!|!`$$$!|!_!&-!&|!a|!`|!_|!M|!L$$&&|!a|!`|!_|!M|!L$$$!|!`$$$!|!_!'\/!&|!`|!_|!G|!O|!N$$'&|!`|!_|!G|!O|!N$$$!|!`$$$!|!_$$( !'\/!&|!`|!_|!J|!O|!N$$'&|!`|!_|!J|!O|!N$$$!|!`$$$!|!_$$( !,9!#|!Q|!b$$,#|!Q|!b$$*#|!Q|!b$$'#|!Q|!b$$#!|!b!&-!&|!Q|!e|!d|!c|!b$$&&|!Q|!e|!d|!c|!b$$)&|!Q|!e|!d|!c|!b$$&#|!e|!c$$$!|!c$$)#|!Q|!b$$'#|!Q|!b$$'#|!Q|!b$$#!|!b !!|!S!!#!#|*{|!T !!|!V!!#!#|*{|!W!!%! ### !!%! $$! #!! ##! !%+! #!& !%+! $$% $$% $$% $$% !$)!!|!R$$$!|!R$$# $$! $$' $$% $$# $$$ $$* $$$ $$' $$* $$* $$* $$* $$%!|!R$$$ $$(!|!R$$,!|!R$$) $$, $$, $$, $$, $$& !$)!!|!U$$$!|!U$$# $$! $$' $$% $$# $$$ $$' $$$ $$' $$* $$* $$* $$) $$+ $$%!|!U$$$ $$(!|!U$$)!|!U$$) $$, $$, $$, $$+ $$- $$& !#'!%|!`|!_|!H|!K$$#%|!`|!_|!H|!K$$'%|!`|!_|!H|!K$&#!|!_$&#!|!`!#'!&|!a|!`|!_|!M|!L$$#&|!a|!`|!_|!M|!L$$'&|!a|!`|!_|!M|!L$$$!|!`$$$!|!_!$)!'|!F|!`|!_|!J|!O|!N$$$'|!F|!`|!_|!J|!O|!N$$(&|!`|!_|!J|!O|!N$$$!|!`$$$!|!_$$& !$)!!|!c$$$!|!c!#($!|!c$$%!|!c$$'!|!c$$$!|!c!$)!!|!c$$$!|!c!#($!|!c$$%!|!c$$'!|!c$$$!|!c!%+! $$% $$% $(# $$% $$) $$' $&# $$$ $$& $$$ $&# $$$ $$& !!%! $$! !#'! $$# $$' $$' $$& !#'! $$# $$' $$' $$& !%+!$|#@|#?|#>$$%$|#@|#?|#>$$*$|#@|#?|#>$:%!|#>$&0!|#>$$-!|#>$$+!|#>$$+!|#>$$)!|#>$$%!|#>$$)!|#>$$%!|#>!%,%$|#@|#?|#>$$($|#@|#?|#>$$,$|#@|#?|#>$$'#|#@|#>$$%!|#>$&,!|#>$$-!|#>$$+!|#>$$+!|#>$$)!|#>$$%!|#>$$)!|#>$$%!|#>!!%! $$! $$% $$% !#'! $$#  $ !#'! $$#  $ !#'! $$#  $ !!%! !!%! !!%! !$)! !#'! $$# $$' $$'  $ !#'! $$# $$' $$'  % !$)! $$$ $$( $$# !$)! $$$ $$& !%+! $$% $$* $$# $$' $$# !$)!#|!x|#;$$$#|!x|#;$$%!|#;!(1!#|!x|#;$$%!|#;!&-!#|#;|!z$$%#|#;|!z # $$!  &!|#;$$%!|#; '!|!z$&! !%+!$|#;|#:|!{$$%$|#;|#:|!{$$%$|#;|#:|!{$$*$|#;|#:|!{$$%!|#:$$%!|#;!%+!$|#;|#:|# $$%$|#;|#:|# $$%$|#;|#:|# $$*$|#;|#:|# $$%!|#:$$%!|#;!$)!#|#!|#:$$$#|#!|#:$$%!|#:!&-!#|#:|##$$%#|#:|## # $$!  &!|#:$$%!|#: '!|##$&! !'\/!&|#<|#;|#:|#%|#$$$'&|#<|#;|#:|#%|#$$$%!|#;$$%!|#:!'\/!&|#<|#;|#:|#%|#$$$'&|#<|#;|#:|#%|#$$$%!|#;$$%!|#:!)3!&|#;|#:|!y|#'|#&$$)&|#;|#:|!y|#'|#&$$%!|#;$$%!|#:$$* !)3!&|#!|#;|#:|#'|#&$$)&|#!|#;|#:|#'|#&$$%!|#;$$%!|#:$$* !#'!$|#(|#>|#=$$#$|#(|#>|#=$$&$|#(|#>|#=$$&#|#(|#>$$%!|#>$$$#|#(|#=$$#!|#=!.=!$|#G|#*|#>$$\/$|#G|#*|#>$$\/$|#G|#*|#>$!.#|#*|#>$$\/#|#*|#>$$-#|#*|#>$$)#|#*|#>$$%!|#>!&-!&|#G|#*|#@|#?|#>$$&&|#G|#*|#@|#?|#>$$*&|#G|#*|#@|#?|#>$$'#|#@|#>$$%!|#>$$.$|#G|#*|#>$$-$|#G|#*|#>$!*#|#*|#>$$+#|#*|#>$$)#|#*|#>$$)#|#*|#>$$%!|#>!$)!!|#H$&#!|#H$$$!|#H$$%!|#H$$$!|#H !!|#-!!#!#|*{|#. !!|#0!!#!#|*{|#1!%+! $$% !!%!#|#F|#E!#(#!|#E!!&#!|#F!!%! ### !!%! $$! #!! ##! !&-! #!' !&-! $$& $$& $$& $$& !%+!!|#,$$%!|#,$$$ $$# $$) $$' $$$ $$& $$- $$' $$) $$- $$- $$- $$- $$&!|#,$$% $$*!|#,$$\/!|#,$$+ $$\/ $$\/ $$\/ $$\/ $$' !%+!!|#\/$$%!|#\/$$$ $$# $$) $$' $$$ $$' $$) $$& $$) $$- $$- $$- $$, $$. $$&!|#\/$$% $$*!|#\/$$+!|#\/$$+ $$\/ $$\/ $$\/ $$. $$0 $$' !#'!%|#;|#:|!z|##$$#%|#;|#:|!z|##$$(%|#;|#:|!z|##$&#!|#:$$$!|#:$&#!|#;$$$!|#;!#'!&|#<|#;|#:|#%|#$$$#&|#<|#;|#:|#%|#$$$(&|#<|#;|#:|#%|#$$$%!|#;$$%!|#:!%+!'|#!|!x|#;|#:|#'|#&$$%'|#!|!x|#;|#:|#'|#&$$*&|#!|#;|#:|#'|#&$$%!|#;$$%!|#:$$' !$)!!|#>$$$!|#>!#($!|#>$$%!|#>$$(!|#>$$%!|#>!$)!!|#>$$$!|#>!#($!|#>$$%!|#>$$(!|#>$$%!|#>!%+! $$% $$% $(# $$% $$) $$' $&# $$$ $$& $$$ $&# $$$ $$& !#'!$|#>|#!|#+$$#$|#>|#!|#+$$$$|#>|#!|#+$$%$|#>|#!|#+$$'$|#>|#!|#+$$)$|#>|#!|#+$$%!|#+$$'$|#>|#!|#+$,$$|#>|#!|#+$$($|#>|#!|#+$$*$|#>|#!|#+$$,$|#>|#!|#+$(($|#>|#!|#+$$*$|#>|#!|#+$$$!|#+$$&$|#>|#!|#+$($$|#>|#!|#+$$&$|#>|#!|#+$$($|#>|#!|#+$$)$|#>|#!|#+$$*$|#>|#!|#+$$,$|#>|#!|#+$(($|#>|#!|#+$$*$|#>|#!|#+$$$!|#+$$&$|#>|#!|#+!%,$#|#>|#!$$% $$& $$%  $ $$#  $ $$#  $ $$# $(%#|#>|#!$$'#|#>|#!$$)#|#>|#!$$*#|#>|#!$$*!|#>$$+!|#>$(%!|#> &!|#> %!|#!$$# !$)! !#($ $$%  (  % !%+!#|#>|#=$$%#|#>|#=$$*#|#>|#=$:%#|#>|#=$&0#|#>|#=$$-#|#>|#=$$+#|#>|#=$$+#|#>|#=$$)#|#>|#=$$%!|#>$$#!|#=$$%!|#>!%,%#|#>|#=$$(#|#>|#=$$(#|#>|#=$&,#|#>|#=$$-#|#>|#=$$+#|#>|#=$$+#|#>|#=$$)#|#>|#=$$%!|#>$$#!|#=$$%!|#>!$)!!|#)$$$!|#)$$)!|#)!#'!!|#)$$#!|#)$$#!|#)$&#!|#)$$$!|#)$$%!|#)$$*!|#)$$$!|#)!%+!!|# !%+!!|!{!#'! $$# !$)! $&# $$$ $$$ $$( $*# $$& $$& $$* !$)! $&# $$$ $$$ $$' !!%!#|#M|#P$$!#|#M|#P$&%  & $$% $$% !%+!!|#M$&%  & $$% $$% !%+! $$%  & $$% $$%  !#|*{|#Q#$! !#'! ##$ !#'! $$# !%+! #!& !%+! $$% $$% $$% $$% !!%!#|#M|#N$$!#|#M|#N$&%  & $$% $$%  &!|#N$&!  ! !$'!$|#e|#d|#]!#&##|#e|#]$$##|#e|#]$$%#|#e|#]$$% $$%  !  !  !  ! !$'!&|#d|#b|#a|#`|#_!#&#%|#b|#a|#`|#_$$#%|#b|#a|#`|#_$$&%|#b|#a|#`|#_$$&#|#`|#_$$&#|#`|#_$$%#|#`|#_$$$#|#`|#_$$$!|#`$$$ !$'!(|,I|,M|,L|#[|#Z|#Y|#X$$((|,I|,M|,L|#[|#Z|#Y|#X$$'(|,I|,M|,L|#[|#Z|#Y|#X$!''|,M|,L|#[|#Z|#Y|#X$$+&|,M|,L|#[|#Y|#X$!+&|,M|,L|#[|#Y|#X$$+%|,M|,L|#[|#X$!+%|,M|,L|#[|#X$$-%|,M|,L|#[|#X$!-%|,M|,L|#[|#X$$*%|,M|,L|#[|#X$$(#|,M|#X$$& !!$% !!$% $$$  ! !#%!!|#e$$!!|#e #!|#e$$#  !#|'F|#o!#%!$|,L|#i|#g$$%!|#i$$% !!$% $$$ $$! !!%! $$! !#%!#|,L|#l$$%  $ !!$% $$$ $$! !!%! #!# !!'! #!$ !!%! #!# !#%!$|#y|#u|#t!!$##|#y|#u!#%!!|#s!$'!'|( |&`|+]|$&|$%|#z$$$&|( |&`|+]|$&|#z$$$%|( |&`|+]|#z$$$$|&`|+]|#z$$$$|&`|+]|#z$!!!|#z$!$#|&`|+]$$##|&`|+]$$%#|&`|+]$$# $!)#|&`|+]$$$#|&`|+]$$&#|&`|+]$$%#|&`|+]$$%#|&`|+]$$%#|&`|+]$$$#|&`|+]$$%!|+]$$$ $$# $$$ $$# $$%!|+]$$$ $$# $$$ $$# $$$ $$# $$$ $$# $$$ $$# $$$ $$# $$$ $$# $$$ $$# $$$ $$# !#%!!|#z$$!!|#z$!!!|#z!!#!!|#{ !#|(E|$  !#|(F|$!!#%! $$! !#%!!|#t!!$# !!#!$|&`|&E|&a!!#!$|&E|&a|&_!#%!!|#s!#%!!|$$!%)! $$$ $$% $$% !$'! $$# $$$ !#'! !!%!!|*{$$!!|*{ # $&! !!%!!|$,$!#!|$,!!%! $$! $&! !$)!  $ !#'!  # $&!  $ $&!  $ $&! !$)!  $ $&! !#'! $$# $&! !#'! !$)! #!% !#'! !$)! $$$ $$$ $&! !!%!!|$-$$!!|$-$$! !#'! !$)! $$$  &  % !!&% $$%  &  $ !!%! $$! !!%! $$! !$'! $$# !#%! $$! !!%! #!# !#%!!|$H!$%!!|$I!#%!!|$J !#|$K|$N!!%!!|$G!$(# !$(# !!%!!|$G!$'! $$# $$#  $  !!|-?!!%!!|*{!%)! $$# !%)! $$# !$'! !%)! !%)! !$'! !$'! $$#  $ !$'! $$# !%)! $$# $$#  $ !%)! $$# $$#  $ !!%!!|$O!$(# !$(# !#&# !!%! $$! !$)!#|-O|$^$$$!|$^$$$#|-O|$^$$$!|$^!#'!$|-O|$_|$^$$#!|$_$$$!|$^ !#|*{|$`!$)!#|-O|$n$&#!|-O$$$!|-O$$&!|-O$$&!|-O$!&!|-O$$%!|-O$$% $$$ $$# $$#  # !$)!#|-O|$n$&#!|-O$$$!|-O$$%!|-O$$% $$$ $$# $$#  # !#'!#|%\/|%,$$##|%\/|%,$$##|%\/|%,!#'!!|%\/$$#!|%\/$$# !#'!#|%\/|%,!#'!!|$f$$#!|$f$$#!|$f$$! !#'!!|%\/$$#!|%\/$$# $$! !#'!#|%\/|%-$$##|%\/|%-$$##|%\/|%-!#'!#|%\/|%-$$##|%\/|%-$$##|%\/|%-!!%! $$! !!%! $$! $$! !$)!#|-G|%\/ $ $$# $$#  # $$!  $ $$# $$#  $#|-G|%\/$$$#|-G|%\/$&! !!%! $$! !#'!#|-L|%\/$$$#|-L|%\/!#'!#|-K|%\/$$$#|-K|%\/!#'!#|-J|%\/$$$#|-J|%\/!#'!#|-I|%\/$$$#|-I|%\/!#'!#|-G|%\/$$$#|-G|%\/$&! !#'!#|-H|%\/$$$#|-H|%\/$&! !!%! !%+!$|-O|-t|$y$$$$|-O|-t|$y$$%#|-O|$y$$%#|-O|$y$$$#|-O|$y$$#!|$y!#'!%|-L|-P|%\/|%.$$$%|-L|-P|%\/|%.$$$#|-L|%\/$$%#|-L|%\/$$$!|-L$$# !!%! $$! !%+! #!& !*5! #!+ !!%! $$! !$)! #!% !!%! $$! !#'! #!$ !#'! $$# $$#  !!|*v !!|*u !!|*w!!%! $$! !!%! $$! !$)!  $ !!%! $$! !!'! #!$ !!%! !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !!%! $$! !!%! $$! !!%! $$! !!%! $$! !(1! #!) !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! #!# !#'!#|%o|%I$$##|%o|%I!$)! $$$ $$% !#'! $$# $$$ !#'! $$# !#'! $$# $$&  # $$!  # $$!  $ $&! !#'! $$# $$$  # $$!  # $$!  $ $&! !#'! $$#  $ !#'!#|%P|%c$$##|%P|%c$$$!|%P $!|%P!#'! $$# !#'! $$#  $ !$)!  % $$$ $&!  % !$)! !&-!  $  % !#'! !!%!!|&&$$!!|&&!#'! $$# $$$  $ !%+! !#(% $$& $$'  % !$)! $$$ $$%  %  %  !#|%r|%d !#|%q|%f !#|%q|%h!$)! $&!  !#|%r|%a !#|%r|%b !#|%r|%] !#|%r|%` !#|*{|%e!#'!#|%t|%I!!%!$|*{|%q|%i$$!!|*{ #!|%i!#'!!|%p$$#!|%p !#|*{|%g!#'! $$# !#'! $$# !!&%  $ !#'!!|%k$$#!|%k$&# $$$  %  # !#'!!|%l$$#!|%l$&# $$$ $$% $$$  # !#'!!|%l$$#!|%l$&# $$$  %  # !!%!  #  # !!%!  #  # !#'!!|%n$$#!|%n!$)! $&# $$$ $$% $$$ !$)! $&# $$$  % !!%! $$! !!%! $$!  !#|%r|%[!#'! $$# $$$ !!%! #!# !!'! #!$ !#%! !#'! #!$ !#'! #!$ !#'! $$# !1C! #!2 !1C! $$1 $$1 $$1 $$1 $$1 #!! !!%! #$# ##! #!! #%! #!! !&+!#|'F|&9$$&#|'F|&9 $ !#&'#|'F|&9$!'#|'F|&9$$&#|'F|&9$$(#|'F|&9 %!|'F % $!+!|&9$!&!|&9 !#|'F|&? !#|'F|&B!&+!!|&9!!$&!|&9$$%!|&9$$# $$# $!# !&+!%|&L|&H|&G|&C!#&#$|&L|&H|&G$$#$|&L|&H|&G$$+$|&L|&H|&G$$+!|&L$$+!|&L$$# $$+!|&L$$-!|&L$$*!|&L$$,!|&L$$0!|&L$$0!|&L$$1!|&L$$)!|&L$$)!|&L $ $$#  # $$! $!)!|&L$$)!|&L$$0!|&L$$0!|&L$$-  $ $$( $$% $$#  # $$! $$# !%)!!|&D$$$!|&D!-9!!|&M$$-!|&M$$-!|&M$$\/!|&M$$.!|&M$$.!|&M$$.!|&M$$\/!|&M$$.!|&M$$.!|&M$$.!|&M$&-!|&M$$0!|&M$$1 $$1  # $$! $&0 $!% $$$  %  1 $$0 $$0  # $$!  # $$!  # $$! !!#!!|&@!!#!!|&=!#%! $$! $$% $$% $$% $$#  !#|'F|&K !#|*{|&;!&+! $$!  # $$! !$(% $$% $$& $$( $$& $$& $$# $$# !!%!#|'G|&<!$)! $$$  $ $$# $$! !!#!(|(f|'=|'<|&F|&^|&V|&R$$!'|'=|'<|&F|&^|&V|&R$$!'|'=|'<|&F|&^|&V|&R!!#!(|(f|'=|'<|&F|&^|&T|&V$$!'|'=|'<|&F|&^|&T|&V$$!'|'=|'<|&F|&^|&T|&V!$'!!|&W$$#!|&W!$'!!|&O$$$!|&O$$$!|&O$$*!|&O$$*!|&O$$*!|&O$$(!|&O$!'!|&O$$&!|&O$!!  #!|&O$$%!|&O$$%!|&O$$%!|&O$$$!|&O$$$!|&O$$$!|&O$!!  #!|&O$!!  #!|&O$$$!|&O$$$!|&O$$$!|&O$!!  #!|&O$!!  #!|&O!!#!!|&] !!|&S !!|&Q!#%!#|&E|&a!#%!!|&b!%)!$|,M|&d|&e$$%!|&d # $$%!|&d # !!$%#|,M|&e$$$#|,M|&e$$%#|,M|&e$$!#|,M|&e$$%!|&d$$%!|&d$$%!|&d $ $$# !!%! $$! !%)!$|+?|,L|&g$$!!|+? #!|+?$$!!|+?!!$% $$$ $$$ $$! !%)!!|&h$$$!|&h$$$!|&h!!%! $$! !#%!#|,L|&k$$! !!$# $$! !#%!!|&l$$!!|&l!#%! $$! !#%!!|#j$$! $$!  # $$!  # $$! !%)!$|,L|&t|&p$$! !!$% $&$ $$% $&! $&! $&! !%)!!|&q$$$!|&q ! !!%!!|&s!#%!$|,L|&u|&t$$!  # $$! !!$# $&! !#%!!|&v$$!!|&v!#%!!|#n # $$! !$'!#|,M|&y$&##|,M|&y$$!#|,M|&y$$! !$'!!|&z$$#!|&z!$'!!|#^ # $$! !#%!#|#f|#d # $$! !$'!!|#c # $$!  # $$! !#%!!|#j$$! $$!  # $$! !$'!#|,M|'%$$##|,M|'%$$#  $ $$# !#%!!|'&$$!!|'&!%)!#|,M|'($$$#|,M|'($$$ !$'!!|')$$#!|')$$$!|')!$'! !)3!#|,M|',$$)#|,M|',$$)  * $$)  # $$! $$)  * $$)  # $$! !!$'#|,M|',$$!#|,M|',!$'!!|'-$$#!|'-$$#!|'-!'-!!|,M!!$'!|,M$$&!|,M$$'!|,M$$'!|,M$$#!|,M$$! $$! !)3!#|'1|'0$$) $$) !$'!!|'2$$#!|'2$$#!|'2!$'!  # $$! !$'!!|&d$$#!|&d$$)!|&d$$' !%)!#|,M|'6$$$#|,M|'6$$%#|,M|'6$$!#|,M|'6$$! $$! $$!  # $$! !!$%#|,M|'6$$$#|,M|'6$$%#|,M|'6$$!#|,M|'6$$! $$! !)3!!|'9$$)  * $$) !$'!!|':$$#!|':$$#!|':!#'! #!$ !#'! $$# $$# !!%!!|'C!!%!!|'E!!%!!|'G!!%! $$! !#'!!|'g$$#!|'g!#'!!|'_!!#!!|(&!!%!!|'b$$!!|'b$$#!|'b!#'!4|'Z|'Y|'X|'W|'V|'U|'T|'S|'R|'Q|'P|'O|'N|'M|'L|'K|'J|'I|'H$$#4|'Z|'Y|'X|'W|'V|'U|'T|'S|'R|'Q|'P|'O|'N|'M|'L|'K|'J|'I|'H!'\/!'|&,|&+|(!|'f|'e|'d$$$$|&,|&+|(! #!|(!$$#$|&,|&+|(!$$#$|&,|&+|(! $#|&,|(! ##|&,|(! #!|(! $#|&,|(! ##|&,|(! #!|(! &%|(!|'f|'e|'d$$#!|(! #!|(! %$|'f|'e|'d $#|'f|'e$$##|'f|'e $!|'f #!|'f!$)!!|'g$$#!|'g!!%!!|'g$$!!|'g!$)!!|'p$$#!|'p!#'!!|'p$$#!|'p!#'!!|'k!!#!!|(*!!%!!|'n$$!!|'n$$#!|'n!!%!!|'p$$!!|'p!$)!!|'x$$#!|'x!#'!!|'x$$#!|'x!#'!!|'s!!#!!|(,!!%!!|'v$$!!|'v$$#!|'v!!%!!|'x$$!!|'x!!#!!|((!!%!!|'{$$!!|'{$$#!|'{$$!!|'{$$#!|'{#!! #!! !'\/! #!( #4! #3! #2! #1! #0! #\/! #.! #-! #,! #*! #)! #(! #'! #%! #$! ##! #!! !#)!!|']$$#!|']$&#!|']$$$!|']$$%!|']$&#!|'] $!|'] $!|'] #!|'] !!|'G!!%! !$'!!|(`$$#!|(`$$&!|(`!$'!!|(d!!#!!|(P!!#!!|(S!.?! $&\/ $!2 $!2 $!3 $!3 $!3 $!4 $!4 $!4 $!2 $!4 $!4 $!3 $!3 $!5 $!5 !$'! $$# $$) !!#! !#%! !.?! $&\/ $!2 $!2 !$'! $$# $$) !$)! #!% !&-! #!' #$! ##! #!! !!%! $$!  !#|'F|(_!!#!!|([ !#|'F|(c!!#!!|(T!!$# !#&#  !!|(e !!|(h !!|(f$$! !\/?! #!0 ##! #%! #$! ##! #!! !!%! $$! !!%! $$! !!%! $$! !'\/! #!( !!%! $$! !!%! $$! !!%! $$! !'1! #!) !&-! $$& $$( $$( $$( ##! #!! !#%!  # $$! !#%!#|(F|(E ##|(F|(E #!|(F!%)! !!&$ $$$ !!$# !%)! $$$ $$$ $$#  $ !#&$ $$# !!$% $$$ $$$ $$# !!$#  $ !#&$ $$# $$$ $$$ $$#  $ !#&$ $$# !#%! !!%! $$! !#%!!|({ !#|*{|)&!#'! ##$ !#'! $$# !!%! #!# !!%! $$! #!! !(1!  & $$% $&% $$' $$& $$& $$( $$& $$& $!& $$$ $$( $$# $$# $$( $$% $$% !%)! $$$ !#&$ $$% $$( $$# !#&& $$% $$% $$# !!&# $$# !$)!!|)'$$%!|)'$$%!|)'!#&%!|)'$$&!|)'$$'!|)'!#&% $$% $$$ $$$ $$& $$! $$# $$& $$$ $$% $$#  $ $$# $$# $$$ $$% $$#  $ !#&% !$)!#|)?|)0$$#!|)? #!|)?$$!!|)? #!|)?$$!!|)?$$$!|)0!!%!  # !!%!#|)A|)2 #!|)2!$)!#|-G|%\/$$%#|-G|%\/$&$ $$% $$$ $$# $$$ $$# !#'!#|$?|)B$$##|$?|)B$$!!|)B$$!!|)B !!|)S !#|*{|); !!|-> !!|->!!%! $$!  !#|*{|)H!$)!!|)J$&!!|)J$$$!|)J!$*% $$' $$( $$% $$% $$% $$$  $  $  $ $&$ $$% $$% $$%  #  # $$!  # $$! !#'!'|-O|-L|-G|%\/|)S|)6 (%|-O|-G|%\/|)S$$'%|-O|-G|%\/|)S$$(#|-O|)S$$'!|-O$$& $$! $$! $$(#|-O|)S$$'!|-O$$'!|-O$$'!|-O$$& $$! $$! !&.$$|-O|-G|%\/$$)$|-O|-G|%\/$$(#|-O|-G$&(!|-O$$)!|-O$$*!|-O$$)!|-O$$&!|-O$$&!|-O$$% $$$  # $$) $$)  #  )#|-O|)S$$(#|-O|)S$$# $$! $$! $$% $$% $$% $$% $$! $$! !!&&#|-O|)S$$&!|-O$$% $$$ $$&!|-O$$% $$$  $  # $$!  # $$!  # $$!  $$|-O|)S|)6$$#$|-O|)S|)6$$$#|-O|)S $!|-O$$!!|-O$$!!|-O #!|-O $!|-O$$!!|-O #!|)S$$$#|-O|)S #!|-O$$!!|-O ##|-O|)S$$!!|-O #!|-O ##|-O|)S$$!!|-O #!|-O ##|-O|)S$$!!|-O # $$!  # $$!  $$|-L|%\/|)S$$#$|-L|%\/|)S $$|-L|%\/|)S$$##|-L|%\/$$$#|-L|%\/$$#!|-L # $$!  # $$!  # !!%!#|,:|)8!!#!%|$a|$_|,9|)M$$#$|$a|$_|)M ##|$a|$_!$)!#|,:|)8!!%!#|,:|)8!!#!%|$a|$_|,9|)Q$$#$|$a|$_|)Q ##|$a|$_!#'!&|$a|$_|*3|*1|)P$$$&|$a|$_|*3|*1|)P$$$!|)P$$&!|)P$$'!|)P$!%%|$a|$_|*1|)P$$%%|$a|$_|*1|)P$$$!|)P$$&!|)P$$'!|)P!#'!!|)X$$#!|)X!!%!!|)X$$!!|)X!$)! $!% $$$ !!&#  $ !!&#  $  $ !%+!0|%m|$?|)L|)K|)G|)F|)E|)?|)=|)<|):|)0|)5|)4|)2$&$ $!%!|)L %!|)L$&$ !$*%,|%m|$?|)K|)?|)=|)<|):|)0|)5|)4|)2$$',|%m|$?|)K|)?|)=|)<|):|)0|)5|)4|)2$$$ $$%&|$?|)K|)?|)0|)4$$%%|$?|)K|)?|)4$&$#|$?|)?$$%#|$?|)? $!|$?$$# $$! $$$!|)?$&#!|)?$$$!|)? $ $$# $$!  $ $$# $$!  % $$$  # $$!  $ $$# $$# $$!  %#|)K|)4$$##|)K|)4$&!!|)4 # $$! !!&$  $ $&!!|)4 # $$! $$##|$?|)0 $!|$?!!&$  $  #!|$? #!|$?$$$)|%m|$?|)K|)=|)<|):|)5|)2$$%'|%m|$?|)K|)=|)5|)2$$&'|%m|$?|)K|)=|)5|)2$$%'|%m|$?|)K|)=|)5|)2 ##|)5|)2$$!#|)5|)2$!%%|%m|$?|)K|)= # $$!  % $$$  $ $$# $$# $&!  $$|%m|$?|)=$$#$|%m|$?|)=$$!$|%m|$?|)=$$!$|%m|$?|)=$$!#|$?|)=$$!!|)=$$!#|$?|)=$$!!|)= # $$!  $!|)K$&!  # $$!  # $$! $$##|)<|):$$$!|)<$$%!|)<$!% $$$  $  #  # $$! $&!  #  # $$! $&! !!%!!|)W #!|)W$$!!|)W!!%!!|)X$$!!|)X!#'!!|)Y!#'! $$# $$# !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !%+!!|)3$$&!|)3$&&!|)3$$' $$' $$* $$# $$# $!) $$$ $$#  % $$) $$# $$# $!( $$% $$#  $ $$$ $$'!|)3$$&!|)3 %  % $&'!|)3$$&!|)3$$&!|)3$$%!|)3 !  !  ! !!%!!|*<$$!!|*<!4I! #!5 #$! ##! #!! !#'! $$# $$# !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !#'! $$# $$#  !!|)O !!|)R!!%! $$! !!%! $$! !!%! $$! !#'!&|-w|)o|)n|)m|)k$$$&|-w|)o|)n|)m|)k$$#$|)o|)n|)m$$!#|)n|)m$$$#|-w|)k$$$#|-w|)k$$#!|)k$$! $$! !!%!!|*>!!%!!|*@!#'!  $ !#'! !!#!!|*W!#'! $$# $$$ !!%! $$! $$# !!%! $$! $$# !#'! !!%! !!%! $$! !$)! !#'! !!#!!|*U!!%!!|*N$$!!|*N$$#!|*N!!%! !#'!!|*d!!#!!|*Z!!%!!|*[$$!!|*[$$#!|*[!#'!'|*c|*b|*a|*`|*_|*^$$#'|*c|*b|*a|*`|*_|*^!$)!!|*d!!%!!|*d#'! #%! #!! !&-! #!' !!%! $$! !!%! $$! !#'! #!$ !!%! $$! !!%! $$! !!%! $$!  !!|*? !!|*? !!|*?!!%!!|*= !#|*{|*y!!%!!|*x #!|*x!$)! !&-! !#'! !!&$  % !%+! !!&&  & !#'! $$#  $ $$# $&! !&-! $$' !!&' $$'  % $$# !$)! $$% !!&% $$%  % $$# !!&% $$%  % $$# !#'! $$# $$# !!&$ $$$  #  $ $$# !!%! !!%! !!%! $$! !!%! $$! !!%! $&! !#'! $&!  $ !#'! !$)! $$$  !#|*{|+)!!%!!|+6$$!!|+6 !#|*{|+(!!%!!|+8$$!!|+8!!%! !!%! $$! !#'! $$# $$# !#'! $$# $$# !$)! $$$ $$$ $$$  !#|*{|+*!)3! #!* !%+! $$% $$% $$% !#(#  $  # !$)! $$$ $$$ !!&%  $  %  # !&-! !!&' $$'  % $$# !!%! $$! !&-!  ' !!&'  % !$)!  % !!&%  % !&-!  ' !!&'  % !$)!  % !!&%  % !#'! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !#%!$|( |+]|+Q ##|( |+]$$!#|( |+]$$$#|( |+]$$! !!$(#|( |+]$$! $!##|( |+]$$##|( |+]$$##|( |+]$!##|( |+]$$#!|+]$$#!|+]$$# $$# !#%!!|+P!!#!!|+S!#%!%|(g|+W|+V|+U$$!%|(g|+W|+V|+U$$$$|(g|+W|+V$$$$|(g|+W|+V!#&#!|(g$$$ !#&# $$# $$$  $!|+V$$$!|+V$$!!|+V$!( $$# $$# !#%! $$!  !#|&c|&`!#%!!|+]$$# !!#! !!%! #!#  !!|+R!#%!!|+X!#'! $$#  $ !$)! !!&% $$%  $ !#'! $$#  $  $ !$'! $$# !!%!!|)%!$'! $$#  $ !$'! $$# !#%! !$'! $$# $$#  $ !$'! $$# !$'! $$# $$# !#'! !!&# !&-! #!' !!%! $$! !&-! #!' !!%! $$! !#'! #!$ !$)! #!% !!%! ### #!! !#'! $$# !$)!  $ !#'! !!%! !$)! !!&$ !!&$  $ !$)! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !%+!!|,\/$$%!|,\/!&-!!|,0!&-!&|*{|%P|,5|,4|,3$$!!|*{ '$|%P|,5|,4 &$|%P|,5|,4 &#|%P|,5 %#|%P|,5 %!|%P $  $ !%+! #!& !%+! $$% $$% $$%  !#|*{|,-!%+!!|,.!!%! !$'! $$# $$$ !%)! $$$ $$% $$% !#%! $$! !$'! $$# $$$ !)3! #!* !!%! $$! !!%! $$! !%)! $&$ $$# $$& !%)! $&$ $$% $$&  !#|'F|,K!%)!#|,M|,L$$%#|,M|,L$$&#|,M|,L!#%!#|'F|,N $#|'F|,N $!|,N!%+!#|(g|)\/!!$&#|(g|)\/$$%#|(g|)\/$$)!|)\/$$' !&1! #!) !%+! $$% !&1! #!) !%+! $$% !$)! $$$ $$' !!#! #!! #!! !!%! $$! !!%! $$!  # !!%! !!%! $$! $$#  #  !#|*{|,[!#'! $$# !!%!!|,]$$!!|,]!!%! !#'! !#'! !!&% $$%  $  #  # !$)! !!&& $$&  $  $  #  # !$)! $(# $$% !!&% $$# !1C! #!2 !$)! !#(# $$# !#'! !!%! $$! !!%! $$! !!%! $$! !$)!$|-O|-J|%\/$$$$|-O|-J|%\/$$%$|-O|-J|%\/$$#!|-J !#|. |,l!!%!!|,n!$)!$|-O|-J|%\/$$%$|-O|-J|%\/$$$#|-O|-J$$#!|-J!#'!$|-O|-J|%\/$$$$|-O|-J|%\/$$##|-O|-J$$#!|-J!$)!&|-O|*z|%$|$y|$c$$$%|-O|%$|$y|$c$$$%|-O|%$|$y|$c$$#$|%$|$y|$c$&!#|%$|$c!#'! #!$ !!%! $$! !!%! $$! !!%!!|,x!!%!!|,z!$'! !!$$ $$# $$# !!$# !#&# $$# $$# $$# !#&# $$# !$)! $$# !#'! $$# !#'! !!#!!|-7!!%!!|-'$$!!|-'$$#!|-'!!%! $$! !$)!!|-0$$#!|-0!#'!!|-0$$#!|-0!#'!!|-+!!#!!|-5!!%!!|-.$$!!|-.$$#!|-.!!%!!|-0$$!!|-0#!! !!%! #!#  !!|,y!!'!$|(D|,x|,{ $#|(D|,{!!'!$|(D|,x|-  $#|(D|- !!'!!|*{$$!!|*{ $ !%)! !!$% $$% $$% $!$ $!! $$% $$% $!$ $!! !$'! !!$# $$# $$# $$# $!# !!$# $$! $$! $$! !#&$ $!# !#'! #!$ !#'! $$# !#'! $$# !#'! $$# !#'! $$# $$% $$# !#'!#|-G|-e$$##|-G|-e$$$ $$# $$# $$# $$# $$# $$# $$#!|-G!#'!#|-H|-e$$##|-H|-e$$%!|-H$$# $$# $$#!|-H$$$ $$# !#'!#|-I|-e$$##|-I|-e$$%!|-I$$#!|-I$$! !#'!#|-J|-e$$##|-J|-e$$%!|-J$$#!|-J$$! !#'!#|-K|-e$$##|-K|-e$$$ $$#!|-K!#'!#|-L|-e$$##|-L|-e$$$ $$#!|-L!#'! $$# $$% $$# !#'! $$# $$% $$$ !#'!#|-O|-w$$##|-O|-w$$%!|-O$$#!|-w!#'!$|-t|-P|-e$$$$|-t|-P|-e$!$$|-t|-P|-e$$$$|-t|-P|-e$!$#|-t|-P$$##|-t|-P$$%!|-P$$$!|-t$$&!|-t$$! !!%! $$! $$# $$# $$#  ! !#'! $$$ !#'! $$$ !#'! ##$ !!%! #!# !#'! $$! !#'! $$! !#'! $$! !#'! $$! !#'! $$! !#'! $$! !!%! !#'!  ! !!%! !$)! !#'! !!'! !!%! !#'! $$# !!%! $$! !#'! $$# $$$ $$# !#'! $$# $$$ $$# !#'! $$# $$$ $$# !#'! $$# $$$ $$# !#'! $$# $$$ $$# !!%! $$! !!%!!|-R$$!!|-R!#'! $$# $$$ $$# !#'! $$# $$$ $$# !!%!!|-R$$!!|-R!!%! $$! !!%! $$! !!%! $$! !!%! !#'!!|-w$$#!|-w$$!!|-w!#'! !#'! !!%!$|+_| =|)r$$!$|+_| =|)r #!|)r #$|+_| =|)r #$|+_| =|)r #!|)r !#|*.|.+ !!|*. !#|*.|.'!#'! #!$  !$|>?|.)|.(!!%!.|->|+xnm|02|0\/|0X|0W|0V|0T|0S|#L|#B #.|->|+xnm|02|0\/|0X|0W|0V|0T|0S|#L|#B$$!!|-> !%nm|02|0\/ !#m|0\/ #!|0S #&|+x|0X|0W|0V|0S !%|+x|0X|0W|0V !$|+x|0X|0V !*nm|02|0\/|0X|0W|0V|0T|#B !%nm|02|0\/ !#m|0\/!!%!+|%T|+x|0X|0W|#J|,e|.P|,a|.9|.0$$!+|%T|+x|0X|0W|#J|,e|.P|,a|.9|.0!#(%!|.9 #!|.P #'|%T|+x|0X|0W|,a|.0 #%|+x|0X|0W|.0 !%|+x|0X|0W|.0 !$|+x|0X|.0 !$|+x|0X|0W !$|+x|0X|0W !$|+x|0X|0W !$|+x|0X|0W !$|+x|0X|0W !$|+x|0X|0W!!%!)|+x|0X|0W|#J|,e|.P|.9|.0$$!)|+x|0X|0W|#J|,e|.P|.9|.0!#(%!|.9 #!|.P #%|+x|0X|0W|.0 !%|+x|0X|0W|.0 !%|+x|0X|0W|.0 !%|+x|0X|0W|.0 !%|+x|0X|0W|.0 !$|+x|0X|.0!!%!%|#J|,e|.9|.5$$!%|#J|,e|.9|.5!#($!|.9 #!|.5!!%!&|#J|,e|.P|.9|.5$$!&|#J|,e|.P|.9|.5!#(%!|.9 #!|.P #!|.5!!%!(|%T|+x|0X|0W|0V|,a|.0$$!(|%T|+x|0X|0W|0V|,a|.0 #$|+x|0V|.0 !$|+x|0X|0W !$|+x|0X|0W !$|+x|0X|0W !$|+x|0X|0W !$|+x|0X|0W !$|+x|0X|0W!!%!*| 'q|#J|,e|.P|*.|*\/|.9|.0$$!*| 'q|#J|,e|.P|*.|*\/|.9|.0$$$'|#J|,e|*.|*\/|.9|.0!#($!|.9 !#|*.|*\/ !!|*\/ #!|.0 #!q #!|.P!!%!)| 'q|#J|,e|.P|*\/|.9|.0$$!)| 'q|#J|,e|.P|*\/|.9|.0$$$&|#J|,e|*\/|.9|.0!#($!|.9 !!|*\/ #!|.0 #!q #!|.P!!%!'|#J|,e|.P|*\/|.9|.0$$!'|#J|,e|.P|*\/|.9|.0!#(%!|.9 #!|.P !!|*\/ #!|.0!&-!+|+x|02|0W|0S|#H|0q|\/#|\/!|*.|.:$$%&|+x|02|0W|0S|#H$$%&|+x|02|0W|0S|#H #$|+x|0W|0S !#|+x|0W # $$!  &(|+x|0W|0q|\/#|\/!|*.|.:$$%(|+x|0W|0q|\/#|\/!|*.|.: #  #%|0q|\/#|\/!|*. #$|0q|\/#|*. #  # $$!  # $$!  &$|+x|0W|.: ##|+x|0W!%+!@|+_|->|-=|%2| (|%Z|%u|%W|%stnmq|02|0\/|0S|#L|#B|,e|0s|0q|0r|\/'|\/&|\/%|\/$|\/ |*0|*.|*\/|%$$$%@|+_|->|-=|%2| (|%Z|%u|%W|%stnmq|02|0\/|0S|#L|#B|,e|0s|0q|0r|\/'|\/&|\/%|\/$|\/ |*0|*.|*\/|%$ #,|-=|%Z|%u|%W|%st|,e|0s|0q|0r|*. %'|-=|%Z|%u|%s|,e|*. %&|-=|%Z|%u|%s|*. !!|*. $!|*. !!|*. %%|-=|%u|%s|*.$$%%|-=|%u|%s|*.$$&%|-=|%u|%s|*.$$'%|-=|%u|%s|*.$$(%|-=|%u|%s|*.$$%#|-=|*.$$&#|-=|*.$$'#|-=|*.$$(#|-=|*. &!|*. $!|*. $!|*. &!|*. $!|*. $!|*. &!|*. $!|*. $!|*. ##|%u|%s #!|%s ##|%u|%s #!|%s$!!!|-= !#|%Z|*. !!|*. ##|%u|%W #!|%W #%|0s|0q|0r|*. #$|0q|0r|*. !!|0r +6|+_|->|%2| (nmq|02|0\/|#L|#B|,e|0q|\/&|\/%|\/$|\/ |*0|*.|*\/|%$ !#|0q|*. +3|+_|->|%2| (nmq|02|0\/|#L|#B|\/&|\/%|\/$|*0|*.|*\/|%$ !#|\/$|*\/ !!|*\/ #!|\/% $.|->|%2nm|02|0\/|#L|#B|\/&|*0|*.|*\/|%$ $-|->|%2nm|02|0\/|#L|#B|*0|*.|*\/|%$ $,|->|%2nm|02|0\/|#L|#B|*0|*.|%$ $+|->|%2nm|02|0\/|#L|#B|*.|%$ $(|->nm|02|0\/|#L|#B$$!!|-> !%nm|02|0\/ !#m|0\/ !&nm|02|0\/|#B !%nm|02|0\/ !#m|0\/ !!|*0 #!|\/% (,|+_|->| (q|02|#L|\/&|\/$|*0|*.|*\/ $$|->|02|#L$$!!|->$$!  &)|+_| (q|\/&|\/$|*0|*.|*\/ %(|+_| (q|\/&|*0|*.|*\/$$$&|+_|\/&|*0|*.|*\/ #  $&|+_|\/&|*0|*.|*\/ #%|\/&|*0|*.|*\/ #$|*0|*.|*\/ ##|*0|*. !#|*0|*. !!|*0 #  #!q !#|\/$|*\/ !!|*\/ #!|0S # $$!  # $$!  $$|->|02|#L$$!!|-> #!|0S !#|*.|*\/ !!|*\/ !(|02|#B|\/'|\/&|*0|*.|*\/ !$|\/'|*0|*\/ !#|*0|*\/ !!|*0 !%|\/'|*0|*.|*\/ !$|*0|*.|*\/ !#|*0|*\/ !!|*0 !$|\/'|*0|*\/ !#|*0|*\/ !!|*0 !$|\/&|*0|*\/ !#|*0|*\/ !!|*0 !%|\/&|*0|*.|*\/ !$|*0|*.|*\/ !#|*0|*\/ !!|*0 !%|\/'|*0|*.|*\/ !$|*0|*.|*\/ !#|*0|*\/ !!|*0 !$|\/'|*0|*\/ !#|*0|*\/ !!|*0 !#|\/&|*0 !!|*0 !$|\/&|*0|*. !#|*0|*. !!|*0 !%|\/'|*0|*.|*\/ !$|*0|*.|*\/ !#|*0|*\/ !!|*0 !$|\/'|*0|*\/ !#|*0|*\/ !!|*0 !%|\/&|*0|*.|*\/ !$|*0|*.|*\/ !#|*0|*\/ !!|*0 !$|\/&|*0|*\/ !#|*0|*\/ !!|*0 !%|\/'|*0|*.|*\/ !$|*0|*.|*\/ !#|*0|*\/ !!|*0 !#|\/'|*0 !!|*0 !$|\/'|*0|*. !#|*0|*. !!|*0!#'!$|,!|:g|.C # $$!  #!|.C $!|:g #  # !!&! $$!  # $$! !#'!*|+x|0W|0V|0T|;&|.A|.?|.>|.= $#|0T|.=!!&%*|+x|0W|0V|0T|;&|.A|.?|.>|.= $#|0T|.=!!&&*|+x|0W|0V|0T|;&|.A|.?|.>|.= $#|0T|.=!!&&*|+x|0W|0V|0T|;&|.A|.?|.>|.= $#|0T|.=!!&'*|+x|0W|0V|0T|;&|.A|.?|.>|.= $#|0T|.=!!&'*|+x|0W|0V|0T|;&|.A|.?|.>|.= $#|0T|.=!!&(*|+x|0W|0V|0T|;&|.A|.?|.>|.= $#|0T|.=!!&()|+x|0W|0V|;&|.A|.?|.>|.= $#|0W|.=!!&)(|+x|0W|0V|;&|.A|.?|.> $!|.A!!&)'|+x|0W|0V|;&|.?|.> $%|+x|0W|0V|.> !$|+x|0W|0V!!&('|+x|0W|0V|;&|.?|.> $!|.?!!&)'|+x|0W|0V|;&|.?|.> $!|.?!!&)'|+x|0W|0V|;&|.?|.> $%|+x|0W|0V|.> !$|+x|0W|0V!!&)'|+x|0W|0V|;&|.?|.> $!|.?!!&*'|+x|0W|0V|;&|.?|.> $!|.?!!&*'|+x|0W|0V|;&|.?|.> $%|+x|0W|0V|.> !$|+x|0W|0V!!&*'|+x|0W|0V|;&|.?|.> $!|.?!!&+'|+x|0W|0V|;&|.?|.> $!|.?!!&+'|+x|0W|0V|;&|.?|.> $%|+x|0W|0V|.> !$|+x|0W|0V!!&+#|;&|.? $!|.?!!&,#|;&|.? $!|.?!!&+!|;& +!|;& #  #  # !&-!#|.A|.>$$$ $$$  &!|.A %!|.>!$)!!|:g #  # !!&# $$#  $  # !!%!<| =|.l|%Z|%srsop|+k|#3|0q|\/&|\/%|*0|*.|*\/|<)|>?|:g|:j|;)|,Y|.F|.E|.D|.@|;{!#((6| =|.l|%Z|%s|+k|0q|\/&|\/%|*0|*.|*\/|<)|>?|:g|:j|;)|,Y|.F|.E|.D|.@$$)6| =|.l|%Z|%s|+k|0q|\/&|\/%|*0|*.|*\/|<)|>?|:g|:j|;)|,Y|.F|.E|.D|.@ %!|:g!!&++| =|<)|>?|:g|:j|;)|,Y|.F|.E|.D ''| =|>?|:g|,Y|.E|.D!!&$&| =|>?|,Y|.E|.D !#| =|>? $%| =|>?|.E|.D $#|.E|.D $!|.E # $$! !!&(&| =|<)|:j|;)|.F %$| =|<)|.F # !!&'#|:j|;)$$'#|:j|;) '#|:j|;)!#(#  #!|:j $  #,|.l|%Z|%s|+k|0q|\/&|\/%|*0|*.|*\/|.@ $+|.l|%Z|%s|+k|0q|\/&|\/%|*0|*.|*\/ #*|.l|%Z|+k|0q|\/&|\/%|*0|*.|*\/$$!)|%Z|+k|0q|\/&|\/%|*0|*.|*\/ !#|0q|*. !&|+k|\/&|*0|*.|*\/ !$|*0|*.|*\/ !#|*0|*. !!|*0 !!|*0 !#|*0|*\/ !!|*0 !#|+k|\/% !#|0q|*. !&|+k|\/&|*0|*.|*\/ !#|*0|*\/ !!|*0 !$|*0|*.|*\/ !#|*0|*. !!|*0 !!|*0 !#|+k|\/% #!|#3 #!|;{ #  #  #  #  ##rs !#op !#|0r|.,!%+!$|,!|:g|.B '$|,!|:g|.B!!&&!|.B $!|:g #  # !!&! $$!  # $$!  '!|.B &!|.B $  #  # !&-!%|%2|%!|*.|.C $!|*. #!|*. #!|*. $!|*. #!|*. #!|*. $$|%2|%!|*. #$|%2|%!|*. $$|%2|%!|*. #$|%2|%!|*.!!%!2| =|+xrsop|05|0S|#3|0r|<)|>?|:g|,Y|.F|.E|.D!&.'-| =|+x|05|0S|0r|<)|>?|:g|,Y|.F|.E|.D '*| =|+x|05|0S|>?|:g|,Y|.E|.D!!&$)| =|+x|05|0S|>?|,Y|.E|.D #&| =|+x|05|0S|>? #$|+x|05|0S !!|05 !#|+x|0S $%| =|>?|.E|.D $#|.E|.D $!|.E # $$! !!&%$| =|<)|.F %$| =|<)|.F # !!&$ $$$  &!|0r #  #  #!|#3 #  #  ##rs !#op !$|,g|,e|.$!#'!(|-=|,`|+k|0s|0q|*.|*\/!!&!#|-=|*\/$$!#|-=|*\/$$##|-=|*\/$$$#|-=|*\/$$$#|-=|*\/$$%#|-=|*\/ $!|*\/ $!|*\/$!!!|-= $$|0s|0q|*. $#|0q|*.!!%! $$! !!%! $$! !#'!#|*\/|.:$$!  !!|*\/!!%!K| =|+y|+x|,`rsop|02|0X|0W|0V|0T|!o|#3|<.|<)|<(|<&|<%|>?|:g|:j|:i|;&|,Y|.F|.A|.?|.>|.=|.<|.;|.8|.7|.6|.4|.3|.2|.1|.\/|:t!!&(F| =|+y|+x|,`|02|0X|0W|0V|0T|!o|<.|<)|<(|<&|<%|>?|:g|:j|:i|;&|,Y|.F|.A|.?|.>|.=|.<|.;|.8|.7|.6|.4|.3|.2|.1|.\/|:t )E| =|+y|+x|,`|02|0X|0W|0V|0T|!o|<.|<)|<(|<%|>?|:g|:j|:i|;&|,Y|.F|.A|.?|.>|.=|.<|.;|.8|.7|.6|.4|.3|.2|.1|.\/|:t %'| =|+y|,`|<(|<%|.\/ #!|+y !!|+y #%| =|<(|<%|.\/ ##| =|<%!!&)E| =|+y|+x|,`|02|0X|0W|0V|0T|!o|<.|<)|<(|<%|>?|:g|:j|:i|;&|,Y|.F|.A|.?|.>|.=|.<|.;|.8|.7|.6|.4|.3|.2|.1|.\/|:t %'| =|+y|,`|<(|<%|.\/ #!|+y !!|+y #%| =|<(|<%|.\/ ##| =|<%!!&*E| =|+y|+x|,`|02|0X|0W|0V|0T|!o|<.|<)|<(|<%|>?|:g|:j|:i|;&|,Y|.F|.A|.?|.>|.=|.<|.;|.8|.7|.6|.4|.3|.2|.1|.\/|:t %'| =|+y|,`|<(|<%|.\/ #!|+y !!|+y #%| =|<(|<%|.\/ ##| =|<%!!&+E| =|+y|+x|,`|02|0X|0W|0V|0T|!o|<.|<)|<(|<%|>?|:g|:j|:i|;&|,Y|.F|.A|.?|.>|.=|.<|.;|.8|.7|.6|.4|.3|.2|.1|.\/|:t %'| =|+y|,`|<(|<%|.\/ #!|+y !!|+y #%| =|<(|<%|.\/ ##| =|<%!!&*B| =|+y|+x|,`|02|0X|0W|0V|0T|!o|<.|<)|>?|:g|:j|:i|;&|,Y|.F|.A|.?|.>|.=|.<|.;|.8|.7|.6|.4|.3|.2|.1|:t &B| =|+y|+x|,`|02|0X|0W|0V|0T|!o|<.|<)|>?|:g|:j|:i|;&|,Y|.F|.A|.?|.>|.=|.<|.;|.8|.7|.6|.4|.3|.2|.1|:t $%| =|>?|:i|,Y #$| =|>?|,Y !#| =|>? #$| =|>?|,Y !#| =|>? !#| =|>? $<|+y|+x|,`|02|0X|0W|0V|0T|!o|<.|:g|:j|;&|.A|.?|.>|.=|.<|.;|.8|.7|.6|.4|.3|.2|.1|:t %#|:g|.2!!&';|+y|+x|,`|02|0X|0W|0V|0T|!o|<.|:g|:j|;&|.A|.?|.>|.=|.<|.;|.8|.7|.6|.4|.3|.1|:t %#|:g|.1!!&(:|+y|+x|,`|02|0X|0W|0V|0T|!o|<.|:g|:j|;&|.A|.?|.>|.=|.<|.;|.8|.7|.6|.4|.3|:t %#|:g|.6!!&)9|+y|+x|,`|02|0X|0W|0V|0T|!o|<.|:g|:j|;&|.A|.?|.>|.=|.<|.;|.8|.7|.4|.3|:t %#|:g|.3!!&*8|+y|+x|,`|02|0X|0W|0V|0T|!o|<.|:g|:j|;&|.A|.?|.>|.=|.<|.;|.8|.7|.4|:t %#|:g|.7!!&+7|+y|+x|,`|02|0X|0W|0V|0T|!o|<.|:g|:j|;&|.A|.?|.>|.=|.<|.;|.8|.4|:t %#|:g|.4!!&,6|+y|+x|,`|02|0X|0W|0V|0T|!o|<.|:g|:j|;&|.A|.?|.>|.=|.<|.;|.8|:t %#|:g|.8!!&+4|+y|+x|,`|02|0X|0W|0V|0T|!o|<.|:j|;&|.A|.?|.>|.=|.<|.;|:t $%|+y|02|<.|.< ##|+y|.<!!&#!|.<!!&+4|+y|+x|,`|02|0X|0W|0V|0T|!o|<.|:j|;&|.A|.?|.>|.=|.<|.;|:t $.|+y|+x|02|0X|0W|0V|0T|<.|;&|.A|.?|.>|.= #,|+y|+x|0X|0W|0V|0T|;&|.A|.?|.>|.=!!&%+|+x|0X|0W|0V|0T|;&|.A|.?|.>|.= $#|0W|.=!!&&+|+x|0X|0W|0V|0T|;&|.A|.?|.>|.= %$|0X|.A|.= $#|0X|.=!!&%!|.A!!&'(|+x|0W|0V|0T|;&|.?|.> $%|+x|0W|0V|.> !$|+x|0W|0V!!&&(|+x|0W|0V|0T|;&|.?|.> $!|.?!!&'(|+x|0W|0V|0T|;&|.?|.> $!|.?!!&'(|+x|0W|0V|0T|;&|.?|.> $&|+x|0W|0V|0T|.> !%|+x|0W|0V|0T !$|+x|0V|0T!!&'#|;&|.? $!|.?!!&&!|;& &!|;& #  #  # !!&+4|+y|+x|,`|02|0X|0W|0V|0T|!o|<.|:j|;&|.A|.?|.>|.=|.<|.;|:t $%|+y|02|<.|.; ##|+y|.;!!&#!|.;!!&+4|+y|+x|,`|02|0X|0W|0V|0T|!o|<.|:j|;&|.A|.?|.>|.=|.<|.;|:t $.|+y|+x|02|0X|0W|0V|0T|<.|;&|.A|.?|.>|.= #,|+y|+x|0X|0W|0V|0T|;&|.A|.?|.>|.=!!&%+|+x|0X|0W|0V|0T|;&|.A|.?|.>|.= $#|0T|.>!!&&*|+x|0X|0W|0V|;&|.A|.?|.>|.= %$|0W|.A|.= $#|0W|.=!!&%!|.A!!&')|+x|0X|0W|0V|;&|.A|.?|.> %&|+x|0X|0W|.A|.> $%|+x|0X|0W|.> !$|+x|0X|0W !$|+x|0X|0W!!&%!|.A!!&&'|+x|0W|0V|;&|.?|.> $%|+x|0W|0V|.> !$|+x|0W|0V!!&&'|+x|0W|0V|;&|.?|.> $!|.?!!&&'|+x|0W|0V|;&|.?|.> $%|+x|0W|0V|.> !$|+x|0W|0V!!&&#|;&|.? $!|.?!!&%!|;& %!|;& #  #  # !!&*4|+y|+x|,`|02|0X|0W|0V|0T|!o|<.|:j|;&|.A|.?|.>|.=|.<|.;|:t $%|+y|02|<.|.; ##|+y|.;!!&#!|.;!!&*3|+y|+x|,`|02|0X|0W|0V|0T|!o|<.|:j|;&|.A|.?|.>|.=|.<|:t $.|+y|+x|02|0X|0W|0V|0T|<.|;&|.A|.?|.>|.= #,|+y|+x|0X|0W|0V|0T|;&|.A|.?|.>|.=!!&%+|+x|0X|0W|0V|0T|;&|.A|.?|.>|.= $#|0W|.=!!&&+|+x|0X|0W|0V|0T|;&|.A|.?|.>|.= %$|0X|.A|.= $#|0X|.=!!&%!|.A!!&'(|+x|0W|0V|0T|;&|.?|.> $%|+x|0W|0V|.> !$|+x|0W|0V!!&&(|+x|0W|0V|0T|;&|.?|.> $!|.?!!&'(|+x|0W|0V|0T|;&|.?|.> $!|.?!!&'(|+x|0W|0V|0T|;&|.?|.> $&|+x|0W|0V|0T|.> !%|+x|0W|0V|0T !$|+x|0V|0T!!&'#|;&|.? $!|.?!!&&!|;& &!|;& #  #  # !!&)+|+y|+x|,`|02|!o|<.|:j|;&|.<|:t $%|+y|02|<.|.< ##|+y|.<!!&#!|.<!!&('|+x|,`|!o|:j|;&|:t ('|+x|,`|!o|:j|;&|:t $'|+x|,`|!o|:j|;&|:t $'|+x|,`|!o|:j|;&|:t #!|:t #$|+x|!o|;& #!|;& #!|:j $'|+x|,`|!o|:j|;&|:t $'|+x|,`|!o|:j|;&|:t #!|:t #$|+x|!o|;& #!|;& #!|:j $'|+x|,`|!o|:j|;&|:t $'|+x|,`|!o|:j|;&|:t #!|:t #$|+x|!o|;& #!|;& #!|:j $'|+x|,`|!o|:j|;&|:t $'|+x|,`|!o|:j|;&|:t #!|:t #$|+x|!o|;& #!|;& #!|:j $'|+x|,`|!o|:j|;&|:t $'|+x|,`|!o|:j|;&|:t #!|:t #$|+x|!o|;& #!|;& #!|:j #  #  #  # !!&(!|;&$$(!|;& (!|;& #!|#3 #  #  #  #  #  #  ##rs !#op!#'!6|-=|.l|+xtmq|0X|0W|0V|0T|.s|.P|.w|.v|0q|\/(|\/'|*0|*.|*\/|.I$$#6|-=|.l|+xtmq|0X|0W|0V|0T|.s|.P|.w|.v|0q|\/(|\/'|*0|*.|*\/|.I$$#%|-=tq|*. #%|-=tq|*.$$#$|-=t|*.$$#$|-=t|*.$$##|-=|*. #!|.w$$&'|-=|.lm|.s|.P|*. %!|.s #  $&|-=|.lm|.P|*.$$%#|-=|*.$$%#|-=|*.$$%#|-=|*.$$!!|-= !$|.lm|.P #  # $$!  # $$!  $'|+x|0X|0W|0V|0T|.I$$#&|+x|0X|0W|0V|0T #&|+x|0X|0W|0V|0T !%|+x|0X|0V|0T !%|+x|0X|0V|0T !%|+x|0X|0V|0T !%|+x|0X|0V|0T !$|+x|0X|0V !$|+x|0X|0V$$$&|.v|0q|\/(|\/'|*.$$#%|.v|0q|\/(|*. $%|.v|0q|\/(|*. #!|.v #!|\/($$#%|.v|0q|\/(|*. $%|.v|0q|\/(|*. #!|.v ##|\/(|*. #!|*.$$#%|.v|0q|\/'|*. $%|.v|0q|\/'|*. #!|.v #!|\/'$$#%|.v|0q|\/'|*. $%|.v|0q|\/'|*. #!|.v ##|\/'|*. #!|*. !#|*0|*\/ !!|*0 !#|+D|.N !#|+C|.N!#'!#| &|.P $!|.P !#x|.S !#w|.S !#|$<|.V !#|$A|.W !!|.V!#'!#| =|$@$$!#| =|$@!#'! $$# $$! $$! $$! !#'! $$# $$! $$! $$! !#'! $$# $$! $$! $$! !#'! $$# $$! $$! $$! !#'! $$# $$! $$! $$! !#'! $$# $$! $$! $$! !!%!%|*{| =| 1|%@$$!%|*{| =| 1|%@$$!%|*{| =| 1|%@$$#$|*{| =|%@$$! !!%!%|*{| =| 1|%@$$!%|*{| =| 1|%@$$!%|*{| =| 1|%@$$#$|*{| =|%@$$! !!%!'|+_|*{| =| (| 2|$>$$#%|+_|*{| =|$>$$! $$!!|*{ #$|+_| =|$> !$|+_| =|$> !#| =|$> #!| 2 #!| 2!#'!$|+a| 2|+@$$#$|+a| 2|+@$$#$|+a| 2|+@$$$$|+a| 2|+@$$$$|+a| 2|+@ $#| 2|+@ $!| 2$$! !!%! $$! !!%!#|+a|+@$$!#|+a|+@ !!|+@ !!|+@ !!|+@!!%! $$! #$! ##! #!! !#'!#|.l| & $!|.l!#'! $$# $$! $$! ##! #!! !#'!-nm|0X|0W|0V|0U|0T|0S|,^|#L|.p|.q %$|0V|.p|.q %#|0V|.q #!|0V %$|0X|.p|.q %#|0X|.q #!|0X %$|0W|.p|.q %#|0W|.q #!|0W %$|0T|.p|.q %#|0T|.q #!|0T #!|0S #!|0U!#(!%nm|,^|#L!$*##|,^|#L &!|#L %!n $!m #  #  !$|0(|02|.r !#|0*|0\/!$)!3|.l|%v|+x|,hnm|0(|02|0*|0\/|0X|0W|0V|0T|#H|#J|,e|.p $2|.l|%v|+x|,hnm|0(|02|0*|0\/|0X|0W|0V|0T|#H|#J|,e$$! !#(!(nm|0(|02|0*|0\/|#H$$#(nm|0(|02|0*|0\/|#H$$%(nm|0(|02|0*|0\/|#H $  $  &(nm|0(|02|0*|0\/|#H $#nm #!m $  &(nm|0(|02|0*|0\/|#H $#nm #!m $  $  ##|0(|02 !#|0*|0\/ ##|0(|02 !#|0*|0\/ $'|.l|+x|0X|0W|0V|0T$$#&|+x|0X|0W|0V|0T !#|+x|0X !$|+x|0V|0T !'|%v|,h|0X|0W|0T|,e !%|%v|0X|0W|0T ##|+x|0V!%+! #!& !!%! $$! !!%! $$! !!%! $$! !!%! $$!  !#|0r|.{ !#|0r|.z !#|\/%|.y!!%!!|0r!!%!!|0r$$!!|0r!!%!$|*0|*.|0r #!|*. #!|*0 #!|*0!!%!$|*0|*.|0r #!|*. #!|*0 #!|*0!!%!$|*0|*.|0r #!|*. #!|*0 #!|*0 !8|+y|0R|0q|\/(|\/'|\/ |*0|*.|*\/|.J|<;|:f|;&|:u|8$|>o|.K|?#|\/;|\/:|\/6|\/4|\/* !#|?#|\/:!!&$.|+y|0R|.J|<;|:f|;&|:u|8$|.K|\/;|\/6|\/4|\/* $#|<;|\/*!!&#-|+y|0R|.J|:f|;&|:u|8$|.K|\/;|\/6|\/4|\/* $+|0R|.J|:f|;&|8$|.K|\/;|\/6|\/4|\/*!!&$+|0R|.J|:f|;&|8$|.K|\/;|\/6|\/4|\/* ##|.J|\/* # $$! !!&$)|0R|:f|;&|8$|.K|\/;|\/6|\/4 %(|0R|:f|;&|8$|.K|\/6|\/4 $#|;&|8$!!&#!|\/;!!&!!|\/;$$!!|\/; #$|+y|:u|8$$$$  !!|+y !(|0q|\/(|\/'|\/ |*0|*.|*\/ !'|0q|\/(|\/ |*0|*.|*\/ !%|\/(|*0|*.|*\/ !$|*0|*.|*\/ !#|*0|*. !!|*0 !$|\/'|*0|*\/ !#|*0|*\/ !!|*0 !!|>o !B|=g|9.|94|91|9H|9I|8$|9J|9G|9L|92|\/T|\/R|\/Q|\/O|\/N|\/M|\/J|\/I|\/F|\/C|\/B|\/?|\/=|\/:|\/9|\/8|\/7|\/6|\/4|\/2|\/1|\/\/ !%|=b|\/Q|\/?|\/1 !$|=e|\/B|\/; !%|=U|\/F|\/:|\/3 !$|=V|\/G|\/; !$|=d|\/H|\/5 !%|=c|\/I|\/<|\/; !$|=X|\/>|\/; !$|=`|\/C|\/; !$|=^|\/D|\/; !%|=f|\/E|\/<|\/; !$|=W|\/J|\/; !$|=Y|\/K|\/< !$|=Z|\/K|\/= !#|=[|\/M !$|=p|91|\/K !%|=a|9L|\/Q|\/B !$|=u|9L|\/K !$|=_|90|\/K !$|=]|90|\/K !&|=x|9I|8$|\/L|\/K !%|=n|94|\/J|\/G !$|=o|93|\/K !$|=w|9H|\/I !%|=v|9G|\/L|\/K !$|=q|92|\/K !$|=r|90|\/L !$|=s|9\/|\/M !#|=t|9. !$|=h|97|\/U !$|=i|=j|\/Q !$|=k|9K|\/U !%|=O|9:|\/T|\/S !$|=P|99|\/U !$|=Q|98|\/U !$|=R|97|\/V !$|=S|96|\/W !#|=T|95 !#|=l|\/) !#|$(|\/X#%! #$! ##! #!!  !!|\/`$$!  !&|0Q|\/d|\/c|\/b|\/a !!|\/h$$!  !!|\/g$$!  !!|\/f$$!  !!|\/e$$!  !&|0Q|\/z|\/w|\/r|\/j !&|0Q|\/{|\/v|\/s|\/o !&|0Q|0 |\/y|\/p|\/l !&|0Q|\/x|\/u|\/m|\/_ !&|0Q|\/t|\/q|\/n|\/k !!|\/f$$!  !!|\/f$$!  !!|\/f$$!  !!|\/e$$!  !!|\/e$$!  !!|\/e$$!  !!|\/h$$!  !!|\/h$$!  !!|\/h$$!  !!|\/g$$!  !!|\/g$$!  !!|\/g$$!  !!|\/i$$!  !!|\/i$$!  !!|\/i$$!  !!|\/i$$!  !!|\/`$$!  !!|\/`$$!  !!|\/`$$! !#'!#|  |0( $!|0(!#'!#{|0( $!|0(!#'!#z|0( $!|0(!#'!#y|0( $!|0(!#'!#x|0( $!|0(!#'!#w|0( $!|0(!#'!(|0@|0'|0&|0%|0$|0#|0! $!|0@ $!|0! $!|0# $!|0$ $!|0% $!|0& $!|0'!!%!#| #|0* #!|0*!!%!#|0?|0) #!|0? #!|0) !#|0-|+D !#|0-|+C!#'!#| &|0\/ $!|0\/ !#x|02 !#w|02 !#|05|$< !#|$A|06 !!|05!#'!#| =|$@$$!#| =|$@!#'! $$# $$! $$! $$! $$! $$! $$! $$! $$! !#'! $$# $$! $$! $$! $$! $$! $$! $$! $$! !#'! $$# $$# $$# !#'! $$# $$# $$# !#'! $$# $$# $$# !#'! $$# $$# $$# !!%!%|*{| =| 1|%@$$!%|*{| =| 1|%@$$!%|*{| =| 1|%@$$#$|*{| =|%@$$! !!%!#m| 1!#(#  # $$!  # $$!  # $$!  # $$!  ##m| 1!#'!%| 2nm| 1!#(#  # $$!  # $$!  # $$!  # $$!  $#| 2n ##m| 1 # !!%!%|*{| =| 1|%@$$!%|*{| =| 1|%@$$!%|*{| =| 1|%@$$#$|*{| =|%@$$! !!%!'|+_|*{| =| (| 2|$>$$#%|+_|*{| =|$>$$! $$!!|*{ #$|+_| =|$> !$|+_| =|$> !#| =|$> #!| 2 #!| 2!#'!$|+a| 2|+@$$#$|+a| 2|+@$$#$|+a| 2|+@$$$$|+a| 2|+@$$$$|+a| 2|+@ $#| 2|+@ $!| 2$$! !!%! $$! !!%!#|+a|+@$$!#|+a|+@ !!|+@ !!|+@ !!|+@ !!|+@ !!|+@ !!|+@ !!|+@ !!|+@!!%! $$! !'\/! #!( #)! #(! #'! #&! #%! #$! ##! #!! !&-!!|%@ #  #  #  #  #  #  #  #  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  #!|%@ # $$!  # $$!  # $$!  #!|%@ # $$!  # $$!  # $$!  #!|%@ # $$!  # $$!  # $$!  #!|%@ !!|\/_$$! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! #$! !#'! ##$ !!%! #!# !%+!#|*{|0^$$!!|*{ &!|0^$&%!|0^ %!|0^ %!|0^$&$!|0^ $!|0^ $!|0^$&#!|0^ #!|0^ #!|0^$&!!|0^!#'!%|16|15|0g|0`$$!$|16|0g|0` !#|*{|0c!$)!%|16|13|0g|0e$$!$|16|0g|0e!'\/! !!&)  ( !!&( $$(  ( $$' $$(  $  %  #  !!|0t!!%!$|16|0j|0h$$!$|16|0j|0h!'\/! #!( !'\/! $$' $$' $$' $$' $$' !$)!(|1I|1,|0n|0l|0d|0_|0]$$$(|1I|1,|0n|0l|0d|0_|0]$$)(|1I|1,|0n|0l|0d|0_|0] 0'|1I|1,|0n|0l|0d|0_!!$0'|1I|1,|0n|0l|0d|0_$$$ !#&% $$$ !#&)#|1I|0l$$)#|1I|0l$$$ $$% !#&)#|1I|0l (#|1I|0l$$'#|1I|0l$$&#|1I|0l$$( $&'  '  %  $ $$# $$(  '  %  $ $$#  $ $$#  #  (%|1I|1,|0l|0d!!$(%|1I|1,|0l|0d$$(%|1I|1,|0l|0d$$# $$# !$(,!|0d *!|0d$$)!|0d$$&!|0d$$$  ##|1I|0l )#|1,|0_!!$)#|1,|0_$$)#|1,|0_$$# $$# !$(,#|1,|0_ *#|1,|0_!!$*#|1,|0_$$)#|1,|0_$$)#|1,|0_$$# $$# !$(+!|0_ )!|0_$$$!|0_$$# $$#!|0_ ##|1I|0l!!%!#|1,|0b$$!#|1,|0b$$$!|1,$$%!|1, &!|1,!!$&!|1,$$&!|1,$$# $$#  %  $ $$# $$#  $ !!&$ $$$ $$#  $  # !!&# $$#  $ !%*$ $$& !!%! $$! !#'!#|1,|0t!$)!!|0t$$$!|0t$$%!|0t$$&!|0t %!|0t &!|0t!!&'!|0t %!|0t $!|0t $!|0t $  &!|0t %!|0t!$)!!|0t$$&!|0t %!|0t $ $$# $$# !!&&!|0t &!|0t $!|0t $  #!|0t!!%! $$! !$)! $$$ $$% $$% !#'! $$# $$% !#'!!|1,$$$!|1, $!|1,$$#!|1,!!$#!|1,!!&$  $ $$# $$# !#'! $$! !$)! $$%  % $$$ !!$$ !!&$  $ $$# $$# !$)! $$$ $$% !!$$ !%+! $$% $$& !!$& !$)! $$$ $$& !!$' !(1!!|1, % !!$$ !!&( !!&'  & !!$%  & !!$%  % !!$$  % !!$$ !!&% $!)!|1,!!$' !!$' $!(!|1,!!&+  )  & !!$$ !!&%  $  # $$!  $!|1,!!$#!|1,!!&*  ) !!&*  (  & !!$$ !!&%  $  * !#(*  % !!$$ !!&* !!&'  & !!$%  (  & $$% !!$%  &  % $$$ !!$$  # $$!  $!|1,!!$#!|1,!!&+  ) !!&*  (  & !!$$ !!&%  $  +  * !!&+  )  % $$$ !!$$ !!&%  $  * !!&+  )  & !!$$ !!&%  $  # $$! !!$'  # !$)!!|1($$$!|1($$&!|1(!$)! #!% !$)! $$$ $$$ $$$  !#|*{|0y!%+!$|*{|1\/|1.$$!!|*{ & !%+!!|*{$$!!|*{#!! !$)!!|%P %!|%P!!&# $&! !!&# $&! !!&# $&! !!%!  # $&! !#'!!|%P $!|%P!!&# $&! !!&# $&! !&-!#|18|17$$&#|18|17!%+!!|1-!%+!!|10!%+!  %  % $$$ $&$  $  $  # !!%! #!# !.=! #!\/ !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !)3! #!* !!%! $$! !!%! $$! !!%! $$! !!%! $$! !%+! $$% $$% !#'! !#'!%|1I|1H|1Q|1L$$#%|1I|1H|1Q|1L!!$$%|1I|1H|1Q|1L$$$$|1H|1Q|1L$$%#|1H|1Q$$%#|1H|1Q$$%#|1H|1Q$$# !#'!!|1u!!%!$|16|1O|1M$$!$|16|1O|1M!#'! $$#  !!|1R !#|$[|1S !!|$K!#'!!|1T!!&# !#'!!|1V!!&# !!%!!|*{!#'! $$# $$# !!%!!|*{!#'! !#'! $$# !#'! !#'! !!%! !#'! !#'! !#'! !#'! $$#  $ !#'! $$# !#'! $$# $$#  $ !#'! $$# !!%! #!# !#'! #!$ #$! !#'! #!$ !!%! #!# !%+! #!& !#'! #!$ !$)!!|1V$$$!|1V$$%!|1V!!&'!|1V$$'!|1V$$$  #  # !!&$ $$$  % !$*#  # !#'!#|1T|1t!$)! $$# $$&  $ !!$# !!&%  % $$$ !$)! $$# $$&  $ !!$# !!&%  % $$$ !#'! $$! !%+! $$$ $$% $$% !%+! $$$ $$% !%+! $$$ $$& !!$' !%+! !!%! !#(# !#(# !!&# !$*# !$*# !$*# !$*# !$)! #!% !$)! $$$ $$$ $$$ !#'! $$# $$! !#'! $$# $$! !!%! !#'! #!$ !!%! $$! #$! !!#! ##! ##! #!! !!%! $$! !#'! #!$ !#'! $$#  !#|*{|21 !#|*{|22 !#|*{|25 !#|*{|23 !#|*{|24 !#|*{|26!&-! ##' !&-! $$& $$& $$& $$& #!! !%+!!|28$$%!|28$$(!|28$$+ $$, $$* $$( $$) $$) $$* $$+ $$) $$( $$) $$' !%+!!|2;$$%!|2;$$(!|2;$$+ $$, $$- $$+ $$* $$+ $$) $$( $$) $$) $$* $$( !%+!!|29$$%!|29$$) $$) $$) $$* $$+ $$) $$( $$) $$' !%+!!|2<$$%!|2<$$( $$) $$* $$) $$( $$( $$' $$( $$( $$& $$& !%+!$|2B|2@|27$$%$|2B|2@|27$$'#|2B|2@$$'#|2B|2@$$(#|2B|2@$$(#|2B|2@!%+!$|2C|2A|2:$$%$|2C|2A|2:$$'#|2C|2A$$'#|2C|2A$$(#|2C|2A$$(#|2C|2A!%+!#|2E|2D$$&#|2E|2D$$&#|2E|2D$$'#|2E|2D$$'#|2E|2D$$' $$' $$' $$' $$' $$' !$)! $$$ $$$ $$$ $$' !#'! $$#  $ !$)!$|2I|2L|2J$$#!|2L$$$!|2L$$%!|2L$$&!|2L$$'!|2L$$(!|2L$$)!|2L$$*!|2L$$+!|2L$$, $$%#|2I|2J!#(%#|2I|2J$$&#|2I|2J$$'!|2I!#(&  & $$% $$& $$$  !#|*{|2K !!|2M!!#!#|*{|2N!&-!!|2F$$&!|2F!!&(!|2F$$(!|2F$$+!|2F$$%!|2F & $$%!|2F!%+!!|2F$$%!|2F!!&'!|2F$$'!|2F$$*!|2F$$%!|2F$$%!|2F!#'! !!&$ !!&$ !!&$  $  $  # !%+!!|*h!!&&!|*h $ !!&&!|*h!!&#  $!|*h!!&$ !!&#  $ !#'! !$)! #!% !!%! $$! !%+! #!& !!%! $$! !!%! $$! !!%! $$! !!%! $$! !#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|2_$$!#|,]|2_$$#!|,] #!|,]$$!!|,]$$!!|,]!#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|2c$$!#|,]|2c$$#!|,] #!|,]$$!!|,]$$!!|,]!#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|2g$$!#|,]|2g$$#!|,] #!|,]$$!!|,]$$!!|,]!#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|2k$$!#|,]|2k$$#!|,] #!|,]$$!!|,]$$!!|,]!#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|2o$$!#|,]|2o$$#!|,] #!|,]$$!!|,]$$!!|,]!#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|2s$$!#|,]|2s$$#!|,] #!|,]$$!!|,]$$!!|,]!#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|2w$$!#|,]|2w$$#!|,] #!|,]$$!!|,]$$!!|,]!#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|2{$$!#|,]|2{$$#!|,] #!|,]$$!!|,]$$!!|,]!#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|3$$$!#|,]|3$$$#!|,] #!|,]$$!!|,]$$!!|,]!#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|3($$!#|,]|3($$#!|,] #!|,]$$!!|,]$$!!|,]!#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|3,$$!#|,]|3,$$#!|,] #!|,]$$!!|,]$$!!|,]!#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|30$$!#|,]|30$$#!|,] #!|,]$$!!|,]$$!!|,]!#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|34$$!#|,]|34$$#!|,] #!|,]$$!!|,]$$!!|,]!#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%! !#%!  # !#%! $$! !#%!!|79$$!!|79!!%!!|*{$$!!|*{!#%! !#%! $$! $$# $$! !!%! !#%! !#%! $$! $$# $$! !!%! !#%! !#%! $$! $$# $$! !!%! !#%! !#%! $$! $$# $$! !!%! !#%! !#%! $$! $$# $$! !!%! !#%! !#%! $$! $$# $$! !!%! !#%! !#%! $$! $$# $$! !!%! !#%! !#%! $$! $$# $$! !!%! !#%! !#%! $$! $$# $$! !!%! !#%! !#%! $$! $$# $$! !!%! !#%! !#%! $$! $$# $$! !!%! !#%! !#%! $$! $$# $$! !!%! !#%! !#%! $$! $$# $$! !!%! !!%! !#%! !#%!!|35!#%! $$!  # !#%! $$! !#%!!|34!#%!!|4C$$!!|4C!#%! !#%!!|39!#%! $$!  # !#%! $$! !#%!!|30!#%!!|4I$$!!|4I!#%! !#%!!|3=!#%! $$!  # !#%! $$! !#%!!|3,!#%!!|4O$$!!|4O!#%! !#%!!|3A!#%! $$!  # !#%! $$! !#%!!|3(!#%!!|4U$$!!|4U!#%! !#%!!|3E!#%! $$!  # !#%! $$! !#%!!|3$!#%!!|4[$$!!|4[!#%! !#%!!|3I!#%! $$!  # !#%! $$! !#%!!|2{!#%!!|4b$$!!|4b!#%! !#%!!|3M!#%! $$!  # !#%! $$! !#%!!|2w!#%!!|4h$$!!|4h!#%! !#%!!|3Q!#%! $$!  # !#%! $$! !#%!!|2s!#%!!|4n$$!!|4n!#%! !#%!!|3U!#%! $$!  # !#%! $$! !#%!!|2o!#%!!|4t$$!!|4t!#%! !#%!!|3Y!#%! $$!  # !#%! $$! !#%!!|2k!#%!!|4z$$!!|4z!#%! !#%!!|3^!#%! $$!  # !#%! $$! !#%!!|2g!#%!!|5%$$!!|5%!#%! !#%!!|3b!#%! $$!  # !#%! $$! !#%!!|2c!#%!!|5+$$!!|5+!#%! !#%!!|3f!#%! $$!  # !#%! $$! !#%!!|2_!#%!!|51$$!!|51!!%! !#'! #!$ !!%! $$! !#'! #!$ !!%! $$! !%+! #!& !!%! $$! !!%! $$! !#'! !!$# $$! !#'! !!$# $$! !#%!  # $$! !$)! !!$$ $$! !$)! !!$$ $$! !$)! !!$$ $$! !%+! !!$% $$#  $ !(1! !!$( $$& $$$ $$# $$! $$! !!&% $$% $$$ !$)! !!$$ $$# $$#  !!|5o$$!!|5o$$!  !!|5q$$!!|5q$$!  !!|5s$$!!|5s$$!  !!|5u$$!!|5u$$!  !!|5w$$!!|5w$$!  !!|5y$$!!|5y$$!  !!|5{$$!!|5{$$!  !!|6!$$!!|6!$$!  !!|6$$$!!|6$$$!  !!|6&$$!!|6&$$!  !!|6($$!!|6($$!  !!|6*$$!!|6*$$!  !!|6,$$!!|6,$$!  !!|6.$$!!|6.$$!  !!|60$$!!|60$$!  !!|62$$!!|62$$!  !!|64$$!!|64$$!  !!|66$$!!|66$$!  !!|68$$!!|68$$!  !!|6:$$!!|6:$$!  !!|6<$$!!|6<$$!  !!|6>$$!!|6>$$!  !!|6@$$!!|6@$$!  !!|6B$$!!|6B$$!  !!|6D$$!!|6D$$!  !!|6F$$!!|6F$$!  !!|6H$$!!|6H$$!  !!|6J$$!!|6J$$!  !!|6L$$!!|6L$$!  !!|6N$$!!|6N$$!  !!|6P$$!!|6P$$!  !!|6R$$!!|6R$$!  !!|6T$$!!|6T$$!  !!|6V$$!!|6V$$!  !!|6X$$!!|6X$$!  !!|6Z$$!!|6Z$$!  !!|6]$$!!|6]$$!  !!|6_$$!!|6_$$!  !!|6a$$!!|6a$$!  !!|6c$$!!|6c$$!  !!|6e$$!!|6e$$!  !!|6g$$!!|6g$$!  !!|6i$$!!|6i$$!  !!|6k$$!!|6k$$!  !!|6m$$!!|6m$$!  !!|6o$$!!|6o$$! !$)! !!$$ $$! !#%!  # $$! !$)! !!$$ $$! !&-! !!$& $$$ $$# !$)! !!$$ $$! !'-! $$$ $$$ !!$% !!&$  $  #  !#|*{|6w !#|'F|6z !!|>O !!|>O !$|>]|7!|7 !#%!&|>R| h|7#|6{|6x$$#&|>R| h|7#|6{|6x$$#&|>R| h|7#|6{|6x$$$$|>R|7#|6{$$$$|>R|7#|6{$$$#|>R|7#$$%!|>R$$' $(' !!#! !!%! $$! !!%! $$! !!%! !$'!  $ !$'!  $ !%+! #!& !#'! #!$ !$'! !$'! !!%! $$! !!%! $$! !!%! $$! $$# $$# !#%!  # $$# $$! !#%!  # !$'! $$! $$# $$! !#&$ $$$ $$$ $$#  # !#%! !#%! !$'! $$!  # !#&$ $$$ $$$ $$#  # !$'!!|,]!#&$!|,]$$$!|,]$$$!|,]$$#!|,] #!|,]$$!!|,]!#%! !#%! !#%! !#%! !#%! $$! $$$  % $$$ $$! !%'! $$! !#&$ $$$ $$% $$$ $$$ !#&$ $$$ $$$ $!$ $$# $$# $$$ $$# $$# !#%! $$! $$! $$! $$$ $$! $$! $$$ $$! $$! $$$ $$! $$! $$! $$! $$! $$$ $$! $$! $$! $$! $$! $$$ $$! !#%! $$! $$# !#%! $$! $$# !#%! $$! $$# $$$ $$# !#%! $$! $$# !#%! $$! $$# !#%! $$! $$# !#%! $$! $$# !!%!#|:M|7J$$!#|:M|7J!#%!#|7J|7K$$!#|7J|7K$$##|7J|7K$$#!|7K$$# !!%! $$! $$# !#%!*|%x|+6|7J|7K|7N|7W|7U|7T|7S$$!*|%x|+6|7J|7K|7N|7W|7U|7T|7S$$!*|%x|+6|7J|7K|7N|7W|7U|7T|7S$$!!|7N$$! $$!!|7N$$! $$!#|7J|7W$$%#|7J|7W$$$!|7W$$$!|7W$$! $$!!|7U$$!!|7U$$! $$!%|%x|+6|7K|7T$$%%|%x|+6|7K|7T$$$%|%x|+6|7K|7T$$$%|%x|+6|7K|7T$$$$|%x|+6|7T$$%$|%x|+6|7T$$$#|+6|7T$$! $$! $$!!|7S$$! $$!%|%x|+6|7K|7T$$!%|%x|+6|7K|7T$$%%|%x|+6|7K|7T$$$%|%x|+6|7K|7T$$$%|%x|+6|7K|7T$$$$|%x|+6|7T$$%$|%x|+6|7T$$$#|+6|7T$$! $$! !'-!&|7J|7R|7Q|7P|7O$$&&|7J|7R|7Q|7P|7O$$%&|7J|7R|7Q|7P|7O$$%&|7J|7R|7Q|7P|7O$$%#|7R|7Q$$%#|7R|7Q$$&#|7R|7Q$$$#|7P|7O!#%!#|7O|7M$$!#|7O|7M$$#!|7O!#%!#|7P|7M$$!#|7P|7M$$#!|7P!#%!#|7Q|7M$$!#|7Q|7M$$#!|7Q!#%!#|7R|7M$$!#|7R|7M$$#!|7R!#%!#|7M|7S$$!#|7M|7S$$#!|7S!#%!#|7M|7T$$!#|7M|7T$$#!|7T!#%!#|7V|7U$$!#|7V|7U$$##|7V|7U$$$#|7V|7U$$#!|7U!#%!#|7M|7V$$!#|7M|7V$$#!|7V!#%!#|7M|7W$$!#|7M|7W$$#!|7W!!%! $$# $$# !!%! $$! $$# !#'!.|2I|2O|%x|+6|:M|7J|7Z|7`|7_|7^|7]|8V|8@!#&%.|2I|2O|%x|+6|:M|7J|7Z|7`|7_|7^|7]|8V|8@$$%.|2I|2O|%x|+6|:M|7J|7Z|7`|7_|7^|7]|8V|8@$$&.|2I|2O|%x|+6|:M|7J|7Z|7`|7_|7^|7]|8V|8@$$%.|2I|2O|%x|+6|:M|7J|7Z|7`|7_|7^|7]|8V|8@$$&,|2I|2O|%x|+6|7J|7Z|7`|7_|7^|7]|8V$$',|2I|2O|%x|+6|7J|7Z|7`|7_|7^|7]|8V$$%$|2I|%x|+6$$%$|2I|%x|+6$$($|2I|%x|+6$$)$|2I|%x|+6$$(#|2I|+6$$(!|2I$$(!|2I$$(  ( $$' $$'  ( $$' $$'  #!|2I$$!!|2I$$#!|2I # $$! $$(!|2I$$'!|2I$$&!|2I '!|2I$$'!|2I$$'!|2I$$(!|2I$$'  #!|2I$$!!|2I$$!!|2I$$#!|2I!$(&)|2O|7J|7Z|7`|7_|7^|7]|8V$$')|2O|7J|7Z|7`|7_|7^|7]|8V$$()|2O|7J|7Z|7`|7_|7^|7]|8V$$))|2O|7J|7Z|7`|7_|7^|7]|8V$$)#|2O|7J # $$! $$)#|2O|7J # $$! $$+#|2O|7J % $$$ $$*#|2O|7J $ $$# $$)#|2O|7J # $$! $$)!|7J$$)#|2O|7J$$*#|2O|7J$$+!|7J # !#(# $$$ $$$ $$! $$!  # $$*!|7J$$*!|7J$$(!|7J$$) $$'  $ $$# $!)!|7J$$' $$% $$)!|7J$$)!|7J$$(!|7J$$) $$'  $ $$# !!$#  %!|:M$$%  # $$! !&+!)|2O|7J|7Z|7`|7_|7^|7]|8V$$&)|2O|7J|7Z|7`|7_|7^|7]|8V$$')|2O|7J|7Z|7`|7_|7^|7]|8V$$'#|2O|7J # $$! $$'#|2O|7J # $$! $$)#|2O|7J % $$$ $$(#|2O|7J $ $$# $$'#|2O|7J # $$! $$'!|7J$$'#|2O|7J$$(#|2O|7J$$)!|7J # !#(# $$$ $$$ $$! $$!  # $$(!|7J$$(!|7J$$(!|7J$$) $$)  % $$$ $$$  $ $$# $$$ $!'!|7J$$' $$'  % $$$ $$$  $ $$# $$$ $$'!|7J$$'!|7J$$(!|7J$$) $$)  % $$$ $$$  $ $$# $$$ !&+!*|2O|,_|7J|7Z|7`|7_|7^|7]|8V$$&*|2O|,_|7J|7Z|7`|7_|7^|7]|8V$$&)|2O|7J|7Z|7`|7_|7^|7]|8V$$&)|2O|7J|7Z|7`|7_|7^|7]|8V$$')|2O|7J|7Z|7`|7_|7^|7]|8V$$'#|2O|7J # $$! $$'#|2O|7J # $$! $$)#|2O|7J % $$$ $$(#|2O|7J $ $$# $$'#|2O|7J # $$! $$'!|7J$$'#|2O|7J$$(#|2O|7J$$)!|7J # !#(# $$$ $$$ $$! $$!  # $$(!|7J$$(!|7J$$'!|7J$$'!|7J$$&!|7J$$'!|7J$$&!|7J &!|7J$$& $$& $$&  &!|7J$$& $$& $$&  &!|7J$$& $$& $$& $!'!|7J %!|7J$$% $$% $$'!|7J$$'!|7J$$'!|7J$$'!|7J$$&!|7J$$&!|7J$$'!|7J$$&!|7J &!|7J$$& $$&  &!|7J$$& $$&  # $$! !!$#!|,_ #!|,_!&+!)|2O|,_|7Z|7`|7_|7^|7]|8V$$&)|2O|,_|7Z|7`|7_|7^|7]|8V$$&(|2O|7Z|7`|7_|7^|7]|8V$$%(|2O|7Z|7`|7_|7^|7]|8V$$&(|2O|7Z|7`|7_|7^|7]|8V$$%!|2O # $$! $$%!|2O # $$! $$'!|2O % $$$ $$&!|2O $ $$# $$%!|2O # $$! $$% $$% $$%!|2O$$%!|2O$$&  # !#(# $$$ $$$ $$! $$!  # $$& !!$#!|,_ #!|,_!%)!*|2O|7J|7Z|7`|7_|7^|7]|8V|8>$$%*|2O|7J|7Z|7`|7_|7^|7]|8V|8>$$&)|2O|7J|7Z|7`|7_|7^|7]|8V$$')|2O|7J|7Z|7`|7_|7^|7]|8V$$')|2O|7J|7Z|7`|7_|7^|7]|8V$$-)|2O|7J|7Z|7`|7_|7^|7]|8V$$\/)|2O|7J|7Z|7`|7_|7^|7]|8V$$-)|2O|7J|7Z|7`|7_|7^|7]|8V$$\/)|2O|7J|7Z|7`|7_|7^|7]|8V$$0)|2O|7J|7Z|7`|7_|7^|7]|8V & $$% $$% $$% $$,)|2O|7J|7Z|7`|7_|7^|7]|8V$$,)|2O|7J|7Z|7`|7_|7^|7]|8V$$,#|2O|7J # $$! $$,#|2O|7J # $$! $$.#|2O|7J % $$$ $$-#|2O|7J $ $$# $$,#|2O|7J # $$! $$,!|7J$$,#|2O|7J$$-#|2O|7J$$.!|7J # !#(# $$$ $$$ $$! $$!  # $$-!|7J$$-!|7J$$-!|7J$$.!|7J$$-!|7J$!-!|7J$$, $!,!|7J$$, $$,!|7J$$,!|7J$$-!|7J$$.!|7J$$-!|7J$!-!|7J$$, !!$# !%)!*|2O|7J|7`|7_|7^|7]|8V|7[|8<$$%*|2O|7J|7`|7_|7^|7]|8V|7[|8<$$&)|2O|7J|7`|7_|7^|7]|8V|7[$$')|2O|7J|7`|7_|7^|7]|8V|7[$$()|2O|7J|7`|7_|7^|7]|8V|7[$$($|2O|7J|7[ # $$! $$($|2O|7J|7[ # $$! $$*$|2O|7J|7[ % $$$ $$($|2O|7J|7[ # $$! $$(#|7J|7[$$($|2O|7J|7[$$)$|2O|7J|7[$$*#|7J|7[ # !#(# $$$ $$$ $$! $$!  # $$)#|7J|7[$$)#|7J|7[$$(#|7J|7[$$)!|7[$$)!|7[$$' $$' $$* $$)  ( $$' $$)  ( $$' $$)  ( $$' $!(!|7J$$& $$( $$(#|7J|7[$$(#|7J|7[$$(#|7J|7[$$)!|7[$$)!|7[$$' $$' $$* $$) $$) $$) !!$# !#%!#|7M|7a$$!#|7M|7a$$#!|7a!#%! $$! $$# !#%! $$! $$# $$# $$# !#%! $$! $$# $$$ $$$ $$$  $ $$# !%)!(|2I|2O|7e|7[|7a|8(|8'!$(&(|2I|2O|7e|7[|7a|8(|8'$$'(|2I|2O|7e|7[|7a|8(|8'$$((|2I|2O|7e|7[|7a|8(|8'$$)(|2I|2O|7e|7[|7a|8(|8'$$(!|7e$$(!|7e$$- $$# $$'$|7e|7[|7a$$+#|7e|7a$$+#|7e|7a$$,#|7e|7a$$2#|7e|7a$$- $$# $$\/!|7a$$0!|7a$$-!|7a$$, $$# $$# $$(!|7e$$(!|7e$$- $$# $$* $$# $$(#|2I|7e$$)!|2I$$(!|2I$$'!|2I$$'!|2I$$#  #!|2I$$!!|2I$$#!|2I!$(%!|7e$$&!|7e$$'!|7e$$&!|7e$$%  $ !#(#  # $$*$|2O|8(|8'$$)!|8($$# $$'!|8($$.!|8($$.!|8($$, $$#  &#|2O|8'$$(!|7e$$(!|7e$$(!|7e$$(!|7e$$- $$# $$# $$*$|2O|8(|8'$$*$|2O|8(|8'$$)!|8($$# $$'!|8($$.!|8($$.!|8($$, $$#  &#|2O|8'!*4%(|2I|2O|7e|7[|7a|8(|8'$$,(|2I|2O|7e|7[|7a|8(|8'$$.(|2I|2O|7e|7[|7a|8(|8' # $$! $$.(|2I|2O|7e|7[|7a|8(|8'$$.(|2I|2O|7e|7[|7a|8(|8'$$.(|2I|2O|7e|7[|7a|8(|8'$$.!|7e$$- $$# $$-$|7e|7[|7a$$1#|7e|7a$$1#|7e|7a$$1#|7e|7a$$- $$# $$\/!|7a$$0!|7a$$-!|7a$$, $$# $$# $$.!|7e$$- $$# $$# $$.#|2I|7e$$0!|2I$$.!|2I$$-!|2I$$-!|2I$$#  #!|2I$$!!|2I$$#!|2I!$(%!|7e$$&!|7e$$'!|7e$$&!|7e$$%  $ !#(#  # $$\/$|2O|8(|8'$$.!|8($$# $$.!|8($$.!|8($$, $$#  &#|2O|8'$$-!|7e$$-!|7e$$.!|7e$$- $$# $$# !!%!&|7f|7Z|7`|7_|7]$$!&|7f|7Z|7`|7_|7]!#&$!|7`$$! $$! !#&$!|7_$$! $$! !#&% $$$  % $$$  #!|7f!#&# $$! $$!  %!|7Z!#&%!|7]$$! $$! !#&%  % !#%!#|7M|7g$$!#|7M|7g$$#!|7g!#%!#|7h|7g$$!#|7h|7g$$##|7h|7g$$##|7h|7g$$#!|7h!#%!#|7i|7N$$!#|7i|7N$$##|7i|7N$$##|7i|7N$$##|7i|7N$$#!|7i!#%! $$! $$# !#%! $$! $$# !#%! $$! $$# !#%! $$! $$# $$$ $$# $$# $$% $$# $$$ $$# $$# $$% $$# !#%! $$! $$# $$# !#%! $$! $$# $$# !$'!#|8K|7p$$##|8K|7p$$$#|8K|7p$$%#|8K|7p$$$!|7p!%)!#|8K|7p$$$#|8K|7p$$%#|8K|7p$$$!|7p!#%!%|7J|:K|7s|7r$$!%|7J|:K|7s|7r$$#%|7J|:K|7s|7r$$#%|7J|:K|7s|7r$$,%|7J|:K|7s|7r$$#!|7r$$$!|7r$$#!|7r!!$+$|7J|:K|7s$$*$|7J|:K|7s$$*$|7J|:K|7s$!*$|7J|:K|7s$$)$|7J|:K|7s$$)$|7J|:K|7s$$+$|7J|:K|7s$$($|7J|:K|7s$$+$|7J|:K|7s$$,$|7J|:K|7s & $$% $$% $$% $$'$|7J|:K|7s$$'$|7J|:K|7s$$%!|7J$$$ $$% $$&  $!|:K!#%!%|7h|7i|7r|7q$$(%|7h|7i|7r|7q$$'$|7h|7i|7r$$&$|7h|7i|7r$$%$|7h|7i|7r$$%$|7h|7i|7r$$%$|7h|7i|7r$$%#|7h|7i$$$!|7h$$# !#&$ $$$ $$% $$& $$% !$($!|7q$$%!|7q$$% !*3!#|2P|7t$$)#|2P|7t$$*#|2P|7t$$,#|2P|7t$$-#|2P|7t$$.#|2P|7t$$,!|7t$$! $$#  &!|2P!$'!$|2P|7t|7u$$#$|2P|7t|7u$$$$|2P|7t|7u$$&$|2P|7t|7u$$'$|2P|7t|7u$$($|2P|7t|7u$$&#|7t|7u$$! $$%!|7t$$#  &!|2P!$'!#|7e|7v$$##|7e|7v$$$#|7e|7v$$%#|7e|7v$$%#|7e|7v$$%#|7e|7v$$%!|7v$$%!|7v!#'! $$# $$# $$$ !#'!!|8$!!%!!|8$ !!|7{ !!|8!!#'! !%)!#|8_|8^$$) $$( !#'! !$(# !$)!!|8F!#'!#|*{|8)$$!!|*{ $!|8)$&#!|8) #!|8) #!|8)$&!!|8)!%)! !$'! $$# $$# !$'! $$# !#%! $$! !$'! !#%! !#%! !#%! !#%! !#'! !#&$ $$# !#%! !#%! !!#! !%)! $$#  $ !%)! $$# !!%!!|*h !#|*{|8= !#|*{|8? !#|*{|8A!!%! $$! !!%! $$! !!%! $$! !!%! $$!  !#|*{|8G !#|*{|8I!#%! !(\/!(|2O|7Z|7`|7_|7^|7]|8V$$((|2O|7Z|7`|7_|7^|7]|8V$$((|2O|7Z|7`|7_|7^|7]|8V$$(!|2O # $$! $$(!|2O # $$! $$*!|2O % $$$ $$)!|2O $ $$# $$(!|2O # $$! $$( $$(!|2O$$)!|2O$$*  # !#(# $$$ $$$ $$! $$!  # $$) $$) $$' $$' $$' $$( $$( $$' $$' $$' !$)! !$)! !$'!'|#W|7s|7e|8H|7u|7v!#&$&|#W|7e|8H|7u|7v$$$%|#W|7e|8H|7v$$$%|#W|7e|8H|7v$$$$|#W|7e|8H$$#$|#W|7e|8H$$+$|#W|7e|8H$$+$|#W|7e|8H$$,$|#W|7e|8H$$,$|#W|7e|8H$$-$|#W|7e|8H$$.$|#W|7e|8H$$1$|#W|7e|8H$$1$|#W|7e|8H$$.$|#W|7e|8H$$.$|#W|7e|8H$$+$|#W|7e|8H!*4$#|7e|8H$$+#|7e|8H$$,#|7e|8H$$-#|7e|8H$$0#|7e|8H$$, $$, $$+ $$-$|#W|7e|8H$$+$|#W|7e|8H!*4$#|7e|8H$$+#|7e|8H$$,#|7e|8H$$-#|7e|8H$$0#|7e|8H$$, $$, $$+ $$+$|#W|7e|8H$$% !)2$$|#W|7e|8H$$+#|7e|8H$$+#|7e|8H$$,#|7e|8H$$+#|7e|8H$$,#|7e|8H$$-#|7e|8H$$0#|7e|8H$$0#|7e|8H$$-#|7e|8H$$-#|7e|8H$$* !*4$#|7e|8H$$+#|7e|8H$$,#|7e|8H$$-#|7e|8H$$0#|7e|8H$$, $$, $$+ $$,#|7e|8H$$* !*4$#|7e|8H$$+#|7e|8H$$,#|7e|8H$$-#|7e|8H$$0#|7e|8H$$, $$, $$+  ! !$'!!|8O!!&# $$# !%)! $$% !!&& $$& !$'! !#'! $$# $$$ !#'! !!&$  # $$! $$# !!%! $$! $$# !'-!!|2P$$'!|2P$$(!|2P$$&!|2P$$$ !!$# !!$%  % !#%! !!%!!|:L!#&$ $$#  #!|:L!$'! !%)!!|8`!$'!  !#|*{|87 !#|*{|88!%)!!|8%!$'! $$% $$# $!# !!$# !%)! $$$ !#'!!|+n!$'!!|({!$'! !$'! !%)! $$#  $ !%)! $$# $$# !$'! $$#  $ !$'! $$# $$# !%)! !$'!  $ !#%!  # !#&! !#'! !$)! !&+!  $ !!&% $$% !!$# !%)!!|8;$$$ $$#  $ !#&$!|8;$$#!|8;!#'! !$'!  $ !$)! $$$ $$$ $$! $$! !%+! $$$ $$$ $$! !%)! $$$ !#'!!|+n!$'!!|({!$'! $$# $$% $$# $$# $$$ $$#  # $$!  # $$! $$% $$& $$$ $$$ $$$  & $$% $$% $$%  # $$!  # $$! $$' $$' $$'  # $$! !%)! $$#  $ !%)! $$# !$'! !%)! $$$ $$#  $ !%)! $$$ !%)! $$$ $$# !%)! $$#  $ !%)! $$# !$'! !%)! $$$ $$#  $ !%)! $$$ !%)! $$$ $$# !#'! !#($ !!%! #!# !#'! #!$ !#'! #!$ !!%! #!# !$)! #!% !(1! #!) !(1! $$( $$( $$( $$( $$( $$( $$( !#'! #!$ !#'! $$# $$# !#'! #!$ !#'! $$# $$# !#'! #!$ !#'! $$# $$# !&-! #!' !&-! $$& $$& $$& $$& $$& !'\/! #!( !'\/! $$' $$' $$' $$' $$' $$' !#%! #!# !!%! #!# !$)! #!% !$)! $$$ $$$ !%+! #!& !%+! $$% $$% $$% $$% !!%! ### !!%! #!# !!%! #!# !!%! ### !!%! #!# !%+! #!& !%+! $$% $$% $$% $$% !#'! #!$ !#'! $$# $$# !#'! #$$ !!%! $$! !!%! ### !!%! $$! !%+! #!& !!%! $$! !+7! #!, !+7! $$+ $$+ $$+ $$+ $$+ $$+ $$+ $$+ !'\/! #(( !!%! $$! !+7! #', !!%! $$! !&-! #&' !$)! $$$ $$$ !)1! #%) !$)! $$$ $$# !&-! #$' !!%! $$! ##! !!%! #!# !'\/! #!( !'\/! $$' $$' $$' $$' $$' !#'! #($ !!%! $$! !#'! #'$ !!%! $$! !%+! #&& !$)! $$$ $$$ !%)! #%% !$)! $$$ $$# !$)! #$% !!%! $$! ##! !&-! #!' !$)! $$$ $$$ !!%! #(# !#%! #'# !#'! $$# !!%! #&# !%+! #%& !!%! $$! !$'! #$$ !$)! $$$ !$)! ##% !$)! $$$ !#'! #!$ !#'! $$# !!%! ### !!%! $$! !$)! #!% !$)! $$$ $$$ !#'! #!$ !!%! #!# !!%! #!# !!%! #!# !#'!#|2O|:L!#&$!|2O$$#!|2O$$#!|2O$$$  # !#(# $$$ $$$ $$! $$!  # $$$  #!|:L!!%!'|7Z|7`|7_|7^|7]|8V$$!'|7Z|7`|7_|7^|7]|8V!#&$!|7`$$!  # $$! !#&$!|7_$$!  # $$! !#&&!|7^$$$  % $$$ !#&$ $$#  $ $$#  %!|7Z!#&%!|7]$$!  # $$! !#&'!|8V$$!  ! !!%! $$! $$# !#'! !!$# !#%! !#%! !#%! !#%! !#%! !#%! !$'! !#%! !$'! !$'! !$)! #!% !!%! $$! !'\/! #!( !!%! $$! !%+! #!& !!%! $$! !!%! $$! !!%! $$! !#'! #!$ !'\/! $$(  ) !!&*  % !!&$  ( !!&% !!&$  $  # $$!  #  #  #  #  # !!&# $$#  # !'\/! !#($  %  #  #  # !'\/! !#(#  % !%+! $$) $$)  )  '  &  $  # $$! !!&$  $  $ $$$  # !!&(  '  &  $  #  % !!&&  %  $  # $$! !!&#  #  #  #  #  #  #  # !$)! $$% $$%  % !!&$  # !#'!  $  # !!%! $$! !#'! $$# $$$  $ !#'! $$# $$# $$# $$#  ! !!%! $$! $$#  ! !#'! !!&$  $  #  #  # !#'! !!&#  $ $$# $$# !$)!  % $$$ $$%  $ !!&$  $ !$)! !!&# !!%! !#(# !#(# !!%! !!&# !!&# !$)! #!% !!%! $$! !#'! #!$ !!%! $$! !.=! #!\/ !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !#'!!|;>!!&$  $  #!|;>$$!!|;> $  $ !#(# $$$ $$$ $$!  # !!%!!|;'!!%!%|2I|%n|:o|:m!#($$|2I|%n|:o!!&#!|%n$$#!|%n$$#!|%n $#|2I|:o ##|2I|:o$$!!|2I$$#!|2I #  #!|:m!%+! !!&% !!&%  %  $ $$# $$#  #  # !%+! !#(#  % !#'! !!&#  $ $$# $$# !#'! !!&%  $ !!&#  #  # !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !#'! $$#  $ !%+! $$$ $$$ $$! !%+! $$$ $$$ $$! !#'! !#($ !#'! !#($ !#%! #!# !!%! #!# !#%! #!# !!%! #!# !!%!!|2I$$!!|2I$$#!|2I!$)!$|!I|!c|;?$$# $$$  # $$!  # $$!  # $$! $(#$|!I|!c|;?$$%$|!I|!c|;?$$'$|!I|!c|;?$$(#|!c|;?$($!|!c %!|!c $!|!I!#'!$|!`|!_|;@$$#$|!`|!_|;@$$#$|!`|!_|;@$$'$|!`|!_|;@$$$!|!_$$$!|!`!#'!#|;@|;A$$##|;@|;A$$#!|;A!$)!#|;@|;A$$#!|;A!$)!&|!I|!c|;B|;?|;C$$$&|!I|!c|;B|;?|;C$$%&|!I|!c|;B|;?|;C$$(%|!c|;B|;?|;C$(%$|!c|;B|;C$$'$|!c|;B|;C$$$!|;B$$$!|;C!%+!&|!I|!c|;B|;?|;C$$%&|!I|!c|;B|;?|;C$$(%|!c|;B|;?|;C$(%$|!c|;B|;C$$'$|!c|;B|;C$$$!|;B$$$!|;C!#'! $$#  #  $ !!#!  ! !$)! $$! !#'!  !#|3o|3p!!%! !!%! $$! $$! !!%!!|#(!#'! !!%! !!%! $$! !#'! $$# $$# $$# $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$!  !#|'F|;Y !  !#|;q|;[!#%!'|56|5Q| h|;q|;]|;Z$$#!|;q$$!!|;q #!|;q$$!!|;q!#&$%|56|5Q| h|;Z$$$%|56|5Q| h|;Z$$$%|56|5Q| h|;Z$$$%|56|5Q| h|;Z$$$ $$# !#'! $$!  !#|'F|;b!$'!$|5T| h|;c$$$$|5T| h|;c$$$$|5T| h|;c$$%!|;c$$&!|;c$$&!|;c$$&!|;c$$&!|;c$$'!|;c$$&!|;c$$# $$! $$&!|;c$$$ $$# $$! !#&&!|;c$$&!|;c$$& $$& $$#  !#|'F|;f!$'!$|5T| h|;g$$$$|5T| h|;g$$$$|5T| h|;g$$$!|;g$$%!|;g$$%!|;g$$%!|;g$$%!|;g$$%!|;g$$%!|;g$$%!|;g$$%!|;g$$%!|;g$$%!|;g$$%!|;g$$%!|;g!$)!W|5^|5Z|5W|5N|5K|5B|5?|5p|5r|5t|5v|5x|5z|6 |6#|6%|6'|6)|6+|6-|6\/|61|63|65|67|69|6;|6=|6?|6A|6C|6E|6G|6I|6K|6M|6O|6Q|6S|6U|6W|6Y|6[|6^|6`|6b|6d|6f|6h|6j|6l|6n|6p|;H!#((V|5^|5Z|5W|5N|5K|5B|5?|5p|5r|5t|5v|5x|5z|6 |6#|6%|6'|6)|6+|6-|6\/|61|63|65|67|69|6;|6=|6?|6A|6C|6E|6G|6I|6K|6M|6O|6Q|6S|6U|6W|6Y|6[|6^|6`|6b|6d|6f|6h|6j|6l|6n|6p!!&)V|5^|5Z|5W|5N|5K|5B|5?|5p|5r|5t|5v|5x|5z|6 |6#|6%|6'|6)|6+|6-|6\/|61|63|65|67|69|6;|6=|6?|6A|6C|6E|6G|6I|6K|6M|6O|6Q|6S|6U|6W|6Y|6[|6^|6`|6b|6d|6f|6h|6j|6l|6n|6p!!&)V|5^|5Z|5W|5N|5K|5B|5?|5p|5r|5t|5v|5x|5z|6 |6#|6%|6'|6)|6+|6-|6\/|61|63|65|67|69|6;|6=|6?|6A|6C|6E|6G|6I|6K|6M|6O|6Q|6S|6U|6W|6Y|6[|6^|6`|6b|6d|6f|6h|6j|6l|6n|6p (V|5^|5Z|5W|5N|5K|5B|5?|5p|5r|5t|5v|5x|5z|6 |6#|6%|6'|6)|6+|6-|6\/|61|63|65|67|69|6;|6=|6?|6A|6C|6E|6G|6I|6K|6M|6O|6Q|6S|6U|6W|6Y|6[|6^|6`|6b|6d|6f|6h|6j|6l|6n|6p!$('V|5^|5Z|5W|5N|5K|5B|5?|5p|5r|5t|5v|5x|5z|6 |6#|6%|6'|6)|6+|6-|6\/|61|63|65|67|69|6;|6=|6?|6A|6C|6E|6G|6I|6K|6M|6O|6Q|6S|6U|6W|6Y|6[|6^|6`|6b|6d|6f|6h|6j|6l|6n|6p$$(V|5^|5Z|5W|5N|5K|5B|5?|5p|5r|5t|5v|5x|5z|6 |6#|6%|6'|6)|6+|6-|6\/|61|63|65|67|69|6;|6=|6?|6A|6C|6E|6G|6I|6K|6M|6O|6Q|6S|6U|6W|6Y|6[|6^|6`|6b|6d|6f|6h|6j|6l|6n|6p$$%V|5^|5Z|5W|5N|5K|5B|5?|5p|5r|5t|5v|5x|5z|6 |6#|6%|6'|6)|6+|6-|6\/|61|63|65|67|69|6;|6=|6?|6A|6C|6E|6G|6I|6K|6M|6O|6Q|6S|6U|6W|6Y|6[|6^|6`|6b|6d|6f|6h|6j|6l|6n|6p!#&& $$% $$% $$!  %  $  $ !!&#  #  #  #  #!|;H #  # !%+!#|5<|;i$$&#|5<|;i$$&#|5<|;i &#|5<|;i $ !!&$  # !%)! $$$ $$! $$! $$! $$! $$! $$! $$! !#'! $$! !!%!#|;D|;B$$!#|;D|;B$$##|;D|;B$$%#|;D|;B$$$!|;D$$$!|;B$$! !!%! !$)! $$#  $ $$# !#'! $$# $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! !#'! $$# $$! $$#  !#|*{|;G!%+!!|;w$$&!|;w!!&& $$&  (  $  %  $  #!|;w!#(&  & !!$% $$$ $$% $$$ $$% $$$  $ !!&#  # !%+!%| h|!P|;w|;^$$$ $$$  &!|;w &!|;w$$&!|;w$$&!|;w $ $$#  # $$! !!&# !!&& $$&  (  $  %  $  #!|;w!#(&  & !!$% $$$ $$% $$$ $$% $$$ !!&#  #  (%| h|!P|;w|;^ (%| h|!P|;w|;^$$$ $$$ !!&($| h|!P|;^!!$($| h|!P|;^$$&#|!P|;^$$&#|!P|;^$$&#|!P|;^$$&!|!P$$&!|!P$$*!|!P$$$ $$% $$$  # $$! !#&$!|;w$$$!|;w$$' $$$ !$(# $$$ $$% $$$ $$% $$$ !#($ $$% !!$%  % !&.$ !!$%  % !#($ $$% !!$%  % !$(# $$$ $$% $$$  #  #  #  $ !$)! !#'! #!$ !!#! #%! #%! !#'!%|<2|<'|;n|;m$$%%|<2|<'|;n|;m$$%%|<2|<'|;n|;m $%|<2|<'|;n|;m $!|<2!!&$ $$$  $  # $$!  #  #  # !$)!#|<+|;x!$*#!|;x # $$! !%+!#|<*|;x!$*#!|;x # $$! !%+!#|<+|;x!$*#!|;x # $$! !&-!#|<*|;y!$*#!|;y!&-!#|<3|;j$$)#|<3|;j$$)#|<3|;j '!|<3 # $$!  # $$! !!&%!|;j$$%!|;j %!|;j!!&$  #  # !&-!!|<3$$'!|<3$$'!|<3 '!|<3 # $$!  # $$! !!&# $$# !#'!.|5Q|59|5E|5T|;'|#(|>g|<1|;h|;d|;O|;N|;M!$*D(|5Q|59|5E|5T|>g|;h|;d!!&F(|5Q|59|5E|5T|>g|;h|;d!!&G'|5Q|59|5T|>g|;h|;d!!&I'|5Q|59|5T|>g|;h|;d$$I'|5Q|59|5T|>g|;h|;d!!&I'|5Q|59|5T|>g|;h|;d!!&I'|5Q|59|5T|>g|;h|;d$$I'|5Q|59|5T|>g|;h|;d ( !!&' $$'  &  % !!&$  *  '  $ !!&% !#(% $$& $$&  &  %  $  $ !!&F'|5Q|59|5T|>g|;h|;d $ !!$# !!&E'|5Q|59|5T|>g|;h|;d!!&.$|5Q|59|5T &  %  $  # $$!  ,$|5Q|59|5T!!&($|5Q|59|5T ($|5Q|59|5T$$'$|5Q|59|5T &$|5Q|59|5T '  %  ;%|5T|>g|;h|;d :%|5T|>g|;h|;d!!&5%|5T|>g|;h|;d!!&5%|5T|>g|;h|;d 5%|5T|>g|;h|;d 4%|5T|>g|;h|;d$$$ !!&& $$& !!&%  $ !!&$  # $$!  # $$!  % !!&'  '  &  $ !!&% !#(% $$& $$&  # $$!  # $$!  $ !!&$  $  # $$! !!&$  $ $$#  # $$!  # $$!  % !!&$  $  # $$! !!&$  $ $$#  # $$!  # $$!  $ !#(1$|5T|;h|;d$$2$|5T|;h|;d$$.$|5T|;h|;d$$.$|5T|;h|;d$$.$|5T|;h|;d$$\/$|5T|;h|;d!!&%  $  %!|;h!!$$!|;h!!&%  $  # $$! !!&+ $$+ $$,  '  % !!&$ !!&) $$) $$*  %  % !!&%  $  # $$! !!&)  ) $$( $$)  (  & !!$% $$$ $$$ $$$ !!&$ !!&$  # $$!  %  $!|5T!!&%  $  %!|;d!!$$!|;d$$0!|5T!!&%  $ !!&+ $$+ $$,  '  % !!&$ !!&) $$) $$*  %  % !!&%  $  # $$! !!&)  ) $$( $$)  (  & !!$% $$$ $$$ $$$ !!&$ !!&$  # $$!  %  $!|5T & $$# $$! $$! $$! $$! !!&$ !!&# $$# !#((  % !!$$  (  &  $ !!$#  %  $ $$#  $!|5T $!|5E $!|5E!#(% !!&% !!&% !!&%  %  #  # !!&#  # $$! !!&# !!&#!|#( #!|#($$!!|#( # $$!  $!|;'$$# !!&#  #  $!|;' #  #  #  # $$!  #  #!|;M # $$# $$# $$$  # !!&$  $ !#&# $$# !!$# !!&$  #  #  #!|;O #!|;N!!&#  #  #  $  $  %  #  #  #  #  #  #  #  #  #  #  #!|59 #!|<1 #  #  #  #  #  #  # !!&#  # $$!  #  # !&-!&|;%|#D|<\/|<,|;R$$)&|;%|#D|<\/|<,|;R$$$  (!|<\/ # !#($!|<\/ %!|<\/ $  #  #  # !!&(  &  #  $!|<,!#(#!|#D %!|#D!#($  $  #  &#|;%|;R $!|;R #  # !%+!%|;'|<0|<\/|<-$$+#|<0|<-$$,#|<0|<- # !!&,  , !!&(  '  # $$! !!&&  &  # $$!  &  $ !#(#!|<0 %!|<0!!&%!|<-$$%!|<-!$*%  %  $  #  #!|;'!#($!|<\/ %!|<\/ #  #  #  $  # $$!  #  # $$! !$)!#|#(|>g$$!!|#(!$)!#|#(|>g$$!!|#(!#'!#|5E|;o$$&#|5E|;o$$&#|5E|;o # $$! !!&'!|5E!!&& !!&& $$&  % !!$$ $$# $$# !!&#  $  %!|5E #!|;o #  #  # !#'!!|<1$$# $$# $$# $$#  $!|<1!'\/!!|<4$$(!|<4$$(!|<4 '!|<4!!&%  % !!&$ !&-!$|5<|;L|;K$$+$|5<|;L|;K$$+$|5<|;L|;K # $$! !!&-#|5<|;K!!&)#|5<|;K!!&)#|5<|;K$$)#|5<|;K %!|5< '!|;K % !!$$ $$# $$# !!&#  $!|;K #!|;K$$#!|;K '  & $$% !!$& $$% $$& $$% $$% $$$ !!$% $$$ $$$ $$#  #  #!|;L #  #  #  #  # !#'! #!$  !#|. |<6!$'!+|-O|>u|>x|%$|$c|$w|,m|,n|,o|>s$$$*|-O|>u|%$|$c|$w|,m|,n|,o|>s %%|-O|,m|,n|,o$$$#|,m|,o$$#  $%|%$|$c|$w|,n$&#%|%$|$c|$w|,n$&$$|%$|$c|$w$&!#|%$|$c $!|>s$$#!|>s$$$!|>s$$$!|>s$$#  #!|>u$&! !$)! #!% !%+!*|%!|$w|$b|,m|,n|,o|+P|<8|<7 &*|%!|$w|$b|,m|,n|,o|+P|<8|<7$$$ $$$ !#(&*|%!|$w|$b|,m|,n|,o|+P|<8|<7 &*|%!|$w|$b|,m|,n|,o|+P|<8|<7!!$%*|%!|$w|$b|,m|,n|,o|+P|<8|<7!!$%*|%!|$w|$b|,m|,n|,o|+P|<8|<7!!$%)|%!|$w|$b|,m|,n|,o|<8|<7$!%)|%!|$w|$b|,m|,n|,o|<8|<7$$%)|%!|$w|$b|,m|,n|,o|<8|<7$$%)|%!|$w|$b|,m|,n|,o|<8|<7$$&)|%!|$w|$b|,m|,n|,o|<8|<7$$&)|%!|$w|$b|,m|,n|,o|<8|<7$&&)|%!|$w|$b|,m|,n|,o|<8|<7$$&)|%!|$w|$b|,m|,n|,o|<8|<7$!&)|%!|$w|$b|,m|,n|,o|<8|<7$$%)|%!|$w|$b|,m|,n|,o|<8|<7 #  #  #  #  #  # !$)!!|<:$$$ $$$  # !!&%!|<:!$)!  # $$!  !#|;'|8$ !  !#|'F|<A !#|'F|<D !#|98|<F !#|97|<G ! !$)! !#&$ $$#  $  $ !$)! !#&$ $$#  $ !#%!!|8N!#%! !%)! $$# !%)! $$#  $ !!%!  !#|'F|<Q !#|3n|3p !#|'F|<U!#%!)|5H|5E| h|7$|<X|<V|<S|<R!#&#(|5H|5E| h|<X|<V|<S|<R$$$(|5H|5E| h|<X|<V|<S|<R$$$(|5H|5E| h|<X|<V|<S|<R$$$$|5H|<X|<V$$$$|5H|<X|<V #!|<S$$#!|<S!&+!.|5E|+P|8N|7s|7f|:L|<b|<S|<E|<B|<?|<>|<=$$&.|5E|+P|8N|7s|7f|:L|<b|<S|<E|<B|<?|<>|<=$$&.|5E|+P|8N|7s|7f|:L|<b|<S|<E|<B|<?|<>|<=$!)-|5E|+P|8N|7s|7f|:L|<b|<S|<E|<?|<>|<=$!)-|5E|+P|8N|7s|7f|:L|<b|<S|<E|<?|<>|<=$$*-|5E|+P|8N|7s|7f|:L|<b|<S|<E|<?|<>|<=$$+*|+P|8N|7s|7f|:L|<b|<?|<>|<=$$+*|+P|8N|7s|7f|:L|<b|<?|<>|<=$$*%|+P|7s|:L|<>$$*%|+P|7s|:L|<>$$*%|+P|7s|:L|<>$$+$|+P|7s|:L$$*$|+P|7s|:L$$*$|+P|7s|:L$$*!|+P$!%!|+P!!$$!|+P!!$$ $!$ $$$ $$$  #!|:L!#&%#|<b|<=$$$#|<b|<=$$$#|<b|<=$$%#|<b|<=$$$#|<b|<= ##|<b|<= # $$! !$(# !#&$#|8N|7s$$#!|7s $ $$# !#&$ $$!  (#|8N|7s$$'#|8N|7s$$'#|8N|7s!#&%  $ !$(# !#&$#|8N|7s$$#!|7s $ $$# !#&$ $$! !#&# $$! $$#  #!|7f$$!!|7f #!|<S$$#!|<S!!$# !&-!  $ !!&$ !!%!  #  #  #  # !$)! !!&#  $ !$)! !!&#  $ !&-!!|;'$$&!|;' %  $ !!&( $$(  $  # $$! !!&& $$&  % !!&' $$'  %  $ !!&' $$'  %  $ $$# $$# !!&$ $$$  %  # $$!  #  #!|;' #  # !!&# $$#  # $$! !$'!  ! !#'!#|90|<a!&-! !!&%  $ !!&$ $$$  $ !!%!  $  #  $  %  #  #  # !$)! !#(#  $ !#'! !#($  $  # !#'! !#($  $  # !$)! !#($  %  # !$)! !!&#  $ !$)! !!&#  $ !$)! !!&# !!&#  $  $ !%+! !!&#  $ !!&$ !!&#  %  $  $ !%+! !!&#  $ !!&% $$$ !!&#  % !#'! !#($  $  # !#'! !#($  $  # !#'! !!&$ !#($  $  $  # !%+! !#($  $  # !!&% !#($  %  $  $  # !%+! !#($  $ !!&& $$% !#($  %  # !$)! !!&#  $ !$)! !!&#  $ !$)! !!&# !!&#  $  $ !%+! !!&#  $ !!&$ !!&#  %  $  $ !%+! !!&#  $ !!&% $$$ !!&#  % !$)! !!&#  $ !$)! !!&#  $ !$)! !!&#  $ !$)! !#($  %  #  # !%+! !!&#  % !&-!  $ !!&$ !!%!  #  #  #  # !$)! !!&#  $ !$)! !!&#  $ !&-! !!&%  # $$! !%+! !!&$ !$)! !!&# !!&#  $  $ !'\/!  $ !!&$ !!%!!|2R $  #  #  #  #  # !$)! !!&# !!&#  $  $ !'\/! !!&'  $ !!&%  $ !%+!!|*h!!&)!|*h )!|*h $ !!&% !!&# $$#  $  %  #!|*h $ !!&% $$%  % !!&$ $$$  # !$)! !!&# !!&#  $  $ !'\/!  $ !!&$ !!%!!|2R $  #  #  #  #  # !&-! !!&$ !#(# !'\/! !!&% !#(# !!&$  $  $ !&-! !!&$ !#(# !#'! $$$  # !!&$ !$)!  # $$! !#'! $$$ $$$  # !!&$ !#'! $$$ $$$  # !!&$ !#'! $$# !!&#  # !!&% !!&$ !!&$  $  #  #  #  # !#'! $$# !!&#  # !!&# !!&# !!&#  $  # !!#! !#%!!|<K!!#!!|=<!#'! $$$  # !!&$ !$)!  # $$! !%+! !!&$  $  $ !!&# $$#  $ !$)! !!&#  $ !$)! !!&&  %  $  $  # $$! !$)! !!&&  %  $  $  # $$! !&-!  $  $ !!%! !!%! $$! !%+!  $ !!&$  $  # $$! $$!  $ !!%! $$! !!&# !%+!  $ !!&$  $  # $$! $$!  $ !$)! !!&#  $ !#'! !$)! !!&&  %  $  $  # $$! !$)! !!&&  %  $  $  # $$! !$)! !#(% !#'!!|=+!!&$ !%,$  #!|=+!#'! !!&$ !#'! !$*$  # !!&$ !!&$ !#'! !!&$ !$*#  $  $ !#(# !#(# !!%! !!&# !!&# !$)! !$*% !#'!!|=.!!&$ !%,$ !$*#!|=.!#'! !!&$ !#'! !$*$ !#'! !$*$  # !$*# !!&$ !#'! !$*# !$*$ !$*# !$*# !!%! !$*#  $ !$*# !#'! !!&$ !#'! !#(# !#'! !!&$ !#'! !#(# !&-! !!&#  # $$! !!&#  # $$!  # !%+! !#(# !#(# !$)! !!&# !#'! !#(# !#'! !!&# !!&# !!&# !#($ !#($ !$)! !!&# !#(# !It!#|=m|<^!#(#  # $$! !%,$!|<^!$*# !!&$ !!&# !#($  $ $$# $$#  $ !$*#  $ $$# !!&%!|=m %!|=m #  #  #  #  # !#'!  # !%+!  $  $ !#'! !!&$ !!&$ !!&$ !#($ !#($ !#%!!|<W!$)!!|;'!#(& !!&%  $  &  $ $$! !!&% $$% $$&  %  #!|;'!#($  $  #  #  # !!&#  # !$)! !#(% !#'!!|=1!!&$ !%,$  #!|=1!#'! !#($ !#'! !!&$ !#'! !$*$  # !!&$ !!&$ !#'! !!&$ !$*#  $  $ !#(# !#(# !!%! !!&# !!&# !#'! !!&$ !!&$ !!&$ !#($ !#($ !$)! !!&# !!&#  $ !#'! !#($ !%+! !!&# !!&#  $ !#(# !!&#  % !#'! #!$ !#'! $$# $$# !!%! #!# !!%! $$! !%+! #!& !%+! $$% $$% $$% $$% !%+! $$+  # !!&* !!&)  )  ( !!&& $$&  %  $  %  $ $$#  #  #  #  #  #  # !@b! #!A !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !&-! #!' !!%! $$! !!%! $$! !!%! $$! !#'! #!$ !!%! $$! !#'! #!$ !!%! $$! !!%! $$& $$&  # $$# $$# $$$  # !!&$  $ !#&# $$# !!$# !!&$  # !!&' $$'  '  &  $ $$#  $  # $$!  #  #  #  # !#'! $$* $$*  # $$# $$# $$$  # !!&$  $ !#&# $$# !!$# !!&$  # !!&. $$.  .  - !!&) !!&) !!&( !!&(  ( !!&& $$&  %  $  %  $ $$#  $  $ $$# $$!  #  #  #  #  #  #  #  #  #  #  #  #  # !#'! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !'\/! #!( !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!'!#|>W|>R!!$$#|>W|>R$*$#|>W|>R$$! $&(#|>W|>R$$*#|>W|>R$&*#|>W|>R$$! $&,#|>W|>R$$.#|>W|>R$$+#|>W|>R$$+#|>W|>R$&*#|>W|>R$$! $&,#|>W|>R$$.#|>W|>R$$+#|>W|>R$$+#|>W|>R!$)! #!% !$)! $$$ $$$ $$$  !!|>V$$! !!#! !!%! #!#  !  !#|*{|>S !#|>Z|>Y!!%!#|*{|>[$$!!|*{ #!|>[!#'!#|>W|>X$$##|>W|>X$$&#|>W|>X$$# !!$(!|>W$!' !#'! #$$ !!%! ### !!%! #!# !!#!#|*{|>b !#|>d|>c !!|>a!$)!!|>e$$#!|>e$$#!|>e!$)!#|!j|>f$$$#|!j|>f$$$#|!j|>f!#'!#|,m|,o!!%!#|-O|,n$$!#|-O|,n!!%!#|-O|,n!#'!#|,o|,p!!%!#|,o|,r!!%!#|,o|,s$$!#|,o|,s!#'! #!$ !#'!&|-O|,m|,n|,o|>v$$$&|-O|,m|,n|,o|>v$$$&|-O|,m|,n|,o|>v$$$$|,m|,o|>v$$$!|>v!!%!)|-O|%$|$c|$w|,m|,n|,o|>v #  $&|-O|,m|,n|,o|>v$$#$|,m|,o|>v$$#  #&|%$|$c|$w|,n|>v$&!&|%$|$c|$w|,n|>v$&$$|%$|$c|$w$&!#|%$|$c !#|. |>r !#|. |>q!!#!'|-O|>{|,n|,o|,p|>w$$!&|-O|,n|,o|,p|>w #&|-O|,n|,o|,p|>w$$!&|-O|,n|,o|,p|>w$$#&|-O|,n|,o|,p|>w$$#&|-O|,n|,o|,p|>w$$#&|-O|,n|,o|,p|>w$$#&|-O|,n|,o|,p|>w$$##|-O|,n$$##|-O|,n$$# !!%!!|>u$&! !!#!$|,N|'F|>z #$|,N|'F|>z ##|,N|>z!#'! #!$ !!#!#|>y|>x$$!!|>y #!|>y!!#!!|?!",
-", ,!,#!$!&%,)!*!,$!\/!1!3!5!7!9!;,=!>!?!E!J!P!U!W!Y![!^!`!b!d!f!h!j!l!n!q!t!w!z!| !!| %!| (!| +!| .!| 1!| 4!| 7!| :!| =!| @!| C!| E!| H!| J!| M!| O!| R!| T!| W!| Y!| ]!| b!| g!| i.|!N?m+)|!>nAIJKLMN!| k!| n!| q!| t!| w!| y!|! !|!$!|!'!|!*!|!2.|!Nrs.|!Npq!|!5+)|!>{XYZ[]^_+)|!>|  QRSTUVW!|!=!|!?!|!A!|!C!|!E!|!G!|!I!|!K!|!M!|!O!|!Q!|!R!|!S!|!U!|!W!|!Y!|!Z!|!^!|!a!|!d!|!g!|!j!|!m.|!N| ;| :+)|!>| <| 5| 7| 6| 9| 8OP!|!p!|!r!|!t!|!v!|!x!|!z!|# !|##!|#%!|#'!|#*!|#-!|#0!|#6!|#;!|#>!|#@!|#D!|#G!|#L!|#S!|#Y!|#[!|#d!|#f!|#i!|#n!|#s!|#v!|$!!|$%!|$*!|$4!|$;!|$=!|$J!|$L!|$O!|$T!|$V!|$[!|$_!|$a!|$d!|$g!|$j!|$n!|$s!|$v!|${!|%%!|%(.|%0|+y|,*!|%\/!|%1!|%3!|%5!|%7!|%9!|%=!|%>!|%?!|%A!|%C!|%E!|%H!|%S!|%T!|%U!|%V!|%W#|%X#|%Y#|%Z!|%[1|>$|!E|!I|!.|!F|!H!|%]1|>$|!7|!J|!0|!8|!:!|%^!|%a!|%b!|%c !|%d!|%e !|%h!|%i!|%l!|%o  +(|AX% }%8G}'e\/% }#$C} nH% } 9P}'(g% |pv}$p+|!>|!?|!6+(|AT% }%8G}'e\/% }#$C} nH% } 9P}'(g% |pv}$p+|!@22 +(|AX% }%-H} <\/% }!2'} gT% }'-9|?w% }!lz|sc|!>|!?|!B+(|AT% }%-H} <\/% }!2'} gT% }'-9|?w% }!lz|sc|!C22!|%p!|%q!|%t!|%u\/|.@|!;|!H|!=\/|.@|!4|!:|!5,|%w!|%x!|%z!|& !|&$!|&%!|&'!|&*!|&,!|&4!|&7!|&9!|&A!|&E!|&I!|&N!|&S!|&X#|&b!|&c #|&d!|&e !|&f!|&h,|&j,|&k!|&l!|&n!|&s!|'1!|'L!|'Q!|'V!|']!|'c!|'i!|'w!|'y!|(#!|((!|(A!|(E!|(H!|(K!|(N!|(O!|(P!|(Q!|(R!|(W!|(]!|(a!|(d!|(j!|(m!|(o!|(w!|)!!|)(!|)+!|)3!|)7!|);!|)@!|)E!|)L!|)T!|)a#|)f!|)g #|)h!|)i !|)j!|)l!|)o!|)q,|)s,|)t!|)u!|)w!|* !|*:!|*U!|*]!|*b!|*h!|*n!|*t!|+'!|+U!|+Z!|+r!|+u!|,!!|,#!|,$,|)t!|,&!|,\/!|,4!|,:!|,?#|,D ,|,E!|,F!|,H!|,J!|,L!|,Q    #|,Y!|,Z#|,a#|,b#|,c#|,d!|,e!|,o#|-$!|-%  #|-)!|-*!|-0 -|D2%,!|-22|6w|,&|(A|#r|#s|,&|,&!|-8!|-:!|-<!|->!|-@!|-A&&&!|-k!|-n#|-o#|-p !|-q!|-s!|-u!|-v!|-w!|-x!|-y!|.!!|.%!|.&!|.*!|.,!|.\/&&!|.1&&!|.8!|.;!|.>&&&!|.?!|.A!|.B\/|.@|$H|$9|$B!|.F!|.I!|.J!|.R!|.T!|.V!|.X!|.Z!|.]!|.^!|._#|.`!|.a!|.d!|.e#|.i!|.j!|.k!|.m!|.o!|.p!|.q!|.r!|.s!|.v!|.x!|\/ .|@M|$b|$c!|\/%!|\/)!|\/+!|\/\/ #|\/2!|\/3!|\/?!|\/H!|\/K!|\/N!|\/O!|\/S!|\/W&!|\/Z!|\/^!|\/`!|\/c!|\/o!|\/q!|\/s!|\/u!|\/w!|\/y!|0 !|0$!|0%-|D2$!|0+!|01-|D2#\/|0:|%K| =|$x+*|06|%,|+K|$o|$p|$r|$s|$t|$v|$w\/|0:|%L|-y|$z+*|06|%.|+L|${|% |%!|%#|%$|%%|%&!|03!|05!|07!|09!|0;!|0=!|0?#|0B.<|%7|$u#|0C#|0D!|0E!|0G!|0I!|0K!|0M!|0O!|0P!|0S!|0V!|0Y!|0[&&&!|0^!|0`+(|0c|%A|%B|%C|%D|%E|%I|%J+(|0c|-Y|-X|-Z|.'|.$|.#|%@!|0b!|0d!|0f!|0h!|0j!|0l!|0n!|0p!|0r!|0u!|0x!|0z!|1(!|11!|14!|18!|1:!|1=!|1B!|1C!|1F!|1G!|1I!|1M!|1R  -|D2$-|D2#   #|1W #|1X #|1Y  !|1Z#|1]#|1^#|1_#|1`#|1a!|1b !|1c!|1f#|1h!|1i!|1k!|1o!|1u!|2 !|2'!|2*!|2-!|2\/!|24!|28!|2:#|2<!|2=!|2@!|2B!|2D  !|2E!|2G!|2I!|2K!|2M,|2S!|2T,|2V,|2W,|2X,|2Y.|2F|&=|&=!|2Z-|2U|,&  #|2f 2|6w|,&|(J2|&I|,&|,&#|2g 2|6w|,&|(J2|&L|,&|,&!|2h!|2n!|33!|35!|3S!|3T!|3U 2|6w|,&|(J2|&U|,&|,&#|3[#|3]!|3^!|3j!|3k!|3p !|3s !|3v-|@Q|&a!|3x   +(|AX% }'P9}&6w% }$>>|pk% }'d8}!h=% }#s:} hz|&d|&e|&f+(|AT% }'P9}&6w% }$>>|pk% }'d8}!h=% }#s:} hz|&g22!|49#|4:#|4; !|4<!|4=!|4> !|4L !|4N!|4V!|4Y !|4[!|4`!|4b!|4d !|4k!|4s#|4u!|4v !|4w!|5!!|5$ !|5'!|5+!|5-!|50!|53!|58 !|5=!|5B !|5D!|5G!|5J !|5K!|5Y&!|5] !|5e!|5h!|5k!|5n &&!|5r!|6&!|6*+\/|7q|&t|&x|&y|&z|'!|''|'(|'+|',|'-|'.|'\/|'2|'52|8#|'6|'9|'>|'?|'@|'F!|6-!|6\/.|6.%\/#.|6.$#!|621|>$|(&|(8|'M|('|()!|631|>$|'y|(9|'O|'z|( !|641|>$|'m|(:|'Q|'n|'t                   !|65 &!|67!|69 !|6:!|6;!|6>  !|6@!|6S!|6U!|6W!|6Y!|6[ !|6]!|6^ !|6a!|6c!|6e!|6g !|6h!|6i !|6l !|6n!|6o   +(|AX% }#\/f|da% }'Y8}#(W% }$b+} -,% }&w4}%oH|(.|(\/|'l+(|AT% }#\/f|da% }'Y8}#(W% }$b+} -,% }&w4}%oH|(022+(|AX% |UJ}%U[% }$H`}$>o% }( V}#o2% }$%_|bE|(.|(\/|(*+(|AT% |UJ}%U[% }$H`}$>o% }( V}#o2% }$%_|bE|(222+(|AX% }'nc}!lM% }#tR|;J% } ZV}%^\/% }$1F}&r_|(.|(\/|'x+(|AT% }'nc}!lM% }#tR|;J% } ZV}%^\/% }$1F}&r_|(422+(|AX% |SD}!C.% }'?V}#mX% }$D(| )% }$Hh|x6|(.|(\/|(%+(|AT% |SD}!C.% }'?V}#mX% }$D(| )% }$Hh|x6|(622\/|.@|(!|()|($\/|.@|'u|( |'w\/|.@|'s|'t|'k,|6t,|6u!|6v,|6x,|6y,|6z,|6{,|7 ,|7!,|7#,|7$,|7%,|7&,|7',|7(,|7),|7*,|7+,|7,,|7-!|7.#|77!|78!|79!|7<!|7=!|7> !|7?!|7P!|7S!|7T1|7`|(X|(S|(Y|(Y|(Z!|7U!|7Y1|7`|(^|(R|(Y|(Y|(Z\/|7^|(V|(T|(U!|7]!|7_,|7a,|7b,|7c!|7d#|7f  2|6w|,&|(D|(i|(h|,&|,&!|7g  2|6w|,&|(D|(l|(m|,&|,&#|7h!|7i#|7l#|7m#|7n!|7p,|7r,|7s,|7t,|7u,|7v!|7w!|7y!|7{!|8!!|8$!|8&!|8(!|8*!|8,,|81,|82!|83!|86!|89!|8=!|8R!|8S!|8U #|8V!|8W!|8Y!|8[!|8^,|8`!|8a!|8s!|9$!|9=!|9D!|9F!|9H!|9P #|9T-|D2%1 &#|9U  #|9V& &*!!|)5|)K#|9W&*! |)N    !|9X#|9Z!|9[!|9r!|:s-|D2%7!|:t!|:w!|:x!|:y!|; !|;+!|;-!|;\/!|;7!|<:!|<=!|<?&&-|D2%\/-|D2$'!|<@!|<C!|<E!|<G!|<I''!|<K!|<M!|<O!|<Q'#|<n#|<o#|<p!|<q-|D2#\/|.@|)`|)a|)f!|<s,|<u,|<v,|<w!|<x!|<{!|=!!|=$!|=&!|=(!|=*!|=,!|=.!|=0!|=2!|=4!|=6!|=8!|=:!|==!|=@!|=C+(|0c|*8|*7|*6|*4|)p|)s|)t0|04|*9|*5|)u|){+4|<t|*:|)k|*3|*2|*1|*'|)l|*0|*\/|*.|*-|*,|*+|**|*)|*(|)m|)n|)o#|=F&#|=G&&*! |*@.<|*@|*?.<|*@|*=!|=H!|=J!|=L!|=N!|=W1|>$|*Y|*t|*H|*Z|*[!|=X1|>$|*g|*u|*J|*h|*q!|=Y!|=[ !|=]!|=^!|=a!|=d!|=g!|=h!|=i!|=k!|=l !|=m!|=n!|=q!|=r  +(|AX% }&2n}#1A% }#A<}#)C% }$R-}#;$% }&W`}&y<|*^|*_|*X+(|AT% }&2n}#1A% }#A<}#)C% }$R-}#;$% }&W`}&y<|*`22+(|AX% }#fq}#k_% }%8K}%x9% }%pd}#{v% } Mx}')Y|*^|*_|*N+(|AT% }#fq}#k_% }%8K}%x9% }%pd}#{v% } Mx}')Y|*b22 +(|AX% } ?w}%cb% }'r5}!mI% }#JS}#]5% }%nF}! k|*^|*_|*d+(|AT% } ?w}%cb% }'r5}!mI% }#JS}#]5% }%nF}! k|*e22!|=s!|=t      !|=w!|=y!|=z\/|.@|*P|*Q|*S1|>$|*O|*r|*T|,%|*U\/|.@|*V|*[|*W\/|.@|*p|*q|*],|={,|> ,|>!!|>#!|>%!|>'!|>)!|>+!|>-!|>\/#|>1#|>2#|>3!|>4 #|>5!|>6!|>8!|>9!|>:!|>=!|>@!|>E!|>K   !|>U!|>^-|D2$!|>_!|>`!|>b!|>d!|>f!|>i-|D2#!|>j#|>l!|>m#|>o!|>p!|>r!|>s!|>u!|>x!|>{#|?$+)|?&|+B|+D|+E|+E|+F|+G|+H|+I+)|?&|+7|+9|+:|+;|+<|+=|+>|+@!|?%!|?'!|?.!|?5!|?:!|?<!|?@!|?D!|?H!|?L!|?M!|?O!|?Q!|?S!|?U!|?e!|?f!|?g!|?v#|?x  !|?y!|?{&!|@ #|@#!|@$!|@%!|@(!|@,!|@0!|@2!|@3!|@6!|@8!|@9!|@=!|@?!|@B.|@M|+l|+u.|@M|+o|+p1|@I|+w|+q|+r|+s|+t1|@E|+x|+m|+s|+q|+n!|@D!|@F!|@H!|@J!|@L!|@N!|@P,|@R!|@S!|@U!|@W!|@X&!|@Y!|@^!|@_!|@a!|@c!|@e!|@g!|@i!|@k!|@m!|@o!|@q !|@s!|@u!|@v*! |$?*!!|,1|$?   &!|A$!|A&#|A*!|A+!|A,!|A-!|A0!|A4!|A6&+)|A:|,F|,F|$5|$4|,G|,H|,I|,J!|A9!|A;!|A=!|A?!|AC& #|AG 2|6w|,&|(K|,S|,U|,&|,&!|AH!|AK!|AN!|AS!|AU!|AW!|AY!|A[!|A_,|A`!|Ab!|Ad&!|Ag!|Ah #|Al!|Am!|Ao!|Aq!|Ar!|As!|Ay!|B%+1|B+|,m|,n|+k|,o|&.|&-|%[|&,|,*|&0|&\/|%U|&)|&'|&+|&*!|B*!|B,!|B\/!|B0!|B2!|B4*# %|%<% }!]g|MO!|B6#|B:!|B;!|B<-|D2#!|B@!|BD!|BI!|BK!|BM!|BO1|>$|-2|-C|-'|-3|-4!|BP1|>$|-9|-D|-)|-:|-<  !|BQ!|B]!|B_!|Ba !|Bb!|Bc!|Bf!|Bh!|Bj!|Bl !|Bm!|Bn !|Bq  +(|AX% }#{p} ;>% }%Z-}$wb% } ^U}&\/y% }$r5}#3k|-=|->|-8+(|AT% }#{p} ;>% }%Z-}$wb% } ^U}&\/y% }$r5}#3k|-?22+(|AX% }'#w} ))% |#,}#`*% }&*M}$m^% |(k}$&w|-=|->|-1+(|AT% }'#w} ))% |#,}#`*% }&*M}$m^% |(k}$&w|-A22\/|.@|-.|-4|-0\/|.@|-5|-<|-7,|Bs!|Bt#|Bv!|Bw!|By!|B{!|C#!|C-!|C9!|C;!|C=!|C?!|CA!|CE!|CO!|CW!|C]!|Cb!|Cf!|Cj!|Cn!|Cr!|Cv!|D%#|D*-|D2% }$$(}((0-|D2%,-|D2#-|D2$!|D+!|D-!|D\/!|D1!|D3!|D5!|D7!|D9!|D;!|D=.|!N|-l|-k!|D?!|D@#|DA!|DB!|DC!|DD!|DE!|DF!|DG!|DI!|DK+)|!>|-m|-x|-h|-j|-i|-g|-c|-d!|DO!|DS!|DW!|D[!|D`!|Db!|Dd!|Dh!|Dl!|Dn!|Dp!|Dr!|Dt!|Du!|Dx!|Dy!|Dz#|E%#|E&'  '#|E'*$ +0#|.0+0#'!+0#'!+0#'& }((0}('W!1   2+0#|.6+0#|.5+0#'!+0#'& }((0}('W!1   2+0#|.6+0#|.1+0#'!+0#'& }((0}('W!1   2 !|E(#|E*!|E+!|E7!|EE!|EO!|ES!|EX!|Eb!|Ek!|Es!|Ey!|F1!|Gb!|Gm!|HE!|HJ!|HQ#|I+!|I,!|I;!|IF#|Ia!|Ib-|@Q|.8!|In!|Ip!|Ir!|Iu!|L*#|L_#|L`+)|?&|.k|.l|.m|.o|.p|.n|.W|.X!|La.|!N|.e|.Z#|Lc#|Ld+)|!>|.[|.f|.g|.h|.i|.j|.]|.^#|Le#|Lf\/|.@|.d|.`|.a#|Lg!|Lh!|Lj!|Lo!|Lt!|Ly!|M#!|M(!|M-!|M2!|M7!|M@!|MH!|MJ&!|MO,|MQ,|MR,|MS!|MT.|!N|.x|.v!|MV,|MZ,|M[!|M]#|Ms#|Mt!|Mu!|N6!|N8!|N:!|N<!|N>\/:'!'!'& }((0}('W!1   *% +0#'!+0#'!+0#'!+0#'!2+0#'!+0#'!+0#'& }((0}('W!1   +0#'& }((0}('W!1   2+0#'!+0#'& }((0}('W!1   +0#'!+0#'!2+0#'& }((0}('W!1   +0#'!+0#'!+0#'!2*% +0#'!+0#'!+0#'!+0#'& }((0}('W!1   2+0#'!+0#'!+0#'& }((0}('W!1   +0#'!2+0#'!+0#'& }((0}('W!1   +0#'!+0#'!2+0#'& }((0}('W!1   +0#'!+0#'!+0#'!2#|N@#|NA#|NB!|NC!|ND!|NF!|NJ!|NN#|NR#|Np,%,%,%,%#|Nq,%#|Nr#|Ns#|Nt#|Nu#|Nv#|Nw#|Nx#|Ny#|Nz#|N{#|O #|O!#|O##|O$#|O%,%,%#|O&#|O'#|O(#|O)#|O*#|O+#|O,#|O-#|O.#|O\/#|O0#|O1#|O2#|O3,%#|O4#|O5#|O6#|O7#|O8#|O9#|O:#|O;#|O<,|O=,|O>,|O?,|O@#|OA#|OC#|OD#|OF#|OH#|OJ#|OL#|OM#|ON#|OO#|OP#|OQ#|OS#|OU#|OW#|OY#|O[#|O^#|O`#|Ob#|Od#|Of#|Oh#|Oj#|Ol#|On#|Op#|Or#|Ot#|Ov!|Ox!|Oz!|P !|P#!|P%!|P'!|P)!|P1!|P3#|P6#|P7+)|?&|0I|0L|0M|0O|0P|0N|06|07!|P8.|!N|0C|09#|P:#|P;+)|!>|0:|0D|0E|0F|0G|0H|0;|0<#|P<#|P=\/|.@|0B|0>|0?#|P>!|P?!|PA!|PK!|PU!|PY!|P^!|Pb!|Pf!|Pk!|Pv!|Q(!|Q-!|Q6!|Q>!|Q@&!|QJ!|QL,|QN,|QO,|QP,|QQ,|QR,|QS,|QT,|QU!|QV#|RA!|RD!|RF!|RH!|RJ!|RL!|RN,|RP!|RQ!|RS!|RU !|Rc &#|Re !|Rf &  & !|Rh#|Rs-|D2#!|Rt!|Rv!|Rx!|S#!|S_!|Sw+.|V0|1*|1+|1,|1-|1.|1\/|10|11|1%|1&|12|14|1'!|Sy!|Sz!|T,& !|T7!|T9!|T=!|T@!|TI!|TK!|TT!|TX!|T]!|Ta!|UZ!|U^!|U`#|Ud!|Ue  !|Uh*! |$?,|Uj!|Uk!|Us!|Uv!|V !|V#!|V$!|V%!|V-!|V\/!|V1!|V3!|V5!|V7!|V9!|V;!|V=!|V?!|VA!|VC!|VE!|VG!|VI!|VL!|VM!|VU!|VV & !|VX#|VZ#|V[#|V]1|@E|1t|1g|1a|1k|1f!|V^1|@E|1w|1h|1c|1v|1d!|V`!|Vb!|Vc!|Vf!|Vg!|Vh!|Vj!|Vk!|Vl!|Vm!|Vn!|Vo!|Vp!|Vs!|Vu!|Vy.|@M|1i|1j1|@I|1s|1k|1l|1m|1n.|@M|1o|1p!|V{1|@I|1u|1v|1q|1r|1e!|W!,|W$!|W%!|W'&!|W)!|W+!|W-!|W:!|W;!|WC!|WK!|WM!|WQ!|WT!|WX!|WY!|Wb!|Wd!|Wh!|Wk!|Wn!|Wo!|Wq,|Ws!|Wt,|Wu,|Ww!|Wx!|Wz!|X       #|X##|X$#|X%#|X&#|X'#|X(!|X)!|X+,|X0!|X1!|X@!|XO!|XZ!|Xh!|Xn!|Xt!|Y$!|Y)!|Y,#|Y@ #|YA!|YB !|YC!|YK!|YR!|YY!|Yc!|Yd!|Yf!|Yh!|Yj!|Yl!|Yn!|Yp!|Yr!|Yu!|Y{!|Z$!|Z*!|Z-!|Z3!|Z7!|Z=!|Z@!|ZF!|ZJ!|ZP!|ZS!|ZY!|Z^!|Zd!|Zg!|Zm!|Zq!|Zw!|Zz!|[%!|[)!|[\/!|[2!|[8!|[<!|[B!|[E!|[K!|[O!|[U!|[X!|[_!|[c!|[i!|[l!|[r!|[v!|] !|]$!|]*!|].!|]4!|]7!|]=!|]A!|]G!|]J!|]P!|]T!|]Z-|@Q2!|]_!|]c!|]d-|@Q2!|]h!|]l!|]m-|@Q2!|]q!|]u!|]v-|@Q2!|]z!|^#!|^$-|@Q2!|^(!|^,!|^--|@Q2!|^1!|^5!|^6-|@Q2!|^:!|^>!|^?-|@Q2!|^C!|^G!|^H-|@Q2!|^L!|^P!|^Q-|@Q2!|^U!|^Y!|^Z-|@Q2!|^_!|^c!|^d-|@Q2!|^h!|^l!|^m-|@Q2!|^q!|^u!|^v!|^w!|^y!|^{  !|_!.|d!|7B|3u!|_$!|_%!|_)!|_*!|_+!|_\/!|_0!|_1!|_5!|_6!|_7!|_;!|_<!|_=!|_A!|_B!|_C!|_G!|_H!|_I!|_M!|_N!|_O!|_S!|_T!|_U!|_Y!|_Z!|_[!|_`!|_a!|_b!|_f!|_g!|_h!|_l!|_m!|_n!|_r!|_s!|_t!|_u!|_v!|_y!|_{!|` !|`#!|`$!|`%!|`(!|`*!|`+!|`-!|`.!|`\/!|`2!|`4!|`5!|`7!|`8!|`9!|`<!|`>!|`?!|`A!|`B!|`C!|`F!|`H!|`I!|`K!|`L!|`M!|`P!|`R!|`S!|`U!|`V!|`W!|`Z!|`]!|`^!|``!|`a!|`b!|`e!|`g!|`h!|`j!|`k!|`l!|`o!|`q!|`r!|`t!|`u!|`v!|`y!|`{!|a !|a#!|a$!|a%!|a(!|a*!|a+!|a-!|a.!|a\/!|a2!|a4!|a5!|a7!|a8!|a9!|a<!|a>!|a?!|aA0|c{|7G|3v|3w|3x.|aG|!N|4 .|aC|!O|5?.|d!|4.|4\/0|c{|58|59|5;|5=0|aK|5B|5C|40|4I.|d!|4@|4A0|c{|52|53|55|570|aK|5E|5F|4B|4I.|d!|4:|4;0|c{|5,|5-|5\/|510|aK|5H|5I|4<|4I.|d!|47|480|c{|5&|5'|5)|5+0|aK|5K|5L|49|4I.|d!|4C|4D0|c{|4{|5 |5#|5%0|aK|5N|5O|4E|4I.|d!|4=|4>0|c{|4u|4v|4x|4z0|aK|5Q|5R|4?|4I.|d!|44|450|c{|4o|4p|4r|4t0|aK|5T|5U|46|4I.|d!|41|420|c{|4i|4j|4l|4n0|aK|5W|5X|43|4I.|d!|4+|4,0|c{|4c|4d|4f|4h0|aK|5Z|5[|4-|4I.|d!|4F|4G0|c{|4]|4^|4`|4b0|aK|5^|5_|4H|4I.|d!|4(|4)0|c{|4V|4W|4Y|4[0|aK|5a|5b|4*|4I.|d!|4%|4&0|c{|4P|4Q|4S|4U0|aK|5d|5e|4'|4I.|d!|4!|4#0|c{|4J|4K|4M|4O0|aK|5g|5h|4$|4I!|aB!|aD!|aF!|aH!|aJ!|aL!|aN!|aP!|aS!|aV!|aY!|a]!|a`!|ac!|ag!|aq #|au #|ax #|a{ #|b# #|b& #|b) #|b, #|b\/ #|b2 #|b5 #|b8 #|b; #|b> #|bA #|bD #|bG #|bJ #|bM #|bP #|bS #|bV #|bY #|b] #|b` #|bc #|bf #|bi #|bl #|bo #|br #|bu #|bx #|b{ #|c# #|c& #|c) #|c, #|c\/ #|c2 #|c5 #|c8 #|c; #|c> #|cA #|cD #|cG!|cJ!|cM!|cP!|cS!|cW!|cZ #|cb 2|6w|,&|(H2|7)|,&|,&#|cc#|cd#|ce#|cf!|cg!|cp!|cq!|cs!|cu!|cv!|cx!|cz!|d !|d#!|d$!|d%!|d'!|d)-|@Q2!|d-!|d1!|d3!|d<!|d=!|d>!|dF!|dM!|dN!|dO!|dP0|c{|7E|7F|7G|7H.|d!|7A|7B!|dQ!|dW!|dh!|e%!|e(!|e+!|e0!|e3!|e6!|e9!|e<!|e>!|eC!|eF!|ek!|es!|ev!|ey!|f !|f$!|f'!|f*!|f\/!|f2!|f5!|f8!|f;!|g;!|gx!|hf!|i.!|ij!|jK!|jN!|jQ!|jV!|j_!|l+!|lA!|lD!|lI!|lO!|lR!|lU!|lX!|lf!|lj!|ln!|ls!|lw!|m9!|mK!|mU!|ma!|mi!|mm!|mn#|mo.|@M|8)|81#|mp.|@M|8(|8>!|mq+.|uz|9P|9N|9I|8*|8,|:>|: |8'|7d|8_|8`|:Y|8a!|mr!|mu!|mw!|mx !|n$!|n%!|n(!|n*!|n,!|n-!|n.!|n\/!|n0!|n1!|n4!|n5!|n6  !|n7!|n:!|n<#|n= #|n> #|n? !|n@!|nB!|nD!|nF#|nH #|nI !|nJ!|nK!|ns!|nt!|nu#|o^!|o_!|ob!|of!|og!|oj!|oo!|or!|oz!|o{!|p$!|p%&!|p&#|p'#|p(!|p)!|p*!|p\/!|p1!|p2!|p3!|p4!|p5!|p8!|p;!|p>!|pA!|pB!|pD!|pG!|pH!|pI!|pN!|pT!|pU!|pW!|p]!|pa.|@M|8D|8E!|pc!|pd!|pe!|q'!|q*!|q,!|q-!|q1!|q31|@I|9'|9-|9.|9\/|90!|q6!|q9!|q;!|q<!|q@!|qB1|@I|9'|94|95|96|97.|@M|9+|9,1|@I|99|9-|9.|9\/|901|@E|9:|9&|9(|9-|9).|BJ|9;|8l.|%0|9;|8y0|Yi|9;|8z|8{|9 \/|Ye|9=|9>|8w.|@M|+o|+p1|@I|9@|+q|+r|+s|+t1|@E|9A|+m|+s|+q|+n.|%0|9B|,*0|Yi|9B|2_|),|--\/|Ye|9C|9D|8x.|@M|9+|9,1|@I|9F|9-|9.|9\/|901|@E|9G|9&|9(|9-|9).|BJ|9H|8l.|@M|92|931|@I|9J|94|95|96|971|@E|9K|8m|8n|94|8o!|qE\/|ur|9K|9L|8^\/|ur|9G|9H|8h.|uv|9O|8k\/|tH|8\/|9;|8d\/|ur|9:|9;|8e.|uv|9R|8f0|tP|9:|9;|8[|8]2|tL|8\/|9T|9R|9S|9<|9Q2} \/9|9B|&5|$P|$O|8t|8u2} \/9|9;|8p|8q|8v|8r|8s!|qG!|qI!|qK!|qM!|qO!|qQ!|qS!|q[!|q^!|qa!|qc!|qf!|qh!|qk!|qm!|qs!|qu!|r !|r#!|r%!|r'!|r*!|r,!|r1!|r3!|r5!|r7!|r9!|r;!|r=!|rB!|rD!|rG!|rI!|rK!|rM!|rO!|rQ!|rS!|rU!|r_!|ra!|rc!|re!|rg!|ri!|rl!|rn!|rq!|rs,|ru!|rv!|rx!|rz!|s%!|s'!|s)!|s+!|s-!|s\/!|s2!|s4!|s7!|s9,|s;!|s<!|s>!|sA!|sC!|sE!|sG!|sI!|sK!|sM!|sO!|sQ!|sS!|sU!|sW!|sY!|s[!|s^!|s`!|sc!|se!|sg!|si&!|sk!|sy#|t7!|t8!|t;!|t=!|t>!|t?!|t@!|tA!|tB!|tC!|tD!|tE!|tF!|tG!|tI!|tK!|tM!|tO!|tQ!|tS!|tU!|tW!|tY!|tn!|tt!|tw!|u=!|uC!|uF!|uH!|uL#|uQ!|uR#|uU!|uV!|u]!|ub!|ui!|uk!|un!|uq!|us!|uu!|uw!|uy!|u{!|v!!|v$!|v&!|v(!|v*!|v6!|v7!|vB!|vK!|vN!|vS!|vY!|v[!|v^!|v`!|vb!|vd!|vf!|vh!|vj!|vl!|vo!|vs!|vw!|vy!|v{!|w!!|w$!|w&!|w(!|w+!|w;!|wA!|wD!|wF!|wN!|wU!|wY #|wZ!|w[!|w^#|w_    !|w`!|wa!|wd!|we!|wf!|wg-|@Q=!|wi 2|6w|,&|(H2|;d|,&|,&#|x@#|xA#|xB!|xC-|@Q|,&!|xN 2|6w|,&|(H2|;l|,&|,&#|xP!|xQ 2|6w|,&|(H2|;p|,&|,&#|xg!|xh!|xx!|y3!|y:  1|)v$|;w|;x|#B|#B !|yC!|yE.} %D|,&|#B!|yL!|yM!|yQ!|z'#|z+!|z,!|z@.|Wp|<%|<&!|{1!|{2!|{4,|{5-|w%|<.!|{7!|{D!|{H!|{L!|{P!|{R!|{a!|{k!} #p!} $-!} $Q!} $S!} $U!} $j!} $p!} $w!} %C*# % |ow}#I2% } 6% #} %E!} %F!} %V!} %X!} %q!} %v#} %y#} %z#} %{ 2|6w|,&|(H2|<K|,&|,&#} &  2|6w|,&|(H2|<N|,&|,&#} &!#} &##} &$,%!} &%!} &*!} &.!} &\/!} &0!} &2!} &5 2|6w|,&|(H2|<[|,&|,&#} &6#} &7 2|6w|,&|(H2|<`|,&|,&#} &8!} &9!} &A!} &{!} '#!} '(!} '+!} '.!} 'Q.} -8|<j2#} 'R!} 'S!} 'T!} 'Z!} 'c!} 'f!} 'j!} 'n!} 'r!} 'u!} 'x!} (!!} (*!} (1!} (5!} (9!} (?!} (I!} (Q!} (T!} (W!} (]!} (e!} (l!} (o!} (r!} (u!} (z!} )!!} )%.|@M|<T|<U!} )*!} )-!} )0!} )4!} )6!} );!} )>!} )E!} )J!} )O!} )a!} )f!} )i!} )p!} )s!} )y!} * !} *%!} *(!} *-!} *2!} *>!} *G!} *H!} *I!} *J!} *N.|@M|<Y|<X!} *Q!} *X!} *[!} *c!} *j!} *m!} *n!} *p!} *x!} *{!} +(!} ++!} +,!} +3!} +:!} +<!} +@!} +B!} +G!} +N!} +Q!} +S!} +W!} +Y!} +[!} +a!} +f!} +j!} +l!} +n!} +p!} +r!} +z!} ,!!} ,$!} ,&!} ,,!} ,\/!} ,F!} ,H1} .!|9V|<S|9V|=F|=H!} ,K!} ,Q!} ,R!} ,f!} ,h!} ,l!} ,n!} ,p!} ,u!} - !} -$!} -*!} -.!} -0!} -7!} -9!} -<!} ->!} -@!} -B!} -G!} -[!} -^!} -`!} -b!} -d!} -f!} -h!} -j!} -l!} -n!} -p!} -r!} -t!} -v!} -x!} -z!} . !} .#!} .%!} .'!} .)!} .+!} .-!} .\/!} .1!} .M!} \/#!} \/$!} \/&!} \/(!} \/*!} \/,!} \/.!} \/0!} \/2!} \/4!} \/6!} \/8!} \/:!} \/<!} \/>!} \/@!} \/B!} \/T!} \/V#} \/Z !} \/]!} \/^#} \/`#} \/a#} \/b !} \/c !} \/f!} \/l!} \/n!} \/p!} \/r#} \/s  #} \/t!} \/u!} \/x!} \/{!} 0 !} 0#!} 0$!} 0%!} 0&+(|0c|-Y|-X|>s|.'|.$|>t|>u0|04|>y|>v|>w|>x!} 0(*# % |ow}#I2% } 6% *# % |&k}'?o% |r? !} 0*-|D2%}% *!} 0\/#} 08#} 09!} 0:!} 0E !} 0G!} 0J!} 0L!} 0O");
+"#$! ##! #!! !!#! #!! !!%! #!# ##! #!! !!%! #!# !!%! #!# #!! !#'! ##$ !!%! #!# !*5! #!+ !'\/! #!( !%+! #!& !$)! #!% !#'! #!$ #!! !!%! !#'! $$# $$$ $$% $$% $$! !$)! $$$ $$% $$% $$! !#'! $$# $$$ $$% $$% $$! !$)! $$$ $$% $$% $$! !%+! $$! !%+! $$! !%+! $$! !%+! $$! !%+! $$$ !%+! $$$ !#'! $$! !#'! $$! !#'! $$! !#'! $$! !#'! $$$ !#'! $$$ !#'! $$# $$$ !#'! $$# $$$ !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !#'! $$# $$$ !#'! $$# $$$ !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !#'! $$# $$$ !#'! $$# $$$ !'\/! $$% !&-! $$% $$& !'\/! $$% !&-! $$% $$& !'\/! $$% !&-! $$% $$& !'\/! $$% !&-! $$% $$& !'\/! $$% !&-! $$% $$& !&-! $$% $$' $$' $$$ !&-! $$% $$' $$' $$$ !$)! $$! !#'! $$! !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !'\/! $$% !%+! $$% $$& !'\/! $$% $$! !%+! $$% $$& !#'! !#($ !#($ !$)! !#(% !#(% !#(% !#(% !#(% !#(% !#(% !!%! !#(# !#(# !#'! !#(# !#($ !#($ !#($ !#($ !#($ !#($ !)3! #!* !!%! $$! !$)! $$$ !$)! $$$ !$)! $$! !$)! $$! !$)! $$! !$)! $$! !#'! #!$ !$)! $$! !#'! !#'! !!%! $$! !#'! $$# !#'! $$# !#'! !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !#)! !!&&  $ !!'! !!&%  $ !$+! !!&'  $ !!'! !!&%  $  $  $  $ !#'! !$*$ !#($ !#(# !!&$ !%+! $$$ !!&# !$)! !!&$ !&-!  $ !!&# $$# !$)! !!&#  $ !#'! !!&$ !!&$  $  # !$)! !!&$  $  $ !!&# $$#  $ !$)! !!&$  $  $ !!&# $$# !&-!  $ !%+!  $ !!&$ $$$  $ !!&$ $$$  $ !&-!  $ !!%! !#(# !#(# !$)! !#(# !$*# !#(% !#(% !#'! !$*$ !#($ !#(# !!&$ !%+! $$$ !!&# !&-!  $ !!&#  # $$!  # $$! !$)! !!&#  $ !#'! !!&$ !!&$  $  # !$)! !!&$  $  $ !!&#  $  # $$!  # $$! !$)! !!&$  $  $ !!&#  # $$! !&-!  $ !%+!  $ !!&$  $  # $$! !!&$  $ $$#  # $$!  # $$! !&-!  $ !!%! !#(# !#(# !$)! !#(# !$*# !#(% !#(% !#'! !!&# !#'! !$*$ !#($ !!&$ !!&$ !%+! $$$ !!&# !$)!  $ !&-!  $ !!&$ !$)! !!&#  $ !$)! !!&#  $ !#'! !#(#  $  $ !#'! !#(#  $  $ !!&# !$)! !!&#  $ !%+! !!&%  $  $  $ !%+! !!&%  $  $  $ !!%! !!&# !!&# !#'! !!&$ !$*#  $  $ !#($ !#($ !#'! #!$ !!%! $$! !!%! $$! !!%! #!# !!%! #!# !%+! $$% $$% !!$% !!%! !!%! !#'! #!$ !!%! $$! !!%! $$! !#%! $$! $$! !#%! $$! $$$ $$! $!( $$! $$! $!( $$# $$! $$# !!#! !#%! !#%! !#%! !#%!  !!|'D !!|'B !!|!%!!%!!|!$!!%!!|!&!!%! $$! $$# !#'!!|!.!$)!!|!.!#'!!|!(!!#!!|!6!!%!!|!,$$!!|!,$$#!|!,!!%!!|!.!$)! $$#  $ !#'! $$#  $ !#'! !!#!!|!9!!%!!|!:$$!!|!:$$#!|!:!#'! !!%! $$! #!! !#'! #!$ !!%! #!# !!%! $$# $$! !!%! !!%! $$! !#'!#|!F|!`$$##|!F|!`$$$!|!`!&-!#|!F|!`$$$!|!`!%+!#|!`|!H$$$#|!`|!H # $$!  %!|!`$$$!|!` &!|!H$&! !#'!#|!I|!_$$##|!I|!_$$$!|!_!&-!#|!I|!_$$$!|!_!%+!#|!_|!K$$$#|!_|!K # $$!  %!|!_$$$!|!_ &!|!K$&! !&-!&|!a|!`|!_|!M|!L$$&&|!a|!`|!_|!M|!L$$$!|!`$$$!|!_!&-!&|!a|!`|!_|!M|!L$$&&|!a|!`|!_|!M|!L$$$!|!`$$$!|!_!'\/!&|!`|!_|!G|!O|!N$$'&|!`|!_|!G|!O|!N$$$!|!`$$$!|!_$$( !'\/!&|!`|!_|!J|!O|!N$$'&|!`|!_|!J|!O|!N$$$!|!`$$$!|!_$$( !,9!#|!Q|!b$$,#|!Q|!b$$*#|!Q|!b$$'#|!Q|!b$$#!|!b!&-!&|!Q|!e|!d|!c|!b$$&&|!Q|!e|!d|!c|!b$$)&|!Q|!e|!d|!c|!b$$&#|!e|!c$$$!|!c$$)#|!Q|!b$$'#|!Q|!b$$'#|!Q|!b$$#!|!b !!|!S!!#!#|*{|!T !!|!V!!#!#|*{|!W!!%! ### !!%! $$! #!! ##! !%+! #!& !%+! $$% $$% $$% $$% !$)!!|!R$$$!|!R$$# $$! $$' $$% $$# $$$ $$* $$$ $$' $$* $$* $$* $$* $$%!|!R$$$ $$(!|!R$$,!|!R$$) $$, $$, $$, $$, $$& !$)!!|!U$$$!|!U$$# $$! $$' $$% $$# $$$ $$' $$$ $$' $$* $$* $$* $$) $$+ $$%!|!U$$$ $$(!|!U$$)!|!U$$) $$, $$, $$, $$+ $$- $$& !#'!%|!`|!_|!H|!K$$#%|!`|!_|!H|!K$$'%|!`|!_|!H|!K$&#!|!_$&#!|!`!#'!&|!a|!`|!_|!M|!L$$#&|!a|!`|!_|!M|!L$$'&|!a|!`|!_|!M|!L$$$!|!`$$$!|!_!$)!'|!F|!`|!_|!J|!O|!N$$$'|!F|!`|!_|!J|!O|!N$$(&|!`|!_|!J|!O|!N$$$!|!`$$$!|!_$$& !$)!!|!c$$$!|!c!#($!|!c$$%!|!c$$'!|!c$$$!|!c!$)!!|!c$$$!|!c!#($!|!c$$%!|!c$$'!|!c$$$!|!c!%+! $$% $$% $(# $$% $$) $$' $&# $$$ $$& $$$ $&# $$$ $$& !!%! $$! !#'! $$# $$' $$' $$& !#'! $$# $$' $$' $$& !%+!$|#@|#?|#>$$%$|#@|#?|#>$$*$|#@|#?|#>$:%!|#>$&0!|#>$$-!|#>$$+!|#>$$+!|#>$$)!|#>$$%!|#>$$)!|#>$$%!|#>!%,%$|#@|#?|#>$$($|#@|#?|#>$$,$|#@|#?|#>$$'#|#@|#>$$%!|#>$&,!|#>$$-!|#>$$+!|#>$$+!|#>$$)!|#>$$%!|#>$$)!|#>$$%!|#>!!%! $$! $$% $$% !#'! $$#  $ !#'! $$#  $ !#'! $$#  $ !!%! !!%! !!%! !$)! !#'! $$# $$' $$'  $ !#'! $$# $$' $$'  % !$)! $$$ $$( $$# !$)! $$$ $$& !%+! $$% $$* $$# $$' $$# !$)!#|!x|#;$$$#|!x|#;$$%!|#;!(1!#|!x|#;$$%!|#;!&-!#|#;|!z$$%#|#;|!z # $$!  &!|#;$$%!|#; '!|!z$&! !%+!$|#;|#:|!{$$%$|#;|#:|!{$$%$|#;|#:|!{$$*$|#;|#:|!{$$%!|#:$$%!|#;!%+!$|#;|#:|# $$%$|#;|#:|# $$%$|#;|#:|# $$*$|#;|#:|# $$%!|#:$$%!|#;!$)!#|#!|#:$$$#|#!|#:$$%!|#:!&-!#|#:|##$$%#|#:|## # $$!  &!|#:$$%!|#: '!|##$&! !'\/!&|#<|#;|#:|#%|#$$$'&|#<|#;|#:|#%|#$$$%!|#;$$%!|#:!'\/!&|#<|#;|#:|#%|#$$$'&|#<|#;|#:|#%|#$$$%!|#;$$%!|#:!)3!&|#;|#:|!y|#'|#&$$)&|#;|#:|!y|#'|#&$$%!|#;$$%!|#:$$* !)3!&|#!|#;|#:|#'|#&$$)&|#!|#;|#:|#'|#&$$%!|#;$$%!|#:$$* !#'!$|#(|#>|#=$$#$|#(|#>|#=$$&$|#(|#>|#=$$&#|#(|#>$$%!|#>$$$#|#(|#=$$#!|#=!.=!$|#G|#*|#>$$\/$|#G|#*|#>$$\/$|#G|#*|#>$!.#|#*|#>$$\/#|#*|#>$$-#|#*|#>$$)#|#*|#>$$%!|#>!&-!&|#G|#*|#@|#?|#>$$&&|#G|#*|#@|#?|#>$$*&|#G|#*|#@|#?|#>$$'#|#@|#>$$%!|#>$$.$|#G|#*|#>$$-$|#G|#*|#>$!*#|#*|#>$$+#|#*|#>$$)#|#*|#>$$)#|#*|#>$$%!|#>!$)!!|#H$&#!|#H$$$!|#H$$%!|#H$$$!|#H !!|#-!!#!#|*{|#. !!|#0!!#!#|*{|#1!%+! $$% !!%!#|#F|#E!#(#!|#E!!&#!|#F!!%! ### !!%! $$! #!! ##! !&-! #!' !&-! $$& $$& $$& $$& !%+!!|#,$$%!|#,$$$ $$# $$) $$' $$$ $$& $$- $$' $$) $$- $$- $$- $$- $$&!|#,$$% $$*!|#,$$\/!|#,$$+ $$\/ $$\/ $$\/ $$\/ $$' !%+!!|#\/$$%!|#\/$$$ $$# $$) $$' $$$ $$' $$) $$& $$) $$- $$- $$- $$, $$. $$&!|#\/$$% $$*!|#\/$$+!|#\/$$+ $$\/ $$\/ $$\/ $$. $$0 $$' !#'!%|#;|#:|!z|##$$#%|#;|#:|!z|##$$(%|#;|#:|!z|##$&#!|#:$$$!|#:$&#!|#;$$$!|#;!#'!&|#<|#;|#:|#%|#$$$#&|#<|#;|#:|#%|#$$$(&|#<|#;|#:|#%|#$$$%!|#;$$%!|#:!%+!'|#!|!x|#;|#:|#'|#&$$%'|#!|!x|#;|#:|#'|#&$$*&|#!|#;|#:|#'|#&$$%!|#;$$%!|#:$$' !$)!!|#>$$$!|#>!#($!|#>$$%!|#>$$(!|#>$$%!|#>!$)!!|#>$$$!|#>!#($!|#>$$%!|#>$$(!|#>$$%!|#>!%+! $$% $$% $(# $$% $$) $$' $&# $$$ $$& $$$ $&# $$$ $$& !#'!$|#>|#!|#+$$#$|#>|#!|#+$$$$|#>|#!|#+$$%$|#>|#!|#+$$'$|#>|#!|#+$$)$|#>|#!|#+$$%!|#+$$'$|#>|#!|#+$,$$|#>|#!|#+$$($|#>|#!|#+$$*$|#>|#!|#+$$,$|#>|#!|#+$(($|#>|#!|#+$$*$|#>|#!|#+$$$!|#+$$&$|#>|#!|#+$($$|#>|#!|#+$$&$|#>|#!|#+$$($|#>|#!|#+$$)$|#>|#!|#+$$*$|#>|#!|#+$$,$|#>|#!|#+$(($|#>|#!|#+$$*$|#>|#!|#+$$$!|#+$$&$|#>|#!|#+!%,$#|#>|#!$$% $$& $$%  $ $$#  $ $$#  $ $$# $(%#|#>|#!$$'#|#>|#!$$)#|#>|#!$$*#|#>|#!$$*!|#>$$+!|#>$(%!|#> &!|#> %!|#!$$# !$)! !#($ $$%  (  % !%+!#|#>|#=$$%#|#>|#=$$*#|#>|#=$:%#|#>|#=$&0#|#>|#=$$-#|#>|#=$$+#|#>|#=$$+#|#>|#=$$)#|#>|#=$$%!|#>$$#!|#=$$%!|#>!%,%#|#>|#=$$(#|#>|#=$$(#|#>|#=$&,#|#>|#=$$-#|#>|#=$$+#|#>|#=$$+#|#>|#=$$)#|#>|#=$$%!|#>$$#!|#=$$%!|#>!$)!!|#)$$$!|#)$$)!|#)!#'!!|#)$$#!|#)$$#!|#)$&#!|#)$$$!|#)$$%!|#)$$*!|#)$$$!|#)!%+!!|# !%+!!|!{!#'! $$# !$)! $&# $$$ $$$ $$( $*# $$& $$& $$* !$)! $&# $$$ $$$ $$' !!%!#|#M|#P$$!#|#M|#P$&%  & $$% $$% !%+!!|#M$&%  & $$% $$% !%+! $$%  & $$% $$%  !#|*{|#Q#$! !#'! ##$ !#'! $$# !%+! #!& !%+! $$% $$% $$% $$% !!%!#|#M|#N$$!#|#M|#N$&%  & $$% $$%  &!|#N$&!  ! !$'!$|#e|#d|#]!#&##|#e|#]$$##|#e|#]$$%#|#e|#]$$% $$%  !  !  !  ! !$'!&|#d|#b|#a|#`|#_!#&#%|#b|#a|#`|#_$$#%|#b|#a|#`|#_$$&%|#b|#a|#`|#_$$&#|#`|#_$$&#|#`|#_$$%#|#`|#_$$$#|#`|#_$$$!|#`$$$ !$'!(|,I|,M|,L|#[|#Z|#Y|#X$$((|,I|,M|,L|#[|#Z|#Y|#X$$'(|,I|,M|,L|#[|#Z|#Y|#X$!''|,M|,L|#[|#Z|#Y|#X$$+&|,M|,L|#[|#Y|#X$!+&|,M|,L|#[|#Y|#X$$+%|,M|,L|#[|#X$!+%|,M|,L|#[|#X$$-%|,M|,L|#[|#X$!-%|,M|,L|#[|#X$$*%|,M|,L|#[|#X$$(#|,M|#X$$& !!$% !!$% $$$  ! !#%!!|#e$$!!|#e #!|#e$$#  !#|'F|#o!#%!$|,L|#i|#g$$%!|#i$$% !!$% $$$ $$! !!%! $$! !#%!#|,L|#l$$%  $ !!$% $$$ $$! !!%! #!# !!'! #!$ !!%! #!# !#%!$|#y|#u|#t!!$##|#y|#u!#%!!|#s!$'!'|( |&`|+]|$&|$%|#z$$$&|( |&`|+]|$&|#z$$$%|( |&`|+]|#z$$$$|&`|+]|#z$$$$|&`|+]|#z$!!!|#z$!$#|&`|+]$$##|&`|+]$$%#|&`|+]$$# $!)#|&`|+]$$$#|&`|+]$$&#|&`|+]$$%#|&`|+]$$%#|&`|+]$$%#|&`|+]$$$#|&`|+]$$%!|+]$$$ $$# $$$ $$# $$%!|+]$$$ $$# $$$ $$# $$$ $$# $$$ $$# $$$ $$# $$$ $$# $$$ $$# $$$ $$# $$$ $$# !#%!!|#z$$!!|#z$!!!|#z!!#!!|#{ !#|(E|$  !#|(F|$!!#%! $$! !#%!!|#t!!$# !!#!$|&`|&E|&a!!#!$|&E|&a|&_!#%!!|#s!#%!!|$$!%)! $$$ $$% $$% !$'! $$# $$$ !#'! !!%!!|*{$$!!|*{ # $&! !!%!!|$,$!#!|$,!!%! $$! $&! !$)!  $ !#'!  # $&!  $ $&!  $ $&! !$)!  $ $&! !#'! $$# $&! !#'! !$)! #!% !#'! !$)! $$$ $$$ $&! !!%!!|$-$$!!|$-$$! !#'! !$)! $$$  &  % !!&% $$%  &  $ !!%! $$! !!%! $$! !$'! $$# !#%! $$! !!%! #!# !#%!!|$H!$%!!|$I!#%!!|$J !#|$K|$N!!%!!|$G!$(# !$(# !!%!!|$G!$'! $$# $$#  $  !!|-?!!%!!|*{!%)! $$# !%)! $$# !$'! !%)! !%)! !$'! !$'! $$#  $ !$'! $$# !%)! $$# $$#  $ !%)! $$# $$#  $ !!%!!|$O!$(# !$(# !#&# !!%! $$! !$)!#|-O|$^$$$!|$^$$$#|-O|$^$$$!|$^!#'!$|-O|$_|$^$$#!|$_$$$!|$^ !#|*{|$`!$)!#|-O|$n$&#!|-O$$$!|-O$$&!|-O$$&!|-O$!&!|-O$$%!|-O$$% $$$ $$# $$#  # !$)!#|-O|$n$&#!|-O$$$!|-O$$%!|-O$$% $$$ $$# $$#  # !#'!#|%\/|%,$$##|%\/|%,$$##|%\/|%,!#'!!|%\/$$#!|%\/$$# !#'!#|%\/|%,!#'!!|$f$$#!|$f$$#!|$f$$! !#'!!|%\/$$#!|%\/$$# $$! !#'!#|%\/|%-$$##|%\/|%-$$##|%\/|%-!#'!#|%\/|%-$$##|%\/|%-$$##|%\/|%-!!%! $$! !!%! $$! $$! !$)!#|-G|%\/ $ $$# $$#  # $$!  $ $$# $$#  $#|-G|%\/$$$#|-G|%\/$&! !!%! $$! !#'!#|-L|%\/$$$#|-L|%\/!#'!#|-K|%\/$$$#|-K|%\/!#'!#|-J|%\/$$$#|-J|%\/!#'!#|-I|%\/$$$#|-I|%\/!#'!#|-G|%\/$$$#|-G|%\/$&! !#'!#|-H|%\/$$$#|-H|%\/$&! !!%! !%+!$|-O|-t|$y$$$$|-O|-t|$y$$%#|-O|$y$$%#|-O|$y$$$#|-O|$y$$#!|$y!#'!%|-L|-P|%\/|%.$$$%|-L|-P|%\/|%.$$$#|-L|%\/$$%#|-L|%\/$$$!|-L$$# !!%! $$! !%+! #!& !*5! #!+ !!%! $$! !$)! #!% !!%! $$! !#'! #!$ !#'! $$# $$#  !!|*v !!|*u !!|*w!!%! $$! !!%! $$! !$)!  $ !!%! $$! !!'! #!$ !!%! !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !!%! $$! !!%! $$! !!%! $$! !!%! $$! !(1! #!) !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! #!# !#'!#|%o|%I$$##|%o|%I!$)! $$$ $$% !#'! $$# $$$ !#'! $$# !#'! $$# $$&  # $$!  # $$!  $ $&! !#'! $$# $$$  # $$!  # $$!  $ $&! !#'! $$#  $ !#'!#|%P|%c$$##|%P|%c$$$!|%P $!|%P!#'! $$# !#'! $$#  $ !$)!  % $$$ $&!  % !$)! !&-!  $  % !#'! !!%!!|&&$$!!|&&!#'! $$# $$$  $ !%+! !#(% $$& $$'  % !$)! $$$ $$%  %  %  !#|%r|%d !#|%q|%f !#|%q|%h!$)! $&!  !#|%r|%a !#|%r|%b !#|%r|%] !#|%r|%` !#|*{|%e!#'!#|%t|%I!!%!$|*{|%q|%i$$!!|*{ #!|%i!#'!!|%p$$#!|%p !#|*{|%g!#'! $$# !#'! $$# !!&%  $ !#'!!|%k$$#!|%k$&# $$$  %  # !#'!!|%l$$#!|%l$&# $$$ $$% $$$  # !#'!!|%l$$#!|%l$&# $$$  %  # !!%!  #  # !!%!  #  # !#'!!|%n$$#!|%n!$)! $&# $$$ $$% $$$ !$)! $&# $$$  % !!%! $$! !!%! $$!  !#|%r|%[!#'! $$# $$$ !!%! #!# !!'! #!$ !#%! !#'! #!$ !#'! #!$ !#'! $$# !1C! #!2 !1C! $$1 $$1 $$1 $$1 $$1 #!! !!%! #$# ##! #!! #%! #!! !&+!#|'F|&9$$&#|'F|&9 $ !#&'#|'F|&9$!'#|'F|&9$$&#|'F|&9$$(#|'F|&9 %!|'F % $!+!|&9$!&!|&9 !#|'F|&? !#|'F|&B!&+!!|&9!!$&!|&9$$%!|&9$$# $$# $!# !&+!%|&L|&H|&G|&C!#&#$|&L|&H|&G$$#$|&L|&H|&G$$+$|&L|&H|&G$$+!|&L$$+!|&L$$# $$+!|&L$$-!|&L$$*!|&L$$,!|&L$$0!|&L$$0!|&L$$1!|&L$$)!|&L$$)!|&L $ $$#  # $$! $!)!|&L$$)!|&L$$0!|&L$$0!|&L$$-  $ $$( $$% $$#  # $$! $$# !%)!!|&D$$$!|&D!-9!!|&M$$-!|&M$$-!|&M$$\/!|&M$$.!|&M$$.!|&M$$.!|&M$$\/!|&M$$.!|&M$$.!|&M$$.!|&M$&-!|&M$$0!|&M$$1 $$1  # $$! $&0 $!% $$$  %  1 $$0 $$0  # $$!  # $$!  # $$! !!#!!|&@!!#!!|&=!#%! $$! $$% $$% $$% $$#  !#|'F|&K !#|*{|&;!&+! $$!  # $$! !$(% $$% $$& $$( $$& $$& $$# $$# !!%!#|'G|&<!$)! $$$  $ $$# $$! !!#!(|(f|'=|'<|&F|&^|&V|&R$$!'|'=|'<|&F|&^|&V|&R$$!'|'=|'<|&F|&^|&V|&R!!#!(|(f|'=|'<|&F|&^|&T|&V$$!'|'=|'<|&F|&^|&T|&V$$!'|'=|'<|&F|&^|&T|&V!$'!!|&W$$#!|&W!$'!!|&O$$$!|&O$$$!|&O$$*!|&O$$*!|&O$$*!|&O$$(!|&O$!'!|&O$$&!|&O$!!  #!|&O$$%!|&O$$%!|&O$$%!|&O$$$!|&O$$$!|&O$$$!|&O$!!  #!|&O$!!  #!|&O$$$!|&O$$$!|&O$$$!|&O$!!  #!|&O$!!  #!|&O!!#!!|&] !!|&S !!|&Q!#%!#|&E|&a!#%!!|&b!%)!$|,M|&d|&e$$%!|&d # $$%!|&d # !!$%#|,M|&e$$$#|,M|&e$$%#|,M|&e$$!#|,M|&e$$%!|&d$$%!|&d$$%!|&d $ $$# !!%! $$! !%)!$|+?|,L|&g$$!!|+? #!|+?$$!!|+?!!$% $$$ $$$ $$! !%)!!|&h$$$!|&h$$$!|&h!!%! $$! !#%!#|,L|&k$$! !!$# $$! !#%!!|&l$$!!|&l!#%! $$! !#%!!|#j$$! $$!  # $$!  # $$! !%)!$|,L|&t|&p$$! !!$% $&$ $$% $&! $&! $&! !%)!!|&q$$$!|&q ! !!%!!|&s!#%!$|,L|&u|&t$$!  # $$! !!$# $&! !#%!!|&v$$!!|&v!#%!!|#n # $$! !$'!#|,M|&y$&##|,M|&y$$!#|,M|&y$$! !$'!!|&z$$#!|&z!$'!!|#^ # $$! !#%!#|#f|#d # $$! !$'!!|#c # $$!  # $$! !#%!!|#j$$! $$!  # $$! !$'!#|,M|'%$$##|,M|'%$$#  $ $$# !#%!!|'&$$!!|'&!%)!#|,M|'($$$#|,M|'($$$ !$'!!|')$$#!|')$$$!|')!$'! !)3!#|,M|',$$)#|,M|',$$)  * $$)  # $$! $$)  * $$)  # $$! !!$'#|,M|',$$!#|,M|',!$'!!|'-$$#!|'-$$#!|'-!'-!!|,M!!$'!|,M$$&!|,M$$'!|,M$$'!|,M$$#!|,M$$! $$! !)3!#|'1|'0$$) $$) !$'!!|'2$$#!|'2$$#!|'2!$'!  # $$! !$'!!|&d$$#!|&d$$)!|&d$$' !%)!#|,M|'6$$$#|,M|'6$$%#|,M|'6$$!#|,M|'6$$! $$! $$!  # $$! !!$%#|,M|'6$$$#|,M|'6$$%#|,M|'6$$!#|,M|'6$$! $$! !)3!!|'9$$)  * $$) !$'!!|':$$#!|':$$#!|':!#'! #!$ !#'! $$# $$# !!%!!|'C!!%!!|'E!!%!!|'G!!%! $$! !#'!!|'g$$#!|'g!#'!!|'_!!#!!|(&!!%!!|'b$$!!|'b$$#!|'b!#'!4|'Z|'Y|'X|'W|'V|'U|'T|'S|'R|'Q|'P|'O|'N|'M|'L|'K|'J|'I|'H$$#4|'Z|'Y|'X|'W|'V|'U|'T|'S|'R|'Q|'P|'O|'N|'M|'L|'K|'J|'I|'H!'\/!'|&,|&+|(!|'f|'e|'d$$$$|&,|&+|(! #!|(!$$#$|&,|&+|(!$$#$|&,|&+|(! $#|&,|(! ##|&,|(! #!|(! $#|&,|(! ##|&,|(! #!|(! &%|(!|'f|'e|'d$$#!|(! #!|(! %$|'f|'e|'d $#|'f|'e$$##|'f|'e $!|'f #!|'f!$)!!|'g$$#!|'g!!%!!|'g$$!!|'g!$)!!|'p$$#!|'p!#'!!|'p$$#!|'p!#'!!|'k!!#!!|(*!!%!!|'n$$!!|'n$$#!|'n!!%!!|'p$$!!|'p!$)!!|'x$$#!|'x!#'!!|'x$$#!|'x!#'!!|'s!!#!!|(,!!%!!|'v$$!!|'v$$#!|'v!!%!!|'x$$!!|'x!!#!!|((!!%!!|'{$$!!|'{$$#!|'{$$!!|'{$$#!|'{#!! #!! !'\/! #!( #4! #3! #2! #1! #0! #\/! #.! #-! #,! #*! #)! #(! #'! #%! #$! ##! #!! !#)!!|']$$#!|']$&#!|']$$$!|']$$%!|']$&#!|'] $!|'] $!|'] #!|'] !!|'G!!%! !$'!!|(`$$#!|(`$$&!|(`!$'!!|(d!!#!!|(P!!#!!|(S!.?! $&\/ $!2 $!2 $!3 $!3 $!3 $!4 $!4 $!4 $!2 $!4 $!4 $!3 $!3 $!5 $!5 !$'! $$# $$) !!#! !#%! !.?! $&\/ $!2 $!2 !$'! $$# $$) !$)! #!% !&-! #!' #$! ##! #!! !!%! $$!  !#|'F|(_!!#!!|([ !#|'F|(c!!#!!|(T!!$# !#&#  !!|(e !!|(h !!|(f$$! !\/?! #!0 ##! #%! #$! ##! #!! !!%! $$! !!%! $$! !!%! $$! !'\/! #!( !!%! $$! !!%! $$! !!%! $$! !'1! #!) !&-! $$& $$( $$( $$( ##! #!! !#%!  # $$! !#%!#|(F|(E ##|(F|(E #!|(F!%)! !!&$ $$$ !!$# !%)! $$$ $$$ $$#  $ !#&$ $$# !!$% $$$ $$$ $$# !!$#  $ !#&$ $$# $$$ $$$ $$#  $ !#&$ $$# !#%! !!%! $$! !#%!!|({ !#|*{|)&!#'! ##$ !#'! $$# !!%! #!# !!%! $$! #!! !(1!  & $$% $&% $$' $$& $$& $$( $$& $$& $!& $$$ $$( $$# $$# $$( $$% $$% !%)! $$$ !#&$ $$% $$( $$# !#&& $$% $$% $$# !!&# $$# !$)!!|)'$$%!|)'$$%!|)'!#&%!|)'$$&!|)'$$'!|)'!#&% $$% $$$ $$$ $$& $$! $$# $$& $$$ $$% $$#  $ $$# $$# $$$ $$% $$#  $ !#&% !$)!#|)?|)0$$#!|)? #!|)?$$!!|)? #!|)?$$!!|)?$$$!|)0!!%!  # !!%!#|)A|)2 #!|)2!$)!#|-G|%\/$$%#|-G|%\/$&$ $$% $$$ $$# $$$ $$# !#'!#|$?|)B$$##|$?|)B$$!!|)B$$!!|)B !!|)S !#|*{|); !!|-> !!|->!!%! $$!  !#|*{|)H!$)!!|)J$&!!|)J$$$!|)J!$*% $$' $$( $$% $$% $$% $$$  $  $  $ $&$ $$% $$% $$%  #  # $$!  # $$! !#'!'|-O|-L|-G|%\/|)S|)6 (%|-O|-G|%\/|)S$$'%|-O|-G|%\/|)S$$(#|-O|)S$$'!|-O$$& $$! $$! $$(#|-O|)S$$'!|-O$$'!|-O$$'!|-O$$& $$! $$! !&.$$|-O|-G|%\/$$)$|-O|-G|%\/$$(#|-O|-G$&(!|-O$$)!|-O$$*!|-O$$)!|-O$$&!|-O$$&!|-O$$% $$$  # $$) $$)  #  )#|-O|)S$$(#|-O|)S$$# $$! $$! $$% $$% $$% $$% $$! $$! !!&&#|-O|)S$$&!|-O$$% $$$ $$&!|-O$$% $$$  $  # $$!  # $$!  # $$!  $$|-O|)S|)6$$#$|-O|)S|)6$$$#|-O|)S $!|-O$$!!|-O$$!!|-O #!|-O $!|-O$$!!|-O #!|)S$$$#|-O|)S #!|-O$$!!|-O ##|-O|)S$$!!|-O #!|-O ##|-O|)S$$!!|-O #!|-O ##|-O|)S$$!!|-O # $$!  # $$!  $$|-L|%\/|)S$$#$|-L|%\/|)S $$|-L|%\/|)S$$##|-L|%\/$$$#|-L|%\/$$#!|-L # $$!  # $$!  # !!%!#|,:|)8!!#!%|$a|$_|,9|)M$$#$|$a|$_|)M ##|$a|$_!$)!#|,:|)8!!%!#|,:|)8!!#!%|$a|$_|,9|)Q$$#$|$a|$_|)Q ##|$a|$_!#'!&|$a|$_|*3|*1|)P$$$&|$a|$_|*3|*1|)P$$$!|)P$$&!|)P$$'!|)P$!%%|$a|$_|*1|)P$$%%|$a|$_|*1|)P$$$!|)P$$&!|)P$$'!|)P!#'!!|)X$$#!|)X!!%!!|)X$$!!|)X!$)! $!% $$$ !!&#  $ !!&#  $  $ !%+!0|%m|$?|)L|)K|)G|)F|)E|)?|)=|)<|):|)0|)5|)4|)2$&$ $!%!|)L %!|)L$&$ !$*%,|%m|$?|)K|)?|)=|)<|):|)0|)5|)4|)2$$',|%m|$?|)K|)?|)=|)<|):|)0|)5|)4|)2$$$ $$%&|$?|)K|)?|)0|)4$$%%|$?|)K|)?|)4$&$#|$?|)?$$%#|$?|)? $!|$?$$# $$! $$$!|)?$&#!|)?$$$!|)? $ $$# $$!  $ $$# $$!  % $$$  # $$!  $ $$# $$# $$!  %#|)K|)4$$##|)K|)4$&!!|)4 # $$! !!&$  $ $&!!|)4 # $$! $$##|$?|)0 $!|$?!!&$  $  #!|$? #!|$?$$$)|%m|$?|)K|)=|)<|):|)5|)2$$%'|%m|$?|)K|)=|)5|)2$$&'|%m|$?|)K|)=|)5|)2$$%'|%m|$?|)K|)=|)5|)2 ##|)5|)2$$!#|)5|)2$!%%|%m|$?|)K|)= # $$!  % $$$  $ $$# $$# $&!  $$|%m|$?|)=$$#$|%m|$?|)=$$!$|%m|$?|)=$$!$|%m|$?|)=$$!#|$?|)=$$!!|)=$$!#|$?|)=$$!!|)= # $$!  $!|)K$&!  # $$!  # $$! $$##|)<|):$$$!|)<$$%!|)<$!% $$$  $  #  # $$! $&!  #  # $$! $&! !!%!!|)W #!|)W$$!!|)W!!%!!|)X$$!!|)X!#'!!|)Y!#'! $$# $$# !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !%+!!|)3$$&!|)3$&&!|)3$$' $$' $$* $$# $$# $!) $$$ $$#  % $$) $$# $$# $!( $$% $$#  $ $$$ $$'!|)3$$&!|)3 %  % $&'!|)3$$&!|)3$$&!|)3$$%!|)3 !  !  ! !!%!!|*<$$!!|*<!4I! #!5 #$! ##! #!! !#'! $$# $$# !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !#'! $$# $$# !#'! $$# $$# !#'! $$# $$# !#'! $$# $$#  !!|)O !!|)R!!%! $$! !!%! $$! !!%! $$! !#'!&|-w|)o|)n|)m|)k$$$&|-w|)o|)n|)m|)k$$#$|)o|)n|)m$$!#|)n|)m$$$#|-w|)k$$$#|-w|)k$$#!|)k$$! $$! !!%!!|*>!!%!!|*@!#'!  $ !#'! !!#!!|*W!#'! $$# $$$ !!%! $$! $$# !!%! $$! $$# !#'! !!%! !!%! $$! !$)! !#'! !!#!!|*U!!%!!|*N$$!!|*N$$#!|*N!!%! !#'!!|*d!!#!!|*Z!!%!!|*[$$!!|*[$$#!|*[!#'!'|*c|*b|*a|*`|*_|*^$$#'|*c|*b|*a|*`|*_|*^!$)!!|*d!!%!!|*d#'! #%! #!! !&-! #!' !!%! $$! !!%! $$! !#'! #!$ !!%! $$! !!%! $$! !!%! $$!  !!|*? !!|*? !!|*?!!%!!|*= !#|*{|*y!!%!!|*x #!|*x!$)! !&-! !#'! !!&$  % !%+! !!&&  & !#'! $$#  $ $$# $&! !&-! $$' !!&' $$'  % $$# !$)! $$% !!&% $$%  % $$# !!&% $$%  % $$# !#'! $$# $$# !!&$ $$$  #  $ $$# !!%! !!%! !!%! $$! !!%! $$! !!%! $&! !#'! $&!  $ !#'! !$)! $$$  !#|*{|+)!!%!!|+6$$!!|+6 !#|*{|+(!!%!!|+8$$!!|+8!!%! !!%! $$! !#'! $$# $$# !#'! $$# $$# !$)! $$$ $$$ $$$  !#|*{|+*!)3! #!* !%+! $$% $$% $$% !#(#  $  # !$)! $$$ $$$ !!&%  $  %  # !&-! !!&' $$'  % $$# !!%! $$! !&-!  ' !!&'  % !$)!  % !!&%  % !&-!  ' !!&'  % !$)!  % !!&%  % !#'! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !#%!$|( |+]|+Q ##|( |+]$$!#|( |+]$$$#|( |+]$$! !!$(#|( |+]$$! $!##|( |+]$$##|( |+]$$##|( |+]$!##|( |+]$$#!|+]$$#!|+]$$# $$# !#%!!|+P!!#!!|+S!#%!%|(g|+W|+V|+U$$!%|(g|+W|+V|+U$$$$|(g|+W|+V$$$$|(g|+W|+V!#&#!|(g$$$ !#&# $$# $$$  $!|+V$$$!|+V$$!!|+V$!( $$# $$# !#%! $$!  !#|&c|&`!#%!!|+]$$# !!#! !!%! #!#  !!|+R!#%!!|+X!#'! $$#  $ !$)! !!&% $$%  $ !#'! $$#  $  $ !$'! $$# !!%!!|)%!$'! $$#  $ !$'! $$# !#%! !$'! $$# $$#  $ !$'! $$# !$'! $$# $$# !#'! !!&# !&-! #!' !!%! $$! !&-! #!' !!%! $$! !#'! #!$ !$)! #!% !!%! ### #!! !#'! $$# !$)!  $ !#'! !!%! !$)! !!&$ !!&$  $ !$)! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !%+!!|,\/$$%!|,\/!&-!!|,0!&-!&|*{|%P|,5|,4|,3$$!!|*{ '$|%P|,5|,4 &$|%P|,5|,4 &#|%P|,5 %#|%P|,5 %!|%P $  $ !%+! #!& !%+! $$% $$% $$%  !#|*{|,-!%+!!|,.!!%! !$'! $$# $$$ !%)! $$$ $$% $$% !#%! $$! !$'! $$# $$$ !)3! #!* !!%! $$! !!%! $$! !%)! $&$ $$# $$& !%)! $&$ $$% $$&  !#|'F|,K!%)!#|,M|,L$$%#|,M|,L$$&#|,M|,L!#%!#|'F|,N $#|'F|,N $!|,N!%+!#|(g|)\/!!$&#|(g|)\/$$%#|(g|)\/$$)!|)\/$$' !&1! #!) !%+! $$% !&1! #!) !%+! $$% !$)! $$$ $$' !!#! #!! #!! !!%! $$! !!%! $$!  # !!%! !!%! $$! $$#  #  !#|*{|,[!#'! $$# !!%!!|,]$$!!|,]!!%! !#'! !#'! !!&% $$%  $  #  # !$)! !!&& $$&  $  $  #  # !$)! $(# $$% !!&% $$# !1C! #!2 !$)! !#(# $$# !#'! !!%! $$! !!%! $$! !!%! $$! !$)!$|-O|-J|%\/$$$$|-O|-J|%\/$$%$|-O|-J|%\/$$#!|-J !#|. |,l!!%!!|,n!$)!$|-O|-J|%\/$$%$|-O|-J|%\/$$$#|-O|-J$$#!|-J!#'!$|-O|-J|%\/$$$$|-O|-J|%\/$$##|-O|-J$$#!|-J!$)!&|-O|*z|%$|$y|$c$$$%|-O|%$|$y|$c$$$%|-O|%$|$y|$c$$#$|%$|$y|$c$&!#|%$|$c!#'! #!$ !!%! $$! !!%! $$! !!%!!|,x!!%!!|,z!$'! !!$$ $$# $$# !!$# !#&# $$# $$# $$# !#&# $$# !$)! $$# !#'! $$# !#'! !!#!!|-7!!%!!|-'$$!!|-'$$#!|-'!!%! $$! !$)!!|-0$$#!|-0!#'!!|-0$$#!|-0!#'!!|-+!!#!!|-5!!%!!|-.$$!!|-.$$#!|-.!!%!!|-0$$!!|-0#!! !!%! #!#  !!|,y!!'!$|(D|,x|,{ $#|(D|,{!!'!$|(D|,x|-  $#|(D|- !!'!!|*{$$!!|*{ $ !%)! !!$% $$% $$% $!$ $!! $$% $$% $!$ $!! !$'! !!$# $$# $$# $$# $!# !!$# $$! $$! $$! !#&$ $!# !#'! #!$ !#'! $$# !#'! $$# !#'! $$# !#'! $$# $$% $$# !#'!#|-G|-e$$##|-G|-e$$$ $$# $$# $$# $$# $$# $$# $$#!|-G!#'!#|-H|-e$$##|-H|-e$$%!|-H$$# $$# $$#!|-H$$$ $$# !#'!#|-I|-e$$##|-I|-e$$%!|-I$$#!|-I$$! !#'!#|-J|-e$$##|-J|-e$$%!|-J$$#!|-J$$! !#'!#|-K|-e$$##|-K|-e$$$ $$#!|-K!#'!#|-L|-e$$##|-L|-e$$$ $$#!|-L!#'! $$# $$% $$# !#'! $$# $$% $$$ !#'!#|-O|-w$$##|-O|-w$$%!|-O$$#!|-w!#'!$|-t|-P|-e$$$$|-t|-P|-e$!$$|-t|-P|-e$$$$|-t|-P|-e$!$#|-t|-P$$##|-t|-P$$%!|-P$$$!|-t$$&!|-t$$! !!%! $$! $$# $$# $$#  ! !#'! $$$ !#'! $$$ !#'! ##$ !!%! #!# !#'! $$! !#'! $$! !#'! $$! !#'! $$! !#'! $$! !#'! $$! !!%! !#'!  ! !!%! !$)! !#'! !!'! !!%! !#'! $$# !!%! $$! !#'! $$# $$$ $$# !#'! $$# $$$ $$# !#'! $$# $$$ $$# !#'! $$# $$$ $$# !#'! $$# $$$ $$# !!%! $$! !!%!!|-R$$!!|-R!#'! $$# $$$ $$# !#'! $$# $$$ $$# !!%!!|-R$$!!|-R!!%! $$! !!%! $$! !!%! $$! !!%! !#'!!|-w$$#!|-w$$!!|-w!#'! !#'! !!%!$|+_| =|)r$$!$|+_| =|)r #!|)r #$|+_| =|)r #$|+_| =|)r #!|)r !#|*.|.+ !!|*. !#|*.|.'!#'! #!$  !$|>?|.)|.(!!%!.|->|0=|0:|+xnm|05|04|03|01|00|#L|#B #.|->|0=|0:|+xnm|05|04|03|01|00|#L|#B$$!!|-> !%|0=|0:nm !#|0:m #!|00 #&|+x|05|04|03|00 !%|+x|05|04|03 !$|+x|05|03 !*|0=|0:nm|05|04|03|01|#B !%|0=|0:nm !#|0:m!!%!+|%T|+x|05|04|#J|,e|.P|,a|.9|.0$$!+|%T|+x|05|04|#J|,e|.P|,a|.9|.0!#(%!|.9 #!|.P #'|%T|+x|05|04|,a|.0 #%|+x|05|04|.0 !%|+x|05|04|.0 !$|+x|05|.0 !$|+x|05|04 !$|+x|05|04 !$|+x|05|04 !$|+x|05|04 !$|+x|05|04 !$|+x|05|04!!%!)|+x|05|04|#J|,e|.P|.9|.0$$!)|+x|05|04|#J|,e|.P|.9|.0!#(%!|.9 #!|.P #%|+x|05|04|.0 !%|+x|05|04|.0 !%|+x|05|04|.0 !%|+x|05|04|.0 !%|+x|05|04|.0 !$|+x|05|.0!!%!%|#J|,e|.9|.5$$!%|#J|,e|.9|.5!#($!|.9 #!|.5!!%!&|#J|,e|.P|.9|.5$$!&|#J|,e|.P|.9|.5!#(%!|.9 #!|.P #!|.5!!%!(|%T|+x|05|04|03|,a|.0$$!(|%T|+x|05|04|03|,a|.0 #$|+x|03|.0 !$|+x|05|04 !$|+x|05|04 !$|+x|05|04 !$|+x|05|04 !$|+x|05|04 !$|+x|05|04!!%!*| '|*.|*\/q|#J|,e|.P|.9|.0$$!*| '|*.|*\/q|#J|,e|.P|.9|.0$$$'|*.|*\/|#J|,e|.9|.0!#($!|.9 !#|*.|*\/ !!|*\/ #!|.0 #!q #!|.P!!%!)| '|*\/q|#J|,e|.P|.9|.0$$!)| '|*\/q|#J|,e|.P|.9|.0$$$&|*\/|#J|,e|.9|.0!#($!|.9 !!|*\/ #!|.0 #!q #!|.P!!%!'|*\/|#J|,e|.P|.9|.0$$!'|*\/|#J|,e|.P|.9|.0!#(%!|.9 #!|.P !!|*\/ #!|.0!&-!+|0=|+x|*.|04|00|#H|0q|\/#|\/!|.:$$%&|0=|+x|04|00|#H$$%&|0=|+x|04|00|#H #$|+x|04|00 !#|+x|04 # $$!  &(|+x|*.|04|0q|\/#|\/!|.:$$%(|+x|*.|04|0q|\/#|\/!|.: #  #%|*.|0q|\/#|\/! #$|*.|0q|\/# #  # $$!  # $$!  &$|+x|04|.: ##|+x|04!%+!@|+_|->|-=|%2|0=|0:| (|%Z|%u|%W|%s|*0|*.t|*\/nmq|00|#L|#B|,e|0s|0q|0r|\/'|\/&|\/%|\/$|\/ |%$$$%@|+_|->|-=|%2|0=|0:| (|%Z|%u|%W|%s|*0|*.t|*\/nmq|00|#L|#B|,e|0s|0q|0r|\/'|\/&|\/%|\/$|\/ |%$ #,|-=|%Z|%u|%W|%s|*.t|,e|0s|0q|0r %'|-=|%Z|%u|%s|*.|,e %&|-=|%Z|%u|%s|*. !!|*. $!|*. !!|*. %%|-=|%u|%s|*.$$%%|-=|%u|%s|*.$$&%|-=|%u|%s|*.$$'%|-=|%u|%s|*.$$(%|-=|%u|%s|*.$$%#|-=|*.$$&#|-=|*.$$'#|-=|*.$$(#|-=|*. &!|*. $!|*. $!|*. &!|*. $!|*. $!|*. &!|*. $!|*. $!|*. ##|%u|%s #!|%s ##|%u|%s #!|%s$!!!|-= !#|%Z|*. !!|*. ##|%u|%W #!|%W #%|*.|0s|0q|0r #$|*.|0q|0r !!|0r +6|+_|->|%2|0=|0:| (|*0|*.|*\/nmq|#L|#B|,e|0q|\/&|\/%|\/$|\/ |%$ !#|*.|0q +3|+_|->|%2|0=|0:| (|*0|*.|*\/nmq|#L|#B|\/&|\/%|\/$|%$ !#|*\/|\/$ !!|*\/ #!|\/% $.|->|%2|0=|0:|*0|*.|*\/nm|#L|#B|\/&|%$ $-|->|%2|0=|0:|*0|*.|*\/nm|#L|#B|%$ $,|->|%2|0=|0:|*0|*.nm|#L|#B|%$ $+|->|%2|0=|0:|*.nm|#L|#B|%$ $(|->|0=|0:nm|#L|#B$$!!|-> !%|0=|0:nm !#|0:m !&|0=|0:nm|#B !%|0=|0:nm !#|0:m !!|*0 #!|\/% (,|+_|->|0=| (|*0|*.|*\/q|#L|\/&|\/$ $$|->|0=|#L$$!!|->$$!  &)|+_| (|*0|*.|*\/q|\/&|\/$ %(|+_| (|*0|*.|*\/q|\/&$$$&|+_|*0|*.|*\/|\/& #  $&|+_|*0|*.|*\/|\/& #%|*0|*.|*\/|\/& #$|*0|*.|*\/ ##|*0|*. !#|*0|*. !!|*0 #  #!q !#|*\/|\/$ !!|*\/ #!|00 # $$!  # $$!  $$|->|0=|#L$$!!|-> #!|00 !#|*.|*\/ !!|*\/ !(|0=|*0|*.|*\/|#B|\/'|\/& !$|*0|*\/|\/' !#|*0|*\/ !!|*0 !%|*0|*.|*\/|\/' !$|*0|*.|*\/ !#|*0|*\/ !!|*0 !$|*0|*\/|\/' !#|*0|*\/ !!|*0 !$|*0|*\/|\/& !#|*0|*\/ !!|*0 !%|*0|*.|*\/|\/& !$|*0|*.|*\/ !#|*0|*\/ !!|*0 !%|*0|*.|*\/|\/' !$|*0|*.|*\/ !#|*0|*\/ !!|*0 !$|*0|*\/|\/' !#|*0|*\/ !!|*0 !#|*0|\/& !!|*0 !$|*0|*.|\/& !#|*0|*. !!|*0 !%|*0|*.|*\/|\/' !$|*0|*.|*\/ !#|*0|*\/ !!|*0 !$|*0|*\/|\/' !#|*0|*\/ !!|*0 !%|*0|*.|*\/|\/& !$|*0|*.|*\/ !#|*0|*\/ !!|*0 !$|*0|*\/|\/& !#|*0|*\/ !!|*0 !%|*0|*.|*\/|\/' !$|*0|*.|*\/ !#|*0|*\/ !!|*0 !#|*0|\/' !!|*0 !$|*0|*.|\/' !#|*0|*. !!|*0!#'!$|,!|:g|.C # $$!  #!|.C $!|:g #  # !!&! $$!  # $$! !#'!*|+x|04|03|01|;&|.A|.?|.>|.= $#|01|.=!!&%*|+x|04|03|01|;&|.A|.?|.>|.= $#|01|.=!!&&*|+x|04|03|01|;&|.A|.?|.>|.= $#|01|.=!!&&*|+x|04|03|01|;&|.A|.?|.>|.= $#|01|.=!!&'*|+x|04|03|01|;&|.A|.?|.>|.= $#|01|.=!!&'*|+x|04|03|01|;&|.A|.?|.>|.= $#|01|.=!!&(*|+x|04|03|01|;&|.A|.?|.>|.= $#|01|.=!!&()|+x|04|03|;&|.A|.?|.>|.= $#|04|.=!!&)(|+x|04|03|;&|.A|.?|.> $!|.A!!&)'|+x|04|03|;&|.?|.> $%|+x|04|03|.> !$|+x|04|03!!&('|+x|04|03|;&|.?|.> $!|.?!!&)'|+x|04|03|;&|.?|.> $!|.?!!&)'|+x|04|03|;&|.?|.> $%|+x|04|03|.> !$|+x|04|03!!&)'|+x|04|03|;&|.?|.> $!|.?!!&*'|+x|04|03|;&|.?|.> $!|.?!!&*'|+x|04|03|;&|.?|.> $%|+x|04|03|.> !$|+x|04|03!!&*'|+x|04|03|;&|.?|.> $!|.?!!&+'|+x|04|03|;&|.?|.> $!|.?!!&+'|+x|04|03|;&|.?|.> $%|+x|04|03|.> !$|+x|04|03!!&+#|;&|.? $!|.?!!&,#|;&|.? $!|.?!!&+!|;& +!|;& #  #  # !&-!#|.A|.>$$$ $$$  &!|.A %!|.>!$)!!|:g #  # !!&# $$#  $  # !!%!<| =|%Z|%s|+k|*0|*.|*\/rsop|.l|#3|0q|\/&|\/%|<)|>?|:g|:j|;)|,Y|.F|.E|.D|.@|;{!#((6| =|%Z|%s|+k|*0|*.|*\/|.l|0q|\/&|\/%|<)|>?|:g|:j|;)|,Y|.F|.E|.D|.@$$)6| =|%Z|%s|+k|*0|*.|*\/|.l|0q|\/&|\/%|<)|>?|:g|:j|;)|,Y|.F|.E|.D|.@ %!|:g!!&++| =|<)|>?|:g|:j|;)|,Y|.F|.E|.D ''| =|>?|:g|,Y|.E|.D!!&$&| =|>?|,Y|.E|.D !#| =|>? $%| =|>?|.E|.D $#|.E|.D $!|.E # $$! !!&(&| =|<)|:j|;)|.F %$| =|<)|.F # !!&'#|:j|;)$$'#|:j|;) '#|:j|;)!#(#  #!|:j $  #,|%Z|%s|+k|*0|*.|*\/|.l|0q|\/&|\/%|.@ $+|%Z|%s|+k|*0|*.|*\/|.l|0q|\/&|\/% #*|%Z|+k|*0|*.|*\/|.l|0q|\/&|\/%$$!)|%Z|+k|*0|*.|*\/|0q|\/&|\/% !#|*.|0q !&|+k|*0|*.|*\/|\/& !$|*0|*.|*\/ !#|*0|*. !!|*0 !!|*0 !#|*0|*\/ !!|*0 !#|+k|\/% !#|*.|0q !&|+k|*0|*.|*\/|\/& !#|*0|*\/ !!|*0 !$|*0|*.|*\/ !#|*0|*. !!|*0 !!|*0 !#|+k|\/% #!|#3 #!|;{ #  #  #  #  ##rs !#op !#|0r|.,!%+!$|,!|:g|.B '$|,!|:g|.B!!&&!|.B $!|:g #  # !!&! $$!  # $$!  '!|.B &!|.B $  #  # !&-!%|%2|%!|*.|.C $!|*. #!|*. #!|*. $!|*. #!|*. #!|*. $$|%2|%!|*. #$|%2|%!|*. $$|%2|%!|*. #$|%2|%!|*.!!%!2| =|0@|+xrsop|00|#3|0r|<)|>?|:g|,Y|.F|.E|.D!&.'-| =|0@|+x|00|0r|<)|>?|:g|,Y|.F|.E|.D '*| =|0@|+x|00|>?|:g|,Y|.E|.D!!&$)| =|0@|+x|00|>?|,Y|.E|.D #&| =|0@|+x|00|>? #$|0@|+x|00 !!|0@ !#|+x|00 $%| =|>?|.E|.D $#|.E|.D $!|.E # $$! !!&%$| =|<)|.F %$| =|<)|.F # !!&$ $$$  &!|0r #  #  #!|#3 #  #  ##rs !#op !$|,g|,e|.$!#'!(|-=|,`|+k|*.|*\/|0s|0q!!&!#|-=|*\/$$!#|-=|*\/$$##|-=|*\/$$$#|-=|*\/$$$#|-=|*\/$$%#|-=|*\/ $!|*\/ $!|*\/$!!!|-= $$|*.|0s|0q $#|*.|0q!!%! $$! !!%! $$! !#'!#|*\/|.:$$!  !!|*\/!!%!K| =|0=|+y|+x|,`rsop|05|04|03|01|!o|#3|<.|<)|<(|<&|<%|>?|:g|:j|:i|;&|,Y|.F|.A|.?|.>|.=|.<|.;|.8|.7|.6|.4|.3|.2|.1|.\/|:t!!&(F| =|0=|+y|+x|,`|05|04|03|01|!o|<.|<)|<(|<&|<%|>?|:g|:j|:i|;&|,Y|.F|.A|.?|.>|.=|.<|.;|.8|.7|.6|.4|.3|.2|.1|.\/|:t )E| =|0=|+y|+x|,`|05|04|03|01|!o|<.|<)|<(|<%|>?|:g|:j|:i|;&|,Y|.F|.A|.?|.>|.=|.<|.;|.8|.7|.6|.4|.3|.2|.1|.\/|:t %'| =|+y|,`|<(|<%|.\/ #!|+y !!|+y #%| =|<(|<%|.\/ ##| =|<%!!&)E| =|0=|+y|+x|,`|05|04|03|01|!o|<.|<)|<(|<%|>?|:g|:j|:i|;&|,Y|.F|.A|.?|.>|.=|.<|.;|.8|.7|.6|.4|.3|.2|.1|.\/|:t %'| =|+y|,`|<(|<%|.\/ #!|+y !!|+y #%| =|<(|<%|.\/ ##| =|<%!!&*E| =|0=|+y|+x|,`|05|04|03|01|!o|<.|<)|<(|<%|>?|:g|:j|:i|;&|,Y|.F|.A|.?|.>|.=|.<|.;|.8|.7|.6|.4|.3|.2|.1|.\/|:t %'| =|+y|,`|<(|<%|.\/ #!|+y !!|+y #%| =|<(|<%|.\/ ##| =|<%!!&+E| =|0=|+y|+x|,`|05|04|03|01|!o|<.|<)|<(|<%|>?|:g|:j|:i|;&|,Y|.F|.A|.?|.>|.=|.<|.;|.8|.7|.6|.4|.3|.2|.1|.\/|:t %'| =|+y|,`|<(|<%|.\/ #!|+y !!|+y #%| =|<(|<%|.\/ ##| =|<%!!&*B| =|0=|+y|+x|,`|05|04|03|01|!o|<.|<)|>?|:g|:j|:i|;&|,Y|.F|.A|.?|.>|.=|.<|.;|.8|.7|.6|.4|.3|.2|.1|:t &B| =|0=|+y|+x|,`|05|04|03|01|!o|<.|<)|>?|:g|:j|:i|;&|,Y|.F|.A|.?|.>|.=|.<|.;|.8|.7|.6|.4|.3|.2|.1|:t $%| =|>?|:i|,Y #$| =|>?|,Y !#| =|>? #$| =|>?|,Y !#| =|>? !#| =|>? $<|0=|+y|+x|,`|05|04|03|01|!o|<.|:g|:j|;&|.A|.?|.>|.=|.<|.;|.8|.7|.6|.4|.3|.2|.1|:t %#|:g|.2!!&';|0=|+y|+x|,`|05|04|03|01|!o|<.|:g|:j|;&|.A|.?|.>|.=|.<|.;|.8|.7|.6|.4|.3|.1|:t %#|:g|.1!!&(:|0=|+y|+x|,`|05|04|03|01|!o|<.|:g|:j|;&|.A|.?|.>|.=|.<|.;|.8|.7|.6|.4|.3|:t %#|:g|.6!!&)9|0=|+y|+x|,`|05|04|03|01|!o|<.|:g|:j|;&|.A|.?|.>|.=|.<|.;|.8|.7|.4|.3|:t %#|:g|.3!!&*8|0=|+y|+x|,`|05|04|03|01|!o|<.|:g|:j|;&|.A|.?|.>|.=|.<|.;|.8|.7|.4|:t %#|:g|.7!!&+7|0=|+y|+x|,`|05|04|03|01|!o|<.|:g|:j|;&|.A|.?|.>|.=|.<|.;|.8|.4|:t %#|:g|.4!!&,6|0=|+y|+x|,`|05|04|03|01|!o|<.|:g|:j|;&|.A|.?|.>|.=|.<|.;|.8|:t %#|:g|.8!!&+4|0=|+y|+x|,`|05|04|03|01|!o|<.|:j|;&|.A|.?|.>|.=|.<|.;|:t $%|0=|+y|<.|.< ##|+y|.<!!&#!|.<!!&+4|0=|+y|+x|,`|05|04|03|01|!o|<.|:j|;&|.A|.?|.>|.=|.<|.;|:t $.|0=|+y|+x|05|04|03|01|<.|;&|.A|.?|.>|.= #,|+y|+x|05|04|03|01|;&|.A|.?|.>|.=!!&%+|+x|05|04|03|01|;&|.A|.?|.>|.= $#|04|.=!!&&+|+x|05|04|03|01|;&|.A|.?|.>|.= %$|05|.A|.= $#|05|.=!!&%!|.A!!&'(|+x|04|03|01|;&|.?|.> $%|+x|04|03|.> !$|+x|04|03!!&&(|+x|04|03|01|;&|.?|.> $!|.?!!&'(|+x|04|03|01|;&|.?|.> $!|.?!!&'(|+x|04|03|01|;&|.?|.> $&|+x|04|03|01|.> !%|+x|04|03|01 !$|+x|03|01!!&'#|;&|.? $!|.?!!&&!|;& &!|;& #  #  # !!&+4|0=|+y|+x|,`|05|04|03|01|!o|<.|:j|;&|.A|.?|.>|.=|.<|.;|:t $%|0=|+y|<.|.; ##|+y|.;!!&#!|.;!!&+4|0=|+y|+x|,`|05|04|03|01|!o|<.|:j|;&|.A|.?|.>|.=|.<|.;|:t $.|0=|+y|+x|05|04|03|01|<.|;&|.A|.?|.>|.= #,|+y|+x|05|04|03|01|;&|.A|.?|.>|.=!!&%+|+x|05|04|03|01|;&|.A|.?|.>|.= $#|01|.>!!&&*|+x|05|04|03|;&|.A|.?|.>|.= %$|04|.A|.= $#|04|.=!!&%!|.A!!&')|+x|05|04|03|;&|.A|.?|.> %&|+x|05|04|.A|.> $%|+x|05|04|.> !$|+x|05|04 !$|+x|05|04!!&%!|.A!!&&'|+x|04|03|;&|.?|.> $%|+x|04|03|.> !$|+x|04|03!!&&'|+x|04|03|;&|.?|.> $!|.?!!&&'|+x|04|03|;&|.?|.> $%|+x|04|03|.> !$|+x|04|03!!&&#|;&|.? $!|.?!!&%!|;& %!|;& #  #  # !!&*4|0=|+y|+x|,`|05|04|03|01|!o|<.|:j|;&|.A|.?|.>|.=|.<|.;|:t $%|0=|+y|<.|.; ##|+y|.;!!&#!|.;!!&*3|0=|+y|+x|,`|05|04|03|01|!o|<.|:j|;&|.A|.?|.>|.=|.<|:t $.|0=|+y|+x|05|04|03|01|<.|;&|.A|.?|.>|.= #,|+y|+x|05|04|03|01|;&|.A|.?|.>|.=!!&%+|+x|05|04|03|01|;&|.A|.?|.>|.= $#|04|.=!!&&+|+x|05|04|03|01|;&|.A|.?|.>|.= %$|05|.A|.= $#|05|.=!!&%!|.A!!&'(|+x|04|03|01|;&|.?|.> $%|+x|04|03|.> !$|+x|04|03!!&&(|+x|04|03|01|;&|.?|.> $!|.?!!&'(|+x|04|03|01|;&|.?|.> $!|.?!!&'(|+x|04|03|01|;&|.?|.> $&|+x|04|03|01|.> !%|+x|04|03|01 !$|+x|03|01!!&'#|;&|.? $!|.?!!&&!|;& &!|;& #  #  # !!&)+|0=|+y|+x|,`|!o|<.|:j|;&|.<|:t $%|0=|+y|<.|.< ##|+y|.<!!&#!|.<!!&('|+x|,`|!o|:j|;&|:t ('|+x|,`|!o|:j|;&|:t $'|+x|,`|!o|:j|;&|:t $'|+x|,`|!o|:j|;&|:t #!|:t #$|+x|!o|;& #!|;& #!|:j $'|+x|,`|!o|:j|;&|:t $'|+x|,`|!o|:j|;&|:t #!|:t #$|+x|!o|;& #!|;& #!|:j $'|+x|,`|!o|:j|;&|:t $'|+x|,`|!o|:j|;&|:t #!|:t #$|+x|!o|;& #!|;& #!|:j $'|+x|,`|!o|:j|;&|:t $'|+x|,`|!o|:j|;&|:t #!|:t #$|+x|!o|;& #!|;& #!|:j $'|+x|,`|!o|:j|;&|:t $'|+x|,`|!o|:j|;&|:t #!|:t #$|+x|!o|;& #!|;& #!|:j #  #  #  # !!&(!|;&$$(!|;& (!|;& #!|#3 #  #  #  #  #  #  ##rs !#op!#'!6|-=|+x|*0|*.t|*\/mq|.l|05|04|03|01|.s|.P|.w|.v|0q|\/(|\/'|.I$$#6|-=|+x|*0|*.t|*\/mq|.l|05|04|03|01|.s|.P|.w|.v|0q|\/(|\/'|.I$$#%|-=|*.tq #%|-=|*.tq$$#$|-=|*.t$$#$|-=|*.t$$##|-=|*. #!|.w$$&'|-=|*.m|.l|.s|.P %!|.s #  $&|-=|*.m|.l|.P$$%#|-=|*.$$%#|-=|*.$$%#|-=|*.$$!!|-= !$m|.l|.P #  # $$!  # $$!  $'|+x|05|04|03|01|.I$$#&|+x|05|04|03|01 #&|+x|05|04|03|01 !%|+x|05|03|01 !%|+x|05|03|01 !%|+x|05|03|01 !%|+x|05|03|01 !$|+x|05|03 !$|+x|05|03$$$&|*.|.v|0q|\/(|\/'$$#%|*.|.v|0q|\/( $%|*.|.v|0q|\/( #!|.v #!|\/($$#%|*.|.v|0q|\/( $%|*.|.v|0q|\/( #!|.v ##|*.|\/( #!|*.$$#%|*.|.v|0q|\/' $%|*.|.v|0q|\/' #!|.v #!|\/'$$#%|*.|.v|0q|\/' $%|*.|.v|0q|\/' #!|.v ##|*.|\/' #!|*. !#|*0|*\/ !!|*0 !#|+D|.N !#|+C|.N!#'!#| &|.P $!|.P !#x|.S !#w|.S !#|$<|.V !#|$A|.W !!|.V!#'!#| =|$@$$!#| =|$@!#'! $$# $$! $$! $$! !#'! $$# $$! $$! $$! !#'! $$# $$! $$! $$! !#'! $$# $$! $$! $$! !#'! $$# $$! $$! $$! !#'! $$# $$! $$! $$! !!%!%|*{| =| 1|%@$$!%|*{| =| 1|%@$$!%|*{| =| 1|%@$$#$|*{| =|%@$$! !!%!%|*{| =| 1|%@$$!%|*{| =| 1|%@$$!%|*{| =| 1|%@$$#$|*{| =|%@$$! !!%!'|+_|*{| =| (|$>| 2$$#%|+_|*{| =|$>$$! $$!!|*{ #$|+_| =|$> !$|+_| =|$> !#| =|$> #!| 2 #!| 2!#'!$|+a| 2|+@$$#$|+a| 2|+@$$#$|+a| 2|+@$$$$|+a| 2|+@$$$$|+a| 2|+@ $#| 2|+@ $!| 2$$! !!%! $$! !!%!#|+a|+@$$!#|+a|+@ !!|+@ !!|+@ !!|+@!!%! $$! #$! ##! #!! !#'!#| &|.l $!|.l!#'! $$# $$! $$! ##! #!! !#'!-nm|05|04|03|02|01|00|#L|,^|.p|.q %$|03|.p|.q %#|03|.q #!|03 %$|05|.p|.q %#|05|.q #!|05 %$|04|.p|.q %#|04|.q #!|04 %$|01|.p|.q %#|01|.q #!|01 #!|00 #!|02!#(!%nm|#L|,^!$*##|#L|,^ &!|#L %!n $!m #  #  !$|0=|0*|.r !#|0:|0#!$)!3|0=|0:|%v|+x|,hnm|.l|0*|0#|05|04|03|01|#H|#J|.p|,e $2|0=|0:|%v|+x|,hnm|.l|0*|0#|05|04|03|01|#H|#J|,e$$! !#(!(|0=|0:nm|0*|0#|#H$$#(|0=|0:nm|0*|0#|#H$$%(|0=|0:nm|0*|0#|#H $  $  &(|0=|0:nm|0*|0#|#H $#nm #!m $  &(|0=|0:nm|0*|0#|#H $#nm #!m $  $  ##|0=|0* !#|0:|0# ##|0=|0* !#|0:|0# $'|+x|.l|05|04|03|01$$#&|+x|05|04|03|01 !#|+x|05 !$|+x|03|01 !'|%v|,h|05|04|01|,e !%|%v|05|04|01 ##|+x|03!%+! #!& !!%! $$! !!%! $$! !!%! $$! !!%! $$!  !#|0r|.{ !#|0r|.z !#|\/%|.y!!%!!|0r!!%!!|0r$$!!|0r!!%!$|*0|*.|0r #!|*. #!|*0 #!|*0!!%!$|*0|*.|0r #!|*. #!|*0 #!|*0!!%!$|*0|*.|0r #!|*. #!|*0 #!|*0 !8|+y|*0|*.|*\/|0\/|0q|\/(|\/'|\/ |.J|<;|:f|;&|:u|8$|>o|.K|?#|\/;|\/:|\/6|\/4|\/* !#|?#|\/:!!&$.|+y|0\/|.J|<;|:f|;&|:u|8$|.K|\/;|\/6|\/4|\/* $#|<;|\/*!!&#-|+y|0\/|.J|:f|;&|:u|8$|.K|\/;|\/6|\/4|\/* $+|0\/|.J|:f|;&|8$|.K|\/;|\/6|\/4|\/*!!&$+|0\/|.J|:f|;&|8$|.K|\/;|\/6|\/4|\/* ##|.J|\/* # $$! !!&$)|0\/|:f|;&|8$|.K|\/;|\/6|\/4 %(|0\/|:f|;&|8$|.K|\/6|\/4 $#|;&|8$!!&#!|\/;!!&!!|\/;$$!!|\/; #$|+y|:u|8$$$$  !!|+y !(|*0|*.|*\/|0q|\/(|\/'|\/  !'|*0|*.|*\/|0q|\/(|\/  !%|*0|*.|*\/|\/( !$|*0|*.|*\/ !#|*0|*. !!|*0 !$|*0|*\/|\/' !#|*0|*\/ !!|*0 !!|>o !B|=g|9.|94|91|9H|9I|8$|9J|9G|9L|92|\/T|\/R|\/Q|\/O|\/N|\/M|\/J|\/I|\/F|\/C|\/B|\/?|\/=|\/:|\/9|\/8|\/7|\/6|\/4|\/2|\/1|\/\/ !%|=b|\/Q|\/?|\/1 !$|=e|\/B|\/; !%|=U|\/F|\/:|\/3 !$|=V|\/G|\/; !$|=d|\/H|\/5 !%|=c|\/I|\/<|\/; !$|=X|\/>|\/; !$|=`|\/C|\/; !$|=^|\/D|\/; !%|=f|\/E|\/<|\/; !$|=W|\/J|\/; !$|=Y|\/K|\/< !$|=Z|\/K|\/= !#|=[|\/M !$|=p|91|\/K !%|=a|9L|\/Q|\/B !$|=u|9L|\/K !$|=_|90|\/K !$|=]|90|\/K !&|=x|9I|8$|\/L|\/K !%|=n|94|\/J|\/G !$|=o|93|\/K !$|=w|9H|\/I !%|=v|9G|\/L|\/K !$|=q|92|\/K !$|=r|90|\/L !$|=s|9\/|\/M !#|=t|9. !$|=h|97|\/U !$|=i|=j|\/Q !$|=k|9K|\/U !%|=O|9:|\/T|\/S !$|=P|99|\/U !$|=Q|98|\/U !$|=R|97|\/V !$|=S|96|\/W !#|=T|95 !#|=l|\/) !#|$(|\/X#%! #$! ##! #!!  !!|\/`$$!  !&|0.|\/d|\/c|\/b|\/a !!|\/h$$!  !!|\/g$$!  !!|\/f$$!  !!|\/e$$!  !&|0.|\/z|\/w|\/r|\/j !&|0.|\/{|\/v|\/s|\/o !&|0.|0 |\/y|\/p|\/l !&|0.|\/x|\/u|\/m|\/_ !&|0.|\/t|\/q|\/n|\/k !!|\/f$$!  !!|\/f$$!  !!|\/f$$!  !!|\/e$$!  !!|\/e$$!  !!|\/e$$!  !!|\/h$$!  !!|\/h$$!  !!|\/h$$!  !!|\/g$$!  !!|\/g$$!  !!|\/g$$!  !!|\/i$$!  !!|\/i$$!  !!|\/i$$!  !!|\/i$$!  !!|\/`$$!  !!|\/`$$!  !!|\/`$$! !!%!#| #|0# #!|0#!!%!#|0,|0! #!|0, #!|0!!#'!#|  |0* $!|0*!#'!#{|0* $!|0*!#'!#z|0* $!|0*!#'!#y|0* $!|0*!#'!#x|0* $!|0*!#'!#w|0* $!|0*!#'!(|0+|0)|0(|0'|0&|0%|0$ $!|0+ $!|0$ $!|0% $!|0& $!|0' $!|0( $!|0)!#'!%| 2nm| 1!#(#  # $$!  # $$!  # $$!  # $$!  $#| 2n ##m| 1 # !!%!#m| 1!#(#  # $$!  # $$!  # $$!  # $$!  ##m| 1!'\/! #!( !&-!!|%@ #  #  #  #  #  #  #  #  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  # $$!  #!|%@ # $$!  # $$!  # $$!  #!|%@ # $$!  # $$!  # $$!  #!|%@ # $$!  # $$!  # $$!  #!|%@ !!|\/_$$! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$!  !#|08|+D !#|08|+C!#'!#|0:| & $!|0: !#|0=x !#|0=w !#|0@|$< !#|$A|0A !!|0@!#'!#| =|$@$$!#| =|$@!#'! $$# $$! $$! $$! $$! $$! $$! $$! $$! !#'! $$# $$! $$! $$! $$! $$! $$! $$! $$! !#'! $$# $$# $$# !#'! $$# $$# $$# !#'! $$# $$# $$# !#'! $$# $$# $$# !!%!%|*{| =| 1|%@$$!%|*{| =| 1|%@$$!%|*{| =| 1|%@$$#$|*{| =|%@$$! !!%!%|*{| =| 1|%@$$!%|*{| =| 1|%@$$!%|*{| =| 1|%@$$#$|*{| =|%@$$! !!%!'|+_|*{| =| (|$>| 2$$#%|+_|*{| =|$>$$! $$!!|*{ #$|+_| =|$> !$|+_| =|$> !#| =|$> #!| 2 #!| 2!#'!$|+a| 2|+@$$#$|+a| 2|+@$$#$|+a| 2|+@$$$$|+a| 2|+@$$$$|+a| 2|+@ $#| 2|+@ $!| 2$$! !!%! $$! !!%!#|+a|+@$$!#|+a|+@ !!|+@ !!|+@ !!|+@ !!|+@ !!|+@ !!|+@ !!|+@ !!|+@!!%! $$! #)! #(! #'! #&! #%! #$! ##! #!! #$! !#'! ##$ !!%! #!# !%+!#|*{|0^$$!!|*{ &!|0^$&%!|0^ %!|0^ %!|0^$&$!|0^ $!|0^ $!|0^$&#!|0^ #!|0^ #!|0^$&!!|0^!#'!%|16|15|0g|0`$$!$|16|0g|0` !#|*{|0c!$)!%|16|13|0g|0e$$!$|16|0g|0e!'\/! !!&)  ( !!&( $$(  ( $$' $$(  $  %  #  !!|0t!!%!$|16|0j|0h$$!$|16|0j|0h!'\/! #!( !'\/! $$' $$' $$' $$' $$' !$)!(|1I|1,|0n|0l|0d|0_|0]$$$(|1I|1,|0n|0l|0d|0_|0]$$)(|1I|1,|0n|0l|0d|0_|0] 0'|1I|1,|0n|0l|0d|0_!!$0'|1I|1,|0n|0l|0d|0_$$$ !#&% $$$ !#&)#|1I|0l$$)#|1I|0l$$$ $$% !#&)#|1I|0l (#|1I|0l$$'#|1I|0l$$&#|1I|0l$$( $&'  '  %  $ $$# $$(  '  %  $ $$#  $ $$#  #  (%|1I|1,|0l|0d!!$(%|1I|1,|0l|0d$$(%|1I|1,|0l|0d$$# $$# !$(,!|0d *!|0d$$)!|0d$$&!|0d$$$  ##|1I|0l )#|1,|0_!!$)#|1,|0_$$)#|1,|0_$$# $$# !$(,#|1,|0_ *#|1,|0_!!$*#|1,|0_$$)#|1,|0_$$)#|1,|0_$$# $$# !$(+!|0_ )!|0_$$$!|0_$$# $$#!|0_ ##|1I|0l!!%!#|1,|0b$$!#|1,|0b$$$!|1,$$%!|1, &!|1,!!$&!|1,$$&!|1,$$# $$#  %  $ $$# $$#  $ !!&$ $$$ $$#  $  # !!&# $$#  $ !%*$ $$& !!%! $$! !#'!#|1,|0t!$)!!|0t$$$!|0t$$%!|0t$$&!|0t %!|0t &!|0t!!&'!|0t %!|0t $!|0t $!|0t $  &!|0t %!|0t!$)!!|0t$$&!|0t %!|0t $ $$# $$# !!&&!|0t &!|0t $!|0t $  #!|0t!!%! $$! !$)! $$$ $$% $$% !#'! $$# $$% !#'!!|1,$$$!|1, $!|1,$$#!|1,!!$#!|1,!!&$  $ $$# $$# !#'! $$! !$)! $$%  % $$$ !!$$ !!&$  $ $$# $$# !$)! $$$ $$% !!$$ !%+! $$% $$& !!$& !$)! $$$ $$& !!$' !(1!!|1, % !!$$ !!&( !!&'  & !!$%  & !!$%  % !!$$  % !!$$ !!&% $!)!|1,!!$' !!$' $!(!|1,!!&+  )  & !!$$ !!&%  $  # $$!  $!|1,!!$#!|1,!!&*  ) !!&*  (  & !!$$ !!&%  $  * !#(*  % !!$$ !!&* !!&'  & !!$%  (  & $$% !!$%  &  % $$$ !!$$  # $$!  $!|1,!!$#!|1,!!&+  ) !!&*  (  & !!$$ !!&%  $  +  * !!&+  )  % $$$ !!$$ !!&%  $  * !!&+  )  & !!$$ !!&%  $  # $$! !!$'  # !$)!!|1($$$!|1($$&!|1(!$)! #!% !$)! $$$ $$$ $$$  !#|*{|0y!%+!$|*{|1\/|1.$$!!|*{ & !%+!!|*{$$!!|*{#!! !$)!!|%P %!|%P!!&# $&! !!&# $&! !!&# $&! !!%!  # $&! !#'!!|%P $!|%P!!&# $&! !!&# $&! !&-!#|18|17$$&#|18|17!%+!!|1-!%+!!|10!%+!  %  % $$$ $&$  $  $  # !!%! #!# !.=! #!\/ !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !)3! #!* !!%! $$! !!%! $$! !!%! $$! !!%! $$! !%+! $$% $$% !#'! !#'!%|1I|1H|1Q|1L$$#%|1I|1H|1Q|1L!!$$%|1I|1H|1Q|1L$$$$|1H|1Q|1L$$%#|1H|1Q$$%#|1H|1Q$$%#|1H|1Q$$# !#'!!|1u!!%!$|16|1O|1M$$!$|16|1O|1M!#'! $$#  !!|1R !#|$[|1S !!|$K!#'!!|1T!!&# !#'!!|1V!!&# !!%!!|*{!#'! $$# $$# !!%!!|*{!#'! !#'! $$# !#'! !#'! !!%! !#'! !#'! !#'! !#'! $$#  $ !#'! $$# !#'! $$# $$#  $ !#'! $$# !!%! #!# !#'! #!$ #$! !#'! #!$ !!%! #!# !%+! #!& !#'! #!$ !$)!!|1V$$$!|1V$$%!|1V!!&'!|1V$$'!|1V$$$  #  # !!&$ $$$  % !$*#  # !#'!#|1T|1t!$)! $$# $$&  $ !!$# !!&%  % $$$ !$)! $$# $$&  $ !!$# !!&%  % $$$ !#'! $$! !%+! $$$ $$% $$% !%+! $$$ $$% !%+! $$$ $$& !!$' !%+! !!%! !#(# !#(# !!&# !$*# !$*# !$*# !$*# !$)! #!% !$)! $$$ $$$ $$$ !#'! $$# $$! !#'! $$# $$! !!%! !#'! #!$ !!%! $$! #$! !!#! ##! ##! #!! !!%! $$! !#'! #!$ !#'! $$#  !#|*{|21 !#|*{|22 !#|*{|25 !#|*{|23 !#|*{|24 !#|*{|26!&-! ##' !&-! $$& $$& $$& $$& #!! !%+!!|28$$%!|28$$(!|28$$+ $$, $$* $$( $$) $$) $$* $$+ $$) $$( $$) $$' !%+!!|2;$$%!|2;$$(!|2;$$+ $$, $$- $$+ $$* $$+ $$) $$( $$) $$) $$* $$( !%+!!|29$$%!|29$$) $$) $$) $$* $$+ $$) $$( $$) $$' !%+!!|2<$$%!|2<$$( $$) $$* $$) $$( $$( $$' $$( $$( $$& $$& !%+!$|2B|2@|27$$%$|2B|2@|27$$'#|2B|2@$$'#|2B|2@$$(#|2B|2@$$(#|2B|2@!%+!$|2C|2A|2:$$%$|2C|2A|2:$$'#|2C|2A$$'#|2C|2A$$(#|2C|2A$$(#|2C|2A!%+!#|2E|2D$$&#|2E|2D$$&#|2E|2D$$'#|2E|2D$$'#|2E|2D$$' $$' $$' $$' $$' $$' !$)! $$$ $$$ $$$ $$' !#'! $$#  $ !$)!$|2I|2L|2J$$#!|2L$$$!|2L$$%!|2L$$&!|2L$$'!|2L$$(!|2L$$)!|2L$$*!|2L$$+!|2L$$, $$%#|2I|2J!#(%#|2I|2J$$&#|2I|2J$$'!|2I!#(&  & $$% $$& $$$  !#|*{|2K !!|2M!!#!#|*{|2N!&-!!|2F$$&!|2F!!&(!|2F$$(!|2F$$+!|2F$$%!|2F & $$%!|2F!%+!!|2F$$%!|2F!!&'!|2F$$'!|2F$$*!|2F$$%!|2F$$%!|2F!#'! !!&$ !!&$ !!&$  $  $  # !%+!!|*h!!&&!|*h $ !!&&!|*h!!&#  $!|*h!!&$ !!&#  $ !#'! !$)! #!% !!%! $$! !%+! #!& !!%! $$! !!%! $$! !!%! $$! !!%! $$! !#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|2_$$!#|,]|2_$$#!|,] #!|,]$$!!|,]$$!!|,]!#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|2c$$!#|,]|2c$$#!|,] #!|,]$$!!|,]$$!!|,]!#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|2g$$!#|,]|2g$$#!|,] #!|,]$$!!|,]$$!!|,]!#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|2k$$!#|,]|2k$$#!|,] #!|,]$$!!|,]$$!!|,]!#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|2o$$!#|,]|2o$$#!|,] #!|,]$$!!|,]$$!!|,]!#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|2s$$!#|,]|2s$$#!|,] #!|,]$$!!|,]$$!!|,]!#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|2w$$!#|,]|2w$$#!|,] #!|,]$$!!|,]$$!!|,]!#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|2{$$!#|,]|2{$$#!|,] #!|,]$$!!|,]$$!!|,]!#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|3$$$!#|,]|3$$$#!|,] #!|,]$$!!|,]$$!!|,]!#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|3($$!#|,]|3($$#!|,] #!|,]$$!!|,]$$!!|,]!#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|3,$$!#|,]|3,$$#!|,] #!|,]$$!!|,]$$!!|,]!#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|30$$!#|,]|30$$#!|,] #!|,]$$!!|,]$$!!|,]!#%! $$! $$# !#%! $$! $$#  # $$! $$! !!%! $$! $$# $$# !#%!#|,]|34$$!#|,]|34$$#!|,] #!|,]$$!!|,]$$!!|,]!#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%!!|,] #!|,]$$!!|,]$$!!|,]!#%!  # $$! $$! !#%! !#%! !#%!  # !#%! $$! !#%!!|79$$!!|79!!%!!|*{$$!!|*{!#%! !#%! $$! $$# $$! !!%! !#%! !#%! $$! $$# $$! !!%! !#%! !#%! $$! $$# $$! !!%! !#%! !#%! $$! $$# $$! !!%! !#%! !#%! $$! $$# $$! !!%! !#%! !#%! $$! $$# $$! !!%! !#%! !#%! $$! $$# $$! !!%! !#%! !#%! $$! $$# $$! !!%! !#%! !#%! $$! $$# $$! !!%! !#%! !#%! $$! $$# $$! !!%! !#%! !#%! $$! $$# $$! !!%! !#%! !#%! $$! $$# $$! !!%! !#%! !#%! $$! $$# $$! !!%! !!%! !#%! !#%!!|35!#%! $$!  # !#%! $$! !#%!!|34!#%!!|4C$$!!|4C!#%! !#%!!|39!#%! $$!  # !#%! $$! !#%!!|30!#%!!|4I$$!!|4I!#%! !#%!!|3=!#%! $$!  # !#%! $$! !#%!!|3,!#%!!|4O$$!!|4O!#%! !#%!!|3A!#%! $$!  # !#%! $$! !#%!!|3(!#%!!|4U$$!!|4U!#%! !#%!!|3E!#%! $$!  # !#%! $$! !#%!!|3$!#%!!|4[$$!!|4[!#%! !#%!!|3I!#%! $$!  # !#%! $$! !#%!!|2{!#%!!|4b$$!!|4b!#%! !#%!!|3M!#%! $$!  # !#%! $$! !#%!!|2w!#%!!|4h$$!!|4h!#%! !#%!!|3Q!#%! $$!  # !#%! $$! !#%!!|2s!#%!!|4n$$!!|4n!#%! !#%!!|3U!#%! $$!  # !#%! $$! !#%!!|2o!#%!!|4t$$!!|4t!#%! !#%!!|3Y!#%! $$!  # !#%! $$! !#%!!|2k!#%!!|4z$$!!|4z!#%! !#%!!|3^!#%! $$!  # !#%! $$! !#%!!|2g!#%!!|5%$$!!|5%!#%! !#%!!|3b!#%! $$!  # !#%! $$! !#%!!|2c!#%!!|5+$$!!|5+!#%! !#%!!|3f!#%! $$!  # !#%! $$! !#%!!|2_!#%!!|51$$!!|51!!%! !#'! #!$ !!%! $$! !#'! #!$ !!%! $$! !%+! #!& !!%! $$! !!%! $$! !#'! !!$# $$! !#'! !!$# $$! !#%!  # $$! !$)! !!$$ $$! !$)! !!$$ $$! !$)! !!$$ $$! !%+! !!$% $$#  $ !(1! !!$( $$& $$$ $$# $$! $$! !!&% $$% $$$ !$)! !!$$ $$# $$#  !!|5o$$!!|5o$$!  !!|5q$$!!|5q$$!  !!|5s$$!!|5s$$!  !!|5u$$!!|5u$$!  !!|5w$$!!|5w$$!  !!|5y$$!!|5y$$!  !!|5{$$!!|5{$$!  !!|6!$$!!|6!$$!  !!|6$$$!!|6$$$!  !!|6&$$!!|6&$$!  !!|6($$!!|6($$!  !!|6*$$!!|6*$$!  !!|6,$$!!|6,$$!  !!|6.$$!!|6.$$!  !!|60$$!!|60$$!  !!|62$$!!|62$$!  !!|64$$!!|64$$!  !!|66$$!!|66$$!  !!|68$$!!|68$$!  !!|6:$$!!|6:$$!  !!|6<$$!!|6<$$!  !!|6>$$!!|6>$$!  !!|6@$$!!|6@$$!  !!|6B$$!!|6B$$!  !!|6D$$!!|6D$$!  !!|6F$$!!|6F$$!  !!|6H$$!!|6H$$!  !!|6J$$!!|6J$$!  !!|6L$$!!|6L$$!  !!|6N$$!!|6N$$!  !!|6P$$!!|6P$$!  !!|6R$$!!|6R$$!  !!|6T$$!!|6T$$!  !!|6V$$!!|6V$$!  !!|6X$$!!|6X$$!  !!|6Z$$!!|6Z$$!  !!|6]$$!!|6]$$!  !!|6_$$!!|6_$$!  !!|6a$$!!|6a$$!  !!|6c$$!!|6c$$!  !!|6e$$!!|6e$$!  !!|6g$$!!|6g$$!  !!|6i$$!!|6i$$!  !!|6k$$!!|6k$$!  !!|6m$$!!|6m$$!  !!|6o$$!!|6o$$! !$)! !!$$ $$! !#%!  # $$! !$)! !!$$ $$! !&-! !!$& $$$ $$# !$)! !!$$ $$! !'-! $$$ $$$ !!$% !!&$  $  #  !#|*{|6w !#|'F|6z !!|>O !!|>O !$|>]|7!|7 !#%!&|>R| h|7#|6{|6x$$#&|>R| h|7#|6{|6x$$#&|>R| h|7#|6{|6x$$$$|>R|7#|6{$$$$|>R|7#|6{$$$#|>R|7#$$%!|>R$$' $(' !!#! !!%! $$! !!%! $$! !!%! !$'!  $ !$'!  $ !%+! #!& !#'! #!$ !$'! !$'! !!%! $$! !!%! $$! !!%! $$! $$# $$# !#%!  # $$# $$! !#%!  # !$'! $$! $$# $$! !#&$ $$$ $$$ $$#  # !#%! !#%! !$'! $$!  # !#&$ $$$ $$$ $$#  # !$'!!|,]!#&$!|,]$$$!|,]$$$!|,]$$#!|,] #!|,]$$!!|,]!#%! !#%! !#%! !#%! !#%! $$! $$$  % $$$ $$! !%'! $$! !#&$ $$$ $$% $$$ $$$ !#&$ $$$ $$$ $!$ $$# $$# $$$ $$# $$# !#%! $$! $$! $$! $$$ $$! $$! $$$ $$! $$! $$$ $$! $$! $$! $$! $$! $$$ $$! $$! $$! $$! $$! $$$ $$! !#%! $$! $$# !#%! $$! $$# !#%! $$! $$# $$$ $$# !#%! $$! $$# !#%! $$! $$# !#%! $$! $$# !#%! $$! $$# !!%!#|:M|7J$$!#|:M|7J!#%!#|7J|7K$$!#|7J|7K$$##|7J|7K$$#!|7K$$# !!%! $$! $$# !#%!*|%x|+6|7J|7K|7N|7W|7U|7T|7S$$!*|%x|+6|7J|7K|7N|7W|7U|7T|7S$$!*|%x|+6|7J|7K|7N|7W|7U|7T|7S$$!!|7N$$! $$!!|7N$$! $$!#|7J|7W$$%#|7J|7W$$$!|7W$$$!|7W$$! $$!!|7U$$!!|7U$$! $$!%|%x|+6|7K|7T$$%%|%x|+6|7K|7T$$$%|%x|+6|7K|7T$$$%|%x|+6|7K|7T$$$$|%x|+6|7T$$%$|%x|+6|7T$$$#|+6|7T$$! $$! $$!!|7S$$! $$!%|%x|+6|7K|7T$$!%|%x|+6|7K|7T$$%%|%x|+6|7K|7T$$$%|%x|+6|7K|7T$$$%|%x|+6|7K|7T$$$$|%x|+6|7T$$%$|%x|+6|7T$$$#|+6|7T$$! $$! !'-!&|7J|7R|7Q|7P|7O$$&&|7J|7R|7Q|7P|7O$$%&|7J|7R|7Q|7P|7O$$%&|7J|7R|7Q|7P|7O$$%#|7R|7Q$$%#|7R|7Q$$&#|7R|7Q$$$#|7P|7O!#%!#|7O|7M$$!#|7O|7M$$#!|7O!#%!#|7P|7M$$!#|7P|7M$$#!|7P!#%!#|7Q|7M$$!#|7Q|7M$$#!|7Q!#%!#|7R|7M$$!#|7R|7M$$#!|7R!#%!#|7M|7S$$!#|7M|7S$$#!|7S!#%!#|7M|7T$$!#|7M|7T$$#!|7T!#%!#|7V|7U$$!#|7V|7U$$##|7V|7U$$$#|7V|7U$$#!|7U!#%!#|7M|7V$$!#|7M|7V$$#!|7V!#%!#|7M|7W$$!#|7M|7W$$#!|7W!!%! $$# $$# !!%! $$! $$# !#'!.|2I|2O|%x|+6|:M|7J|7Z|7`|7_|7^|7]|8V|8@!#&%.|2I|2O|%x|+6|:M|7J|7Z|7`|7_|7^|7]|8V|8@$$%.|2I|2O|%x|+6|:M|7J|7Z|7`|7_|7^|7]|8V|8@$$&.|2I|2O|%x|+6|:M|7J|7Z|7`|7_|7^|7]|8V|8@$$%.|2I|2O|%x|+6|:M|7J|7Z|7`|7_|7^|7]|8V|8@$$&,|2I|2O|%x|+6|7J|7Z|7`|7_|7^|7]|8V$$',|2I|2O|%x|+6|7J|7Z|7`|7_|7^|7]|8V$$%$|2I|%x|+6$$%$|2I|%x|+6$$($|2I|%x|+6$$)$|2I|%x|+6$$(#|2I|+6$$(!|2I$$(!|2I$$(  ( $$' $$'  ( $$' $$'  #!|2I$$!!|2I$$#!|2I # $$! $$(!|2I$$'!|2I$$&!|2I '!|2I$$'!|2I$$'!|2I$$(!|2I$$'  #!|2I$$!!|2I$$!!|2I$$#!|2I!$(&)|2O|7J|7Z|7`|7_|7^|7]|8V$$')|2O|7J|7Z|7`|7_|7^|7]|8V$$()|2O|7J|7Z|7`|7_|7^|7]|8V$$))|2O|7J|7Z|7`|7_|7^|7]|8V$$)#|2O|7J # $$! $$)#|2O|7J # $$! $$+#|2O|7J % $$$ $$*#|2O|7J $ $$# $$)#|2O|7J # $$! $$)!|7J$$)#|2O|7J$$*#|2O|7J$$+!|7J # !#(# $$$ $$$ $$! $$!  # $$*!|7J$$*!|7J$$(!|7J$$) $$'  $ $$# $!)!|7J$$' $$% $$)!|7J$$)!|7J$$(!|7J$$) $$'  $ $$# !!$#  %!|:M$$%  # $$! !&+!)|2O|7J|7Z|7`|7_|7^|7]|8V$$&)|2O|7J|7Z|7`|7_|7^|7]|8V$$')|2O|7J|7Z|7`|7_|7^|7]|8V$$'#|2O|7J # $$! $$'#|2O|7J # $$! $$)#|2O|7J % $$$ $$(#|2O|7J $ $$# $$'#|2O|7J # $$! $$'!|7J$$'#|2O|7J$$(#|2O|7J$$)!|7J # !#(# $$$ $$$ $$! $$!  # $$(!|7J$$(!|7J$$(!|7J$$) $$)  % $$$ $$$  $ $$# $$$ $!'!|7J$$' $$'  % $$$ $$$  $ $$# $$$ $$'!|7J$$'!|7J$$(!|7J$$) $$)  % $$$ $$$  $ $$# $$$ !&+!*|2O|,_|7J|7Z|7`|7_|7^|7]|8V$$&*|2O|,_|7J|7Z|7`|7_|7^|7]|8V$$&)|2O|7J|7Z|7`|7_|7^|7]|8V$$&)|2O|7J|7Z|7`|7_|7^|7]|8V$$')|2O|7J|7Z|7`|7_|7^|7]|8V$$'#|2O|7J # $$! $$'#|2O|7J # $$! $$)#|2O|7J % $$$ $$(#|2O|7J $ $$# $$'#|2O|7J # $$! $$'!|7J$$'#|2O|7J$$(#|2O|7J$$)!|7J # !#(# $$$ $$$ $$! $$!  # $$(!|7J$$(!|7J$$'!|7J$$'!|7J$$&!|7J$$'!|7J$$&!|7J &!|7J$$& $$& $$&  &!|7J$$& $$& $$&  &!|7J$$& $$& $$& $!'!|7J %!|7J$$% $$% $$'!|7J$$'!|7J$$'!|7J$$'!|7J$$&!|7J$$&!|7J$$'!|7J$$&!|7J &!|7J$$& $$&  &!|7J$$& $$&  # $$! !!$#!|,_ #!|,_!&+!)|2O|,_|7Z|7`|7_|7^|7]|8V$$&)|2O|,_|7Z|7`|7_|7^|7]|8V$$&(|2O|7Z|7`|7_|7^|7]|8V$$%(|2O|7Z|7`|7_|7^|7]|8V$$&(|2O|7Z|7`|7_|7^|7]|8V$$%!|2O # $$! $$%!|2O # $$! $$'!|2O % $$$ $$&!|2O $ $$# $$%!|2O # $$! $$% $$% $$%!|2O$$%!|2O$$&  # !#(# $$$ $$$ $$! $$!  # $$& !!$#!|,_ #!|,_!%)!*|2O|7J|7Z|7`|7_|7^|7]|8V|8>$$%*|2O|7J|7Z|7`|7_|7^|7]|8V|8>$$&)|2O|7J|7Z|7`|7_|7^|7]|8V$$')|2O|7J|7Z|7`|7_|7^|7]|8V$$')|2O|7J|7Z|7`|7_|7^|7]|8V$$-)|2O|7J|7Z|7`|7_|7^|7]|8V$$\/)|2O|7J|7Z|7`|7_|7^|7]|8V$$-)|2O|7J|7Z|7`|7_|7^|7]|8V$$\/)|2O|7J|7Z|7`|7_|7^|7]|8V$$0)|2O|7J|7Z|7`|7_|7^|7]|8V & $$% $$% $$% $$,)|2O|7J|7Z|7`|7_|7^|7]|8V$$,)|2O|7J|7Z|7`|7_|7^|7]|8V$$,#|2O|7J # $$! $$,#|2O|7J # $$! $$.#|2O|7J % $$$ $$-#|2O|7J $ $$# $$,#|2O|7J # $$! $$,!|7J$$,#|2O|7J$$-#|2O|7J$$.!|7J # !#(# $$$ $$$ $$! $$!  # $$-!|7J$$-!|7J$$-!|7J$$.!|7J$$-!|7J$!-!|7J$$, $!,!|7J$$, $$,!|7J$$,!|7J$$-!|7J$$.!|7J$$-!|7J$!-!|7J$$, !!$# !%)!*|2O|7J|7`|7_|7^|7]|8V|7[|8<$$%*|2O|7J|7`|7_|7^|7]|8V|7[|8<$$&)|2O|7J|7`|7_|7^|7]|8V|7[$$')|2O|7J|7`|7_|7^|7]|8V|7[$$()|2O|7J|7`|7_|7^|7]|8V|7[$$($|2O|7J|7[ # $$! $$($|2O|7J|7[ # $$! $$*$|2O|7J|7[ % $$$ $$($|2O|7J|7[ # $$! $$(#|7J|7[$$($|2O|7J|7[$$)$|2O|7J|7[$$*#|7J|7[ # !#(# $$$ $$$ $$! $$!  # $$)#|7J|7[$$)#|7J|7[$$(#|7J|7[$$)!|7[$$)!|7[$$' $$' $$* $$)  ( $$' $$)  ( $$' $$)  ( $$' $!(!|7J$$& $$( $$(#|7J|7[$$(#|7J|7[$$(#|7J|7[$$)!|7[$$)!|7[$$' $$' $$* $$) $$) $$) !!$# !#%!#|7M|7a$$!#|7M|7a$$#!|7a!#%! $$! $$# !#%! $$! $$# $$# $$# !#%! $$! $$# $$$ $$$ $$$  $ $$# !%)!(|2I|2O|7e|7[|7a|8(|8'!$(&(|2I|2O|7e|7[|7a|8(|8'$$'(|2I|2O|7e|7[|7a|8(|8'$$((|2I|2O|7e|7[|7a|8(|8'$$)(|2I|2O|7e|7[|7a|8(|8'$$(!|7e$$(!|7e$$- $$# $$'$|7e|7[|7a$$+#|7e|7a$$+#|7e|7a$$,#|7e|7a$$2#|7e|7a$$- $$# $$\/!|7a$$0!|7a$$-!|7a$$, $$# $$# $$(!|7e$$(!|7e$$- $$# $$* $$# $$(#|2I|7e$$)!|2I$$(!|2I$$'!|2I$$'!|2I$$#  #!|2I$$!!|2I$$#!|2I!$(%!|7e$$&!|7e$$'!|7e$$&!|7e$$%  $ !#(#  # $$*$|2O|8(|8'$$)!|8($$# $$'!|8($$.!|8($$.!|8($$, $$#  &#|2O|8'$$(!|7e$$(!|7e$$(!|7e$$(!|7e$$- $$# $$# $$*$|2O|8(|8'$$*$|2O|8(|8'$$)!|8($$# $$'!|8($$.!|8($$.!|8($$, $$#  &#|2O|8'!*4%(|2I|2O|7e|7[|7a|8(|8'$$,(|2I|2O|7e|7[|7a|8(|8'$$.(|2I|2O|7e|7[|7a|8(|8' # $$! $$.(|2I|2O|7e|7[|7a|8(|8'$$.(|2I|2O|7e|7[|7a|8(|8'$$.(|2I|2O|7e|7[|7a|8(|8'$$.!|7e$$- $$# $$-$|7e|7[|7a$$1#|7e|7a$$1#|7e|7a$$1#|7e|7a$$- $$# $$\/!|7a$$0!|7a$$-!|7a$$, $$# $$# $$.!|7e$$- $$# $$# $$.#|2I|7e$$0!|2I$$.!|2I$$-!|2I$$-!|2I$$#  #!|2I$$!!|2I$$#!|2I!$(%!|7e$$&!|7e$$'!|7e$$&!|7e$$%  $ !#(#  # $$\/$|2O|8(|8'$$.!|8($$# $$.!|8($$.!|8($$, $$#  &#|2O|8'$$-!|7e$$-!|7e$$.!|7e$$- $$# $$# !!%!&|7f|7Z|7`|7_|7]$$!&|7f|7Z|7`|7_|7]!#&$!|7`$$! $$! !#&$!|7_$$! $$! !#&% $$$  % $$$  #!|7f!#&# $$! $$!  %!|7Z!#&%!|7]$$! $$! !#&%  % !#%!#|7M|7g$$!#|7M|7g$$#!|7g!#%!#|7h|7g$$!#|7h|7g$$##|7h|7g$$##|7h|7g$$#!|7h!#%!#|7i|7N$$!#|7i|7N$$##|7i|7N$$##|7i|7N$$##|7i|7N$$#!|7i!#%! $$! $$# !#%! $$! $$# !#%! $$! $$# !#%! $$! $$# $$$ $$# $$# $$% $$# $$$ $$# $$# $$% $$# !#%! $$! $$# $$# !#%! $$! $$# $$# !$'!#|8K|7p$$##|8K|7p$$$#|8K|7p$$%#|8K|7p$$$!|7p!%)!#|8K|7p$$$#|8K|7p$$%#|8K|7p$$$!|7p!#%!%|7J|:K|7s|7r$$!%|7J|:K|7s|7r$$#%|7J|:K|7s|7r$$#%|7J|:K|7s|7r$$,%|7J|:K|7s|7r$$#!|7r$$$!|7r$$#!|7r!!$+$|7J|:K|7s$$*$|7J|:K|7s$$*$|7J|:K|7s$!*$|7J|:K|7s$$)$|7J|:K|7s$$)$|7J|:K|7s$$+$|7J|:K|7s$$($|7J|:K|7s$$+$|7J|:K|7s$$,$|7J|:K|7s & $$% $$% $$% $$'$|7J|:K|7s$$'$|7J|:K|7s$$%!|7J$$$ $$% $$&  $!|:K!#%!%|7h|7i|7r|7q$$(%|7h|7i|7r|7q$$'$|7h|7i|7r$$&$|7h|7i|7r$$%$|7h|7i|7r$$%$|7h|7i|7r$$%$|7h|7i|7r$$%#|7h|7i$$$!|7h$$# !#&$ $$$ $$% $$& $$% !$($!|7q$$%!|7q$$% !*3!#|2P|7t$$)#|2P|7t$$*#|2P|7t$$,#|2P|7t$$-#|2P|7t$$.#|2P|7t$$,!|7t$$! $$#  &!|2P!$'!$|2P|7t|7u$$#$|2P|7t|7u$$$$|2P|7t|7u$$&$|2P|7t|7u$$'$|2P|7t|7u$$($|2P|7t|7u$$&#|7t|7u$$! $$%!|7t$$#  &!|2P!$'!#|7e|7v$$##|7e|7v$$$#|7e|7v$$%#|7e|7v$$%#|7e|7v$$%#|7e|7v$$%!|7v$$%!|7v!#'! $$# $$# $$$ !#'!!|8$!!%!!|8$ !!|7{ !!|8!!#'! !%)!#|8_|8^$$) $$( !#'! !$(# !$)!!|8F!#'!#|*{|8)$$!!|*{ $!|8)$&#!|8) #!|8) #!|8)$&!!|8)!%)! !$'! $$# $$# !$'! $$# !#%! $$! !$'! !#%! !#%! !#%! !#%! !#'! !#&$ $$# !#%! !#%! !!#! !%)! $$#  $ !%)! $$# !!%!!|*h !#|*{|8= !#|*{|8? !#|*{|8A!!%! $$! !!%! $$! !!%! $$! !!%! $$!  !#|*{|8G !#|*{|8I!#%! !(\/!(|2O|7Z|7`|7_|7^|7]|8V$$((|2O|7Z|7`|7_|7^|7]|8V$$((|2O|7Z|7`|7_|7^|7]|8V$$(!|2O # $$! $$(!|2O # $$! $$*!|2O % $$$ $$)!|2O $ $$# $$(!|2O # $$! $$( $$(!|2O$$)!|2O$$*  # !#(# $$$ $$$ $$! $$!  # $$) $$) $$' $$' $$' $$( $$( $$' $$' $$' !$)! !$)! !$'!'|#W|7s|7e|8H|7u|7v!#&$&|#W|7e|8H|7u|7v$$$%|#W|7e|8H|7v$$$%|#W|7e|8H|7v$$$$|#W|7e|8H$$#$|#W|7e|8H$$+$|#W|7e|8H$$+$|#W|7e|8H$$,$|#W|7e|8H$$,$|#W|7e|8H$$-$|#W|7e|8H$$.$|#W|7e|8H$$1$|#W|7e|8H$$1$|#W|7e|8H$$.$|#W|7e|8H$$.$|#W|7e|8H$$+$|#W|7e|8H!*4$#|7e|8H$$+#|7e|8H$$,#|7e|8H$$-#|7e|8H$$0#|7e|8H$$, $$, $$+ $$-$|#W|7e|8H$$+$|#W|7e|8H!*4$#|7e|8H$$+#|7e|8H$$,#|7e|8H$$-#|7e|8H$$0#|7e|8H$$, $$, $$+ $$+$|#W|7e|8H$$% !)2$$|#W|7e|8H$$+#|7e|8H$$+#|7e|8H$$,#|7e|8H$$+#|7e|8H$$,#|7e|8H$$-#|7e|8H$$0#|7e|8H$$0#|7e|8H$$-#|7e|8H$$-#|7e|8H$$* !*4$#|7e|8H$$+#|7e|8H$$,#|7e|8H$$-#|7e|8H$$0#|7e|8H$$, $$, $$+ $$,#|7e|8H$$* !*4$#|7e|8H$$+#|7e|8H$$,#|7e|8H$$-#|7e|8H$$0#|7e|8H$$, $$, $$+  ! !$'!!|8O!!&# $$# !%)! $$% !!&& $$& !$'! !#'! $$# $$$ !#'! !!&$  # $$! $$# !!%! $$! $$# !'-!!|2P$$'!|2P$$(!|2P$$&!|2P$$$ !!$# !!$%  % !#%! !!%!!|:L!#&$ $$#  #!|:L!$'! !%)!!|8`!$'!  !#|*{|87 !#|*{|88!%)!!|8%!$'! $$% $$# $!# !!$# !%)! $$$ !#'!!|+n!$'!!|({!$'! !$'! !%)! $$#  $ !%)! $$# $$# !$'! $$#  $ !$'! $$# $$# !%)! !$'!  $ !#%!  # !#&! !#'! !$)! !&+!  $ !!&% $$% !!$# !%)!!|8;$$$ $$#  $ !#&$!|8;$$#!|8;!#'! !$'!  $ !$)! $$$ $$$ $$! $$! !%+! $$$ $$$ $$! !%)! $$$ !#'!!|+n!$'!!|({!$'! $$# $$% $$# $$# $$$ $$#  # $$!  # $$! $$% $$& $$$ $$$ $$$  & $$% $$% $$%  # $$!  # $$! $$' $$' $$'  # $$! !%)! $$#  $ !%)! $$# !$'! !%)! $$$ $$#  $ !%)! $$$ !%)! $$$ $$# !%)! $$#  $ !%)! $$# !$'! !%)! $$$ $$#  $ !%)! $$$ !%)! $$$ $$# !#'! !#($ !!%! #!# !#'! #!$ !#'! #!$ !!%! #!# !$)! #!% !(1! #!) !(1! $$( $$( $$( $$( $$( $$( $$( !#'! #!$ !#'! $$# $$# !#'! #!$ !#'! $$# $$# !#'! #!$ !#'! $$# $$# !&-! #!' !&-! $$& $$& $$& $$& $$& !'\/! #!( !'\/! $$' $$' $$' $$' $$' $$' !#%! #!# !!%! #!# !$)! #!% !$)! $$$ $$$ !%+! #!& !%+! $$% $$% $$% $$% !!%! ### !!%! #!# !!%! #!# !!%! ### !!%! #!# !%+! #!& !%+! $$% $$% $$% $$% !#'! #!$ !#'! $$# $$# !#'! #$$ !!%! $$! !!%! ### !!%! $$! !%+! #!& !!%! $$! !+7! #!, !+7! $$+ $$+ $$+ $$+ $$+ $$+ $$+ $$+ !'\/! #(( !!%! $$! !+7! #', !!%! $$! !&-! #&' !$)! $$$ $$$ !)1! #%) !$)! $$$ $$# !&-! #$' !!%! $$! ##! !!%! #!# !'\/! #!( !'\/! $$' $$' $$' $$' $$' !#'! #($ !!%! $$! !#'! #'$ !!%! $$! !%+! #&& !$)! $$$ $$$ !%)! #%% !$)! $$$ $$# !$)! #$% !!%! $$! ##! !&-! #!' !$)! $$$ $$$ !!%! #(# !#%! #'# !#'! $$# !!%! #&# !%+! #%& !!%! $$! !$'! #$$ !$)! $$$ !$)! ##% !$)! $$$ !#'! #!$ !#'! $$# !!%! ### !!%! $$! !$)! #!% !$)! $$$ $$$ !#'! #!$ !!%! #!# !!%! #!# !!%! #!# !#'!#|2O|:L!#&$!|2O$$#!|2O$$#!|2O$$$  # !#(# $$$ $$$ $$! $$!  # $$$  #!|:L!!%!'|7Z|7`|7_|7^|7]|8V$$!'|7Z|7`|7_|7^|7]|8V!#&$!|7`$$!  # $$! !#&$!|7_$$!  # $$! !#&&!|7^$$$  % $$$ !#&$ $$#  $ $$#  %!|7Z!#&%!|7]$$!  # $$! !#&'!|8V$$!  ! !!%! $$! $$# !#'! !!$# !#%! !#%! !#%! !#%! !#%! !#%! !$'! !#%! !$'! !$'! !$)! #!% !!%! $$! !'\/! #!( !!%! $$! !%+! #!& !!%! $$! !!%! $$! !!%! $$! !#'! #!$ !'\/! $$(  ) !!&*  % !!&$  ( !!&% !!&$  $  # $$!  #  #  #  #  # !!&# $$#  # !'\/! !#($  %  #  #  # !'\/! !#(#  % !%+! $$) $$)  )  '  &  $  # $$! !!&$  $  $ $$$  # !!&(  '  &  $  #  % !!&&  %  $  # $$! !!&#  #  #  #  #  #  #  # !$)! $$% $$%  % !!&$  # !#'!  $  # !!%! $$! !#'! $$# $$$  $ !#'! $$# $$# $$# $$#  ! !!%! $$! $$#  ! !#'! !!&$  $  #  #  # !#'! !!&#  $ $$# $$# !$)!  % $$$ $$%  $ !!&$  $ !$)! !!&# !!%! !#(# !#(# !!%! !!&# !!&# !$)! #!% !!%! $$! !#'! #!$ !!%! $$! !.=! #!\/ !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !#'!!|;>!!&$  $  #!|;>$$!!|;> $  $ !#(# $$$ $$$ $$!  # !!%!!|;'!!%!%|2I|%n|:o|:m!#($$|2I|%n|:o!!&#!|%n$$#!|%n$$#!|%n $#|2I|:o ##|2I|:o$$!!|2I$$#!|2I #  #!|:m!%+! !!&% !!&%  %  $ $$# $$#  #  # !%+! !#(#  % !#'! !!&#  $ $$# $$# !#'! !!&%  $ !!&#  #  # !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !#'! $$#  $ !%+! $$$ $$$ $$! !%+! $$$ $$$ $$! !#'! !#($ !#'! !#($ !#%! #!# !!%! #!# !#%! #!# !!%! #!# !!%!!|2I$$!!|2I$$#!|2I!$)!$|!I|!c|;?$$# $$$  # $$!  # $$!  # $$! $(#$|!I|!c|;?$$%$|!I|!c|;?$$'$|!I|!c|;?$$(#|!c|;?$($!|!c %!|!c $!|!I!#'!$|!`|!_|;@$$#$|!`|!_|;@$$#$|!`|!_|;@$$'$|!`|!_|;@$$$!|!_$$$!|!`!#'!#|;@|;A$$##|;@|;A$$#!|;A!$)!#|;@|;A$$#!|;A!$)!&|!I|!c|;B|;?|;C$$$&|!I|!c|;B|;?|;C$$%&|!I|!c|;B|;?|;C$$(%|!c|;B|;?|;C$(%$|!c|;B|;C$$'$|!c|;B|;C$$$!|;B$$$!|;C!%+!&|!I|!c|;B|;?|;C$$%&|!I|!c|;B|;?|;C$$(%|!c|;B|;?|;C$(%$|!c|;B|;C$$'$|!c|;B|;C$$$!|;B$$$!|;C!#'! $$#  #  $ !!#!  ! !$)! $$! !#'!  !#|3o|3p!!%! !!%! $$! $$! !!%!!|#(!#'! !!%! !!%! $$! !#'! $$# $$# $$# $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$!  !#|'F|;Y !  !#|;q|;[!#%!'|56|5Q| h|;q|;]|;Z$$#!|;q$$!!|;q #!|;q$$!!|;q!#&$%|56|5Q| h|;Z$$$%|56|5Q| h|;Z$$$%|56|5Q| h|;Z$$$%|56|5Q| h|;Z$$$ $$# !#'! $$!  !#|'F|;b!$'!$|5T| h|;c$$$$|5T| h|;c$$$$|5T| h|;c$$%!|;c$$&!|;c$$&!|;c$$&!|;c$$&!|;c$$'!|;c$$&!|;c$$# $$! $$&!|;c$$$ $$# $$! !#&&!|;c$$&!|;c$$& $$& $$#  !#|'F|;f!$'!$|5T| h|;g$$$$|5T| h|;g$$$$|5T| h|;g$$$!|;g$$%!|;g$$%!|;g$$%!|;g$$%!|;g$$%!|;g$$%!|;g$$%!|;g$$%!|;g$$%!|;g$$%!|;g$$%!|;g$$%!|;g!$)!W|5^|5Z|5W|5N|5K|5B|5?|5p|5r|5t|5v|5x|5z|6 |6#|6%|6'|6)|6+|6-|6\/|61|63|65|67|69|6;|6=|6?|6A|6C|6E|6G|6I|6K|6M|6O|6Q|6S|6U|6W|6Y|6[|6^|6`|6b|6d|6f|6h|6j|6l|6n|6p|;H!#((V|5^|5Z|5W|5N|5K|5B|5?|5p|5r|5t|5v|5x|5z|6 |6#|6%|6'|6)|6+|6-|6\/|61|63|65|67|69|6;|6=|6?|6A|6C|6E|6G|6I|6K|6M|6O|6Q|6S|6U|6W|6Y|6[|6^|6`|6b|6d|6f|6h|6j|6l|6n|6p!!&)V|5^|5Z|5W|5N|5K|5B|5?|5p|5r|5t|5v|5x|5z|6 |6#|6%|6'|6)|6+|6-|6\/|61|63|65|67|69|6;|6=|6?|6A|6C|6E|6G|6I|6K|6M|6O|6Q|6S|6U|6W|6Y|6[|6^|6`|6b|6d|6f|6h|6j|6l|6n|6p!!&)V|5^|5Z|5W|5N|5K|5B|5?|5p|5r|5t|5v|5x|5z|6 |6#|6%|6'|6)|6+|6-|6\/|61|63|65|67|69|6;|6=|6?|6A|6C|6E|6G|6I|6K|6M|6O|6Q|6S|6U|6W|6Y|6[|6^|6`|6b|6d|6f|6h|6j|6l|6n|6p (V|5^|5Z|5W|5N|5K|5B|5?|5p|5r|5t|5v|5x|5z|6 |6#|6%|6'|6)|6+|6-|6\/|61|63|65|67|69|6;|6=|6?|6A|6C|6E|6G|6I|6K|6M|6O|6Q|6S|6U|6W|6Y|6[|6^|6`|6b|6d|6f|6h|6j|6l|6n|6p!$('V|5^|5Z|5W|5N|5K|5B|5?|5p|5r|5t|5v|5x|5z|6 |6#|6%|6'|6)|6+|6-|6\/|61|63|65|67|69|6;|6=|6?|6A|6C|6E|6G|6I|6K|6M|6O|6Q|6S|6U|6W|6Y|6[|6^|6`|6b|6d|6f|6h|6j|6l|6n|6p$$(V|5^|5Z|5W|5N|5K|5B|5?|5p|5r|5t|5v|5x|5z|6 |6#|6%|6'|6)|6+|6-|6\/|61|63|65|67|69|6;|6=|6?|6A|6C|6E|6G|6I|6K|6M|6O|6Q|6S|6U|6W|6Y|6[|6^|6`|6b|6d|6f|6h|6j|6l|6n|6p$$%V|5^|5Z|5W|5N|5K|5B|5?|5p|5r|5t|5v|5x|5z|6 |6#|6%|6'|6)|6+|6-|6\/|61|63|65|67|69|6;|6=|6?|6A|6C|6E|6G|6I|6K|6M|6O|6Q|6S|6U|6W|6Y|6[|6^|6`|6b|6d|6f|6h|6j|6l|6n|6p!#&& $$% $$% $$!  %  $  $ !!&#  #  #  #  #!|;H #  # !%+!#|5<|;i$$&#|5<|;i$$&#|5<|;i &#|5<|;i $ !!&$  # !%)! $$$ $$! $$! $$! $$! $$! $$! $$! !#'! $$! !!%!#|;D|;B$$!#|;D|;B$$##|;D|;B$$%#|;D|;B$$$!|;D$$$!|;B$$! !!%! !$)! $$#  $ $$# !#'! $$# $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! $$! !#'! $$# $$! $$#  !#|*{|;G!%+!!|;w$$&!|;w!!&& $$&  (  $  %  $  #!|;w!#(&  & !!$% $$$ $$% $$$ $$% $$$  $ !!&#  # !%+!%| h|!P|;w|;^$$$ $$$  &!|;w &!|;w$$&!|;w$$&!|;w $ $$#  # $$! !!&# !!&& $$&  (  $  %  $  #!|;w!#(&  & !!$% $$$ $$% $$$ $$% $$$ !!&#  #  (%| h|!P|;w|;^ (%| h|!P|;w|;^$$$ $$$ !!&($| h|!P|;^!!$($| h|!P|;^$$&#|!P|;^$$&#|!P|;^$$&#|!P|;^$$&!|!P$$&!|!P$$*!|!P$$$ $$% $$$  # $$! !#&$!|;w$$$!|;w$$' $$$ !$(# $$$ $$% $$$ $$% $$$ !#($ $$% !!$%  % !&.$ !!$%  % !#($ $$% !!$%  % !$(# $$$ $$% $$$  #  #  #  $ !$)! !#'! #!$ !!#! #%! #%! !#'!%|<2|<'|;n|;m$$%%|<2|<'|;n|;m$$%%|<2|<'|;n|;m $%|<2|<'|;n|;m $!|<2!!&$ $$$  $  # $$!  #  #  # !$)!#|<+|;x!$*#!|;x # $$! !%+!#|<*|;x!$*#!|;x # $$! !%+!#|<+|;x!$*#!|;x # $$! !&-!#|<*|;y!$*#!|;y!&-!#|<3|;j$$)#|<3|;j$$)#|<3|;j '!|<3 # $$!  # $$! !!&%!|;j$$%!|;j %!|;j!!&$  #  # !&-!!|<3$$'!|<3$$'!|<3 '!|<3 # $$!  # $$! !!&# $$# !#'!.|5Q|59|5E|5T|;'|#(|>g|<1|;h|;d|;O|;N|;M!$*D(|5Q|59|5E|5T|>g|;h|;d!!&F(|5Q|59|5E|5T|>g|;h|;d!!&G'|5Q|59|5T|>g|;h|;d!!&I'|5Q|59|5T|>g|;h|;d$$I'|5Q|59|5T|>g|;h|;d!!&I'|5Q|59|5T|>g|;h|;d!!&I'|5Q|59|5T|>g|;h|;d$$I'|5Q|59|5T|>g|;h|;d ( !!&' $$'  &  % !!&$  *  '  $ !!&% !#(% $$& $$&  &  %  $  $ !!&F'|5Q|59|5T|>g|;h|;d $ !!$# !!&E'|5Q|59|5T|>g|;h|;d!!&.$|5Q|59|5T &  %  $  # $$!  ,$|5Q|59|5T!!&($|5Q|59|5T ($|5Q|59|5T$$'$|5Q|59|5T &$|5Q|59|5T '  %  ;%|5T|>g|;h|;d :%|5T|>g|;h|;d!!&5%|5T|>g|;h|;d!!&5%|5T|>g|;h|;d 5%|5T|>g|;h|;d 4%|5T|>g|;h|;d$$$ !!&& $$& !!&%  $ !!&$  # $$!  # $$!  % !!&'  '  &  $ !!&% !#(% $$& $$&  # $$!  # $$!  $ !!&$  $  # $$! !!&$  $ $$#  # $$!  # $$!  % !!&$  $  # $$! !!&$  $ $$#  # $$!  # $$!  $ !#(1$|5T|;h|;d$$2$|5T|;h|;d$$.$|5T|;h|;d$$.$|5T|;h|;d$$.$|5T|;h|;d$$\/$|5T|;h|;d!!&%  $  %!|;h!!$$!|;h!!&%  $  # $$! !!&+ $$+ $$,  '  % !!&$ !!&) $$) $$*  %  % !!&%  $  # $$! !!&)  ) $$( $$)  (  & !!$% $$$ $$$ $$$ !!&$ !!&$  # $$!  %  $!|5T!!&%  $  %!|;d!!$$!|;d$$0!|5T!!&%  $ !!&+ $$+ $$,  '  % !!&$ !!&) $$) $$*  %  % !!&%  $  # $$! !!&)  ) $$( $$)  (  & !!$% $$$ $$$ $$$ !!&$ !!&$  # $$!  %  $!|5T & $$# $$! $$! $$! $$! !!&$ !!&# $$# !#((  % !!$$  (  &  $ !!$#  %  $ $$#  $!|5T $!|5E $!|5E!#(% !!&% !!&% !!&%  %  #  # !!&#  # $$! !!&# !!&#!|#( #!|#($$!!|#( # $$!  $!|;'$$# !!&#  #  $!|;' #  #  #  # $$!  #  #!|;M # $$# $$# $$$  # !!&$  $ !#&# $$# !!$# !!&$  #  #  #!|;O #!|;N!!&#  #  #  $  $  %  #  #  #  #  #  #  #  #  #  #  #!|59 #!|<1 #  #  #  #  #  #  # !!&#  # $$!  #  # !&-!&|;%|#D|<\/|<,|;R$$)&|;%|#D|<\/|<,|;R$$$  (!|<\/ # !#($!|<\/ %!|<\/ $  #  #  # !!&(  &  #  $!|<,!#(#!|#D %!|#D!#($  $  #  &#|;%|;R $!|;R #  # !%+!%|;'|<0|<\/|<-$$+#|<0|<-$$,#|<0|<- # !!&,  , !!&(  '  # $$! !!&&  &  # $$!  &  $ !#(#!|<0 %!|<0!!&%!|<-$$%!|<-!$*%  %  $  #  #!|;'!#($!|<\/ %!|<\/ #  #  #  $  # $$!  #  # $$! !$)!#|#(|>g$$!!|#(!$)!#|#(|>g$$!!|#(!#'!#|5E|;o$$&#|5E|;o$$&#|5E|;o # $$! !!&'!|5E!!&& !!&& $$&  % !!$$ $$# $$# !!&#  $  %!|5E #!|;o #  #  # !#'!!|<1$$# $$# $$# $$#  $!|<1!'\/!!|<4$$(!|<4$$(!|<4 '!|<4!!&%  % !!&$ !&-!$|5<|;L|;K$$+$|5<|;L|;K$$+$|5<|;L|;K # $$! !!&-#|5<|;K!!&)#|5<|;K!!&)#|5<|;K$$)#|5<|;K %!|5< '!|;K % !!$$ $$# $$# !!&#  $!|;K #!|;K$$#!|;K '  & $$% !!$& $$% $$& $$% $$% $$$ !!$% $$$ $$$ $$#  #  #!|;L #  #  #  #  # !#'! #!$  !#|. |<6!$'!+|-O|>u|>x|%$|$c|$w|,m|,n|,o|>s$$$*|-O|>u|%$|$c|$w|,m|,n|,o|>s %%|-O|,m|,n|,o$$$#|,m|,o$$#  $%|%$|$c|$w|,n$&#%|%$|$c|$w|,n$&$$|%$|$c|$w$&!#|%$|$c $!|>s$$#!|>s$$$!|>s$$$!|>s$$#  #!|>u$&! !$)! #!% !%+!*|%!|$w|$b|,m|,n|,o|+P|<8|<7 &*|%!|$w|$b|,m|,n|,o|+P|<8|<7$$$ $$$ !#(&*|%!|$w|$b|,m|,n|,o|+P|<8|<7 &*|%!|$w|$b|,m|,n|,o|+P|<8|<7!!$%*|%!|$w|$b|,m|,n|,o|+P|<8|<7!!$%*|%!|$w|$b|,m|,n|,o|+P|<8|<7!!$%)|%!|$w|$b|,m|,n|,o|<8|<7$!%)|%!|$w|$b|,m|,n|,o|<8|<7$$%)|%!|$w|$b|,m|,n|,o|<8|<7$$%)|%!|$w|$b|,m|,n|,o|<8|<7$$&)|%!|$w|$b|,m|,n|,o|<8|<7$$&)|%!|$w|$b|,m|,n|,o|<8|<7$&&)|%!|$w|$b|,m|,n|,o|<8|<7$$&)|%!|$w|$b|,m|,n|,o|<8|<7$!&)|%!|$w|$b|,m|,n|,o|<8|<7$$%)|%!|$w|$b|,m|,n|,o|<8|<7 #  #  #  #  #  # !$)!!|<:$$$ $$$  # !!&%!|<:!$)!  # $$!  !#|;'|8$ !  !#|'F|<A !#|'F|<D !#|98|<F !#|97|<G ! !$)! !#&$ $$#  $  $ !$)! !#&$ $$#  $ !#%!!|8N!#%! !%)! $$# !%)! $$#  $ !!%!  !#|'F|<Q !#|3n|3p !#|'F|<U!#%!)|5H|5E| h|7$|<X|<V|<S|<R!#&#(|5H|5E| h|<X|<V|<S|<R$$$(|5H|5E| h|<X|<V|<S|<R$$$(|5H|5E| h|<X|<V|<S|<R$$$$|5H|<X|<V$$$$|5H|<X|<V #!|<S$$#!|<S!&+!.|5E|+P|8N|7s|7f|:L|<b|<S|<E|<B|<?|<>|<=$$&.|5E|+P|8N|7s|7f|:L|<b|<S|<E|<B|<?|<>|<=$$&.|5E|+P|8N|7s|7f|:L|<b|<S|<E|<B|<?|<>|<=$!)-|5E|+P|8N|7s|7f|:L|<b|<S|<E|<?|<>|<=$!)-|5E|+P|8N|7s|7f|:L|<b|<S|<E|<?|<>|<=$$*-|5E|+P|8N|7s|7f|:L|<b|<S|<E|<?|<>|<=$$+*|+P|8N|7s|7f|:L|<b|<?|<>|<=$$+*|+P|8N|7s|7f|:L|<b|<?|<>|<=$$*%|+P|7s|:L|<>$$*%|+P|7s|:L|<>$$*%|+P|7s|:L|<>$$+$|+P|7s|:L$$*$|+P|7s|:L$$*$|+P|7s|:L$$*!|+P$!%!|+P!!$$!|+P!!$$ $!$ $$$ $$$  #!|:L!#&%#|<b|<=$$$#|<b|<=$$$#|<b|<=$$%#|<b|<=$$$#|<b|<= ##|<b|<= # $$! !$(# !#&$#|8N|7s$$#!|7s $ $$# !#&$ $$!  (#|8N|7s$$'#|8N|7s$$'#|8N|7s!#&%  $ !$(# !#&$#|8N|7s$$#!|7s $ $$# !#&$ $$! !#&# $$! $$#  #!|7f$$!!|7f #!|<S$$#!|<S!!$# !&-!  $ !!&$ !!%!  #  #  #  # !$)! !!&#  $ !$)! !!&#  $ !&-!!|;'$$&!|;' %  $ !!&( $$(  $  # $$! !!&& $$&  % !!&' $$'  %  $ !!&' $$'  %  $ $$# $$# !!&$ $$$  %  # $$!  #  #!|;' #  # !!&# $$#  # $$! !$'!  ! !#'!#|90|<a!&-! !!&%  $ !!&$ $$$  $ !!%!  $  #  $  %  #  #  # !$)! !#(#  $ !#'! !#($  $  # !#'! !#($  $  # !$)! !#($  %  # !$)! !!&#  $ !$)! !!&#  $ !$)! !!&# !!&#  $  $ !%+! !!&#  $ !!&$ !!&#  %  $  $ !%+! !!&#  $ !!&% $$$ !!&#  % !#'! !#($  $  # !#'! !#($  $  # !#'! !!&$ !#($  $  $  # !%+! !#($  $  # !!&% !#($  %  $  $  # !%+! !#($  $ !!&& $$% !#($  %  # !$)! !!&#  $ !$)! !!&#  $ !$)! !!&# !!&#  $  $ !%+! !!&#  $ !!&$ !!&#  %  $  $ !%+! !!&#  $ !!&% $$$ !!&#  % !$)! !!&#  $ !$)! !!&#  $ !$)! !!&#  $ !$)! !#($  %  #  # !%+! !!&#  % !&-!  $ !!&$ !!%!  #  #  #  # !$)! !!&#  $ !$)! !!&#  $ !&-! !!&%  # $$! !%+! !!&$ !$)! !!&# !!&#  $  $ !'\/!  $ !!&$ !!%!!|2R $  #  #  #  #  # !$)! !!&# !!&#  $  $ !'\/! !!&'  $ !!&%  $ !%+!!|*h!!&)!|*h )!|*h $ !!&% !!&# $$#  $  %  #!|*h $ !!&% $$%  % !!&$ $$$  # !$)! !!&# !!&#  $  $ !'\/!  $ !!&$ !!%!!|2R $  #  #  #  #  # !&-! !!&$ !#(# !'\/! !!&% !#(# !!&$  $  $ !&-! !!&$ !#(# !#'! $$$  # !!&$ !$)!  # $$! !#'! $$$ $$$  # !!&$ !#'! $$$ $$$  # !!&$ !#'! $$# !!&#  # !!&% !!&$ !!&$  $  #  #  #  # !#'! $$# !!&#  # !!&# !!&# !!&#  $  # !!#! !#%!!|<K!!#!!|=<!#'! $$$  # !!&$ !$)!  # $$! !%+! !!&$  $  $ !!&# $$#  $ !$)! !!&#  $ !$)! !!&&  %  $  $  # $$! !$)! !!&&  %  $  $  # $$! !&-!  $  $ !!%! !!%! $$! !%+!  $ !!&$  $  # $$! $$!  $ !!%! $$! !!&# !%+!  $ !!&$  $  # $$! $$!  $ !$)! !!&#  $ !#'! !$)! !!&&  %  $  $  # $$! !$)! !!&&  %  $  $  # $$! !$)! !#(% !#'!!|=+!!&$ !%,$  #!|=+!#'! !!&$ !#'! !$*$  # !!&$ !!&$ !#'! !!&$ !$*#  $  $ !#(# !#(# !!%! !!&# !!&# !$)! !$*% !#'!!|=.!!&$ !%,$ !$*#!|=.!#'! !!&$ !#'! !$*$ !#'! !$*$  # !$*# !!&$ !#'! !$*# !$*$ !$*# !$*# !!%! !$*#  $ !$*# !#'! !!&$ !#'! !#(# !#'! !!&$ !#'! !#(# !&-! !!&#  # $$! !!&#  # $$!  # !%+! !#(# !#(# !$)! !!&# !#'! !#(# !#'! !!&# !!&# !!&# !#($ !#($ !$)! !!&# !#(# !It!#|=m|<^!#(#  # $$! !%,$!|<^!$*# !!&$ !!&# !#($  $ $$# $$#  $ !$*#  $ $$# !!&%!|=m %!|=m #  #  #  #  # !#'!  # !%+!  $  $ !#'! !!&$ !!&$ !!&$ !#($ !#($ !#%!!|<W!$)!!|;'!#(& !!&%  $  &  $ $$! !!&% $$% $$&  %  #!|;'!#($  $  #  #  # !!&#  # !$)! !#(% !#'!!|=1!!&$ !%,$  #!|=1!#'! !#($ !#'! !!&$ !#'! !$*$  # !!&$ !!&$ !#'! !!&$ !$*#  $  $ !#(# !#(# !!%! !!&# !!&# !#'! !!&$ !!&$ !!&$ !#($ !#($ !$)! !!&# !!&#  $ !#'! !#($ !%+! !!&# !!&#  $ !#(# !!&#  % !#'! #!$ !#'! $$# $$# !!%! #!# !!%! $$! !%+! #!& !%+! $$% $$% $$% $$% !%+! $$+  # !!&* !!&)  )  ( !!&& $$&  %  $  %  $ $$#  #  #  #  #  #  # !@b! #!A !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !&-! #!' !!%! $$! !!%! $$! !!%! $$! !#'! #!$ !!%! $$! !#'! #!$ !!%! $$! !!%! $$& $$&  # $$# $$# $$$  # !!&$  $ !#&# $$# !!$# !!&$  # !!&' $$'  '  &  $ $$#  $  # $$!  #  #  #  # !#'! $$* $$*  # $$# $$# $$$  # !!&$  $ !#&# $$# !!$# !!&$  # !!&. $$.  .  - !!&) !!&) !!&( !!&(  ( !!&& $$&  %  $  %  $ $$#  $  $ $$# $$!  #  #  #  #  #  #  #  #  #  #  #  #  # !#'! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!%! $$! !'\/! #!( !!%! $$! !!%! $$! !!%! $$! !!%! $$! !!'!#|>W|>R!!$$#|>W|>R$*$#|>W|>R$$! $&(#|>W|>R$$*#|>W|>R$&*#|>W|>R$$! $&,#|>W|>R$$.#|>W|>R$$+#|>W|>R$$+#|>W|>R$&*#|>W|>R$$! $&,#|>W|>R$$.#|>W|>R$$+#|>W|>R$$+#|>W|>R!$)! #!% !$)! $$$ $$$ $$$  !!|>V$$! !!#! !!%! #!#  !  !#|*{|>S !#|>Z|>Y!!%!#|*{|>[$$!!|*{ #!|>[!#'!#|>W|>X$$##|>W|>X$$&#|>W|>X$$# !!$(!|>W$!' !#'! #$$ !!%! ### !!%! #!# !!#!#|*{|>b !#|>d|>c !!|>a!$)!!|>e$$#!|>e$$#!|>e!$)!#|!j|>f$$$#|!j|>f$$$#|!j|>f!#'!#|,m|,o!!%!#|-O|,n$$!#|-O|,n!!%!#|-O|,n!#'!#|,o|,p!!%!#|,o|,r!!%!#|,o|,s$$!#|,o|,s!#'! #!$ !#'!&|-O|,m|,n|,o|>v$$$&|-O|,m|,n|,o|>v$$$&|-O|,m|,n|,o|>v$$$$|,m|,o|>v$$$!|>v!!%!)|-O|%$|$c|$w|,m|,n|,o|>v #  $&|-O|,m|,n|,o|>v$$#$|,m|,o|>v$$#  #&|%$|$c|$w|,n|>v$&!&|%$|$c|$w|,n|>v$&$$|%$|$c|$w$&!#|%$|$c !#|. |>r !#|. |>q!!#!'|-O|>{|,n|,o|,p|>w$$!&|-O|,n|,o|,p|>w #&|-O|,n|,o|,p|>w$$!&|-O|,n|,o|,p|>w$$#&|-O|,n|,o|,p|>w$$#&|-O|,n|,o|,p|>w$$#&|-O|,n|,o|,p|>w$$#&|-O|,n|,o|,p|>w$$##|-O|,n$$##|-O|,n$$# !!%!!|>u$&! !!#!$|,N|'F|>z #$|,N|'F|>z ##|,N|>z!#'! #!$ !!#!#|>y|>x$$!!|>y #!|>y!!#!!|?!",
+", ,!,#!$!&%,)!*!,$!\/!1!3!5!7!9!;,=!>!?!E!J!P!U!W!Y![!^!`!b!d!f!h!j!l!n!q!t!w!z!| !!| %!| (!| +!| .!| 1!| 4!| 7!| :!| =!| @!| C!| E!| H!| J!| M!| O!| R!| T!| W!| Y!| ]!| b!| g!| i.|!N?m+)|!>nAIJKLMN!| k!| n!| q!| t!| w!| y!|! !|!$!|!'!|!*!|!2.|!Nrs.|!Npq!|!5+)|!>{XYZ[]^_+)|!>|  QRSTUVW!|!=!|!?!|!A!|!C!|!E!|!G!|!I!|!K!|!M!|!O!|!Q!|!R!|!S!|!U!|!W!|!Y!|!Z!|!^!|!a!|!d!|!g!|!j!|!m.|!N| ;| :+)|!>| <| 5| 7| 6| 9| 8OP!|!p!|!r!|!t!|!v!|!x!|!z!|# !|##!|#%!|#'!|#*!|#-!|#0!|#6!|#;!|#>!|#@!|#D!|#G!|#L!|#S!|#Y!|#[!|#d!|#f!|#i!|#n!|#s!|#v!|$!!|$%!|$*!|$4!|$;!|$=!|$J!|$L!|$O!|$T!|$V!|$[!|$_!|$a!|$d!|$g!|$j!|$n!|$s!|$v!|${!|%%!|%(.|%0|+y|,*!|%\/!|%1!|%3!|%5!|%7!|%9!|%=!|%>!|%?!|%A!|%C!|%E!|%H!|%S!|%T!|%U!|%V!|%W#|%X#|%Y#|%Z!|%[1|>$|!E|!I|!.|!F|!H!|%]1|>$|!7|!J|!0|!8|!:!|%^!|%a!|%b!|%c !|%d!|%e !|%h!|%i!|%l!|%o  +(|AX% }%8G}'e\/% }#$C} nH% } 9P}'(g% |pv}$p+|!>|!?|!6+(|AT% }%8G}'e\/% }#$C} nH% } 9P}'(g% |pv}$p+|!@22 +(|AX% }%-H} <\/% }!2'} gT% }'-9|?w% }!lz|sc|!>|!?|!B+(|AT% }%-H} <\/% }!2'} gT% }'-9|?w% }!lz|sc|!C22!|%p!|%q!|%t!|%u\/|.@|!;|!H|!=\/|.@|!4|!:|!5,|%w!|%x!|%z!|& !|&$!|&%!|&'!|&*!|&,!|&4!|&7!|&9!|&A!|&E!|&I!|&N!|&S!|&X#|&b!|&c #|&d!|&e !|&f!|&h,|&j,|&k!|&l!|&n!|&s!|'1!|'L!|'Q!|'V!|']!|'c!|'i!|'w!|'y!|(#!|((!|(A!|(E!|(H!|(K!|(N!|(O!|(P!|(Q!|(R!|(W!|(]!|(a!|(d!|(j!|(m!|(o!|(w!|)!!|)(!|)+!|)3!|)7!|);!|)@!|)E!|)L!|)T!|)a#|)f!|)g #|)h!|)i !|)j!|)l!|)o!|)q,|)s,|)t!|)u!|)w!|* !|*:!|*U!|*]!|*b!|*h!|*n!|*t!|+'!|+U!|+Z!|+r!|+u!|,!!|,#!|,$,|)t!|,&!|,\/!|,4!|,:!|,?#|,D ,|,E!|,F!|,H!|,J!|,L!|,Q    #|,Y!|,Z#|,a#|,b#|,c#|,d!|,e!|,o#|-$!|-%  #|-)!|-*!|-0 -|D2%,!|-22|6w|,&|(A|#r|#s|,&|,&!|-8!|-:!|-<!|->!|-@!|-A&&&!|-k!|-n#|-o#|-p !|-q!|-s!|-u!|-v!|-w!|-x!|-y!|.!!|.%!|.&!|.*!|.,!|.\/&&!|.1&&!|.8!|.;!|.>&&&!|.?!|.A!|.B\/|.@|$H|$9|$B!|.F!|.I!|.J!|.R!|.T!|.V!|.X!|.Z!|.]!|.^!|._#|.`!|.a!|.d!|.e#|.i!|.j!|.k!|.m!|.o!|.p!|.q!|.r!|.s!|.v!|.x!|\/ .|@M|$b|$c!|\/%!|\/)!|\/+!|\/\/ #|\/2!|\/3!|\/?!|\/H!|\/K!|\/N!|\/O!|\/S!|\/W&!|\/Z!|\/^!|\/`!|\/c!|\/o!|\/q!|\/s!|\/u!|\/w!|\/y!|0 !|0$!|0%-|D2$!|0+!|01-|D2#\/|0:|%K| =|$x+*|06|%,|+K|$o|$p|$r|$s|$t|$v|$w\/|0:|%L|-y|$z+*|06|%.|+L|${|% |%!|%#|%$|%%|%&!|03!|05!|07!|09!|0;!|0=!|0?#|0B.<|%7|$u#|0C#|0D!|0E!|0G!|0I!|0K!|0M!|0O!|0P!|0S!|0V!|0Y!|0[&&&!|0^!|0`+(|0c|%A|%B|%C|%D|%E|%I|%J+(|0c|-Y|-X|-Z|.'|.$|.#|%@!|0b!|0d!|0f!|0h!|0j!|0l!|0n!|0p!|0r!|0u!|0x!|0z!|1(!|11!|14!|18!|1:!|1=!|1B!|1C!|1F!|1G!|1I!|1M!|1R  -|D2$-|D2#   #|1W #|1X #|1Y  !|1Z#|1]#|1^#|1_#|1`#|1a!|1b !|1c!|1f#|1h!|1i!|1k!|1o!|1u!|2 !|2'!|2*!|2-!|2\/!|24!|28!|2:#|2<!|2=!|2@!|2B!|2D  !|2E!|2G!|2I!|2K!|2M,|2S!|2T,|2V,|2W,|2X,|2Y.|2F|&=|&=!|2Z-|2U|,&  #|2f 2|6w|,&|(J2|&I|,&|,&#|2g 2|6w|,&|(J2|&L|,&|,&!|2h!|2n!|33!|35!|3S!|3T!|3U 2|6w|,&|(J2|&U|,&|,&#|3[#|3]!|3^!|3j!|3k!|3p !|3s !|3v-|@Q|&a!|3x   +(|AX% }'P9}&6w% }$>>|pk% }'d8}!h=% }#s:} hz|&d|&e|&f+(|AT% }'P9}&6w% }$>>|pk% }'d8}!h=% }#s:} hz|&g22!|49#|4:#|4; !|4<!|4=!|4> !|4L !|4N!|4V!|4Y !|4[!|4`!|4b!|4d !|4k!|4s#|4u!|4v !|4w!|5!!|5$ !|5'!|5+!|5-!|50!|53!|58 !|5=!|5B !|5D!|5G!|5J !|5K!|5Y&!|5] !|5e!|5h!|5k!|5n &&!|5r!|6&!|6*+\/|7q|&t|&x|&y|&z|'!|''|'(|'+|',|'-|'.|'\/|'2|'52|8#|'6|'9|'>|'?|'@|'F!|6-!|6\/.|6.%\/#.|6.$#!|621|>$|(&|(8|'M|('|()!|631|>$|'y|(9|'O|'z|( !|641|>$|'m|(:|'Q|'n|'t                   !|65 &!|67!|69 !|6:!|6;!|6>  !|6@!|6S!|6U!|6W!|6Y!|6[ !|6]!|6^ !|6a!|6c!|6e!|6g !|6h!|6i !|6l !|6n!|6o   +(|AX% }#\/f|da% }'Y8}#(W% }$b+} -,% }&w4}%oH|(.|(\/|'l+(|AT% }#\/f|da% }'Y8}#(W% }$b+} -,% }&w4}%oH|(022+(|AX% |UJ}%U[% }$H`}$>o% }( V}#o2% }$%_|bE|(.|(\/|(*+(|AT% |UJ}%U[% }$H`}$>o% }( V}#o2% }$%_|bE|(222+(|AX% }'nc}!lM% }#tR|;J% } ZV}%^\/% }$1F}&r_|(.|(\/|'x+(|AT% }'nc}!lM% }#tR|;J% } ZV}%^\/% }$1F}&r_|(422+(|AX% |SD}!C.% }'?V}#mX% }$D(| )% }$Hh|x6|(.|(\/|(%+(|AT% |SD}!C.% }'?V}#mX% }$D(| )% }$Hh|x6|(622\/|.@|(!|()|($\/|.@|'u|( |'w\/|.@|'s|'t|'k,|6t,|6u!|6v,|6x,|6y,|6z,|6{,|7 ,|7!,|7#,|7$,|7%,|7&,|7',|7(,|7),|7*,|7+,|7,,|7-!|7.#|77!|78!|79!|7<!|7=!|7> !|7?!|7P!|7S!|7T1|7`|(X|(S|(Y|(Y|(Z!|7U!|7Y1|7`|(^|(R|(Y|(Y|(Z\/|7^|(V|(T|(U!|7]!|7_,|7a,|7b,|7c!|7d#|7f  2|6w|,&|(D|(i|(h|,&|,&!|7g  2|6w|,&|(D|(l|(m|,&|,&#|7h!|7i#|7l#|7m#|7n!|7p,|7r,|7s,|7t,|7u,|7v!|7w!|7y!|7{!|8!!|8$!|8&!|8(!|8*!|8,,|81,|82!|83!|86!|89!|8=!|8R!|8S!|8U #|8V!|8W!|8Y!|8[!|8^,|8`!|8a!|8s!|9$!|9=!|9D!|9F!|9H!|9P #|9T-|D2%1 &#|9U  #|9V& &*!!|)5|)K#|9W&*! |)N    !|9X#|9Z!|9[!|9r!|:s-|D2%7!|:t!|:w!|:x!|:y!|; !|;+!|;-!|;\/!|;7!|<:!|<=!|<?&&-|D2%\/-|D2$'!|<@!|<C!|<E!|<G!|<I''!|<K!|<M!|<O!|<Q'#|<n#|<o#|<p!|<q-|D2#\/|.@|)`|)a|)f!|<s,|<u,|<v,|<w!|<x!|<{!|=!!|=$!|=&!|=(!|=*!|=,!|=.!|=0!|=2!|=4!|=6!|=8!|=:!|==!|=@!|=C+(|0c|*8|*7|*6|*4|)p|)s|)t0|04|*9|*5|)u|){+4|<t|*:|)k|*3|*2|*1|*'|)l|*0|*\/|*.|*-|*,|*+|**|*)|*(|)m|)n|)o#|=F&#|=G&&*! |*@.<|*@|*?.<|*@|*=!|=H!|=J!|=L!|=N!|=W1|>$|*Y|*t|*H|*Z|*[!|=X1|>$|*g|*u|*J|*h|*q!|=Y!|=[ !|=]!|=^!|=a!|=d!|=g!|=h!|=i!|=k!|=l !|=m!|=n!|=q!|=r  +(|AX% }&2n}#1A% }#A<}#)C% }$R-}#;$% }&W`}&y<|*^|*_|*X+(|AT% }&2n}#1A% }#A<}#)C% }$R-}#;$% }&W`}&y<|*`22+(|AX% }#fq}#k_% }%8K}%x9% }%pd}#{v% } Mx}')Y|*^|*_|*N+(|AT% }#fq}#k_% }%8K}%x9% }%pd}#{v% } Mx}')Y|*b22 +(|AX% } ?w}%cb% }'r5}!mI% }#JS}#]5% }%nF}! k|*^|*_|*d+(|AT% } ?w}%cb% }'r5}!mI% }#JS}#]5% }%nF}! k|*e22!|=s!|=t      !|=w!|=y!|=z\/|.@|*P|*Q|*S1|>$|*O|*r|*T|,%|*U\/|.@|*V|*[|*W\/|.@|*p|*q|*],|={,|> ,|>!!|>#!|>%!|>'!|>)!|>+!|>-!|>\/#|>1#|>2#|>3!|>4 #|>5!|>6!|>8!|>9!|>:!|>=!|>@!|>E!|>K   !|>U!|>^-|D2$!|>_!|>`!|>b!|>d!|>f!|>i-|D2#!|>j#|>l!|>m#|>o!|>p!|>r!|>s!|>u!|>x!|>{#|?$+)|?&|+B|+D|+E|+E|+F|+G|+H|+I+)|?&|+7|+9|+:|+;|+<|+=|+>|+@!|?%!|?'!|?.!|?5!|?:!|?<!|?@!|?D!|?H!|?L!|?M!|?O!|?Q!|?S!|?U!|?e!|?f!|?g!|?v#|?x  !|?y!|?{&!|@ #|@#!|@$!|@%!|@(!|@,!|@0!|@2!|@3!|@6!|@8!|@9!|@=!|@?!|@B.|@M|+l|+u.|@M|+o|+p1|@I|+w|+q|+r|+s|+t1|@E|+x|+m|+s|+q|+n!|@D!|@F!|@H!|@J!|@L!|@N!|@P,|@R!|@S!|@U!|@W!|@X&!|@Y!|@^!|@_!|@a!|@c!|@e!|@g!|@i!|@k!|@m!|@o!|@q !|@s!|@u!|@v*! |$?*!!|,1|$?   &!|A$!|A&#|A*!|A+!|A,!|A-!|A0!|A4!|A6&+)|A:|,F|,F|$5|$4|,G|,H|,I|,J!|A9!|A;!|A=!|A?!|AC& #|AG 2|6w|,&|(K|,S|,U|,&|,&!|AH!|AK!|AN!|AS!|AU!|AW!|AY!|A[!|A_,|A`!|Ab!|Ad&!|Ag!|Ah #|Al!|Am!|Ao!|Aq!|Ar!|As!|Ay!|B%+1|B+|,m|,n|+k|,o|&.|&-|%[|&,|,*|&0|&\/|%U|&)|&'|&+|&*!|B*!|B,!|B\/!|B0!|B2!|B4*# %|%<% }!]g|MO!|B6#|B:!|B;!|B<-|D2#!|B@!|BD!|BI!|BK!|BM!|BO1|>$|-2|-C|-'|-3|-4!|BP1|>$|-9|-D|-)|-:|-<  !|BQ!|B]!|B_!|Ba !|Bb!|Bc!|Bf!|Bh!|Bj!|Bl !|Bm!|Bn !|Bq  +(|AX% }#{p} ;>% }%Z-}$wb% } ^U}&\/y% }$r5}#3k|-=|->|-8+(|AT% }#{p} ;>% }%Z-}$wb% } ^U}&\/y% }$r5}#3k|-?22+(|AX% }'#w} ))% |#,}#`*% }&*M}$m^% |(k}$&w|-=|->|-1+(|AT% }'#w} ))% |#,}#`*% }&*M}$m^% |(k}$&w|-A22\/|.@|-.|-4|-0\/|.@|-5|-<|-7,|Bs!|Bt#|Bv!|Bw!|By!|B{!|C#!|C-!|C9!|C;!|C=!|C?!|CA!|CE!|CO!|CW!|C]!|Cb!|Cf!|Cj!|Cn!|Cr!|Cv!|D%#|D*-|D2% }$$(}((0-|D2%,-|D2#-|D2$!|D+!|D-!|D\/!|D1!|D3!|D5!|D7!|D9!|D;!|D=.|!N|-l|-k!|D?!|D@#|DA!|DB!|DC!|DD!|DE!|DF!|DG!|DI!|DK+)|!>|-m|-x|-h|-j|-i|-g|-c|-d!|DO!|DS!|DW!|D[!|D`!|Db!|Dd!|Dh!|Dl!|Dn!|Dp!|Dr!|Dt!|Du!|Dx!|Dy!|Dz#|E%#|E&'  '#|E'*$ +0#|.0+0#'!+0#'!+0#'& }((0}('W!1   2+0#|.6+0#|.5+0#'!+0#'& }((0}('W!1   2+0#|.6+0#|.1+0#'!+0#'& }((0}('W!1   2 !|E(#|E*!|E+!|E7!|EE!|EO!|ES!|EX!|Eb!|Ek!|Es!|Ey!|F1!|Gb!|Gm!|HE!|HJ!|HQ#|I+!|I,!|I;!|IF#|Ia!|Ib-|@Q|.8!|In!|Ip!|Ir!|Iu!|L*#|L_#|L`+)|?&|.k|.l|.m|.o|.p|.n|.W|.X!|La.|!N|.e|.Z#|Lc#|Ld+)|!>|.[|.f|.g|.h|.i|.j|.]|.^#|Le#|Lf\/|.@|.d|.`|.a#|Lg!|Lh!|Lj!|Lo!|Lt!|Ly!|M#!|M(!|M-!|M2!|M7!|M@!|MH!|MJ&!|MO,|MQ,|MR,|MS!|MT.|!N|.x|.v!|MV,|MZ,|M[!|M]#|Ms#|Mt!|Mu!|N6!|N8!|N:!|N<!|N>\/:'!'!'& }((0}('W!1   *% +0#'!+0#'!+0#'!+0#'!2+0#'!+0#'!+0#'& }((0}('W!1   +0#'& }((0}('W!1   2+0#'!+0#'& }((0}('W!1   +0#'!+0#'!2+0#'& }((0}('W!1   +0#'!+0#'!+0#'!2*% +0#'!+0#'!+0#'!+0#'& }((0}('W!1   2+0#'!+0#'!+0#'& }((0}('W!1   +0#'!2+0#'!+0#'& }((0}('W!1   +0#'!+0#'!2+0#'& }((0}('W!1   +0#'!+0#'!+0#'!2#|N@#|NA#|NB!|NC!|ND!|NF!|NJ!|NN#|NR#|Np,%,%,%,%#|Nq,%#|Nr#|Ns#|Nt#|Nu#|Nv#|Nw#|Nx#|Ny#|Nz#|N{#|O #|O!#|O##|O$#|O%,%,%#|O&#|O'#|O(#|O)#|O*#|O+#|O,#|O-#|O.#|O\/#|O0#|O1#|O2#|O3,%#|O4#|O5#|O6#|O7#|O8#|O9#|O:#|O;#|O<,|O=,|O>,|O?,|O@#|OA#|OC#|OD#|OF#|OH#|OJ#|OL#|OM#|ON#|OO#|OP#|OQ#|OS#|OU#|OW#|OY#|O[#|O^#|O`#|Ob#|Od#|Of#|Oh#|Oj#|Ol#|On#|Op#|Or#|Ot#|Ov!|Ox!|Oz!|P!!|P$!|P&!|P(!|P*!|P,!|P.!|P6!|PC!|PN!|PP#|Q;!|Q>!|Q@!|QB!|QD!|QF!|QH#|QJ#|QK+)|?&|0T|0U|0V|0X|0Y|0W|0A|0B!|QL.|!N|0N|0D#|QN#|QO+)|!>|0E|0O|0P|0Q|0R|0S|0F|0G#|QP#|QQ\/|.@|0M|0I|0J#|QR!|QS!|QU!|Q`!|Qj!|Qn!|Qr!|Qv!|Qz!|R$!|R)!|R2!|R:!|R<&!|RF,|RH,|RI,|RJ,|RK,|RL,|RM,|RN,|RO,|RP!|RQ!|RS!|RU !|Rc &#|Re !|Rf &  & !|Rh#|Rs-|D2#!|Rt!|Rv!|Rx!|S#!|S_!|Sw+.|V0|1*|1+|1,|1-|1.|1\/|10|11|1%|1&|12|14|1'!|Sy!|Sz!|T,& !|T7!|T9!|T=!|T@!|TI!|TK!|TT!|TX!|T]!|Ta!|UZ!|U^!|U`#|Ud!|Ue  !|Uh*! |$?,|Uj!|Uk!|Us!|Uv!|V !|V#!|V$!|V%!|V-!|V\/!|V1!|V3!|V5!|V7!|V9!|V;!|V=!|V?!|VA!|VC!|VE!|VG!|VI!|VL!|VM!|VU!|VV & !|VX#|VZ#|V[#|V]1|@E|1t|1g|1a|1k|1f!|V^1|@E|1w|1h|1c|1v|1d!|V`!|Vb!|Vc!|Vf!|Vg!|Vh!|Vj!|Vk!|Vl!|Vm!|Vn!|Vo!|Vp!|Vs!|Vu!|Vy.|@M|1i|1j1|@I|1s|1k|1l|1m|1n.|@M|1o|1p!|V{1|@I|1u|1v|1q|1r|1e!|W!,|W$!|W%!|W'&!|W)!|W+!|W-!|W:!|W;!|WC!|WK!|WM!|WQ!|WT!|WX!|WY!|Wb!|Wd!|Wh!|Wk!|Wn!|Wo!|Wq,|Ws!|Wt,|Wu,|Ww!|Wx!|Wz!|X       #|X##|X$#|X%#|X&#|X'#|X(!|X)!|X+,|X0!|X1!|X@!|XO!|XZ!|Xh!|Xn!|Xt!|Y$!|Y)!|Y,#|Y@ #|YA!|YB !|YC!|YK!|YR!|YY!|Yc!|Yd!|Yf!|Yh!|Yj!|Yl!|Yn!|Yp!|Yr!|Yu!|Y{!|Z$!|Z*!|Z-!|Z3!|Z7!|Z=!|Z@!|ZF!|ZJ!|ZP!|ZS!|ZY!|Z^!|Zd!|Zg!|Zm!|Zq!|Zw!|Zz!|[%!|[)!|[\/!|[2!|[8!|[<!|[B!|[E!|[K!|[O!|[U!|[X!|[_!|[c!|[i!|[l!|[r!|[v!|] !|]$!|]*!|].!|]4!|]7!|]=!|]A!|]G!|]J!|]P!|]T!|]Z-|@Q2!|]_!|]c!|]d-|@Q2!|]h!|]l!|]m-|@Q2!|]q!|]u!|]v-|@Q2!|]z!|^#!|^$-|@Q2!|^(!|^,!|^--|@Q2!|^1!|^5!|^6-|@Q2!|^:!|^>!|^?-|@Q2!|^C!|^G!|^H-|@Q2!|^L!|^P!|^Q-|@Q2!|^U!|^Y!|^Z-|@Q2!|^_!|^c!|^d-|@Q2!|^h!|^l!|^m-|@Q2!|^q!|^u!|^v!|^w!|^y!|^{  !|_!.|d!|7B|3u!|_$!|_%!|_)!|_*!|_+!|_\/!|_0!|_1!|_5!|_6!|_7!|_;!|_<!|_=!|_A!|_B!|_C!|_G!|_H!|_I!|_M!|_N!|_O!|_S!|_T!|_U!|_Y!|_Z!|_[!|_`!|_a!|_b!|_f!|_g!|_h!|_l!|_m!|_n!|_r!|_s!|_t!|_u!|_v!|_y!|_{!|` !|`#!|`$!|`%!|`(!|`*!|`+!|`-!|`.!|`\/!|`2!|`4!|`5!|`7!|`8!|`9!|`<!|`>!|`?!|`A!|`B!|`C!|`F!|`H!|`I!|`K!|`L!|`M!|`P!|`R!|`S!|`U!|`V!|`W!|`Z!|`]!|`^!|``!|`a!|`b!|`e!|`g!|`h!|`j!|`k!|`l!|`o!|`q!|`r!|`t!|`u!|`v!|`y!|`{!|a !|a#!|a$!|a%!|a(!|a*!|a+!|a-!|a.!|a\/!|a2!|a4!|a5!|a7!|a8!|a9!|a<!|a>!|a?!|aA0|c{|7G|3v|3w|3x.|aG|!N|4 .|aC|!O|5?.|d!|4.|4\/0|c{|58|59|5;|5=0|aK|5B|5C|40|4I.|d!|4@|4A0|c{|52|53|55|570|aK|5E|5F|4B|4I.|d!|4:|4;0|c{|5,|5-|5\/|510|aK|5H|5I|4<|4I.|d!|47|480|c{|5&|5'|5)|5+0|aK|5K|5L|49|4I.|d!|4C|4D0|c{|4{|5 |5#|5%0|aK|5N|5O|4E|4I.|d!|4=|4>0|c{|4u|4v|4x|4z0|aK|5Q|5R|4?|4I.|d!|44|450|c{|4o|4p|4r|4t0|aK|5T|5U|46|4I.|d!|41|420|c{|4i|4j|4l|4n0|aK|5W|5X|43|4I.|d!|4+|4,0|c{|4c|4d|4f|4h0|aK|5Z|5[|4-|4I.|d!|4F|4G0|c{|4]|4^|4`|4b0|aK|5^|5_|4H|4I.|d!|4(|4)0|c{|4V|4W|4Y|4[0|aK|5a|5b|4*|4I.|d!|4%|4&0|c{|4P|4Q|4S|4U0|aK|5d|5e|4'|4I.|d!|4!|4#0|c{|4J|4K|4M|4O0|aK|5g|5h|4$|4I!|aB!|aD!|aF!|aH!|aJ!|aL!|aN!|aP!|aS!|aV!|aY!|a]!|a`!|ac!|ag!|aq #|au #|ax #|a{ #|b# #|b& #|b) #|b, #|b\/ #|b2 #|b5 #|b8 #|b; #|b> #|bA #|bD #|bG #|bJ #|bM #|bP #|bS #|bV #|bY #|b] #|b` #|bc #|bf #|bi #|bl #|bo #|br #|bu #|bx #|b{ #|c# #|c& #|c) #|c, #|c\/ #|c2 #|c5 #|c8 #|c; #|c> #|cA #|cD #|cG!|cJ!|cM!|cP!|cS!|cW!|cZ #|cb 2|6w|,&|(H2|7)|,&|,&#|cc#|cd#|ce#|cf!|cg!|cp!|cq!|cs!|cu!|cv!|cx!|cz!|d !|d#!|d$!|d%!|d'!|d)-|@Q2!|d-!|d1!|d3!|d<!|d=!|d>!|dF!|dM!|dN!|dO!|dP0|c{|7E|7F|7G|7H.|d!|7A|7B!|dQ!|dW!|dh!|e%!|e(!|e+!|e0!|e3!|e6!|e9!|e<!|e>!|eC!|eF!|ek!|es!|ev!|ey!|f !|f$!|f'!|f*!|f\/!|f2!|f5!|f8!|f;!|g;!|gx!|hf!|i.!|ij!|jK!|jN!|jQ!|jV!|j_!|l+!|lA!|lD!|lI!|lO!|lR!|lU!|lX!|lf!|lj!|ln!|ls!|lw!|m9!|mK!|mU!|ma!|mi!|mm!|mn#|mo.|@M|8)|81#|mp.|@M|8(|8>!|mq+.|uz|9P|9N|9I|8*|8,|:>|: |8'|7d|8_|8`|:Y|8a!|mr!|mu!|mw!|mx !|n$!|n%!|n(!|n*!|n,!|n-!|n.!|n\/!|n0!|n1!|n4!|n5!|n6  !|n7!|n:!|n<#|n= #|n> #|n? !|n@!|nB!|nD!|nF#|nH #|nI !|nJ!|nK!|ns!|nt!|nu#|o^!|o_!|ob!|of!|og!|oj!|oo!|or!|oz!|o{!|p$!|p%&!|p&#|p'#|p(!|p)!|p*!|p\/!|p1!|p2!|p3!|p4!|p5!|p8!|p;!|p>!|pA!|pB!|pD!|pG!|pH!|pI!|pN!|pT!|pU!|pW!|p]!|pa.|@M|8D|8E!|pc!|pd!|pe!|q'!|q*!|q,!|q-!|q1!|q31|@I|9'|9-|9.|9\/|90!|q6!|q9!|q;!|q<!|q@!|qB1|@I|9'|94|95|96|97.|@M|9+|9,1|@I|99|9-|9.|9\/|901|@E|9:|9&|9(|9-|9).|BJ|9;|8l.|%0|9;|8y0|Yi|9;|8z|8{|9 \/|Ye|9=|9>|8w.|@M|+o|+p1|@I|9@|+q|+r|+s|+t1|@E|9A|+m|+s|+q|+n.|%0|9B|,*0|Yi|9B|2_|),|--\/|Ye|9C|9D|8x.|@M|9+|9,1|@I|9F|9-|9.|9\/|901|@E|9G|9&|9(|9-|9).|BJ|9H|8l.|@M|92|931|@I|9J|94|95|96|971|@E|9K|8m|8n|94|8o!|qE\/|ur|9K|9L|8^\/|ur|9G|9H|8h.|uv|9O|8k\/|tH|8\/|9;|8d\/|ur|9:|9;|8e.|uv|9R|8f0|tP|9:|9;|8[|8]2|tL|8\/|9T|9R|9S|9<|9Q2} \/9|9B|&5|$P|$O|8t|8u2} \/9|9;|8p|8q|8v|8r|8s!|qG!|qI!|qK!|qM!|qO!|qQ!|qS!|q[!|q^!|qa!|qc!|qf!|qh!|qk!|qm!|qs!|qu!|r !|r#!|r%!|r'!|r*!|r,!|r1!|r3!|r5!|r7!|r9!|r;!|r=!|rB!|rD!|rG!|rI!|rK!|rM!|rO!|rQ!|rS!|rU!|r_!|ra!|rc!|re!|rg!|ri!|rl!|rn!|rq!|rs,|ru!|rv!|rx!|rz!|s%!|s'!|s)!|s+!|s-!|s\/!|s2!|s4!|s7!|s9,|s;!|s<!|s>!|sA!|sC!|sE!|sG!|sI!|sK!|sM!|sO!|sQ!|sS!|sU!|sW!|sY!|s[!|s^!|s`!|sc!|se!|sg!|si&!|sk!|sy#|t7!|t8!|t;!|t=!|t>!|t?!|t@!|tA!|tB!|tC!|tD!|tE!|tF!|tG!|tI!|tK!|tM!|tO!|tQ!|tS!|tU!|tW!|tY!|tn!|tt!|tw!|u=!|uC!|uF!|uH!|uL#|uQ!|uR#|uU!|uV!|u]!|ub!|ui!|uk!|un!|uq!|us!|uu!|uw!|uy!|u{!|v!!|v$!|v&!|v(!|v*!|v6!|v7!|vB!|vK!|vN!|vS!|vY!|v[!|v^!|v`!|vb!|vd!|vf!|vh!|vj!|vl!|vo!|vs!|vw!|vy!|v{!|w!!|w$!|w&!|w(!|w+!|w;!|wA!|wD!|wF!|wN!|wU!|wY #|wZ!|w[!|w^#|w_    !|w`!|wa!|wd!|we!|wf!|wg-|@Q=!|wi 2|6w|,&|(H2|;d|,&|,&#|x@#|xA#|xB!|xC-|@Q|,&!|xN 2|6w|,&|(H2|;l|,&|,&#|xP!|xQ 2|6w|,&|(H2|;p|,&|,&#|xg!|xh!|xx!|y3!|y:  1|)v$|;w|;x|#B|#B !|yC!|yE.} %D|,&|#B!|yL!|yM!|yQ!|z'#|z+!|z,!|z@.|Wp|<%|<&!|{1!|{2!|{4,|{5-|w%|<.!|{7!|{D!|{H!|{L!|{P!|{R!|{a!|{k!} #p!} $-!} $Q!} $S!} $U!} $j!} $p!} $w!} %C*# % |ow}#I2% } 6% #} %E!} %F!} %V!} %X!} %q!} %v#} %y#} %z#} %{ 2|6w|,&|(H2|<K|,&|,&#} &  2|6w|,&|(H2|<N|,&|,&#} &!#} &##} &$,%!} &%!} &*!} &.!} &\/!} &0!} &2!} &5 2|6w|,&|(H2|<[|,&|,&#} &6#} &7 2|6w|,&|(H2|<`|,&|,&#} &8!} &9!} &A!} &{!} '#!} '(!} '+!} '.!} 'Q.} -8|<j2#} 'R!} 'S!} 'T!} 'Z!} 'c!} 'f!} 'j!} 'n!} 'r!} 'u!} 'x!} (!!} (*!} (1!} (5!} (9!} (?!} (I!} (Q!} (T!} (W!} (]!} (e!} (l!} (o!} (r!} (u!} (z!} )!!} )%.|@M|<T|<U!} )*!} )-!} )0!} )4!} )6!} );!} )>!} )E!} )J!} )O!} )a!} )f!} )i!} )p!} )s!} )y!} * !} *%!} *(!} *-!} *2!} *>!} *G!} *H!} *I!} *J!} *N.|@M|<Y|<X!} *Q!} *X!} *[!} *c!} *j!} *m!} *n!} *p!} *x!} *{!} +(!} ++!} +,!} +3!} +:!} +<!} +@!} +B!} +G!} +N!} +Q!} +S!} +W!} +Y!} +[!} +a!} +f!} +j!} +l!} +n!} +p!} +r!} +z!} ,!!} ,$!} ,&!} ,,!} ,\/!} ,F!} ,H1} .!|9V|<S|9V|=F|=H!} ,K!} ,Q!} ,R!} ,f!} ,h!} ,l!} ,n!} ,p!} ,u!} - !} -$!} -*!} -.!} -0!} -7!} -9!} -<!} ->!} -@!} -B!} -G!} -[!} -^!} -`!} -b!} -d!} -f!} -h!} -j!} -l!} -n!} -p!} -r!} -t!} -v!} -x!} -z!} . !} .#!} .%!} .'!} .)!} .+!} .-!} .\/!} .1!} .M!} \/#!} \/$!} \/&!} \/(!} \/*!} \/,!} \/.!} \/0!} \/2!} \/4!} \/6!} \/8!} \/:!} \/<!} \/>!} \/@!} \/B!} \/T!} \/V#} \/Z !} \/]!} \/^#} \/`#} \/a#} \/b !} \/c !} \/f!} \/l!} \/n!} \/p!} \/r#} \/s  #} \/t!} \/u!} \/x!} \/{!} 0 !} 0#!} 0$!} 0%!} 0&+(|0c|-Y|-X|>s|.'|.$|>t|>u0|04|>y|>v|>w|>x!} 0(*# % |ow}#I2% } 6% *# % |&k}'?o% |r? !} 0*-|D2%}% *!} 0\/#} 08#} 09!} 0:!} 0E !} 0G!} 0J!} 0L!} 0O");
 h$staticDelayed = [];
 h$main(h$mainZCZCMainzimain);
 
