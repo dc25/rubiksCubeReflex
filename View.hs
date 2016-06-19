@@ -24,6 +24,8 @@ data FaceViewKit = FaceViewKit { face :: Facet
                                , transform :: Matrix Float
                                }
 
+type ViewKitCollection = Map Color FaceViewKit
+
 -- | Namespace needed for svg elements.
 svgNamespace = Just "http://www.w3.org/2000/svg"
 
@@ -401,7 +403,7 @@ viewKit model@(Model topFace orientation twist twistMode) viewFacet withTwist of
 
     in (isFacingCamera, FaceViewKit viewFacet viewTransform)
 
-kitmapUpdate :: Model -> Bool -> Float -> Map Color FaceViewKit -> Facet -> Map Color FaceViewKit
+kitmapUpdate :: Model -> Bool -> Float -> ViewKitCollection -> Facet -> ViewKitCollection
 kitmapUpdate model withTwist offset prevMap lowerLeft = 
     let (isVisible, newViewKit) 
             = viewKit model lowerLeft withTwist offset
@@ -409,17 +411,17 @@ kitmapUpdate model withTwist offset prevMap lowerLeft =
         then insert ((color.south.south) lowerLeft) newViewKit prevMap
         else prevMap
 
-topView :: Model -> Map Color FaceViewKit
+topView :: Model -> ViewKitCollection
 topView model@(Model center _ _ twistMode)  =
     foldl (kitmapUpdate model (twistMode == TopTwist) (1.0/2.0)) empty [getLowerLeft center]
 
-middleUpView :: Model -> Map Color FaceViewKit
+middleUpView :: Model -> ViewKitCollection
 middleUpView model@(Model center _ twist twistMode)  =
     if twist == 0 || twistMode /= TopTwist
     then empty
     else foldl (kitmapUpdate model False (1.0/6.0)) empty [getLowerLeft center]
 
-bottomUpView :: Model -> Map Color FaceViewKit
+bottomUpView :: Model -> ViewKitCollection
 bottomUpView model@(Model center _ twist twistMode)  =
     if twist == 0 || twistMode /= BottomTwist
     then empty
@@ -434,20 +436,20 @@ upperRights model@(Model center _ _ _)   =
                     ]
     in scanl (&) upperRight advancers  -- get upper left corners of all faces
 
-upperMiddleView :: Model -> Map Color FaceViewKit
+upperMiddleView :: Model -> ViewKitCollection
 upperMiddleView model@(Model center _ _ twistMode)   =
     foldl (kitmapUpdate model (twistMode == TopTwist) 0.5) empty $ upperRights model
 
-middleMiddleView :: Model -> Map Color FaceViewKit
+middleMiddleView :: Model -> ViewKitCollection
 middleMiddleView model@(Model center _ _ twistMode)   =
     foldl (kitmapUpdate model False 0.5) empty $ upperRights model
 
 
-bottomView :: Model -> Map Color FaceViewKit
+bottomView :: Model -> ViewKitCollection
 bottomView model@(Model center _ _ twistMode)  =
     foldl (kitmapUpdate model (twistMode == BottomTwist) 0.5) empty [(west.south.west.west.south.west.getLowerLeft) center]
 
-lowerMiddleView :: Model -> Map Color FaceViewKit
+lowerMiddleView :: Model -> ViewKitCollection
 lowerMiddleView model@(Model center _ _ twistMode)  =
     let lowerLeft = (west.south.west.getLowerLeft) center
         advancers = [ west.west.south
