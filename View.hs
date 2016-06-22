@@ -20,6 +20,8 @@ import TwistMode
 import Cube
 import Model
 
+viewScale = 500
+
 data FaceViewKit = FaceViewKit { face :: Facet
                                , transform :: Matrix Float
                                }
@@ -396,10 +398,18 @@ viewKit model@(Model topFace orientation twist twistMode) viewFacet withTwist of
         (modelTransform, isFacingCamera) 
             = viewTransformation model viewCenterFacet withTwist offset
 
+        -- scale up to svg box scale
+        viewScaleMatrix = scaleMatrix viewScale
+
+        -- move to center of svg box
+        viewTranslationMatrix = translationMatrix (viewScale/2, viewScale/2, 0)
+
         -- combine to get single transform from 2d face to 2d display
         viewTransform =            modelTransform
                         `multStd2` perspectivePrepMatrix
                         `multStd2` perspectiveMatrix
+                        `multStd2` viewScaleMatrix
+                        `multStd2` viewTranslationMatrix
 
     in (isFacingCamera, FaceViewKit viewFacet viewTransform)
 
@@ -535,8 +545,8 @@ view model =
         upEv <-      fmap (const $ NudgeCube Up)    <$> elAttr "div" fps (button "up")
         downEv <-    fmap (const $ NudgeCube Down)  <$> elAttr "div" fps (button "down")
         (_,ev) <-    elDynAttrNS' svgNamespace "svg" 
-                       (constDyn $  "viewBox" =: "-0.48 -0.48 0.96 0.96"
-                                 <> "width" =: "575"
-                                 <> "height" =: "575") $ viewModel model
+                       (constDyn $  "width" =: show viewScale
+                                 <> "height" =: show viewScale
+                                 ) $ viewModel model
         return $ leftmost [ev, leftEv, rightEv, upEv, downEv]
 
