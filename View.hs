@@ -425,6 +425,10 @@ topView :: Model -> ViewKitCollection
 topView model@(Model center _ _ twistMode)  =
     foldl (kitmapUpdate model (twistMode == TopTwist) (1.0/2.0)) empty [getLowerLeft center]
 
+bottomView :: Model -> ViewKitCollection
+bottomView model@(Model center _ _ twistMode)  =
+    foldl (kitmapUpdate model (twistMode == BottomTwist) 0.5) empty [(west.south.west.west.south.west.getLowerLeft) center]
+
 middleUpView :: Model -> ViewKitCollection
 middleUpView model@(Model center _ twist twistMode)  =
     if twist == 0 || twistMode /= TopTwist
@@ -444,7 +448,16 @@ upperRights model@(Model center _ _ _)   =
                     , west.west.south
                     , west.west.south
                     ]
-    in scanl (&) upperRight advancers  -- get upper left corners of all faces
+    in scanl (&) upperRight advancers  -- get upper right corners of all faces
+
+lowerLefts :: Model -> [Facet]
+lowerLefts model@(Model center _ _ _)   =
+    let lowerLeft = (west.south.west.getLowerLeft) center
+        advancers = [ west.west.south
+                    , west.west.south
+                    , west.west.south
+                    ]
+    in scanl (&) lowerLeft advancers  -- get lower left corners of all faces
 
 upperMiddleView :: Model -> ViewKitCollection
 upperMiddleView model@(Model center _ _ twistMode)   =
@@ -454,20 +467,9 @@ middleMiddleView :: Model -> ViewKitCollection
 middleMiddleView model@(Model center _ _ twistMode)   =
     foldl (kitmapUpdate model False 0.5) empty $ upperRights model
 
-
-bottomView :: Model -> ViewKitCollection
-bottomView model@(Model center _ _ twistMode)  =
-    foldl (kitmapUpdate model (twistMode == BottomTwist) 0.5) empty [(west.south.west.west.south.west.getLowerLeft) center]
-
 lowerMiddleView :: Model -> ViewKitCollection
 lowerMiddleView model@(Model center _ _ twistMode)  =
-    let lowerLeft = (west.south.west.getLowerLeft) center
-        advancers = [ west.west.south
-                    , west.west.south
-                    , west.west.south
-                    ]
-        lowerLefts = scanl (&) lowerLeft advancers  -- get lower left corners of all faces
-    in foldl (kitmapUpdate model (twistMode == BottomTwist) 0.5) empty lowerLefts
+    foldl (kitmapUpdate model (twistMode == BottomTwist) 0.5) empty $ lowerLefts model
 
 getLowerLeft :: Facet -> Facet
 getLowerLeft centerFace =
