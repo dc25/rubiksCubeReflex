@@ -88,7 +88,11 @@ arrowPoints (rotation,index) =
                               (fmap translationMatrix cwTranslations)
 
         ccwRotations = [pi/2, 0, 3*pi/2, pi]
-        ccwTranslations = [(0.5,1.5,0),(1.5,2.5,0),(2.5,1.5,0),(1.5,0.5,0)]
+        ccwTranslations = [(0.5,1.5,0)
+                          ,(1.5,2.5,0)
+                          ,(2.5,1.5,0)
+                          ,(1.5,0.5,0)
+                          ]
 
         ccwTransformations = zipWith multStd2 
                               (fmap xyRotationMatrix ccwRotations) 
