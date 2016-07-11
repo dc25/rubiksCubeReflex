@@ -1,10 +1,9 @@
 module View (view, insideFacesCamera) where
 
-import Prelude(Int,Bool(True,False),Float,String,fromIntegral,concatMap,zipWith,sum,take,pi,not,const,show,(<$>),($),(.),(*),(/),(+),(-),(++),(==),(/=),(!!),(<),(&&),(||))
 
 import Reflex.Dom ( MonadWidget ,Dynamic ,Event ,EventName(Click) ,attachWith ,button ,constDyn ,current ,domEvent ,el ,elAttr ,elDynAttrNS' ,leftmost ,listWithKey ,mapDyn ,switch ,(=:) ,(&))
 
-import Data.Map (Map, lookup, insert, empty, fromList, elems)
+import Data.Map as DM (Map, lookup, insert, empty, fromList, elems)
 import Data.List (foldl, scanl,head)
 import Data.Maybe (Maybe(Just))
 import Data.Matrix (Matrix, fromLists, toLists, multStd2)
@@ -13,7 +12,7 @@ import Control.Monad(sequence,fmap,return,(>>=),(=<<))
 
 import Matrices
 import Rotation
-import Direction
+import Direction as D
 import Action
 import Color
 import TwistMode
@@ -73,7 +72,7 @@ arrow =
     let hw = 0.35
         base = -0.3
         length = 0.6
-    in fromLists [[base, (-hw), 0, 1], [base, hw, 0, 1], [base+length, 0, 0, 1]]
+    in fromLists [[base, -hw, 0, 1], [base, hw, 0, 1], [base+length, 0, 0, 1]]
 
 arrowPoints :: (Rotation,Int) -> Matrix Float
 arrowPoints (rotation,index) = 
@@ -307,7 +306,7 @@ viewTransformation model@(Model topFace orientation twist twistMode) viewCenterF
                          
                          ,( (Orange, Purple), 0) ]
 
-        Just turnCount = lookup (topColor, faceColor) turns 
+        Just turnCount = DM.lookup (topColor, faceColor) turns 
         turnMatrix = xyRotationMatrix (fromIntegral turnCount * pi / 2)
         offsetMatrix = translationMatrix (0,0,offset)
 
@@ -356,8 +355,8 @@ viewTransformation model@(Model topFace orientation twist twistMode) viewCenterF
                           )
                         ]
 
-        Just (assembleMatricies,_) = lookup faceColor assemblies 
-        Just (postTwist,preTwist) = lookup topColor assemblies 
+        Just (assembleMatricies,_) = DM.lookup faceColor assemblies 
+        Just (postTwist,preTwist) = DM.lookup topColor assemblies 
 
         twistMatricies = 
             if withTwist && twist /= 0
@@ -507,7 +506,7 @@ getLowerLeft centerFace =
                             , ((Orange,  Yellow), south)
                             ]
 
-        Just goLeft = lookup (centerFaceColor, westFaceColor) leftDirs
+        Just goLeft = DM.lookup (centerFaceColor, westFaceColor) leftDirs
     in (west.goLeft) centerFace
 
 -- pain point : How do I make the order of display conditional
@@ -542,8 +541,8 @@ cps = "style" =: "float:clear"
 view :: MonadWidget t m => Dynamic t Model -> m (Event t Action)
 view model = 
     el "div" $ do
-        leftEv <-    fmap (const $ NudgeCube Left)  <$> elAttr "div" fps (button "left")
-        rightEv <-   fmap (const $ NudgeCube Right) <$> elAttr "div" fps (button "right")
+        leftEv <-    fmap (const $ NudgeCube D.Left)  <$> elAttr "div" fps (button "left")
+        rightEv <-   fmap (const $ NudgeCube D.Right) <$> elAttr "div" fps (button "right")
         upEv <-      fmap (const $ NudgeCube Up)    <$> elAttr "div" fps (button "up")
         downEv <-    fmap (const $ NudgeCube Down)  <$> elAttr "div" fps (button "down")
         (_,ev) <-    elDynAttrNS' svgNamespace "svg" 

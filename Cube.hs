@@ -12,7 +12,6 @@ module Cube ( DNode(DNode)
 
             ) where
 
-import Prelude(Eq, Ord, (==), ($), (.), (+), compare, concat, replicate, Show, Enum, Int)
 import Data.Map (Map, lookup, insert, empty)
 import Data.List (foldl)
 import Data.Maybe (fromMaybe)
@@ -29,7 +28,6 @@ data DNode a = DNode { north :: DNode a
                      }
 
 type Signature a = (a, Int)
-type FacetSig = Signature Color
 
 signature :: DNode a -> Signature a
 signature dn = (color dn, index dn)

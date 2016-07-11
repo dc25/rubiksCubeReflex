@@ -1,7 +1,6 @@
 module RotateFace ( rotateFace) where
 
-import Prelude(Eq, Ord, (==), ($), (.), (+), compare, concat, replicate, Show, Enum, Int)
-import Data.Map (Map, lookup, insert, empty)
+import Data.Map as DM (Map, lookup, insert, empty)
 import Data.List (foldl)
 import Data.Maybe (fromMaybe)
 
@@ -20,7 +19,7 @@ copyWithRotation rotationMap f =
           (index f)
     where 
         checkForRotation rotationMap startFacet preRotationFacet =
-            fromMaybe preRotationFacet $ lookup (startFacet, preRotationFacet) rotationMap
+            fromMaybe preRotationFacet $ DM.lookup (startFacet, preRotationFacet) rotationMap
 
 getRotationMap :: (Facet -> Facet) -> Facet -> RotationMap
 getRotationMap advanceToPost f =

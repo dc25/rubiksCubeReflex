@@ -8,7 +8,6 @@ module Matrices ( identityMatrix
                 , perspectivePrepMatrix
                 ) where
 
-import Prelude(Float,cos,sin)
 import Data.Matrix (Matrix, fromLists)
 
 identityMatrix :: Matrix Float

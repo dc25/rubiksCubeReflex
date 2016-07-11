@@ -1,11 +1,10 @@
 module Update(update) where
 
-import Prelude(Float,pi,not,($),(+),(-),(*),(/),(==),(<),(>),(.))
 import Data.Matrix (Matrix,multStd2)
 
 import Matrices
 import Action
-import Direction
+import Direction as D
 import Rotation
 import TwistMode
 import Model
@@ -52,8 +51,8 @@ update action model =
         NudgeCube direction -> 
             let step = pi/20
             in case direction of
-                   Left ->  rotateModel (zxRotationMatrix (-step) ) model
-                   Right -> rotateModel (zxRotationMatrix   step  ) model
+                   D.Left ->  rotateModel (zxRotationMatrix (-step) ) model
+                   D.Right -> rotateModel (zxRotationMatrix   step  ) model
                    Up ->    rotateModel (yzRotationMatrix (-step) ) model
                    Down ->  rotateModel (yzRotationMatrix   step  ) model
  
