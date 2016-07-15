@@ -53,6 +53,6 @@ update action model =
             in case direction of
                    D.Left ->  rotateModel (zxRotationMatrix (-step) ) model
                    D.Right -> rotateModel (zxRotationMatrix   step  ) model
-                   Up ->    rotateModel (yzRotationMatrix (-step) ) model
-                   Down ->  rotateModel (yzRotationMatrix   step  ) model
+                   D.Up ->    rotateModel (yzRotationMatrix (-step) ) model
+                   D.Down ->  rotateModel (yzRotationMatrix   step  ) model
  
