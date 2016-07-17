@@ -10,7 +10,7 @@ ghcjs_B7KLFJ07Vte3zPHAgRIBTb:11013
 ghcjs_D7BYGeMTlMGF2My8KZzKUS:152503
 ghcjs_Kc7TQ2cEDg1F5e5cgY2Vuk:9821
 integer-gmp:             42831
-main:                    274529
+main:                    273807
 matri_682HBa36TWs8HIx1KnWQ3t:31549
 primi_293YT17zdlWL9QJgnLTQSn:2385
 refle_BP42iAL8rA7IBOuWCaV0zs:401306
@@ -140,9 +140,9 @@ main
     Model:                              830
     RotateFace:                         8817
     Rotation:                           997
-    TwistMode:                          13300
+    TwistMode:                          13293
     Update:                             10598
-    View:                               169851
+    View:                               169136
 
 matri_682HBa36TWs8HIx1KnWQ3t
     Data.Matrix:                        31549
@@ -205,5 +205,5 @@ vecto_FNLwpzrmeRC6Ra1RihE2cq
 
 
 
-packed metadata: 438871
+packed metadata: 438770
 

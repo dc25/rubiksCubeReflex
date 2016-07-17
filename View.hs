@@ -201,7 +201,8 @@ showMiddleMiddleFace upperRight = do
                       ]
 
 showLowerMiddleFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
-showLowerMiddleFace lowerLeft = do  
+showLowerMiddleFace upperRight = do  
+    lowerLeft <-   advance (west.south.west.south) upperRight 
     lower <-       showAndAdvance 0 0 south lowerLeft  
     lowerRight <-  showAndAdvance 1 0 west lower      
                     >>= showFacet 2 0                 
@@ -453,15 +454,6 @@ upperRights model@(Model center _ _ _)   =
                     ]
     in scanl (&) upperRight advancers  -- get upper right corners of all faces
 
-lowerLefts :: Model -> [Facet]
-lowerLefts model@(Model center _ _ _)   =
-    let lowerLeft = (west.south.west.getLowerLeft) center
-        advancers = [ west.west.south
-                    , west.west.south
-                    , west.west.south
-                    ]
-    in scanl (&) lowerLeft advancers  -- get lower left corners of all faces
-
 upperMiddleView :: Model -> ViewKitCollection
 upperMiddleView model@(Model center _ _ twistMode)   =
     foldl (kitmapUpdate model (twistMode == TopTwist) 0.5) empty $ upperRights model
@@ -472,7 +464,7 @@ middleMiddleView model@(Model center _ _ twistMode)   =
 
 lowerMiddleView :: Model -> ViewKitCollection
 lowerMiddleView model@(Model center _ _ twistMode)  =
-    foldl (kitmapUpdate model (twistMode == BottomTwist) 0.5) empty $ lowerLefts model
+    foldl (kitmapUpdate model (twistMode == BottomTwist) 0.5) empty $ upperRights model
 
 getLowerLeft :: Facet -> Facet
 getLowerLeft centerFace =
