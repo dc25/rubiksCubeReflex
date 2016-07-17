@@ -1,6 +1,5 @@
 module View (view, insideFacesCamera) where
 
-
 import Reflex.Dom ( MonadWidget ,Dynamic ,Event ,EventName(Click) ,attachWith ,button ,constDyn ,current ,domEvent ,el ,elAttr ,elDynAttrNS' ,leftmost ,listWithKey ,mapDyn ,switch ,(=:) ,(&))
 
 import Data.Map as DM (Map, lookup, insert, empty, fromList, elems)
@@ -249,9 +248,11 @@ facingCamera viewPoint modelTransform =
         -- should be opposed to each other. 
     in cameraToPlane `dot` perpendicular < 0
 
-viewTransformation :: Model -> Facet -> Bool -> Float -> (Matrix Float, Bool)
-viewTransformation model@(Model topFace orientation twist twistMode) viewCenterFacet withTwist offset = 
-    let faceColor = color viewCenterFacet 
+viewKit :: Model -> Facet -> Bool -> Float -> (Bool, FaceViewKit)
+viewKit model@(Model topFace orientation twist twistMode) viewFacet withTwist offset = 
+    let viewCenterFacet = (south.south) viewFacet 
+
+        faceColor = color viewCenterFacet 
         topColor = color topFace
 
         scale2dMatrix = scaleMatrix (1/3) -- scale from 3x3 square face to 1x1 square face.
@@ -389,18 +390,6 @@ viewTransformation model@(Model topFace orientation twist twistMode) viewCenterF
 
         -- backface elimination
         isFacingCamera = facingCamera [0,0,-1] modelTransform
-    in (modelTransform, isFacingCamera)
-
-insideFacesCamera :: Model -> Facet -> Bool
-insideFacesCamera model facet = 
-    let (_,isFacingCamera) = viewTransformation model facet False (1.0/6.0)
-    in isFacingCamera
-
-viewKit :: Model -> Facet -> Bool -> Float -> (Bool, FaceViewKit)
-viewKit model@(Model topFace orientation twist twistMode) viewFacet withTwist offset = 
-    let viewCenterFacet = (south.south) viewFacet 
-        (modelTransform, isFacingCamera) 
-            = viewTransformation model viewCenterFacet withTwist offset
 
         -- scale up to svg box scale
         viewScaleMatrix = scaleMatrix viewScale
@@ -416,6 +405,11 @@ viewKit model@(Model topFace orientation twist twistMode) viewFacet withTwist of
                         `multStd2` viewTranslationMatrix
 
     in (isFacingCamera, FaceViewKit viewFacet viewTransform)
+
+insideFacesCamera :: Model -> Facet -> Bool
+insideFacesCamera model facet = 
+    let (isFacingCamera,_) = viewKit model facet False (1.0/6.0)
+    in isFacingCamera
 
 kitmapUpdate :: Model -> Bool -> Float -> ViewKitCollection -> Facet -> ViewKitCollection
 kitmapUpdate model withTwist offset prevMap lowerLeft = 
