@@ -332,38 +332,38 @@ viewKit model@(Model topFace orientation twist twistMode) viewFacet withTwist of
         -- Rotate face into position .  Rotations and inverses specified.
         assemblies = fromList
                         [ ( Purple
-                          , (  []
-                            ,  []
+                          , (  identityMatrix
+                            ,  identityMatrix
                             )
                           )  
 
                         , ( Yellow
-                          , ([ yzRotationMatrix (pi/2) ]
-                            ,[ yzRotationMatrix (-pi/2) ]
+                          , (yzRotationMatrix (pi/2)
+                            ,yzRotationMatrix (-pi/2)
                             )
                           )  
 
                         , ( Orange
-                          , ([ yzRotationMatrix pi ]
-                            ,[ yzRotationMatrix (-pi) ]
+                          , (yzRotationMatrix pi
+                            ,yzRotationMatrix (-pi)
                             )
                           )
 
                         , ( Green
-                          , ([ yzRotationMatrix (-pi/2) ]
-                            ,[ yzRotationMatrix ( pi/2) ]
+                          , (yzRotationMatrix (-pi/2)
+                            ,yzRotationMatrix ( pi/2)
                             )
                           )  
 
                         , ( Red
-                          , ([ zxRotationMatrix ( pi/2) ]
-                            ,[ zxRotationMatrix (-pi/2) ]
+                          , (zxRotationMatrix ( pi/2)
+                            ,zxRotationMatrix (-pi/2)
                             )
                           )  
 
                         , ( Blue
-                          , ([ zxRotationMatrix (-pi/2) ]
-                            ,[ zxRotationMatrix ( pi/2) ]
+                          , (zxRotationMatrix (-pi/2) 
+                            ,zxRotationMatrix ( pi/2) 
                             )
                           )  
 
@@ -374,9 +374,9 @@ viewKit model@(Model topFace orientation twist twistMode) viewFacet withTwist of
 
         twistMatricies = 
             if withTwist && twist /= 0
-            then preTwist ++
-                 [ xyRotationMatrix (2*pi * twist/360) ] ++
-                 postTwist
+            then [ preTwist 
+                 , xyRotationMatrix (2*pi * twist/360) 
+                 , postTwist ]
             else []
 
         -- scale down to fit in camera space
@@ -386,8 +386,8 @@ viewKit model@(Model topFace orientation twist twistMode) viewFacet withTwist of
                                , trans2dMatrix 
                                , turnMatrix 
                                , offsetMatrix
+                               , assembleMatricies 
                                ] ++ 
-                               assembleMatricies ++ -- may be 0,1 or 2 matricies
                                twistMatricies ++ -- may be 0 or up to 5 ( I think ) matricies
                                [ scale3dMatrix,
                                  orientation
