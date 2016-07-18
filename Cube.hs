@@ -103,12 +103,12 @@ mkFace ~(nRight, nCenter, nLeft) -- use of '~' specifies lazy evaluation of argu
 --- |            |
 --- |            |
 --- |_____S_____ |_______________________________________
---- |     N      |     N      |     N      |     N      |
+--- |     N      |     W      |     S      |     E      |
 --- |            |            |            |            |
---- |W  yellow  E|W   red    E|W   green  E|W   blue   E|
+--- |W  yellow  E|S   red    N|E   green  W|N   blue   S|
 --- |            |            |            |            |
 --- |            |            |            |            |
---- |_____S______|_____S______|_____S______|_____S______|
+--- |_____S______|_____E______|_____N______|_____W______|
 --- |     N      |
 --- |            |
 --- |W  orange  E|
@@ -117,11 +117,11 @@ mkFace ~(nRight, nCenter, nLeft) -- use of '~' specifies lazy evaluation of argu
 --- |_____S______|
 
 mkCube = 
-    let (nPurple, wPurple, sPurple,  ePurple) = mkFace nGreen    nBlue     nYellow   nRed     Purple
-        (nYellow, wYellow, sYellow,  eYellow) = mkFace sPurple   eBlue     nOrange   wRed     Yellow
-        (nBlue,   wBlue,   sBlue,    eBlue)   = mkFace wPurple   eGreen    wOrange   wYellow  Blue
-        (nGreen,  wGreen,  sGreen,   eGreen)  = mkFace nPurple   eRed      sOrange   wBlue    Green
-        (nRed,    wRed,    sRed,     eRed)    = mkFace ePurple   eYellow   eOrange   wGreen   Red
-        (nOrange, wOrange, sOrange,  eOrange) = mkFace sYellow   sBlue     sGreen    sRed     Orange
+    let (nPurple, wPurple, sPurple,  ePurple) = mkFace sGreen    eBlue     nYellow   wRed     Purple
+        (nGreen,  wGreen,  sGreen,   eGreen)  = mkFace sOrange   nBlue     nPurple   nRed     Green
+        (nOrange, wOrange, sOrange,  eOrange) = mkFace sYellow   wBlue     nGreen    eRed     Orange
+        (nYellow, wYellow, sYellow,  eYellow) = mkFace sPurple   sBlue     nOrange   sRed     Yellow
+        (nBlue,   wBlue,   sBlue,    eBlue)   = mkFace wGreen    wOrange   wYellow   wPurple  Blue
+        (nRed,    wRed,    sRed,     eRed)    = mkFace eGreen    ePurple   eYellow   eOrange  Red
         (_,cube,_) = nPurple
     in south cube

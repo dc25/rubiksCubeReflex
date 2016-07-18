@@ -267,50 +267,63 @@ viewKit model@(Model topFace orientation twist twistMode) viewFacet withTwist of
         -- This is necessary because lowerLeft is determined "as if" the
         -- Purple face is at the top of the model ( as it initially is ).
         
-        turns = fromList [( (Purple, Yellow), 0)
-                         ,( (Purple, Red),    0)
-                         ,( (Purple, Purple), 0)
-                         ,( (Purple, Green),  0)
-                         ,( (Purple, Blue),   0)
-                         ,( (Purple, Orange), 0)
-
+        turns = fromList [
+                         -- self to self
+                          ( (Purple, Purple), 0)
                          ,( (Blue,   Blue),   0)
                          ,( (Green,  Green),  0)
                          ,( (Red,    Red),    0)
                          ,( (Yellow, Yellow), 0)
                          ,( (Orange, Orange), 0)
 
-                         ,( (Blue,   Yellow), 1)
-                         ,( (Green,  Blue),   1)
-                         ,( (Red,    Green),  1)
-                         ,( (Yellow, Red),    1)
+                         -- opposites
+                         ,( (Blue,   Red),    0)   
+                         ,( (Red,    Blue),   0)   
+                         ,( (Green,  Yellow), 0)   
+                         ,( (Yellow, Green),  0)   
+                         ,( (Purple, Orange), 0)
+                         ,( (Orange, Purple), 0)
 
-                         ,( (Blue,   Red),    2)
-                         ,( (Green,  Yellow), 2)
-                         ,( (Red,    Blue),   2)
-                         ,( (Yellow, Green),  2)
+                         -- walking forward along purple rotations
+                         ,( (Purple, Yellow), 0)
+                         ,( (Yellow, Orange), 0)   
+                         ,( (Orange, Green),  0)   
+                         ,( (Green,  Purple), 0)   
 
-                         ,( (Blue,   Green),  3)
-                         ,( (Green,  Red),    3)
-                         ,( (Red,    Yellow), 3)
-                         ,( (Yellow, Blue),   3)
+                         -- walking backwards along purple rotations
+                         ,( (Purple, Green),  2)
+                         ,( (Yellow, Purple), 2)   
+                         ,( (Orange, Yellow), 2)   
+                         ,( (Green,  Orange), 2)   
 
-                         ,( (Green,  Purple), 0)
-                         ,( (Blue,   Purple), 1)
-                         ,( (Yellow, Purple), 2)
-                         ,( (Red,    Purple), 3)
+                          -- finish the purples
+                         ,( (Purple, Blue),   3)
+                         ,( (Purple, Red),    1)
 
-                         ,( (Yellow, Orange), 0)
-                         ,( (Blue,   Orange), 1)
-                         ,( (Green,  Orange), 2)
-                         ,( (Red,    Orange), 3) 
+                         -- finish off the oranges
+                         ,( (Orange, Blue),   1)   
+                         ,( (Orange, Red),    3)   
 
-                         ,( (Orange, Yellow), 2)
-                         ,( (Orange, Red),    2)
-                         ,( (Orange, Green),  2)
-                         ,( (Orange, Blue),   2) 
-                         
-                         ,( (Orange, Purple), 0) ]
+                         -- finish the yellows
+                         ,( (Yellow, Blue),   2)   
+                         ,( (Yellow, Red),    2)   
+
+                         -- finish off the greens
+                         ,( (Green,  Blue),   0)   
+                         ,( (Green,  Red),    0)   
+
+                         -- finish off the blues
+                         ,( (Blue,   Green),  1)   
+                         ,( (Blue,   Yellow), 1)   
+                         ,( (Blue,   Purple), 1)   
+                         ,( (Blue,   Orange), 1)   
+
+                         -- finish off the reds
+                         ,( (Red,    Green),  3)   
+                         ,( (Red,    Orange), 3)   
+                         ,( (Red,    Yellow), 3)   
+                         ,( (Red,    Purple), 3)   
+                         ]  
 
         Just turnCount = DM.lookup (topColor, faceColor) turns 
         turnMatrix = xyRotationMatrix (fromIntegral turnCount * pi / 2)
@@ -330,35 +343,30 @@ viewKit model@(Model topFace orientation twist twistMode) viewFacet withTwist of
                             )
                           )  
 
-                        , ( Red
-                          , ([ yzRotationMatrix (pi/2)
-                             , xyRotationMatrix (pi/2) ]
-                            ,[ xyRotationMatrix (-pi/2)
-                             , yzRotationMatrix (-pi/2) ]
-                            )
-                          )  
-
-                        , ( Green
-                          , ([ yzRotationMatrix (pi/2)
-                             , xyRotationMatrix pi ]
-                            ,[ xyRotationMatrix (-pi)
-                             , yzRotationMatrix (-pi/2) ]
-                            )
-                          )  
-
-                        , ( Blue
-                          , ([ yzRotationMatrix (pi/2)
-                             , xyRotationMatrix (-pi/2) ]
-                            ,[ xyRotationMatrix (pi/2)
-                             , yzRotationMatrix (-pi/2) ]
-                            )
-                          )  
-
                         , ( Orange
                           , ([ yzRotationMatrix pi ]
                             ,[ yzRotationMatrix (-pi) ]
                             )
                           )
+
+                        , ( Green
+                          , ([ yzRotationMatrix (-pi/2) ]
+                            ,[ yzRotationMatrix ( pi/2) ]
+                            )
+                          )  
+
+                        , ( Red
+                          , ([ zxRotationMatrix ( pi/2) ]
+                            ,[ zxRotationMatrix (-pi/2) ]
+                            )
+                          )  
+
+                        , ( Blue
+                          , ([ zxRotationMatrix (-pi/2) ]
+                            ,[ zxRotationMatrix ( pi/2) ]
+                            )
+                          )  
+
                         ]
 
         Just (assembleMatricies,_) = DM.lookup faceColor assemblies 

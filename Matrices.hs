@@ -42,9 +42,9 @@ zxRotationMatrix :: Float -> Matrix Float
 zxRotationMatrix rotation = 
     let c = cos rotation
         s = sin rotation
-    in fromLists [[ c,  0,  s,  0 ]
+    in fromLists [[ c,  0, -s,  0 ]
                  ,[ 0,  1,  0,  0 ]
-                 ,[-s,  0,  c,  0 ]
+                 ,[ s,  0,  c,  0 ]
                  ,[ 0,  0,  0,  1 ]
                  ]
 

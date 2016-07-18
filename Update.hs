@@ -41,18 +41,18 @@ update action model =
                     then (facet, TopTwist)  
                     else (opposingFacet, BottomTwist) 
                 twist 
-                    | ((rotation,twistMode) == (CW,  TopTwist)) = 90
+                    | ((rotation,twistMode) == (CW,  TopTwist)) = ( 90)
                     | ((rotation,twistMode) == (CCW, TopTwist)) = (-90)
                     | ((rotation,twistMode) == (CW,  BottomTwist)) = (-90)
-                    | ((rotation,twistMode) == (CCW,  BottomTwist)) = 90
+                    | ((rotation,twistMode) == (CCW,  BottomTwist)) = ( 90)
             in model { cube = rotateFace rotation facet topFacet
                      , twist = twist
                      , twistMode = twistMode }
         NudgeCube direction -> 
             let step = pi/20
             in case direction of
-                   D.Left ->  rotateModel (zxRotationMatrix (-step) ) model
-                   D.Right -> rotateModel (zxRotationMatrix   step  ) model
+                   D.Left ->  rotateModel (zxRotationMatrix ( step) ) model
+                   D.Right -> rotateModel (zxRotationMatrix (-step) ) model
                    D.Up ->    rotateModel (yzRotationMatrix (-step) ) model
-                   D.Down ->  rotateModel (yzRotationMatrix   step  ) model
+                   D.Down ->  rotateModel (yzRotationMatrix ( step) ) model
  
