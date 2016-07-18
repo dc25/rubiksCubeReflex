@@ -25,6 +25,8 @@ data FaceViewKit = FaceViewKit { face :: Facet
                                }
 
 type ViewKitCollection = Map Color FaceViewKit
+type OrientedFacet = (Facet, Matrix Float)
+
 
 -- | Namespace needed for svg elements.
 svgNamespace = Just "http://www.w3.org/2000/svg"
@@ -248,6 +250,7 @@ facingCamera viewPoint modelTransform =
         -- should be opposed to each other. 
     in cameraToPlane `dot` perpendicular < 0
 
+
 viewKit :: Model -> Facet -> Bool -> Float -> (Bool, FaceViewKit)
 viewKit model@(Model topFace orientation twist twistMode) viewFacet withTwist offset = 
     let viewCenterFacet = (south.south) viewFacet 
@@ -419,8 +422,8 @@ insideFacesCamera model facet =
     let (isFacingCamera,_) = viewKit model facet False (1.0/6.0)
     in isFacingCamera
 
-kitmapUpdate :: Model -> Bool -> Float -> ViewKitCollection -> Facet -> ViewKitCollection
-kitmapUpdate model withTwist offset prevMap lowerLeft = 
+kitmapUpdate :: Model -> Bool -> Float -> ViewKitCollection -> OrientedFacet -> ViewKitCollection
+kitmapUpdate model withTwist offset prevMap (lowerLeft,orientation) = 
     let (isVisible, newViewKit) 
             = viewKit model lowerLeft withTwist offset
     in  if isVisible 
@@ -429,32 +432,39 @@ kitmapUpdate model withTwist offset prevMap lowerLeft =
 
 topView :: Model -> ViewKitCollection
 topView model@(Model center _ _ twistMode)  =
-    foldl (kitmapUpdate model (twistMode == TopTwist) (1.0/2.0)) empty [getLowerLeft center]
+    foldl (kitmapUpdate model (twistMode == TopTwist) (1.0/2.0)) empty [(getLowerLeft center,identityMatrix)]
 
 bottomView :: Model -> ViewKitCollection
 bottomView model@(Model center _ _ twistMode)  =
-    foldl (kitmapUpdate model (twistMode == BottomTwist) 0.5) empty [(west.south.west.west.south.west.getLowerLeft) center]
+    foldl (kitmapUpdate model (twistMode == BottomTwist) 0.5) empty [((west.south.west.west.south.west.getLowerLeft) center, yzRotationMatrix pi)]
 
 middleUpView :: Model -> ViewKitCollection
 middleUpView model@(Model center _ twist twistMode)  =
     if twist == 0 || twistMode /= TopTwist
     then empty
-    else foldl (kitmapUpdate model False (1.0/6.0)) empty [getLowerLeft center]
+    else foldl (kitmapUpdate model False (1.0/6.0)) empty [(getLowerLeft center, identityMatrix)]
 
 bottomUpView :: Model -> ViewKitCollection
 bottomUpView model@(Model center _ twist twistMode)  =
     if twist == 0 || twistMode /= BottomTwist
     then empty
-    else foldl (kitmapUpdate model True (-1.0/6.0)) empty [getLowerLeft center]
+    else foldl (kitmapUpdate model True (-1.0/6.0)) empty [(getLowerLeft center, identityMatrix)]
 
-lowerLefts :: Model -> [Facet]
+lowerLefts :: Model -> [OrientedFacet]
 lowerLefts model@(Model center _ _ _)   =
     let lowerLeft = (west.south.west.getLowerLeft) center
         advancers = [ west.west.south
                     , west.west.south
                     , west.west.south
                     ]
-    in scanl (&) lowerLeft advancers  -- get lower left corners of all faces
+        lowerLeftFacets = scanl (&) lowerLeft advancers  -- get lower left corners of all faces
+        orientations = [ yzRotationMatrix (pi/2)  -- yellow
+                       , zxRotationMatrix (pi/2)  -- red
+                       , yzRotationMatrix (-pi/2) -- green
+                       , zxRotationMatrix (-pi/2) -- blue
+                       ]
+
+    in zip lowerLeftFacets orientations
 
 upperMiddleView :: Model -> ViewKitCollection
 upperMiddleView model@(Model center _ _ twistMode)   =
