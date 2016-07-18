@@ -252,134 +252,16 @@ facingCamera viewPoint modelTransform =
 
 
 viewKit :: Model -> OrientedFacet -> Bool -> Float -> (Bool, FaceViewKit)
-viewKit model@(Model topFace modelOrientation twist twistMode) (viewFacet,faceOrientation) withTwist offset = 
-    let viewCenterFacet = (south.south) viewFacet 
-
-        faceColor = color viewCenterFacet 
-        topColor = color topFace
-
-        scale2dMatrix = scaleMatrix (1/3) -- scale from 3x3 square face to 1x1 square face.
+viewKit model@(Model topFace modelOrientation twist _) (viewFacet,faceOrientation) withTwist offset = 
+    let scale2dMatrix = scaleMatrix (1/3) -- scale from 3x3 square face to 1x1 square face.
         trans2d = -1/2  -- translate center of 1x1 square face to origin.
         trans2dMatrix = translationMatrix (trans2d,trans2d,0)
 
-
-        -- If face A is the face being rendered and face B is the face that
-        -- cooresponds to face A if the top face were Purple, then this map
-        -- contains the number of turns to get the frame for face A
-        -- to match the frame for face B.
-        -- This is necessary because lowerLeft is determined "as if" the
-        -- Purple face is at the top of the model ( as it initially is ).
-        
-        turns = fromList [
-                         -- self to self
-                          ( (Purple, Purple), 0)
-                         ,( (Blue,   Blue),   0)
-                         ,( (Green,  Green),  0)
-                         ,( (Red,    Red),    0)
-                         ,( (Yellow, Yellow), 0)
-                         ,( (Orange, Orange), 0)
-
-                         -- opposites
-                         ,( (Blue,   Red),    0)   
-                         ,( (Red,    Blue),   0)   
-                         ,( (Green,  Yellow), 0)   
-                         ,( (Yellow, Green),  0)   
-                         ,( (Purple, Orange), 0)
-                         ,( (Orange, Purple), 0)
-
-                         -- walking forward along purple rotations
-                         ,( (Purple, Yellow), 0)
-                         ,( (Yellow, Orange), 0)   
-                         ,( (Orange, Green),  0)   
-                         ,( (Green,  Purple), 0)   
-
-                         -- walking backwards along purple rotations
-                         ,( (Purple, Green),  2)
-                         ,( (Yellow, Purple), 2)   
-                         ,( (Orange, Yellow), 2)   
-                         ,( (Green,  Orange), 2)   
-
-                          -- finish the purples
-                         ,( (Purple, Blue),   3)
-                         ,( (Purple, Red),    1)
-
-                         -- finish off the oranges
-                         ,( (Orange, Blue),   1)   
-                         ,( (Orange, Red),    3)   
-
-                         -- finish the yellows
-                         ,( (Yellow, Blue),   2)   
-                         ,( (Yellow, Red),    2)   
-
-                         -- finish off the greens
-                         ,( (Green,  Blue),   0)   
-                         ,( (Green,  Red),    0)   
-
-                         -- finish off the blues
-                         ,( (Blue,   Green),  1)   
-                         ,( (Blue,   Yellow), 1)   
-                         ,( (Blue,   Purple), 1)   
-                         ,( (Blue,   Orange), 1)   
-
-                         -- finish off the reds
-                         ,( (Red,    Green),  3)   
-                         ,( (Red,    Orange), 3)   
-                         ,( (Red,    Yellow), 3)   
-                         ,( (Red,    Purple), 3)   
-                         ]  
-
-        Just turnCount = DM.lookup (topColor, faceColor) turns 
-        turnMatrix = xyRotationMatrix (fromIntegral turnCount * pi / 2)
         offsetMatrix = translationMatrix (0,0,offset)
-
-        -- Rotate face into position .  Rotations and inverses specified.
-        assemblies = fromList
-                        [ ( Purple
-                          , (  identityMatrix
-                            ,  identityMatrix
-                            )
-                          )  
-
-                        , ( Yellow
-                          , (yzRotationMatrix (pi/2)
-                            ,yzRotationMatrix (-pi/2)
-                            )
-                          )  
-
-                        , ( Orange
-                          , (yzRotationMatrix pi
-                            ,yzRotationMatrix (-pi)
-                            )
-                          )
-
-                        , ( Green
-                          , (yzRotationMatrix (-pi/2)
-                            ,yzRotationMatrix ( pi/2)
-                            )
-                          )  
-
-                        , ( Red
-                          , (zxRotationMatrix ( pi/2)
-                            ,zxRotationMatrix (-pi/2)
-                            )
-                          )  
-
-                        , ( Blue
-                          , (zxRotationMatrix (-pi/2) 
-                            ,zxRotationMatrix ( pi/2) 
-                            )
-                          )  
-
-                        ]
-
-        Just (assembleMatricies,_) = DM.lookup faceColor assemblies 
-        Just (postTwist,preTwist) = DM.lookup topColor assemblies 
 
         twistMatricies = 
             if withTwist && twist /= 0
-            then [ preTwist 
-                 , xyRotationMatrix (2*pi * twist/360) 
-                 , postTwist ]
+            then [xyRotationMatrix (2*pi * twist/360) ]
             else []
 
         -- scale down to fit in camera space
@@ -387,9 +269,8 @@ viewKit model@(Model topFace modelOrientation twist twistMode) (viewFacet,faceOr
 
         modelTransformations = [ scale2dMatrix
                                , trans2dMatrix 
-                               , turnMatrix 
                                , offsetMatrix
-                               , assembleMatricies 
+                               , faceOrientation 
                                ] ++ 
                                twistMatricies ++ -- may be 0 or up to 5 ( I think ) matricies
                                [ scale3dMatrix,
@@ -459,9 +340,9 @@ lowerLefts model@(Model center _ _ _)   =
                     ]
         lowerLeftFacets = scanl (&) lowerLeft advancers  -- get lower left corners of all faces
         orientations = [ yzRotationMatrix (pi/2)  -- yellow
-                       , zxRotationMatrix (pi/2)  -- red
-                       , yzRotationMatrix (-pi/2) -- green
-                       , zxRotationMatrix (-pi/2) -- blue
+                       , yzRotationMatrix (pi/2)  `multStd2` xyRotationMatrix (pi/2)-- red
+                       , yzRotationMatrix (pi/2) `multStd2` xyRotationMatrix (pi)-- green
+                       , yzRotationMatrix (pi/2) `multStd2` xyRotationMatrix (3*pi/2)-- blue
                        ]
 
     in zip lowerLeftFacets orientations
@@ -471,7 +352,7 @@ upperMiddleView model@(Model center _ _ twistMode)   =
     foldl (kitmapUpdate model (twistMode == TopTwist) 0.5) empty $ lowerLefts model
 
 middleMiddleView :: Model -> ViewKitCollection
-middleMiddleView model@(Model center _ _ twistMode)   =
+middleMiddleView model@(Model center _ _ _)   =
     foldl (kitmapUpdate model False 0.5) empty $ lowerLefts model
 
 lowerMiddleView :: Model -> ViewKitCollection
