@@ -251,8 +251,8 @@ facingCamera viewPoint modelTransform =
     in cameraToPlane `dot` perpendicular < 0
 
 
-viewKit :: Model -> Facet -> Bool -> Float -> (Bool, FaceViewKit)
-viewKit model@(Model topFace orientation twist twistMode) viewFacet withTwist offset = 
+viewKit :: Model -> OrientedFacet -> Bool -> Float -> (Bool, FaceViewKit)
+viewKit model@(Model topFace modelOrientation twist twistMode) (viewFacet,faceOrientation) withTwist offset = 
     let viewCenterFacet = (south.south) viewFacet 
 
         faceColor = color viewCenterFacet 
@@ -393,7 +393,7 @@ viewKit model@(Model topFace orientation twist twistMode) viewFacet withTwist of
                                ] ++ 
                                twistMatricies ++ -- may be 0 or up to 5 ( I think ) matricies
                                [ scale3dMatrix,
-                                 orientation
+                                 modelOrientation
                                ]
 
         -- combine to single transform from 2d to 3d
@@ -419,13 +419,13 @@ viewKit model@(Model topFace orientation twist twistMode) viewFacet withTwist of
 
 insideFacesCamera :: Model -> Facet -> Bool
 insideFacesCamera model facet = 
-    let (isFacingCamera,_) = viewKit model facet False (1.0/6.0)
+    let (isFacingCamera,_) = viewKit model (facet,identityMatrix) False (1.0/6.0)
     in isFacingCamera
 
 kitmapUpdate :: Model -> Bool -> Float -> ViewKitCollection -> OrientedFacet -> ViewKitCollection
 kitmapUpdate model withTwist offset prevMap (lowerLeft,orientation) = 
     let (isVisible, newViewKit) 
-            = viewKit model lowerLeft withTwist offset
+            = viewKit model (lowerLeft,orientation) withTwist offset
     in  if isVisible 
         then insert ((color.south.south) lowerLeft) newViewKit prevMap
         else prevMap
