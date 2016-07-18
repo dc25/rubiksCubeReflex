@@ -10,7 +10,7 @@ ghcjs_B7KLFJ07Vte3zPHAgRIBTb:11013
 ghcjs_D7BYGeMTlMGF2My8KZzKUS:152503
 ghcjs_Kc7TQ2cEDg1F5e5cgY2Vuk:9821
 integer-gmp:             42831
-main:                    272809
+main:                    269726
 matri_682HBa36TWs8HIx1KnWQ3t:31549
 primi_293YT17zdlWL9QJgnLTQSn:2385
 refle_BP42iAL8rA7IBOuWCaV0zs:401306
@@ -135,14 +135,14 @@ main
     Color:                              25104
     Cube:                               21016
     Direction:                          279
-    Main:                               14818
+    Main:                               14678
     Matrices:                           8452
     Model:                              830
     RotateFace:                         8817
     Rotation:                           997
-    TwistMode:                          13278
+    TwistMode:                          13240
     Update:                             10598
-    View:                               168153
+    View:                               165248
 
 matri_682HBa36TWs8HIx1KnWQ3t
     Data.Matrix:                        31549
@@ -205,5 +205,5 @@ vecto_FNLwpzrmeRC6Ra1RihE2cq
 
 
 
-packed metadata: 438613
+packed metadata: 438244
 
