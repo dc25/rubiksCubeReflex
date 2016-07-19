@@ -17,7 +17,7 @@ main = mainWidget $ do
     let initialOrientation =             identityMatrix 
                               `multStd2` zxRotationMatrix (pi/8) 
                               `multStd2` yzRotationMatrix (pi/8) 
-        dt = 0.4
+        dt = 0.15
 
     now <- liftIO getCurrentTime
     tick <- tickLossy dt now

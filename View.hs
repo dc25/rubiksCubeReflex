@@ -543,9 +543,12 @@ view model =
         rightEv <-   fmap (const $ NudgeCube D.Right) <$> elAttr "div" fps (button "right")
         upEv <-      fmap (const $ NudgeCube Up)    <$> elAttr "div" fps (button "up")
         downEv <-    fmap (const $ NudgeCube Down)  <$> elAttr "div" fps (button "down")
+        dFacet <- mapDyn cube model
+        tbEv <- elAttr "div" fps (button "twistTop")
+        let turnEv = attachWith (\a _ -> RotateFace CCW a)  (current dFacet) tbEv
         (_,ev) <-    elDynAttrNS' svgNamespace "svg" 
                        (constDyn $  "width" =: show viewScale
                                  <> "height" =: show viewScale
                                  ) $ viewModel model
-        return $ leftmost [ev, leftEv, rightEv, upEv, downEv]
+        return $ leftmost [ev, leftEv, rightEv, upEv, downEv, turnEv]
 
