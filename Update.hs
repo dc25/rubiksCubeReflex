@@ -23,8 +23,8 @@ untwist model =
     let prev_twist = twist model
         new_twist
             | prev_twist == 0 = 0
-            | prev_twist > 0 = prev_twist - 15
-            | prev_twist < 0 = prev_twist + 15
+            | prev_twist > 0 = prev_twist - 10
+            | prev_twist < 0 = prev_twist + 10
     in model { twist = new_twist }
 
 -- | FRP style update function. Given action and model, return updated model.

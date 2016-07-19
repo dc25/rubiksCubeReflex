@@ -1,6 +1,6 @@
 module View (view, insideFacesCamera) where
 
-import Reflex.Dom ( MonadWidget ,Dynamic ,Event ,EventName(Click) ,attachWith ,button ,constDyn ,current ,domEvent ,el ,elAttr ,elDynAttrNS' ,leftmost ,listWithKey ,mapDyn ,switch ,(=:) ,(&))
+import Reflex.Dom ( MonadWidget ,Dynamic ,Event ,EventName(Click) ,attachWith ,button ,constDyn ,current ,domEvent ,el ,elAttr ,elDynAttrNS' ,leftmost ,listWithKey ,mapDyn ,switch, never ,(=:) ,(&))
 
 import Data.Map as DM (Map, lookup, insert, empty, fromList, elems)
 import Data.List (foldl, scanl,head)
@@ -108,7 +108,7 @@ showArrow arrowIndex@(rotation,_) dFaceViewKit = do
     dAttrs <- mapDyn (\fvk -> "fill" =: "grey" <> 
                               "points" =: pointsToString (transformPoints (transform fvk) points)) dFaceViewKit
     (el,_) <- elDynAttrNS' svgNamespace "polygon" dAttrs $ return ()
-    return $ attachWith (\a _ -> RotateFace rotation a)  (current dFacet) $ domEvent Click el
+    return never
 
 advance :: MonadWidget t m => (Facet -> Facet) -> Dynamic t FaceViewKit -> m (Dynamic t FaceViewKit)
 advance adv dFaceViewKit = do
