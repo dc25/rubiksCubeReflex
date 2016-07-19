@@ -473,35 +473,35 @@ getLowerLeft centerFace =
     let centerFaceColor = color centerFace
         westFaceColor = (color.south.north.west) centerFace
 
-        leftDirs = fromList [ ((Purple,  Blue),   west)
-                            , ((Purple,  Yellow), north)
-                            , ((Purple,  Red),    east)
-                            , ((Purple,  Green),  south)
+        leftDirs = fromList [ ((Purple,  Blue),    west)
+                            , ((Purple,  Yellow),  north)
+                            , ((Purple,  Red),     east)
+                            , ((Purple,  Green),   south)
+  
+                            , ((Yellow,  Blue),    west)
+                            , ((Yellow,  Orange),  north)
+                            , ((Yellow,  Red),     east)
+                            , ((Yellow,  Purple),  south)
  
-                            , ((Yellow,  Blue),   west)
-                            , ((Yellow,  Orange), north)
-                            , ((Yellow,  Red ),   east)
-                            , ((Yellow,  Purple), south)
+                            , ((Red,     Purple),  west)
+                            , ((Red,     Yellow),  north)
+                            , ((Red,     Orange),  east)
+                            , ((Red,     Green),   south)
  
-                            , ((Red,     Yellow), west)
-                            , ((Red,     Orange), north)
-                            , ((Red,     Green ), east)
-                            , ((Red,     Purple), south)
+                            , ((Green,   Blue),    west)
+                            , ((Green,   Purple),  north)
+                            , ((Green,   Red),     east)
+                            , ((Green,   Orange),  south)
  
-                            , ((Green,   Red),    west)
-                            , ((Green,   Orange), north)
-                            , ((Green,   Blue ),  east)
-                            , ((Green,   Purple), south)
+                            , ((Blue,    Orange),  west)
+                            , ((Blue,    Yellow),  north)
+                            , ((Blue,    Purple),  east)
+                            , ((Blue,    Green),   south)
  
-                            , ((Blue,    Green),  west)
-                            , ((Blue,    Orange), north)
-                            , ((Blue,    Yellow ),east)
-                            , ((Blue,    Purple), south)
- 
-                            , ((Orange,  Blue),   west)
-                            , ((Orange,  Green),  north)
-                            , ((Orange,  Red ),   east)
-                            , ((Orange,  Yellow), south)
+                            , ((Orange,  Blue),    west)
+                            , ((Orange,  Green),   north)
+                            , ((Orange,  Red),     east)
+                            , ((Orange,  Yellow),  south)
                             ]
 
         Just goLeft = DM.lookup (centerFaceColor, westFaceColor) leftDirs
