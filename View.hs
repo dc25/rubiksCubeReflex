@@ -1,3 +1,4 @@
+{-# LANGUAGE OverloadedStrings #-}
 module View (view, insideFacesCamera) where
 
 import Reflex.Dom ( MonadWidget ,Dynamic ,Event ,EventName(Click) ,attachWith ,button ,constDyn ,current ,domEvent ,el ,elAttr ,elDynAttrNS' ,leftmost ,listWithKey ,mapDyn ,switch ,(=:) ,(&))
@@ -7,6 +8,7 @@ import Data.List (foldl, scanl,head)
 import Data.Maybe (Maybe(Just))
 import Data.Matrix (Matrix, fromLists, toLists, multStd2)
 import Data.Monoid ((<>))
+import Data.Text (Text, pack)
 import Control.Monad(sequence,fmap,return,(>>=),(=<<))
 
 import Matrices
@@ -27,6 +29,7 @@ data FaceViewKit = FaceViewKit { face :: Facet
 type ViewKitCollection = Map Color FaceViewKit
 
 -- | Namespace needed for svg elements.
+svgNamespace :: Maybe Text
 svgNamespace = Just "http://www.w3.org/2000/svg"
 
 transformPoints :: Matrix Float -> Matrix Float -> [(Float,Float)]
@@ -35,13 +38,16 @@ transformPoints transform points =
         result2d = (\[x,y,z,w] -> (x/w,y/w)) <$> toLists result4d
     in result2d
 
-pointsToString :: [(Float,Float)] -> String
-pointsToString = concatMap (\(x,y) -> show x ++ ", " ++ show y ++ " ") 
+pointsToString :: [(Float,Float)] -> Text
+pointsToString pts = 
+    let s = concatMap (\(x,y) -> show x ++ ", " ++ show y ++ " ") pts
+    in pack s
+
 
 showFacetRectangle :: MonadWidget t m => Float -> Float -> Float -> Float -> Dynamic t FaceViewKit -> m (Dynamic t FaceViewKit)
 showFacetRectangle x0 y0 x1 y1 dFaceViewKit = do
     let points = fromLists [[x0,y0,0,1],[x0,y1,0,1],[x1,y1,0,1],[x1,y0,0,1]]
-    dAttrs <- mapDyn (\fvk -> "fill" =: (show.color.face) fvk  <> 
+        dAttrs = fmap (\fvk -> "fill" =: (pack.show.color.face) fvk  <> 
                               "points" =: pointsToString (transformPoints (transform fvk) points))  dFaceViewKit
     (el,_) <- elDynAttrNS' svgNamespace "polygon" dAttrs $ return ()
     return dFaceViewKit
@@ -62,7 +68,7 @@ changeViewKitColor newColor prevViewKit =
 
 showFacet :: MonadWidget t m => Int -> Int -> Dynamic t FaceViewKit -> m (Dynamic t FaceViewKit)
 showFacet x y dFaceViewKit = do
-    showFacetSquare x y 0 =<< mapDyn (changeViewKitColor Black) dFaceViewKit 
+    showFacetSquare x y 0 $ fmap (changeViewKitColor Black) dFaceViewKit 
     showFacetSquare x y 0.05 dFaceViewKit
     return dFaceViewKit
 
@@ -104,8 +110,8 @@ arrowPoints (rotation,index) =
 showArrow :: MonadWidget t m => (Rotation, Int) -> Dynamic t FaceViewKit -> m (Event t Action)
 showArrow arrowIndex@(rotation,_) dFaceViewKit = do
     let points = arrowPoints arrowIndex
-    dFacet <- mapDyn face dFaceViewKit  
-    dAttrs <- mapDyn (\fvk -> "fill" =: "grey" <> 
+        dFacet = fmap face dFaceViewKit  
+        dAttrs = fmap (\fvk -> "fill" =: "grey" <> 
                               "points" =: pointsToString (transformPoints (transform fvk) points)) dFaceViewKit
     (el,_) <- elDynAttrNS' svgNamespace "polygon" dAttrs $ return ()
     return $ attachWith (\a _ -> RotateFace rotation a)  (current dFacet) $ domEvent Click el
@@ -113,7 +119,7 @@ showArrow arrowIndex@(rotation,_) dFaceViewKit = do
 advance :: MonadWidget t m => (Facet -> Facet) -> Dynamic t FaceViewKit -> m (Dynamic t FaceViewKit)
 advance adv dFaceViewKit = do
     let updateViewKit advancer prevViewKit = prevViewKit { face = advancer $ face prevViewKit }
-    mapDyn (updateViewKit adv) dFaceViewKit
+    return $ fmap (updateViewKit adv) dFaceViewKit
 
 -- pain point how do I get the compiler to tell me what the type sig for
 -- this function should be.
@@ -159,7 +165,7 @@ showFace lowerLeft = do
                       ]
 
 showInside :: MonadWidget t m => Dynamic t FaceViewKit -> m (Dynamic t FaceViewKit)
-showInside dFaceViewKit = showFacetRectangle 0 0 3 3 =<< mapDyn (changeViewKitColor Maroon) dFaceViewKit 
+showInside dFaceViewKit = showFacetRectangle 0 0 3 3 $ fmap (changeViewKitColor Maroon) dFaceViewKit 
 
 showUpperMiddleFace :: MonadWidget t m => Dynamic t FaceViewKit -> m (Event t Action)
 showUpperMiddleFace lowerLeft = do  
@@ -510,13 +516,13 @@ getLowerLeft centerFace =
 -- pain point : How do I make the order of display conditional
 viewModel :: MonadWidget t m => Dynamic t Model -> m (Event t Action)
 viewModel model = do
-    bottomMap <-                    mapDyn bottomView model
-    lowerMiddleMap <-               mapDyn lowerMiddleView model
-    bottomUpMap <-                  mapDyn bottomUpView model
-    middleMiddleMap <-              mapDyn middleMiddleView model
-    middleUpMap <-                  mapDyn middleUpView model
-    upperMiddleMap <-               mapDyn upperMiddleView model
-    topMap <-                       mapDyn topView model
+    let bottomMap =                 fmap bottomView model
+        lowerMiddleMap =            fmap lowerMiddleView model
+        bottomUpMap =               fmap bottomUpView model
+        middleMiddleMap =           fmap middleMiddleView model
+        middleUpMap =               fmap middleUpView model
+        upperMiddleMap =            fmap upperMiddleView model
+        topMap =                    fmap topView model
 
     bottomEventsWithKeys <-         listWithKey bottomMap $ const showFace
     lowerMiddleEventsWithKeys <-    listWithKey lowerMiddleMap $ const showLowerMiddleFace
@@ -533,8 +539,8 @@ viewModel model = do
         upperMiddleEvent = switch $ (leftmost . elems) <$> current upperMiddleEventsWithKeys
     return $ leftmost [topEvent, lowerMiddleEvent, middleMiddleEvent, upperMiddleEvent, bottomEvent]
 
-fps = "style" =: "float:left;padding:10px" 
-cps = "style" =: "float:clear" 
+fps = pack "style" =: pack "float:left;padding:10px" 
+cps = pack "style" =: pack "float:clear" 
 
 view :: MonadWidget t m => Dynamic t Model -> m (Event t Action)
 view model = 
@@ -544,8 +550,8 @@ view model =
         upEv <-      fmap (const $ NudgeCube Up)    <$> elAttr "div" fps (button "up")
         downEv <-    fmap (const $ NudgeCube Down)  <$> elAttr "div" fps (button "down")
         (_,ev) <-    elDynAttrNS' svgNamespace "svg" 
-                       (constDyn $  "width" =: show viewScale
-                                 <> "height" =: show viewScale
+                       (constDyn $  "width" =: (pack.show) viewScale
+                                 <> "height" =: (pack.show) viewScale
                                  ) $ viewModel model
         return $ leftmost [ev, leftEv, rightEv, upEv, downEv]
 
